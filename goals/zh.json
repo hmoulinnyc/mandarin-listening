@@ -1,0 +1,58 @@
+{
+  "language": "中文 (普通话)",
+  "track": "listening",
+  "goal": "Understand everyday spoken Mandarin by ear, from clear learner videos up to real street interviews.",
+  "startingVocab": 1500,
+  "startingWpm": 120,
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Listening toolkit",
+      "why": "Phrases that keep a Chinese speaker talking to you, slowly enough to follow.",
+      "milestone": "I followed a whole video in my zone without pausing.",
+      "phrases": [
+        {"nl": "这个用中文怎么说？", "gloss": "zhège yòng Zhōngwén zěnme shuō? · How do you say this in Chinese?", "search": "怎么说"},
+        {"nl": "这是什么意思？", "gloss": "zhè shì shénme yìsi? · What does this mean?", "search": "什么意思"},
+        {"nl": "你能再说一遍吗？", "gloss": "nǐ néng zài shuō yí biàn ma? · Can you say it again?", "search": "再说一遍"},
+        {"nl": "请说慢一点。", "gloss": "qǐng shuō màn yìdiǎn · Please speak a bit slower.", "search": "慢一点"},
+        {"nl": "我没听懂。", "gloss": "wǒ méi tīng dǒng · I didn't catch that.", "search": "没听懂"},
+        {"nl": "哦，我明白了！", "gloss": "ò, wǒ míngbai le! · Oh, I get it!", "search": "明白了"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · How people really talk",
+      "why": "Fillers and connectors fill real conversation. Once you hear them as filler, native speech gets much easier.",
+      "milestone": "I can hear 那个 and 就是 as filler in a street interview.",
+      "words": [
+        {"nl": "那个", "gloss": "nèige · “um…” (filler), or “that”"},
+        {"nl": "就是", "gloss": "jiùshì · “I mean…”, “that is”"},
+        {"nl": "然后", "gloss": "ránhòu · “and then”"},
+        {"nl": "其实", "gloss": "qíshí · “actually”"},
+        {"nl": "对啊", "gloss": "duì a · “right!”"},
+        {"nl": "怎么说呢", "gloss": "zěnme shuō ne · “how should I put it”"},
+        {"nl": "没事", "gloss": "méishì · “no worries”"},
+        {"nl": "好吧", "gloss": "hǎo ba · “okay then”"}
+      ],
+      "recognize": [
+        {"nl": "买", "gloss": "mǎi (3rd tone) · to buy"},
+        {"nl": "卖", "gloss": "mài (4th tone) · to sell"},
+        {"nl": "问", "gloss": "wèn · to ask"},
+        {"nl": "吻", "gloss": "wěn · to kiss"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Topic playlists",
+      "why": "Narrow listening: the same vocabulary in many voices.",
+      "milestone": "I watched five videos on one topic in a week.",
+      "topics": [
+        {"id": "food", "name": "吃饭", "gloss": "Food", "keywords": ["吃", "饭", "菜", "好吃", "餐厅", "做饭", "早饭", "午饭", "晚饭", "饺子"]},
+        {"id": "daily", "name": "日常生活", "gloss": "Daily life", "keywords": ["今天", "昨天", "明天", "早上", "晚上", "上班", "工作", "回家", "周末", "睡觉"]},
+        {"id": "travel", "name": "旅行", "gloss": "Travel", "keywords": ["旅行", "旅游", "城市", "飞机", "火车", "酒店", "北京", "上海", "地铁"]},
+        {"id": "culture", "name": "文化", "gloss": "Culture", "keywords": ["文化", "电影", "音乐", "历史", "传统", "节日", "春节", "中国"]},
+        {"id": "people", "name": "朋友和家人", "gloss": "Friends & family", "keywords": ["朋友", "家人", "妈妈", "爸爸", "孩子", "同事", "老师", "父母"]}
+      ]
+    }
+  ]
+}

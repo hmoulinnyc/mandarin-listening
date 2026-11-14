@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mandarin Listening</title>
+  <meta name="description" content="Real Mandarin videos at your level, with pinyin captions.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#feed">Luisteren <span class="lang-tag">NL</span></a>
+    <nav>
+      <a href="#feed" data-nav="feed">Watch</a>
+      <a href="#plan" data-nav="plan">Plan</a>
+      <a href="#level" data-nav="level">Level</a>
+      <a href="#goals" data-nav="goals">Goals</a>
+      <a href="#scenes" data-nav="scenes">Scenes</a>
+      <a href="#say" data-nav="say">Say it</a>
+      <a href="#words" data-nav="words">My words</a>
+      <a href="#log" data-nav="log">Hours</a>
+    </nav>
+  </header>
+  <main id="main"><p class="muted">Loading…</p></main>
+  <div id="popup" class="popup" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+  <script>window.APP_CONFIG = {"static": true, "lang": "zh", "base": "./", "title": "Mandarin Listening", "tabs": ["feed", "plan", "level", "goals", "words", "log"]};</script>
+  <script src="scene-player.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
