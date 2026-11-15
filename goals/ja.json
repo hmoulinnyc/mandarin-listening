@@ -1,0 +1,58 @@
+{
+  "language": "日本語",
+  "track": "listening",
+  "goal": "Understand everyday spoken Japanese by ear, from clear comprehensible-input videos up to natural podcasts.",
+  "startingVocab": 1000,
+  "startingWpm": 110,
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Listening toolkit",
+      "why": "Phrases that keep a Japanese speaker talking to you, slowly enough to follow.",
+      "milestone": "I followed a whole video in my zone without pausing.",
+      "phrases": [
+        {"nl": "これは日本語で何と言いますか？", "gloss": "kore wa nihongo de nan to iimasu ka? · How do you say this in Japanese?", "search": "何と言"},
+        {"nl": "どういう意味ですか？", "gloss": "dou iu imi desu ka? · What does that mean?", "search": "意味"},
+        {"nl": "もう一度お願いします。", "gloss": "mou ichido onegai shimasu · One more time, please.", "search": "もう一度"},
+        {"nl": "ゆっくり話してください。", "gloss": "yukkuri hanashite kudasai · Please speak slowly.", "search": "ゆっくり"},
+        {"nl": "よく分かりません。", "gloss": "yoku wakarimasen · I don't really understand.", "search": "分かりません"},
+        {"nl": "なるほど！", "gloss": "naruhodo! · I see! / That makes sense!", "search": "なるほど"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · How people really talk",
+      "why": "Fillers and casual forms fill real conversation. Once you hear them as filler, natural Japanese gets much easier.",
+      "milestone": "I can hear えっと and なんか as filler in a podcast.",
+      "words": [
+        {"nl": "えっと", "gloss": "etto · “um…”"},
+        {"nl": "なんか", "gloss": "nanka · “like…”, “kind of”"},
+        {"nl": "やっぱり", "gloss": "yappari · “as expected”, “after all”"},
+        {"nl": "そうそう", "gloss": "sou sou · “right, right!”"},
+        {"nl": "ちょっと", "gloss": "chotto · “a bit”; also a soft “no”"},
+        {"nl": "すごい", "gloss": "sugoi · “amazing”, “very”"},
+        {"nl": "じゃあ", "gloss": "jaa · “well then”"},
+        {"nl": "っていうか", "gloss": "tte iu ka · “or rather”, “I mean”"}
+      ],
+      "recognize": [
+        {"nl": "分かんない", "gloss": "wakannai · casual 分からない, “I don't get it”"},
+        {"nl": "してる", "gloss": "shiteru · casual している, “is doing”"},
+        {"nl": "じゃない", "gloss": "ja nai · “isn't” (casual)"},
+        {"nl": "ですよね", "gloss": "desu yo ne · “isn't it? / right?”"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Topic playlists",
+      "why": "Narrow listening: the same vocabulary in many voices.",
+      "milestone": "I watched five videos on one topic in a week.",
+      "topics": [
+        {"id": "food", "name": "食べ物", "gloss": "Food", "keywords": ["食べ", "料理", "ご飯", "おいしい", "美味しい", "ラーメン", "寿司", "お茶", "レストラン"]},
+        {"id": "daily", "name": "日常生活", "gloss": "Daily life", "keywords": ["今日", "昨日", "明日", "朝", "夜", "仕事", "学校", "家", "週末", "毎日"]},
+        {"id": "travel", "name": "旅行", "gloss": "Travel", "keywords": ["旅行", "東京", "京都", "大阪", "電車", "ホテル", "観光", "海外", "日本"]},
+        {"id": "culture", "name": "文化", "gloss": "Culture", "keywords": ["文化", "アニメ", "映画", "音楽", "祭り", "お正月", "伝統", "歴史"]},
+        {"id": "people", "name": "友達と家族", "gloss": "Friends & family", "keywords": ["友達", "家族", "母", "父", "お母さん", "お父さん", "子供", "兄弟"]}
+      ]
+    }
+  ]
+}

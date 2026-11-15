@@ -15,6 +15,7 @@ const LANGUAGES = {
   pt: { tag: 'PT', name: 'Portuguese', voice: 'pt-BR', accents: { brazilian: 'Brazilian', european: 'European' } },
   fr: { tag: 'FR', name: 'French', voice: 'fr-FR' },
   zh: { tag: '中文', name: 'Mandarin', voice: 'zh-CN' },
+  ja: { tag: '日本語', name: 'Japanese', voice: 'ja-JP' },
 };
 const LEVELS = ['Complete beginner', 'Beginner', 'Intermediate', 'Intermediate/Advanced', 'Advanced'];
 // The languages this copy offers: all of them locally; on a published site, CONFIG.langs (default CONFIG.lang).
@@ -726,19 +727,28 @@ function renderPlan() {
 // After a video: how much was understood. Feeds the difficulty model and the plan.
 const UNDERSTOOD = [[5, 'Almost nothing'], [25, 'A few words'], [50, 'The gist'], [75, 'Most of it'], [95, 'Nearly all']];
 const understoodLabel = pct => (UNDERSTOOD.find(([p]) => p === pct) || [0, ''])[1];
-const CJK = /[\u4e00-\u9fff]/;
+// Words in Chinese characters (Mandarin), or kana and kanji (Japanese).
+const CJK = LANG === 'ja' ? /[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]/ : /[\u4e00-\u9fff]/;
+const HAS_READINGS = LANG === 'zh' || LANG === 'ja';
+// Labels for the reading switch: [both, characters only, reading only].
+const READING_LABELS = LANG === 'ja' ? ['ふりがな', '漢字', 'rōmaji'] : ['拼音+汉字', '汉字', 'pīnyīn'];
 
-// A caption line as tappable words. Chinese lines come pre-split into words (w) with pinyin (p),
-// shown as pinyin over characters, characters only, or pinyin only.
+// A caption line as tappable words. Chinese and Japanese lines come pre-split into words (w) with
+// readings: pinyin (p) for Mandarin; furigana (p, kanji words only) and romaji (r) for Japanese.
+// Shown as the reading over the characters, characters only, or the reading only.
 function lineSpans(line) {
   if (!line.w) return wordSpans(line.t);
   const show = state.settings.zhShow || 'both';
   return line.w.map((w, i) => {
     if (!CJK.test(w)) return esc(w);
-    const py = (line.p && line.p[i]) || '';
+    const furigana = (line.p && line.p[i]) || '';
+    const reading = line.r ? (line.r[i] || '') : furigana;  // what "reading only" shows
+    const tip = line.r ? [furigana, line.r[i]].filter(Boolean).join(' · ') : furigana;
     const cls = state.words[w] ? 'mine' : (!isKnown(w) && lexicon[w] ? 'unknown' : '');
-    const inner = show === 'pinyin' ? esc(py) : show === 'chars' ? esc(w) : `<ruby>${esc(w)}<rt>${esc(py)}</rt></ruby>`;
-    return `<span class="w zh ${cls}" data-w="${esc(w)}" data-py="${esc(py)}">${inner}</span>`;
+    const inner = show === 'pinyin' ? esc(reading) + (line.r ? ' ' : '')
+      : show === 'chars' || !furigana ? esc(w)
+      : `<ruby>${esc(w)}<rt>${esc(furigana)}</rt></ruby>`;
+    return `<span class="w zh ${cls}" data-w="${esc(w)}" data-py="${esc(tip)}">${inner}</span>`;
   }).join('');
 }
 
@@ -766,7 +776,7 @@ async function renderWatch() {
   const pinyinOf = {};
   lines.forEach(l => (l.w || []).forEach((w, i) => { if (l.p && l.p[i]) pinyinOf[w] = l.p[i]; }));
   const preview = Object.entries(v.words)
-    .filter(([w]) => !isKnown(w) && lexicon[w] && lexicon[w][0] > 0 && (LANG === 'zh' || w.length > 2))
+    .filter(([w]) => !isKnown(w) && lexicon[w] && lexicon[w][0] > 0 && (HAS_READINGS || w.length > 2))
     .sort((x, y) => y[1] - x[1]).slice(0, 10);
 
   $('#main').innerHTML = `
@@ -785,7 +795,7 @@ async function renderWatch() {
             ${['always', 'delayed', 'peek', 'off'].map(m => `<button data-mode="${m}" class="${m === mode ? 'on' : ''}">${{ always: 'Captions on', delayed: 'Delayed', peek: 'Peek', off: 'Off' }[m]}</button>`).join('')}
           </div>
           <button id="peekBtn" title="Hold to show the caption">Hold to peek <span class="kbd">C</span></button>
-          ${LANG === 'zh' ? `<div class="seg" id="zhShow">${[['both', '拼音+汉字'], ['chars', '汉字'], ['pinyin', 'pīnyīn']].map(([k, l]) => `<button data-zh="${k}" class="${(state.settings.zhShow || 'both') === k ? 'on' : ''}">${l}</button>`).join('')}</div>` : ''}
+          ${HAS_READINGS ? `<div class="seg" id="zhShow">${['both', 'chars', 'pinyin'].map((k, n) => [k, READING_LABELS[n]]).map(([k, l]) => `<button data-zh="${k}" class="${(state.settings.zhShow || 'both') === k ? 'on' : ''}">${l}</button>`).join('')}</div>` : ''}
           <span class="sep"></span>
           <button id="back5" title="Replay the last 5 seconds">⟲ 5s <span class="kbd">R</span></button>
           <button id="loopBtn" title="Repeat the current line">Loop line <span class="kbd">L</span></button>
@@ -1138,7 +1148,7 @@ function openWordPopup(word, anchor, line) {
     <div class="muted small">${lx && lx[0] ? `#${lx[0].toLocaleString()} most common word` : 'Rare word'}${lx && lx[1] ? ' · looks like English' : ''}${mine ? ` · in my words (${mine.status})` : ''}</div>
     <div class="actions">
       <a target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&hl=${LANG === 'zh' ? 'zh-CN' : LANG}&q=${encodeURIComponent(word)}">🖼 Picture</a>
-      <a target="_blank" rel="noopener" href="${LANG === 'zh' ? `https://www.mdbg.net/chinese/dictionary?wdqb=${encodeURIComponent(word)}` : `https://${LANG}.wiktionary.org/wiki/${encodeURIComponent(word)}`}">📖 Meaning</a>
+      <a target="_blank" rel="noopener" href="${LANG === 'zh' ? `https://www.mdbg.net/chinese/dictionary?wdqb=${encodeURIComponent(word)}` : LANG === 'ja' ? `https://jisho.org/search/${encodeURIComponent(word)}` : `https://${LANG}.wiktionary.org/wiki/${encodeURIComponent(word)}`}">📖 Meaning</a>
       <button data-act="save">${mine ? '★ Saved' : '☆ Save word'}</button>
       <button data-act="known">✓ I know it</button>
       <a href="#words?q=${encodeURIComponent(word)}">🔎 Other clips</a>

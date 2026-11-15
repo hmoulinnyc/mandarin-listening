@@ -1,0 +1,134 @@
+{
+ "ooQNETO4dK0": {
+  "start": 154.56,
+  "end": 234.15,
+  "wpm": 68,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "Two friends are talking about a cheese cake cafe they both plan to visit.",
+   "Two people are meeting after a long time and catching up on each other's news.",
+   "Two people are planning to practice a conversation together in Japanese."
+  ],
+  "answer": 1
+ },
+ "scQqkL4ZEKg": {
+  "start": 93.33,
+  "end": 168.81,
+  "wpm": 21,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A lesson on how to count backward in Japanese",
+   "A countdown that makes you feel sleepy, then wakes you up",
+   "A lesson on how to tell the time"
+  ],
+  "answer": 1
+ },
+ "8Rr72XP9z6s": {
+  "start": 249.32,
+  "end": 325.84,
+  "wpm": 155,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is happy because everyone at the gym greets him warmly.",
+   "The speaker is annoyed because people at the gym make rude, unwelcoming sounds when he enters the locker room.",
+   "The speaker is complaining that the gym stairs are too steep."
+  ],
+  "answer": 1
+ },
+ "N_iUlWtODow": {
+  "start": 397.36,
+  "end": 477.4,
+  "wpm": 154,
+  "question": "What is the main point of the speaker's experience in the elevator and the building?",
+  "options": [
+   "She was surprised that the cake shop staff were so friendly and helpful.",
+   "A stranger unexpectedly started a short conversation with her, which she found enjoyable, unlike what usually happens in Japan.",
+   "She learned that people in her hometown never talk to their neighbors."
+  ],
+  "answer": 1
+ },
+ "bEbs3sCwdFo": {
+  "start": 345.84,
+  "end": 423.16,
+  "wpm": 115,
+  "question": "What is the main point the speaker is making in this passage?",
+  "options": [
+   "Students should stop studying grammar and focus only on new grammar points.",
+   "Students already know many grammar points but need to practice using them more.",
+   "Students find Japanese grammar too difficult and should give up on it."
+  ],
+  "answer": 1
+ },
+ "6c4vrlGifD0": {
+  "start": 168.23,
+  "end": 243.39,
+  "wpm": 192,
+  "question": "What does the phrase 息をひそめる (ikikiwo hisomeru) mean in this passage?",
+  "options": [
+   "To stop breathing for a long time",
+   "To stay very quiet and still so no one notices",
+   "To take a deep breath before doing something"
+  ],
+  "answer": 1
+ },
+ "aczPsLhpDRE": {
+  "start": 70.98,
+  "end": 147.62,
+  "wpm": 103,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Japanese people never say thank you after a meal.",
+   "This lesson teaches Japanese phrases and customs for eating and entering a home.",
+   "Shoes should be worn inside Japanese homes to keep them clean."
+  ],
+  "answer": 1
+ },
+ "8FhnCK0q-3k": {
+  "start": 138.62,
+  "end": 216.51,
+  "wpm": 100,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "A customer is calling to cancel a reservation they made for next Friday.",
+   "A customer is making a restaurant reservation for six people next Friday at 6 p.m.",
+   "A restaurant staff member is asking the customer to choose a dinner course."
+  ],
+  "answer": 1
+ },
+ "8f7hTSI-sV4": {
+  "start": 538.92,
+  "end": 616.72,
+  "wpm": 172,
+  "question": "What was the main point of the speaker's recent trip to Germany?",
+  "options": [
+   "They traveled with friends and mostly stayed in one big city",
+   "They traveled alone, using Berlin and Hamburg as bases to visit villages by train",
+   "They went to Germany mainly to study the Japanese language"
+  ],
+  "answer": 1
+ },
+ "9nmHbGCVURE": {
+  "start": 278.88,
+  "end": 356.04,
+  "wpm": 91,
+  "question": "What is the main topic of this passage?",
+  "options": [
+   "How to order a taxi in Japan using a phone app",
+   "Japanese taxis: automatic doors, no tipping, and one thing the speaker dislikes",
+   "The cost of taxi fares in different countries"
+  ],
+  "answer": 1
+ },
+ "VGk5QzzrVsA": {
+  "start": 133.65,
+  "end": 210.84,
+  "wpm": 180,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "Plans for a winter trip to the mountains",
+   "Autumn scenery and seasonal food, and getting back into exercise",
+   "A new job and working from home"
+  ],
+  "answer": 1
+ }
+}
