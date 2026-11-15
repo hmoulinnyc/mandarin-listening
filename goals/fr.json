@@ -1,0 +1,58 @@
+{
+  "language": "Français",
+  "track": "listening",
+  "goal": "Understand everyday spoken French by ear, from clear learner videos up to native news and conversation.",
+  "startingVocab": 8000,
+  "startingWpm": 190,
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Listening toolkit",
+      "why": "Phrases that keep a French speaker talking to you, slowly enough to follow.",
+      "milestone": "I followed a whole intermediate video in my zone without pausing.",
+      "phrases": [
+        {"nl": "Comment on dit ___ en français ?", "gloss": "How do you say ___ in French?", "search": "comment on dit"},
+        {"nl": "Qu'est-ce que ça veut dire ?", "gloss": "What does that mean?", "search": "ça veut dire"},
+        {"nl": "Vous pouvez répéter, s'il vous plaît ?", "gloss": "Can you repeat, please?", "search": "répéter"},
+        {"nl": "Plus lentement, s'il vous plaît.", "gloss": "More slowly, please.", "search": "lentement"},
+        {"nl": "Je n'ai pas compris.", "gloss": "I didn't understand.", "search": "pas compris"},
+        {"nl": "Ah, d'accord !", "gloss": "Ah, OK! / Got it!", "search": "d'accord"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · Spoken French vs. written French",
+      "why": "Real speech drops and blends sounds. Hear these in videos until they sound normal.",
+      "milestone": "I can hear “chais pas” and “y'a” in native videos without thinking.",
+      "words": [
+        {"nl": "je ne sais pas", "gloss": "said “chais pas”: I don't know"},
+        {"nl": "il y a", "gloss": "said “y'a”: there is"},
+        {"nl": "tu es", "gloss": "said “t'es”: you are"},
+        {"nl": "on", "gloss": "“we” in everyday speech (instead of nous)"},
+        {"nl": "du coup", "gloss": "so, as a result (very common filler)"},
+        {"nl": "en fait", "gloss": "actually, in fact"},
+        {"nl": "genre", "gloss": "like (filler)"},
+        {"nl": "carrément", "gloss": "totally, absolutely"}
+      ],
+      "recognize": [
+        {"nl": "actuellement", "gloss": "currently (not “actually”)"},
+        {"nl": "éventuellement", "gloss": "possibly (not “eventually”)"},
+        {"nl": "librairie", "gloss": "bookshop (not “library”)"},
+        {"nl": "sensible", "gloss": "sensitive (not “sensible”)"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Topic playlists",
+      "why": "Narrow listening: the same vocabulary in many voices.",
+      "milestone": "I watched five videos on one topic in a week.",
+      "topics": [
+        {"id": "food", "name": "Cuisine", "gloss": "Food & cooking", "keywords": ["manger", "cuisine", "recette", "repas", "déjeuner", "dîner", "pain", "fromage", "restaurant", "café"]},
+        {"id": "daily", "name": "Vie quotidienne", "gloss": "Daily life", "keywords": ["aujourd'hui", "hier", "demain", "matin", "soir", "travail", "maison", "journée", "routine"]},
+        {"id": "travel", "name": "Voyage", "gloss": "Travel", "keywords": ["voyage", "voyager", "ville", "train", "avion", "vacances", "paris", "plage", "hôtel"]},
+        {"id": "news", "name": "Actualité", "gloss": "News & society", "keywords": ["gouvernement", "président", "élection", "guerre", "économie", "loi", "france", "pays", "politique"]},
+        {"id": "culture", "name": "Culture", "gloss": "Culture & ideas", "keywords": ["film", "livre", "musique", "histoire", "culture", "art", "langue", "français"]}
+      ]
+    }
+  ]
+}

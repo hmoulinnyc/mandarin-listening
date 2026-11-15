@@ -1,0 +1,63 @@
+{
+  "language": "Português (Brasil)",
+  "track": "listening",
+  "goal": "Understand everyday Brazilian Portuguese by ear, using my Spanish as a bridge, and get used to European Portuguese along the way.",
+  "startingVocab": 1000,
+  "startingWpm": 95,
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Listening toolkit",
+      "why": "A few phrases to keep someone talking to you in Portuguese, slowly enough to follow.",
+      "milestone": "I followed a whole Brazilian video in my zone without needing to pause.",
+      "phrases": [
+        {"nl": "Como se diz ___ em português?", "gloss": "How do you say ___ in Portuguese?", "search": "como se diz"},
+        {"nl": "O que significa ___?", "gloss": "What does ___ mean?", "search": "significa"},
+        {"nl": "Pode repetir, por favor?", "gloss": "Can you repeat, please?", "search": "repetir"},
+        {"nl": "Mais devagar, por favor.", "gloss": "Slower, please.", "search": "devagar"},
+        {"nl": "Não entendi.", "gloss": "I didn't understand.", "search": "não entendi"},
+        {"nl": "Entendi!", "gloss": "Got it!", "search": "entendi"},
+        {"nl": "Tudo bem?", "gloss": "How's it going? (Brazil's everyday greeting)", "search": "tudo bem"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · Spanish ⇄ Portuguese false friends",
+      "why": "These look like Spanish but mean something else. Hear them in real videos so the Portuguese meaning sticks.",
+      "milestone": "I caught three false friends in videos without being confused.",
+      "words": [
+        {"nl": "polvo", "gloss": "octopus (es: polvo = dust)"},
+        {"nl": "rato", "gloss": "mouse (es: rato = a while)"},
+        {"nl": "oficina", "gloss": "workshop, garage (es: office)"},
+        {"nl": "largo", "gloss": "wide; also a small square (es: long)"},
+        {"nl": "todavia", "gloss": "however (es: still)"},
+        {"nl": "pronto", "gloss": "ready; also “there you go” (es: soon)"},
+        {"nl": "logo", "gloss": "soon, right away (es: luego = later)"},
+        {"nl": "esquisito", "gloss": "weird (es: exquisito = delicious)"},
+        {"nl": "acordar", "gloss": "to wake up (es: to agree)"},
+        {"nl": "brincar", "gloss": "to play (es: to jump)"},
+        {"nl": "apelido", "gloss": "nickname (es: apellido = surname)"},
+        {"nl": "cena", "gloss": "scene (es: dinner)"}
+      ],
+      "recognize": [
+        {"nl": "a gente", "gloss": "we (very common in Brazil instead of “nós”)"},
+        {"nl": "tá", "gloss": "short for está; also “OK”"},
+        {"nl": "né?", "gloss": "right? isn't it? (from não é)"},
+        {"nl": "legal", "gloss": "cool, nice"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Topic playlists",
+      "why": "Narrow listening: the same vocabulary in many voices.",
+      "milestone": "I watched five videos on one topic in a week.",
+      "topics": [
+        {"id": "food", "name": "Comida", "gloss": "Food & cooking", "keywords": ["comida", "comer", "cozinhar", "receita", "almoço", "jantar", "café", "gostoso", "delicioso", "restaurante"]},
+        {"id": "daily", "name": "Dia a dia", "gloss": "Daily life", "keywords": ["hoje", "ontem", "amanhã", "acordar", "trabalho", "casa", "rotina", "manhã", "noite", "dia"]},
+        {"id": "travel", "name": "Viagem", "gloss": "Travel", "keywords": ["viagem", "viajar", "praia", "cidade", "avião", "hotel", "turista", "rio", "lisboa", "brasil"]},
+        {"id": "culture", "name": "Cultura", "gloss": "Culture & music", "keywords": ["música", "cultura", "festa", "carnaval", "futebol", "filme", "história", "tradição", "samba"]},
+        {"id": "people", "name": "Pessoas", "gloss": "Friends & family", "keywords": ["amigo", "amigos", "família", "mãe", "pai", "irmão", "irmã", "filho", "namorado", "namorada"]}
+      ]
+    }
+  ]
+}

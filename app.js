@@ -17,7 +17,12 @@ const LANGUAGES = {
   zh: { tag: '中文', name: 'Mandarin', voice: 'zh-CN' },
 };
 const LEVELS = ['Complete beginner', 'Beginner', 'Intermediate', 'Intermediate/Advanced', 'Advanced'];
-const LANG = CONFIG.lang || (() => { try { const l = localStorage.getItem('lang'); return LANGUAGES[l] ? l : 'nl'; } catch (e) { return 'nl'; } })();
+// The languages this copy offers: all of them locally; on a published site, CONFIG.langs (default CONFIG.lang).
+const AVAILABLE = CONFIG.langs || (CONFIG.lang ? [CONFIG.lang] : Object.keys(LANGUAGES));
+const LANG = (() => {
+  try { const l = localStorage.getItem('lang'); if (AVAILABLE.includes(l)) return l; } catch (e) { /* storage blocked */ }
+  return CONFIG.lang || 'nl';
+})();
 function switchLanguage(lang) {
   try { localStorage.setItem('lang', lang); } catch (e) { /* storage blocked */ }
   location.hash = '#goals';
@@ -234,15 +239,15 @@ function setupLanguageSwitch() {
   if (tag) tag.textContent = LANGUAGES[LANG].tag;
   const nav = document.querySelector('nav');
   if (STATIC) {
-    // The published site is one language, without the tabs that need the Mac.
+    // The published site leaves out the tabs that need the Mac.
     nav.querySelectorAll('[data-nav]').forEach(a => { if (CONFIG.tabs && !CONFIG.tabs.includes(a.dataset.nav)) a.remove(); });
     if (CONFIG.title) document.querySelector('.brand').firstChild.textContent = CONFIG.title + ' ';
-    return;
   }
+  if (AVAILABLE.length < 2) return;
   const sel = document.createElement('select');
   sel.id = 'lang-switch';
   sel.setAttribute('aria-label', 'Language');
-  sel.innerHTML = Object.entries(LANGUAGES).map(([k, v]) => `<option value="${k}" ${k === LANG ? 'selected' : ''}>${v.name}</option>`).join('');
+  sel.innerHTML = AVAILABLE.map(k => `<option value="${k}" ${k === LANG ? 'selected' : ''}>${LANGUAGES[k].name}</option>`).join('');
   sel.addEventListener('change', () => switchLanguage(sel.value));
   nav.after(sel);
 }
@@ -1262,12 +1267,13 @@ async function renderScenes() {
     play: playAndWait,
     stop: stopAudio,
     canRecord: !!(navigator.mediaDevices && window.MediaRecorder),
-    transcribe: async wav => {
+    // Without the Mac (published site): record-and-compare by ear, and the word-by-word check.
+    transcribe: STATIC ? undefined : async wav => {
       const r = await fetch(`/api/transcribe?lang=${LANG}`, { method: 'POST', headers: { 'Content-Type': 'audio/wav' }, body: wav });
       if (!r.ok) throw new Error('transcribe failed');
       return (await r.json()).text;
     },
-    coach: async prompt => {
+    coach: STATIC ? undefined : async prompt => {
       const r = await fetch('/api/coach', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt }) });
       if (!r.ok) throw new Error('coach unavailable');
       return r.json();

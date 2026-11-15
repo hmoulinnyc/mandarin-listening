@@ -1,0 +1,261 @@
+{
+ "language": "Arabic",
+ "track": "beginner",
+ "goal": "Get by in spoken Arabic with Jason: greet him properly, keep a short conversation going, and ask how to say things, in Arabic that's understood everywhere.",
+ "regionalLabel": "🇱🇧 Lebanese",
+ "regionalName": "Lebanese",
+ "startingVocab": 0,
+ "note": "Generated from pocket_ar/arabic.html (ROUTES) so the phone page and this list stay the same.",
+ "stages": [
+  {
+   "id": "s1",
+   "name": "Stage 1 · Conversation toolkit",
+   "why": "Phrases that keep the conversation in Arabic when you're missing a word.",
+   "milestone": "I asked Jason how to say something in Arabic, and used his answer.",
+   "phrases": [
+    {
+     "nl": "Kayfa taqūl ___ bil-ʿarabiyya?",
+     "say": "كيف تقول … بالعربية؟",
+     "gloss": "How do you say ___ in Arabic?",
+     "flemish": "Kīf bitʾūl ___ bil-ʿarabe?",
+     "flemishSay": "كيف بتقول … بالعربي؟"
+    },
+    {
+     "nl": "Mā maʿnā ___?",
+     "say": "ما معنى …؟",
+     "gloss": "What does ___ mean?",
+     "flemish": "Shū yaʿne ___?",
+     "flemishSay": "شو يعني …؟"
+    },
+    {
+     "nl": "Mumkin tuʿīd, min faḍlak?",
+     "say": "ممكن تعيد، من فضلك؟",
+     "gloss": "Can you repeat, please?",
+     "flemish": "ʿĪd kamān marra, iza bitrīd.",
+     "flemishSay": "عيد كمان مرة، إذا بتريد."
+    },
+    {
+     "nl": "Bi-buṭʾ, min faḍlak.",
+     "say": "ببطء، من فضلك.",
+     "gloss": "Slowly, please.",
+     "flemish": "Shway shway, please.",
+     "flemishSay": "شوي شوي، بليز."
+    },
+    {
+     "nl": "Lā afham.",
+     "say": "لا أفهم.",
+     "gloss": "I don’t understand.",
+     "flemish": "Ma fhimt.",
+     "flemishSay": "ما فهمت."
+    },
+    {
+     "nl": "Hal hādhā ṣaḥīḥ?",
+     "say": "هل هذا صحيح؟",
+     "gloss": "Is that right?",
+     "flemish": "Hek ṣaḥ?",
+     "flemishSay": "هيك صح؟"
+    },
+    {
+     "nl": "Atakallam al-ʿarabiyya qalīlan.",
+     "say": "أتكلم العربية قليلاً.",
+     "gloss": "I speak a little Arabic.",
+     "flemish": "Baḥke shway ʿarabe.",
+     "flemishSay": "بحكي شوي عربي."
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "name": "Stage 2 · Greetings & how are you",
+   "why": "Greetings matter a lot socially, and the replies are set phrases you can learn as chunks.",
+   "milestone": "I greeted Jason, answered “how are you?” and asked him back, all in Arabic.",
+   "phrases": [
+    {
+     "nl": "Marḥaban!",
+     "say": "مرحباً!",
+     "gloss": "Hello!",
+     "flemish": "Marḥaba! / Hi!",
+     "flemishSay": "مرحبا!"
+    },
+    {
+     "nl": "As-salāmu ʿalaykum.",
+     "say": "السلام عليكم.",
+     "gloss": "Peace be upon you: hello 🌍"
+    },
+    {
+     "nl": "Wa ʿalaykum as-salām.",
+     "say": "وعليكم السلام.",
+     "gloss": "And upon you peace: the reply 🌍"
+    },
+    {
+     "nl": "Kayfa ḥāluk?",
+     "say": "كيف حالك؟",
+     "gloss": "How are you?",
+     "flemish": "Kīfak?",
+     "flemishSay": "كيفك؟"
+    },
+    {
+     "nl": "Anā bikhayr, al-ḥamdu lillāh.",
+     "say": "أنا بخير، الحمد لله.",
+     "gloss": "I’m fine, thank God.",
+     "flemish": "Mnīḥ, ḥamdillā.",
+     "flemishSay": "منيح، الحمدلله."
+    },
+    {
+     "nl": "Wa anta?",
+     "say": "وأنت؟",
+     "gloss": "And you?",
+     "flemish": "W enta?",
+     "flemishSay": "وإنت؟"
+    },
+    {
+     "nl": "Kayfa kāna yawmuk?",
+     "say": "كيف كان يومك؟",
+     "gloss": "How was your day?",
+     "flemish": "Kīf kēn nhārak?",
+     "flemishSay": "كيف كان نهارك؟"
+    },
+    {
+     "nl": "Jayyid, lākin mashghūl.",
+     "say": "جيد، لكن مشغول.",
+     "gloss": "Good, but busy.",
+     "flemish": "Mnīḥ, bas mashghūl.",
+     "flemishSay": "منيح، بس مشغول."
+    },
+    {
+     "nl": "Anā taʿbān qalīlan.",
+     "say": "أنا تعبان قليلاً.",
+     "gloss": "I’m a bit tired.",
+     "flemish": "Ana taʿbēn shway.",
+     "flemishSay": "أنا تعبان شوي."
+    },
+    {
+     "nl": "Shukran!",
+     "say": "شكراً!",
+     "gloss": "Thank you! 🌍",
+     "flemish": "Merci! / Yislamu!",
+     "flemishSay": "ميرسي! يسلمو!"
+    },
+    {
+     "nl": "ʿAfwan.",
+     "say": "عفواً.",
+     "gloss": "You’re welcome.",
+     "flemish": "Tikram.",
+     "flemishSay": "تكرم."
+    },
+    {
+     "nl": "Tasharrafnā!",
+     "say": "تشرّفنا!",
+     "gloss": "Nice to meet you!",
+     "flemish": "Tsharrafna!",
+     "flemishSay": "تشرّفنا!"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "name": "Stage 3 · At the climbing gym",
+   "why": "Short phrases for between climbs.",
+   "milestone": "I used three climbing phrases with Jason in one session.",
+   "phrases": [
+    {
+     "nl": "Hayyā natasallaq!",
+     "say": "هيّا نتسلّق!",
+     "gloss": "Let’s climb!",
+     "flemish": "Yalla, minṭlaʿ!",
+     "flemishSay": "يلّا، منطلع!"
+    },
+    {
+     "nl": "Ayy ṭarīq?",
+     "say": "أيّ طريق؟",
+     "gloss": "Which route?",
+     "flemish": "Ayya ṭarīʾ?",
+     "flemishSay": "أيّا طريق؟"
+    },
+    {
+     "nl": "Hādhā ṣaʿb!",
+     "say": "هذا صعب!",
+     "gloss": "This is hard!",
+     "flemish": "Hayda ṣaʿb!",
+     "flemishSay": "هيدا صعب!"
+    },
+    {
+     "nl": "Hādhā sahl.",
+     "say": "هذا سهل.",
+     "gloss": "This is easy.",
+     "flemish": "Hayda sahl.",
+     "flemishSay": "هيدا سهل."
+    },
+    {
+     "nl": "Taqrīban!",
+     "say": "تقريباً!",
+     "gloss": "Almost!",
+     "flemish": "Kamān shway!",
+     "flemishSay": "كمان شوي!"
+    },
+    {
+     "nl": "Aḥsant!",
+     "say": "أحسنت!",
+     "gloss": "Well done!",
+     "flemish": "Bravo ʿalēk!",
+     "flemishSay": "برافو عليك!"
+    },
+    {
+     "nl": "Anā jāhiz.",
+     "say": "أنا جاهز.",
+     "gloss": "I’m ready.",
+     "flemish": "Ana jēhez.",
+     "flemishSay": "أنا جاهز."
+    },
+    {
+     "nl": "Istirāḥa qaṣīra?",
+     "say": "استراحة قصيرة؟",
+     "gloss": "Short break?",
+     "flemish": "Nirtēḥ shway?",
+     "flemishSay": "نرتاح شوي؟"
+    },
+    {
+     "nl": "Marra ukhrā?",
+     "say": "مرة أخرى؟",
+     "gloss": "One more time?",
+     "flemish": "Kamān marra?",
+     "flemishSay": "كمان مرة؟"
+    },
+    {
+     "nl": "Anā munhak!",
+     "say": "أنا مُنهَك!",
+     "gloss": "I’m exhausted!",
+     "flemish": "Ana halkēn!",
+     "flemishSay": "أنا هلكان!"
+    }
+   ],
+   "recognize": [
+    {
+     "nl": "Yalla!",
+     "say": "يلّا!",
+     "gloss": "Let’s go! / Come on!"
+    },
+    {
+     "nl": "ʿAn jadd?",
+     "say": "عن جد؟",
+     "gloss": "Seriously?"
+    },
+    {
+     "nl": "Walaw!",
+     "say": "ولو!",
+     "gloss": "Of course! / Don’t mention it"
+    },
+    {
+     "nl": "Ḥabībī",
+     "say": "حبيبي",
+     "gloss": "Buddy, my dear (friendly)"
+    },
+    {
+     "nl": "Shū?",
+     "say": "شو؟",
+     "gloss": "What?"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+  "friend": "Mathilde",
+  "scenes": [
+    {
+      "id": "onderweg",
+      "title": "Onderweg",
+      "gloss": "On the way to the gym",
+      "pic": "🚲",
+      "lines": [
+        {"who": "friend", "nl": "Hoi! Hoe was je dag?", "en": "Hi! How was your day?", "pic": "👋"},
+        {"who": "me", "nl": "Het was goed, maar druk.", "en": "Say it was good, but busy.", "pic": "🙂📋", "accept": ["het was goed maar druk", "goed maar druk", "het was druk maar goed"]},
+        {"who": "friend", "nl": "Wat heb je gedaan?", "en": "What did you do?", "pic": "🤔"},
+        {"who": "me", "nl": "Ik heb vandaag gewerkt.", "en": "Say you worked today.", "pic": "💻", "accept": ["ik heb gewerkt", "vandaag heb ik gewerkt"]},
+        {"who": "friend", "nl": "Ben je moe?", "en": "Are you tired?", "pic": "😴"},
+        {"who": "me", "nl": "Ja, ik ben een beetje moe.", "en": "Say yes, a little tired.", "pic": "🥱", "accept": ["ja ik ben moe", "ja een beetje moe", "een beetje"]},
+        {"who": "friend", "nl": "Ik ook! Maar klimmen is leuk.", "en": "Me too! But climbing is fun.", "pic": "🧗"},
+        {"who": "me", "nl": "En jij? Hoe was jouw dag?", "en": "Ask about her day.", "pic": "🫵❓", "accept": ["en jij", "hoe was jouw dag", "hoe was je dag", "en jij hoe was je dag"]},
+        {"who": "friend", "nl": "Goed! Ik heb met mijn zus gegeten.", "en": "Good! I ate with my sister.", "pic": "👭🍝"},
+        {"who": "me", "nl": "Echt? Wat leuk!", "en": "React: really? How nice!", "pic": "😄", "accept": ["wat leuk", "echt wat leuk", "leuk"]}
+      ]
+    },
+    {
+      "id": "muur",
+      "title": "Aan de muur",
+      "gloss": "At the wall",
+      "pic": "🧗",
+      "lines": [
+        {"who": "friend", "nl": "Welke route doe je?", "en": "Which route are you doing?", "pic": "🧗‍♀️❓"},
+        {"who": "me", "nl": "Deze route. De blauwe.", "en": "Say this one, the blue one.", "pic": "👉🔵", "accept": ["de blauwe", "deze route de blauwe", "deze"]},
+        {"who": "friend", "nl": "Amai, die is zwaar!", "en": "Wow, that one is hard!", "pic": "😮"},
+        {"who": "me", "nl": "Ja, de grepen zijn klein.", "en": "Say yes, the holds are small.", "pic": "🤏", "accept": ["de grepen zijn klein", "ja de grepen zijn heel klein"]},
+        {"who": "friend", "nl": "Wil jij eerst?", "en": "Do you want to go first?", "pic": "👉"},
+        {"who": "me", "nl": "Ja, ik ga eerst.", "en": "Say yes, you go first.", "pic": "🙋", "accept": ["ik ga eerst", "ja ik ga"]},
+        {"who": "friend", "nl": "Allez! Bijna!", "en": "Come on! Almost!", "pic": "💪"},
+        {"who": "me", "nl": "Dank je! Dat was moeilijk.", "en": "Say thanks, that was hard.", "pic": "😅", "accept": ["dank je dat was zwaar", "dankjewel dat was moeilijk", "dat was moeilijk"]},
+        {"who": "friend", "nl": "Goed gedaan!", "en": "Well done!", "pic": "👏"}
+      ]
+    },
+    {
+      "id": "woord",
+      "title": "Hoe zeg je…?",
+      "gloss": "When you're missing a word",
+      "pic": "💬",
+      "lines": [
+        {"who": "friend", "nl": "Mijn armen zijn kapot. Ik heb geen kracht meer.", "en": "My arms are wrecked. I have no strength left.", "pic": "💪😩"},
+        {"who": "me", "nl": "Wat betekent kracht?", "en": "Ask what “kracht” means.", "pic": "❓", "accept": ["wat betekent dat", "wat is kracht", "kracht wat betekent dat"]},
+        {"who": "friend", "nl": "Kracht is sterk zijn. Zoals dit!", "en": "Kracht is being strong. Like this!", "pic": "💪"},
+        {"who": "me", "nl": "Ah, ik begrijp het.", "en": "Say you understand.", "pic": "💡", "accept": ["ik begrijp het", "ah oke ik begrijp het", "ik snap het"]},
+        {"who": "friend", "nl": "Wil je nog één keer klimmen?", "en": "Do you want to climb one more time?", "pic": "🔁"},
+        {"who": "me", "nl": "Kun je dat herhalen?", "en": "Ask her to repeat that.", "pic": "👂", "accept": ["kan je dat herhalen", "kunt u dat herhalen", "nog een keer alsjeblieft"]},
+        {"who": "friend", "nl": "Nog één keer klimmen? Ja of nee?", "en": "Climb one more time? Yes or no?", "pic": "🔁❓"},
+        {"who": "me", "nl": "Ja! Hoe zeg je chalk in het Nederlands?", "en": "Say yes, then ask how to say “chalk” in Dutch.", "pic": "🤍❓", "accept": ["hoe zeg je chalk in het nederlands", "ja hoe zeg je chalk", "hoe zeg je chalk"]},
+        {"who": "friend", "nl": "Magnesium! Hier, neem maar.", "en": "Magnesium! Here, take some.", "pic": "🤍"},
+        {"who": "me", "nl": "Magnesium. Dank je!", "en": "Repeat the word and say thanks.", "pic": "🙏", "accept": ["dank je", "magnesium dank je wel", "magnesium bedankt"]}
+      ]
+    },
+    {
+      "id": "pauze",
+      "title": "Even pauze",
+      "gloss": "Taking a break",
+      "pic": "🥤",
+      "lines": [
+        {"who": "friend", "nl": "Even pauze? Ik heb dorst.", "en": "Quick break? I'm thirsty.", "pic": "🥤"},
+        {"who": "me", "nl": "Ja, goed idee.", "en": "Say yes, good idea.", "pic": "👍", "accept": ["goed idee", "ja goed plan"]},
+        {"who": "friend", "nl": "Wat doe je dit weekend?", "en": "What are you doing this weekend?", "pic": "📅"},
+        {"who": "me", "nl": "Ik weet het nog niet. En jij?", "en": "Say you don't know yet, and ask her.", "pic": "🤷", "accept": ["ik weet het niet en jij", "weet ik nog niet en jij", "ik weet het nog niet"]},
+        {"who": "friend", "nl": "Ik ga naar mijn ouders in Gent.", "en": "I'm going to my parents in Ghent.", "pic": "🚆🏠"},
+        {"who": "me", "nl": "Leuk! Hoelang blijf je daar?", "en": "Say nice, and ask how long she's staying.", "pic": "⏳", "accept": ["hoelang blijf je daar", "leuk hoe lang blijf je daar", "hoe lang blijf je"]},
+        {"who": "friend", "nl": "Twee dagen. Zaterdag en zondag.", "en": "Two days. Saturday and Sunday.", "pic": "✌️📅"},
+        {"who": "me", "nl": "Gezellig!", "en": "Say: how nice/cozy!", "pic": "🥰", "accept": ["wat gezellig", "leuk"]},
+        {"who": "friend", "nl": "Zo, nog een route?", "en": "So, another route?", "pic": "🧗"},
+        {"who": "me", "nl": "Ja, laten we gaan!", "en": "Say yes, let's go!", "pic": "🚀", "accept": ["laten we gaan", "ja kom op", "ja zeker"]}
+      ]
+    }
+  ]
+}

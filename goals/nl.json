@@ -1,0 +1,79 @@
+{
+  "language": "Nederlands",
+  "track": "beginner",
+  "goal": "Hold everyday conversations with my friends and roommate in Dutch, and use those conversations to grow my vocabulary.",
+  "startingVocab": 1000,
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Conversation toolkit",
+      "why": "Phrases that keep the conversation in Dutch even when you're missing words. Every gap becomes a new word.",
+      "milestone": "I used these to stay in Dutch for a whole conversation instead of switching to English.",
+      "phrases": [
+        {"nl": "Hoe zeg je ___ in het Nederlands?", "gloss": "How do you say ___ in Dutch?", "search": "hoe zeg je"},
+        {"nl": "Wat betekent ___?", "gloss": "What does ___ mean?", "search": "wat betekent"},
+        {"nl": "Kun je dat herhalen?", "gloss": "Can you repeat that?", "search": "herhalen"},
+        {"nl": "Kun je wat langzamer praten?", "gloss": "Can you speak a bit slower?", "search": "langzamer", "flemish": "Kan je wat trager praten?"},
+        {"nl": "Ik begrijp het niet.", "gloss": "I don't understand.", "search": "begrijp", "flemish": "Ik versta het niet."},
+        {"nl": "Klopt dat?", "gloss": "Is that right?", "search": "klopt", "flemish": "Is dat juist?"},
+        {"nl": "Zeg ik dat goed?", "gloss": "Am I saying that right?", "search": "zeg ik"},
+        {"nl": "Wat is het woord voor ___?", "gloss": "What's the word for ___?", "search": "het woord voor"}
+      ],
+      "words": [
+        {"nl": "wie", "gloss": "who"},
+        {"nl": "wat", "gloss": "what"},
+        {"nl": "waar", "gloss": "where"},
+        {"nl": "wanneer", "gloss": "when"},
+        {"nl": "waarom", "gloss": "why"},
+        {"nl": "hoe", "gloss": "how"},
+        {"nl": "welke", "gloss": "which"},
+        {"nl": "hoeveel", "gloss": "how many / how much"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · \"Hoe was je dag?\"",
+      "why": "A conversation that happens every day, repeats naturally, and uses the question words as follow-ups.",
+      "milestone": "Asked how my day was, I answered in 3–5 sentences, asked 2 follow-up questions and reacted, without switching to English.",
+      "phrases": [
+        {"nl": "Hoe was je dag?", "gloss": "How was your day?", "search": "hoe was je"},
+        {"nl": "Het was goed / druk / leuk / saai.", "gloss": "It was good / busy / fun / boring.", "search": "het was"},
+        {"nl": "Ik ben moe.", "gloss": "I'm tired.", "search": "moe"},
+        {"nl": "Ik heb gewerkt.", "gloss": "I worked.", "search": "gewerkt"},
+        {"nl": "Ik ben naar ___ geweest.", "gloss": "I went to ___.", "search": "geweest"},
+        {"nl": "Ik heb ___ gegeten.", "gloss": "I ate ___.", "search": "gegeten"},
+        {"nl": "Wat heb je gedaan?", "gloss": "What did you do?", "search": "gedaan"},
+        {"nl": "Met wie?", "gloss": "With whom?", "search": "met wie"},
+        {"nl": "Hoe was dat?", "gloss": "How was that?", "search": "hoe was dat"},
+        {"nl": "Echt? / Wauw! / Leuk! / Wat jammer.", "gloss": "Really? / Wow! / Nice! / What a shame.", "search": "jammer"},
+        {"nl": "En jij?", "gloss": "And you?", "search": "en jij"}
+      ],
+      "words": [
+        {"nl": "gezellig", "gloss": "cozy / nice (with people)"},
+        {"nl": "druk", "gloss": "busy"},
+        {"nl": "vandaag", "gloss": "today"},
+        {"nl": "gisteren", "gloss": "yesterday"},
+        {"nl": "morgen", "gloss": "tomorrow / morning"}
+      ],
+      "recognize": [
+        {"nl": "amai", "gloss": "wow (Flemish)"},
+        {"nl": "zalig", "gloss": "great, lovely (Flemish)"},
+        {"nl": "gij / u", "gloss": "you (informal in Flemish speech)"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Branching out",
+      "why": "The everyday topics that come up with a roommate and friends. Each topic is a narrow-listening playlist: same vocabulary, many voices.",
+      "milestone": "I can talk for a few minutes about each of these topics.",
+      "topics": [
+        {"id": "food", "name": "Eten & koken", "gloss": "Food & cooking", "keywords": ["eten", "koken", "lekker", "recept", "groente", "brood", "kaas", "supermarkt", "boodschappen", "ontbijt", "lunch", "avondeten"]},
+        {"id": "weekend", "name": "Weekend & plannen", "gloss": "Weekend & plans", "keywords": ["weekend", "zaterdag", "zondag", "morgen", "plannen", "gaan", "vakantie", "uitje", "feest"]},
+        {"id": "home", "name": "In huis", "gloss": "Around the house", "keywords": ["huis", "kamer", "keuken", "schoonmaken", "opruimen", "balkon", "badkamer", "slaapkamer", "woonkamer", "meubels"]},
+        {"id": "people", "name": "Vrienden & familie", "gloss": "Friends & family", "keywords": ["vrienden", "vriend", "vriendin", "familie", "moeder", "vader", "broer", "zus", "ouders", "kinderen"]},
+        {"id": "hobbies", "name": "Hobby's & vrije tijd", "gloss": "Hobbies & free time", "keywords": ["hobby", "sporten", "sport", "muziek", "lezen", "fietsen", "wandelen", "film", "spelen", "tuin"]},
+        {"id": "work", "name": "Werk & school", "gloss": "Work & school", "keywords": ["werk", "werken", "kantoor", "collega", "school", "baan", "studeren", "vergadering", "les"]}
+      ]
+    }
+  ]
+}

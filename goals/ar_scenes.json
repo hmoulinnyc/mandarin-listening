@@ -1,0 +1,72 @@
+{
+  "friend": "Jason",
+  "note": "Generic spoken Arabic (simple Modern Standard Arabic, no case endings). nl = romanized text shown and checked; say = Arabic script used for audio; lb = how a Lebanese speaker would say Jason's line.",
+  "scenes": [
+    {
+      "id": "liqaa",
+      "title": "Al-liqāʾ",
+      "gloss": "Meeting up",
+      "pic": "👋",
+      "lines": [
+        {"who": "friend", "nl": "Marḥaban! Kayfa ḥāluk?", "say": "مرحباً! كيف حالك؟", "en": "Hi! How are you?", "pic": "👋", "lb": {"tr": "Ahlēn! Kīfak?", "ar": "أهلين! كيفك؟"}},
+        {"who": "me", "nl": "Anā bikhayr, shukran. Wa anta?", "say": "أنا بخير، شكراً. وأنت؟", "en": "Say you're fine, thanks, and ask him back.", "pic": "🙂❓", "accept": ["ana bikhayr wa anta", "bikhayr shukran wa anta", "ana bikhayr shukran", "bikhayr wa anta"]},
+        {"who": "friend", "nl": "Bikhayr, al-ḥamdu lillāh. Kayfa kāna yawmuk?", "say": "بخير، الحمد لله. كيف كان يومك؟", "en": "Fine, thank God. How was your day?", "pic": "☀️", "lb": {"tr": "Mnīḥ, ḥamdillā. Kīf kēn nhārak?", "ar": "منيح، الحمدلله. كيف كان نهارك؟"}},
+        {"who": "me", "nl": "Jayyid, lākin mashghūl.", "say": "جيد، لكن مشغول.", "en": "Say it was good, but busy.", "pic": "🙂📋", "accept": ["jayyid lakin mashghul", "kana jayyid lakin mashghul", "jayyid wa lakin mashghul"]},
+        {"who": "friend", "nl": "Hal anta taʿbān?", "say": "هل أنت تعبان؟", "en": "Are you tired?", "pic": "😴", "lb": {"tr": "Taʿbēn?", "ar": "تعبان؟"}},
+        {"who": "me", "nl": "Naʿam, qalīlan.", "say": "نعم، قليلاً.", "en": "Say yes, a little.", "pic": "🥱", "accept": ["naam ana taban qalilan", "ana taban qalilan", "qalilan"]},
+        {"who": "friend", "nl": "Lā mushkila. Hayyā natasallaq!", "say": "لا مشكلة. هيّا نتسلّق!", "en": "No problem. Let's climb!", "pic": "🧗", "lb": {"tr": "Ma fī mishkle. Yalla!", "ar": "ما في مشكلة. يلّا!"}},
+        {"who": "me", "nl": "Hayyā!", "say": "هيّا!", "en": "Say: let's go!", "pic": "🚀", "accept": ["yalla", "hayya bina", "hayya natasallaq"]}
+      ]
+    },
+    {
+      "id": "jidar",
+      "title": "ʿInda al-jidār",
+      "gloss": "At the wall",
+      "pic": "🧗",
+      "lines": [
+        {"who": "friend", "nl": "Ayy ṭarīq turīd?", "say": "أيّ طريق تريد؟", "en": "Which route do you want?", "pic": "🧗❓", "lb": {"tr": "Ayya ṭarīʾ baddak?", "ar": "أيّا طريق بدّك؟"}},
+        {"who": "me", "nl": "Hādhā. Al-azraq.", "say": "هذا. الأزرق.", "en": "Say this one, the blue one.", "pic": "👉🔵", "accept": ["hadha al-azraq", "al-azraq", "hadha"]},
+        {"who": "friend", "nl": "Hādhā ṣaʿb!", "say": "هذا صعب!", "en": "That one is hard!", "pic": "😮", "lb": {"tr": "Hayda ṣaʿb!", "ar": "هيدا صعب!"}},
+        {"who": "me", "nl": "Naʿam, lākin sa-uḥāwil.", "say": "نعم، لكن سأحاول.", "en": "Say yes, but you'll try.", "pic": "💪", "accept": ["naam lakin sauhawil", "sauhawil", "lakin sa uhawil"]},
+        {"who": "friend", "nl": "Hal anta jāhiz?", "say": "هل أنت جاهز؟", "en": "Are you ready?", "pic": "👉", "lb": {"tr": "Jēhez?", "ar": "جاهز؟"}},
+        {"who": "me", "nl": "Naʿam, anā jāhiz.", "say": "نعم، أنا جاهز.", "en": "Say yes, you're ready.", "pic": "🙋", "accept": ["ana jahiz", "naam jahiz", "jahiz"]},
+        {"who": "friend", "nl": "Taqrīban! Aḥsant!", "say": "تقريباً! أحسنت!", "en": "Almost! Well done!", "pic": "👏", "lb": {"tr": "Kamān shway! Bravo!", "ar": "كمان شوي! برافو!"}},
+        {"who": "me", "nl": "Shukran! Kāna ṣaʿban.", "say": "شكراً! كان صعباً.", "en": "Say thanks, it was hard.", "pic": "😅", "accept": ["shukran kana saban", "shukran kana sab", "kana saban"]}
+      ]
+    },
+    {
+      "id": "kalima",
+      "title": "Kayfa taqūl…?",
+      "gloss": "When you're missing a word",
+      "pic": "💬",
+      "lines": [
+        {"who": "friend", "nl": "Anā munhak!", "say": "أنا مُنهَك!", "en": "I'm exhausted!", "pic": "😩", "lb": {"tr": "Ana halkēn!", "ar": "أنا هلكان!"}},
+        {"who": "me", "nl": "Mā maʿnā munhak?", "say": "ما معنى مُنهَك؟", "en": "Ask what “munhak” means.", "pic": "❓", "accept": ["ma mana hadha", "shu yani munhak", "ma mana munhak"]},
+        {"who": "friend", "nl": "Munhak yaʿnī taʿbān jiddan.", "say": "مُنهَك يعني تعبان جداً.", "en": "Munhak means very tired.", "pic": "💤", "lb": {"tr": "Yaʿne taʿbēn ktīr.", "ar": "يعني تعبان كتير."}},
+        {"who": "me", "nl": "Fahimt, shukran.", "say": "فهمت، شكراً.", "en": "Say you understand, thanks.", "pic": "💡", "accept": ["fahimt", "ah fahimt", "fahimt shukran jazilan"]},
+        {"who": "friend", "nl": "Hal turīd marra ukhrā?", "say": "هل تريد مرة أخرى؟", "en": "Do you want to go one more time?", "pic": "🔁", "lb": {"tr": "Baddak kamān marra?", "ar": "بدّك كمان مرة؟"}},
+        {"who": "me", "nl": "Mumkin tuʿīd, min faḍlak?", "say": "ممكن تعيد، من فضلك؟", "en": "Ask him to repeat that.", "pic": "👂", "accept": ["mumkin tuid", "min fadlak tuid", "mumkin tuid min fadlak"]},
+        {"who": "friend", "nl": "Marra ukhrā? Naʿam aw lā?", "say": "مرة أخرى؟ نعم أو لا؟", "en": "One more time? Yes or no?", "pic": "🔁❓", "lb": {"tr": "Kamān marra? Eh walla laʾ?", "ar": "كمان مرة؟ إيه ولّا لأ؟"}},
+        {"who": "me", "nl": "Naʿam! Kayfa taqūl “chalk” bil-ʿarabiyya?", "say": "نعم! كيف تقول chalk بالعربية؟", "en": "Say yes, then ask how to say “chalk” in Arabic.", "pic": "🤍❓", "accept": ["kayfa taqul chalk bil-arabiyya", "kayfa taqul chalk", "naam kayfa taqul chalk"]},
+        {"who": "friend", "nl": "Nusammīh maghnīsyūm. Tafaḍḍal!", "say": "نسمّيه مغنيسيوم. تفضّل!", "en": "We call it magnesium. Here you go!", "pic": "🤍"},
+        {"who": "me", "nl": "Shukran jazīlan!", "say": "شكراً جزيلاً!", "en": "Say thanks a lot!", "pic": "🙏", "accept": ["shukran", "merci", "shukran jazilan"]}
+      ]
+    },
+    {
+      "id": "istiraha",
+      "title": "Istirāḥa",
+      "gloss": "Taking a break",
+      "pic": "🥤",
+      "lines": [
+        {"who": "friend", "nl": "Istirāḥa qaṣīra? Anā ʿaṭshān.", "say": "استراحة قصيرة؟ أنا عطشان.", "en": "Quick break? I'm thirsty.", "pic": "🥤", "lb": {"tr": "Nirtēḥ shway? Ana ʿaṭshēn.", "ar": "نرتاح شوي؟ أنا عطشان."}},
+        {"who": "me", "nl": "Naʿam, fikra jayyida.", "say": "نعم، فكرة جيدة.", "en": "Say yes, good idea.", "pic": "👍", "accept": ["fikra jayyida", "naam fikra jayyida"]},
+        {"who": "friend", "nl": "Mādhā tafʿal fī nihāyat al-usbūʿ?", "say": "ماذا تفعل في نهاية الأسبوع؟", "en": "What are you doing this weekend?", "pic": "📅", "lb": {"tr": "Shū ʿam taʿmel bil-wīk-end?", "ar": "شو عم تعمل بالويك إند؟"}},
+        {"who": "me", "nl": "Lā aʿrif baʿd. Wa anta?", "say": "لا أعرف بعد. وأنت؟", "en": "Say you don't know yet, and ask him.", "pic": "🤷", "accept": ["la arif bad wa anta", "la arif wa anta", "la arif bad"]},
+        {"who": "friend", "nl": "Sa-azūr ʿāʾilatī.", "say": "سأزور عائلتي.", "en": "I'm going to visit my family.", "pic": "🏠", "lb": {"tr": "Rāyeḥ zūr ahle.", "ar": "رايح زور أهلي."}},
+        {"who": "me", "nl": "Jamīl!", "say": "جميل!", "en": "Say: nice!", "pic": "🥰", "accept": ["hadha jamil", "jamil jiddan", "jamil"]},
+        {"who": "friend", "nl": "Hayyā, ṭarīq ākhar?", "say": "هيّا، طريق آخر؟", "en": "Come on, another route?", "pic": "🧗", "lb": {"tr": "Yalla, kamān ṭarīʾ?", "ar": "يلّا، كمان طريق؟"}},
+        {"who": "me", "nl": "Naʿam, hayyā!", "say": "نعم، هيّا!", "en": "Say yes, let's go!", "pic": "🚀", "accept": ["yalla", "naam yalla", "hayya"]}
+      ]
+    }
+  ]
+}
