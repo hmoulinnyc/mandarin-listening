@@ -178,6 +178,7 @@ function isKnown(w) {
 }
 
 function coverage(v) {
+  if (v.transcriptAvailable === false) return null;
   let known = 0, total = 0;
   for (const [w, c] of Object.entries(v.words)) {
     total += c;
@@ -187,6 +188,17 @@ function coverage(v) {
 }
 
 function assess(v) {
+  // Native videos without a local transcript have editorial difficulty labels only.
+  // Keep them available as challenges without inventing speed or vocabulary estimates.
+  if (v.transcriptAvailable === false) {
+    const understood = state.watched[v.id]?.understood;
+    const nativeTier = state.level?.version === 2 ? state.level.nativeTier || 0 : 0;
+    const missed = state.level?.version === 2 && state.level.clips?.some(r => r.id === v.id && r.native && r.u < 75);
+    const tier = v.assessmentTier || 4;
+    const band = understood != null ? (understood >= 75 ? 'right' : 'hard')
+      : missed ? 'hard' : nativeTier >= tier ? 'right' : nativeTier >= 3 && tier === nativeTier + 1 ? 'stretch' : 'hard';
+    return { cov: null, speed: null, band, fit: band === 'right' ? 0.15 : band === 'stretch' ? 0.5 : 10 };
+  }
   const cov = coverage(v);
   const speed = v.wpm / state.comfortWpm;
   // Slow speech leaves room for the visuals to explain new words, so it
@@ -203,8 +215,12 @@ function assess(v) {
 
 const BAND_LABEL = { easy: 'Easy', right: 'Just right', stretch: 'Stretch', hard: 'Hard' };
 const speedLabel = wpm => (wpm < 70 ? 'slow' : wpm < 100 ? 'relaxed' : wpm < 130 ? 'natural' : 'fast');
+const hasMeasuredDifficulty = v => Number.isFinite(v.wpm) && v.wpm > 0 && v.transcriptAvailable !== false;
+const speedPill = v => hasMeasuredDifficulty(v) ? `<span class="pill plain">${v.wpm} wpm · ${speedLabel(v.wpm)}</span>` : `<span class="pill plain">Native ${esc(LANGUAGES[LANG].name)}</span>`;
+const coveragePill = a => a.cov == null ? '' : `<span class="pill plain">${Math.round(a.cov * 100)}% familiar words</span>`;
 
 function topicScore(v, topic) {
+  if (v.topicIds?.includes(topic.id)) return 3;
   return topic.keywords.reduce((n, k) => n + (v.words[k] || 0), 0);
 }
 
@@ -282,6 +298,7 @@ function renderFeed() {
   const accentNames = LANGUAGES[LANG].accents || {};
   const accents = [...new Set(library.map(v => v.variant).filter(a => accentNames[a]))];
   const topic = allTopics().find(t => t.id === f.topic);
+  const nativeTier = state.level?.version === 2 ? state.level.nativeTier || 0 : 0;
   let items = library.map(v => ({ v, a: assess(v), w: state.watched[v.id] }));
   if (f.channel) items = items.filter(x => x.v.channel === f.channel);
   if (f.accent) items = items.filter(x => x.v.variant === f.accent);
@@ -290,13 +307,14 @@ function renderFeed() {
   let hidden = 0;
   if (f.show === 'zone') {
     const before = items.length;
-    items = items.filter(x => x.a.band === 'right' || x.a.band === 'stretch');
+    items = items.filter(x => (x.a.band === 'right' || x.a.band === 'stretch') && (nativeTier < 3 || x.v.kind === 'native'));
     hidden = before - items.length;
   }
   if (f.show === 'unwatched') items = items.filter(x => !x.w);
+  if (f.show === 'challenge') items = items.filter(x => x.v.kind === 'native');
   if (f.sort === 'fit') items.sort((a, b) => a.a.fit - b.a.fit);
-  if (f.sort === 'easy') items.sort((a, b) => a.v.wpm - b.v.wpm);
-  if (f.sort === 'hard') items.sort((a, b) => b.v.wpm - a.v.wpm);
+  if (f.sort === 'easy') items.sort((a, b) => (a.v.wpm ?? Infinity) - (b.v.wpm ?? Infinity));
+  if (f.sort === 'hard') items.sort((a, b) => (b.v.wpm ?? -Infinity) - (a.v.wpm ?? -Infinity));
   if (topic) items.sort((a, b) => topicScore(b.v, topic) - topicScore(a.v, topic));
 
   const channels = [...new Set(library.map(v => v.channel))];
@@ -306,10 +324,10 @@ function renderFeed() {
     <div class="feed-head">
       <div>
         <h1>${topic ? esc(topic.name) : 'What to watch'}</h1>
-        <div class="muted small">${library.length} videos in your library · tuned for ~${state.comfortWpm} words/min and ~${state.vocabSize.toLocaleString()} known words</div>
+        <div class="muted small">${library.length} videos in your library · ${nativeTier >= 3 ? `recommended for ${esc(ASSESSMENT_TIERS[nativeTier].toLowerCase())}` : `tuned for ~${state.comfortWpm} words/min and ~${state.vocabSize.toLocaleString()} known words`}</div>
       </div>
       <div class="filters">
-        <select data-f="show">${opt('zone', 'In my zone', f.show)}${opt('unwatched', 'Unwatched', f.show)}${opt('all', 'Everything', f.show)}</select>
+        <select data-f="show" aria-label="Videos to show">${opt('zone', 'In my zone', f.show)}${opt('unwatched', 'Unwatched', f.show)}${opt('all', 'Everything', f.show)}${library.some(v => v.kind === 'native') ? opt('challenge', `Native ${LANGUAGES[LANG].name} challenges`, f.show) : ''}</select>
         <select data-f="channel">${opt('', 'All channels', f.channel)}${channels.map(c => opt(c, c, f.channel)).join('')}</select>
         ${levels.length > 1 ? `<select data-f="level">${opt('', 'Any level', f.level)}${levels.map(l => opt(l, l, f.level)).join('')}</select>` : ''}
         ${accents.length > 1 ? `<select data-f="accent">${opt('', 'Any accent', f.accent)}${accents.map(a => opt(a, accentNames[a], f.accent)).join('')}</select>` : ''}
@@ -317,7 +335,8 @@ function renderFeed() {
         <select data-f="sort">${opt('fit', 'Best fit', f.sort)}${opt('easy', 'Slowest first', f.sort)}${opt('hard', 'Fastest first', f.sort)}</select>
       </div>
     </div>
-    ${hidden ? `<div class="zone-note">${hidden} video${hidden === 1 ? '' : 's'} outside your zone (too fast or too easy) are hidden. <a href="#feed?${new URLSearchParams({ ...Object.fromEntries(route().params), show: 'all' })}">Show everything</a>. Fast ones work well as clips: search a phrase under My words.</div>` : ''}
+    ${library.some(v => v.kind === 'native') ? `<div class="zone-note">${f.show === 'challenge' ? `Native ${esc(LANGUAGES[LANG].name)} challenges: talks, podcasts and explainers made for native speakers. Difficulty labels are approximate; speaking speed and vocabulary coverage have not been measured.` : `Finding the learner videos too easy? <a href="#feed?show=challenge">Try native ${esc(LANGUAGES[LANG].name)} challenges →</a>`}</div>` : ''}
+    ${hidden ? `<div class="zone-note">${hidden} video${hidden === 1 ? '' : 's'} outside your current recommendations are hidden. <a href="#feed?${new URLSearchParams({ ...Object.fromEntries(route().params), show: 'all' })}">Show everything</a>.</div>` : ''}
     ${library.length === 0 ? (LANG === 'nl'
       ? `<div class="zone-note">Your library is empty. Run <code>.venv/bin/python ingest.py ${LANG}</code> to fetch videos.</div>`
       : `<div class="zone-note">No ${LANGUAGES[LANG].name} videos yet. For now, practice with <a href="#goals">Goals</a> and <a href="#scenes">Scenes</a>.</div>`) : ''}
@@ -329,9 +348,10 @@ function renderFeed() {
             <div class="title">${esc(v.title)}</div>
             <div class="meta">${esc(v.channel)} · ${fmtTime(v.duration)}${accentNames[v.variant] ? ' · ' + accentNames[v.variant] : ''}${v.level ? ' · ' + esc(v.level) : ''}</div>
             <div class="meta">
-              <span class="pill ${a.band}">${BAND_LABEL[a.band]}</span>
-              <span class="pill plain">${v.wpm} wpm · ${speedLabel(v.wpm)}</span>
-              <span class="pill plain">${Math.round(a.cov * 100)}% familiar words</span>
+              <span class="pill ${hasMeasuredDifficulty(v) ? a.band : 'plain'}">${hasMeasuredDifficulty(v) ? BAND_LABEL[a.band] : 'Native challenge'}</span>
+              ${speedPill(v)}
+              ${coveragePill(a)}
+              ${v.transcriptAvailable === false ? '<span class="pill plain">No app transcript</span>' : ''}
               ${w ? `<span class="pill plain">✓ watched${w.understood != null ? ` · ${w.understood}% understood` : ''}</span>` : ''}
             </div>
           </div>
@@ -350,7 +370,26 @@ function renderFeed() {
 // rates how much they understood (and, where prepared, answers one quick question about it), and
 // the comfortable speed and vocabulary are estimated from that.
 const CALIBRATION_CLIPS = 6, CLIP_SECONDS = 75;
-let calib = null, calPlayer = null, calibQuestions = null;
+const ASSESSMENT_TIERS = ['Slow learner speech', 'Everyday learner speech', 'Extended learner conversations', 'Native conversations', 'Native arguments and explanations'];
+let calib = null, calPlayer = null, calibQuestions = null, calClipTimer = null;
+
+function calibrationPool() {
+  return library.filter(v => {
+    const q = calibQuestions?.[v.id];
+    if (v.duration < 150) return false;
+    if (hasMeasuredDifficulty(v)) return true;
+    return q?.native === true && q.verifiedOn && q.questions?.length >= 2 &&
+      q.start >= 0 && q.end > q.start && q.end <= v.duration && [3, 4].includes(q.tier);
+  }).map(v => {
+    const primary = calibQuestions?.[v.id];
+    // Rotate a verified alternate on the next assessment, retaining one video per session.
+    const previous = state.level?.clips?.find(r => r.id === v.id);
+    const question = primary?.alternates?.length && previous?.start === primary.start
+      ? { ...primary, ...primary.alternates[0] } : primary;
+    return { ...v, assessmentQuestion: question, assessmentTier: question?.tier ??
+      (v.level === 'Complete beginner' ? 0 : v.level === 'Beginner' ? 1 : 2) };
+  });
+}
 
 function clipWindow(lines) {
   if (!lines.length) return null;
@@ -364,6 +403,9 @@ function clipWindow(lines) {
 }
 
 function teardownCalibration() {
+  clearInterval(calClipTimer);
+  calClipTimer = null;
+  if (calib) calib.activeClip = null;
   if (calPlayer && calPlayer.destroy) calPlayer.destroy();
   calPlayer = null;
 }
@@ -371,40 +413,48 @@ function teardownCalibration() {
 async function renderLevel() {
   freshMain();
   if (calibQuestions === null) calibQuestions = await fetch(asset(`data/calibration_${LANG}.json`)).then(r => (r.ok ? r.json() : {})).catch(() => ({}));
-  const pool = library.filter(v => v.duration >= 150).sort((a, b) => a.wpm - b.wpm);
+  if (route().view !== 'level') return;
+  const pool = calibrationPool();
+  const hasNative = pool.some(v => v.kind === 'native');
   const last = state.level;
   $('#main').innerHTML = `
     <div class="level">
       <h1>Find my level</h1>
-      <p class="lede">You'll listen to ${CALIBRATION_CLIPS} short clips (about a minute each) from real ${esc(LANGUAGES[LANG].name)} videos, with no captions.
-        After each one, say how much you understood. Each clip adapts to the last, and at the end you get a plan of videos pitched for you.</p>
-      ${last ? `<div class="zone-note">Last result (${esc(last.date)}): comfortable around <b>${last.comfortWpm} words/min</b>. <a href="#plan">See my plan</a></div>` : ''}
+      <p class="lede">Listen to up to ${CALIBRATION_CLIPS} short clips (roughly 1–1½ minutes each), without captions. Rate your understanding and answer a quick check.
+        ${hasNative ? 'Stronger answers unlock native conversations and explanations, each with two questions about details and reasoning.' : 'Each clip adapts to your last answer.'}</p>
+      <p class="muted small">This is a listening practice estimate, not a CEFR placement test. ${hasNative ? 'Native difficulty bands are provisional and need feedback from learners.' : ''}</p>
+      ${last ? `<div class="zone-note">Last result (${esc(last.date)}): ${last.version === 2 && last.nativeTier >= 3 ? `<b>${ASSESSMENT_TIERS[last.nativeTier]}</b>` : `comfortable around <b>${last.comfortWpm} words/min</b>`}. ${last.version !== 2 && hasNative ? 'The assessment now includes harder native clips; try it again.' : ''} <a href="#plan">See my plan</a></div>` : ''}
       ${pool.length < CALIBRATION_CLIPS + 2
         ? `<div class="zone-note">Not enough videos yet to calibrate (${pool.length}). More arrive every day; check back soon.</div>`
-        : `<button class="primary big" id="cal-start">${last ? 'Recalibrate' : 'Start'} · about 8 minutes</button>`}
+        : `<button class="primary big" id="cal-start">${last ? 'Recalibrate' : 'Start'} · about 10 minutes</button>${hasNative ? '<button id="cal-hard">Learner videos feel easy? Start with native clips</button>' : ''}`}
     </div>`;
   const startBtn = $('#cal-start');
   if (startBtn) startBtn.addEventListener('click', () => {
-    calib = { pool, used: new Set(), results: [], idx: Math.floor(pool.length / 2), step: pool.length / 4 };
+    calib = { pool, used: new Set(), results: [], targetTier: 2, adapted: 0, failures: [] };
+    calibrationClip();
+  });
+  const hardBtn = $('#cal-hard');
+  if (hardBtn && pool.length >= CALIBRATION_CLIPS + 2 && hasNative) hardBtn.addEventListener('click', () => {
+    calib = { pool, used: new Set(), results: [], targetTier: 3, adapted: 0, failures: [] };
     calibrationClip();
   });
 }
 
 function nextCalibrationIndex() {
   const { pool, results, used } = calib;
-  if (results.length) {
-    const u = results[results.length - 1].u, step = Math.max(1, Math.round(calib.step));
-    calib.idx += u >= 80 ? step : u < 50 ? -step : Math.max(1, Math.round(step / 2));
-    calib.step = Math.max(1, calib.step / 2);
+  if (results.length > calib.adapted) {
+    const last = results[results.length - 1];
+    calib.targetTier = Math.max(0, Math.min(4, last.tier + (last.u >= 75 ? 1 : -1)));
+    calib.adapted = results.length;
   }
-  calib.idx = Math.min(pool.length - 1, Math.max(0, calib.idx));
-  // Nearest clip not used yet, preferring the direction we were moving.
-  for (let d = 0; d < pool.length; d++) {
-    for (const j of [calib.idx + d, calib.idx - d]) {
-      if (j >= 0 && j < pool.length && !used.has(pool[j].id)) { calib.idx = j; return j; }
-    }
-  }
-  return -1;
+  const candidates = pool.map((v, i) => ({ v, i })).filter(({ v }) => !used.has(v.id));
+  // Once native performance is supported, avoid filling the last slots with easy
+  // learner videos merely because all independent native sources were used.
+  if (results.length >= 3 && calib.targetTier >= 3 && !candidates.some(({ v }) => v.assessmentTier >= 3) && estimateLevel(results).nativeTier) return -1;
+  candidates.sort((a, b) => Math.abs(a.v.assessmentTier - calib.targetTier) - Math.abs(b.v.assessmentTier - calib.targetTier) ||
+    a.v.assessmentTier - b.v.assessmentTier ||
+    Math.abs((a.v.wpm || state.comfortWpm) - state.comfortWpm) - Math.abs((b.v.wpm || state.comfortWpm) - state.comfortWpm));
+  return candidates[0]?.i ?? -1;
 }
 
 async function calibrationClip() {
@@ -414,59 +464,94 @@ async function calibrationClip() {
   const i = nextCalibrationIndex();
   if (i < 0) return calibrationResult();
   const v = calib.pool[i];
+  const session = calib, clipToken = {};
+  session.activeClip = clipToken;
   calib.used.add(v.id);
-  const lines = await fetch(asset(`data/transcripts/${LANG}/${v.id}.json`)).then(r => (r.ok ? r.json() : [])).catch(() => []);
-  const q = calibQuestions[v.id];
+  const q = v.assessmentQuestion;
+  const lines = q ? [] : await fetch(asset(`data/transcripts/${LANG}/${v.id}.json`)).then(r => (r.ok ? r.json() : [])).catch(() => []);
+  if (route().view !== 'level' || calib !== session || session.activeClip !== clipToken) return;
   const win = q ? { start: q.start, end: q.end, wpm: q.wpm || v.wpm } : clipWindow(lines);
-  if (!win) return calibrationClip();
+  if (!win) { calib.failures.push(v.id); return calibrationClip(); }
   const n = calib.results.length + 1;
   $('#main').innerHTML = `
     <div class="level">
       <div class="cal-progress"><div style="width:${((n - 1) / CALIBRATION_CLIPS) * 100}%"></div></div>
       <h1>Clip ${n} of ${CALIBRATION_CLIPS}</h1>
-      <p class="muted">Press play and just listen; there are no captions on purpose. It stops by itself after about a minute.</p>
+      <p class="muted">${esc(ASSESSMENT_TIERS[v.assessmentTier])} · ${Math.round(win.end - win.start)} seconds. Listen first, then rate your understanding. ${q?.native ? 'Two questions check details and reasoning.' : ''}</p>
       <div class="video-wrap"><div id="cal-yt"></div>
         <div id="sub-mask" class="sub-mask" hidden title="Drag to move, drag the bottom edge to resize">
           <span class="sub-mask-label">subtitles hidden · drag to fit</span><span class="sub-mask-grip"></span>
         </div>
       </div>
-      <div class="controls"><button id="maskBtn">🙈 Hide video subs</button><button id="cal-replay">⟲ Play the clip again</button></div>
+      <div class="controls"><button id="maskBtn">🙈 Hide video subs</button><button id="cal-replay">⟲ Play the clip again</button><button id="cal-skip">Video unavailable? Skip</button></div>
       <div class="box cal-rate">
         <h2>How much did you understand?</h2>
         <div class="filters">${UNDERSTOOD.map(([p, l]) => `<button data-u="${p}">${l}</button>`).join('')}</div>
         <div id="cal-q"></div>
       </div>
     </div>`;
-  setupSubMask(v);
+  setupSubMask(v, !!q?.native);
   // The clip's own captions are hidden: YouTube's are turned off and the app shows none.
   await loadYT();
+  if (calib !== session || session.activeClip !== clipToken || route().view !== 'level') return;
   calPlayer = new YT.Player('cal-yt', {
     videoId: v.id,
     playerVars: { start: Math.floor(win.start), end: Math.ceil(win.end), cc_load_policy: 0, iv_load_policy: 3, rel: 0, modestbranding: 1, hl: LANG },
-    events: { onReady: () => { try { calPlayer.unloadModule('captions'); } catch (e) { /* none */ } } },
+    events: {
+      onReady: e => { try { e.target.unloadModule('captions'); } catch (e) { /* none */ } },
+      // Caption modules may load after onReady or be restored by a viewer preference.
+      onApiChange: e => { try { e.target.unloadModule('captions'); } catch (e) { /* none */ } },
+      onStateChange: e => {
+        if (e.data === YT.PlayerState.PLAYING && calib === session && session.activeClip === clipToken) {
+          calib.played = v.id;
+          try { e.target.unloadModule('captions'); } catch (e) { /* none */ }
+        }
+      },
+    },
   });
+  const activePlayer = calPlayer;
+  // Enforce the same end point on replays as on the initial YouTube load.
+  calClipTimer = setInterval(() => {
+    if (calib === session && session.activeClip === clipToken && activePlayer.getCurrentTime?.() >= win.end) activePlayer.pauseVideo();
+  }, 200);
   $('#cal-replay').addEventListener('click', () => { if (calPlayer && calPlayer.seekTo) { calPlayer.seekTo(win.start, true); calPlayer.playVideo(); } });
+  $('#cal-skip').addEventListener('click', () => { calib.failures.push(v.id); calibrationClip(); });
   document.querySelectorAll('[data-u]').forEach(b => b.addEventListener('click', () => {
+    if (calib.played !== v.id) { toast('Play the clip before rating it, or skip if it will not load.'); return; }
     document.querySelectorAll('[data-u]').forEach(x => { x.classList.toggle('on', x === b); x.disabled = true; });
     // The video's overall speed, the same measure the feed and the plan compare against.
-    const result = { id: v.id, wpm: v.wpm, clipWpm: win.wpm, u: Number(b.dataset.u), rated: Number(b.dataset.u) };
+    const result = { id: v.id, tier: v.assessmentTier, native: !!q?.native, start: win.start, end: win.end, wpm: v.wpm, clipWpm: win.wpm, u: Number(b.dataset.u), rated: Number(b.dataset.u) };
     if (calPlayer && calPlayer.pauseVideo) calPlayer.pauseVideo();
-    if (q && q.question) askCalibrationQuestion(q, result); else finishClip(result);
+    if (q && (q.question || q.questions)) askCalibrationQuestion(q, result); else finishClip(result);
   }));
 }
 
 // One multiple-choice question in English: a check on the self-rating, since it's easy to overrate.
-function askCalibrationQuestion(q, result) {
+function scoreCalibrationAnswers(rated, answers) {
+  const score = Math.round(answers.filter(Boolean).length / answers.length * 100);
+  return Math.min(rated, score);
+}
+
+function askCalibrationQuestion(q, result, index = 0) {
+  const questions = q.questions || [q], question = questions[index];
   const box = $('#cal-q');
-  box.innerHTML = `<h2 style="margin-top:16px">Quick check: ${esc(q.question)}</h2>
-    <div class="cal-options">${q.options.map((o, k) => `<button data-o="${k}">${esc(o)}</button>`).join('')}</div>`;
+  box.innerHTML = `<h2 style="margin-top:16px">Question ${index + 1} of ${questions.length}: ${esc(question.question)}</h2>
+    <div class="cal-options">${question.options.map((o, k) => `<button data-o="${k}">${esc(o)}</button>`).join('')}</div>`;
   box.querySelectorAll('[data-o]').forEach(b => b.addEventListener('click', () => {
-    const right = Number(b.dataset.o) === q.answer;
-    box.querySelectorAll('[data-o]').forEach(x => { x.disabled = true; if (Number(x.dataset.o) === q.answer) x.classList.add('right'); });
-    if (!right) { b.classList.add('wrong'); result.u = Math.min(result.u, 40); }
-    result.checked = right;
-    box.insertAdjacentHTML('beforeend', `<p class="muted small">${right ? 'Right!' : 'Not quite. That clip will count as harder for you.'}</p>`);
-    finishClip(result);
+    const right = Number(b.dataset.o) === question.answer;
+    box.querySelectorAll('[data-o]').forEach(x => { x.disabled = true; });
+    b.classList.add('on');
+    result.answers = [...(result.answers || []), right];
+    if (index + 1 < questions.length) {
+      box.insertAdjacentHTML('beforeend', '<p class="muted small">Answer saved. Feedback appears after both questions.</p>');
+      box.insertAdjacentHTML('beforeend', '<button id="cal-q-next">Next question →</button>');
+      $('#cal-q-next').addEventListener('click', () => askCalibrationQuestion(q, result, index + 1));
+    } else {
+      result.checked = result.answers.every(Boolean);
+      result.u = q.native ? scoreCalibrationAnswers(result.rated, result.answers) : right ? result.rated : Math.min(result.rated, 40);
+      box.insertAdjacentHTML('beforeend', `<div class="box" style="margin-top:12px"><b>${result.answers.filter(Boolean).length}/${questions.length} correct</b>${questions.map((item, i) => `<p class="small">${i + 1}. ${result.answers[i] ? 'Correct.' : 'Not quite.'} ${esc(item.options[item.answer])} ${esc(item.explanation || '')}</p>`).join('')}</div>`);
+      finishClip(result);
+    }
   }));
 }
 
@@ -479,11 +564,13 @@ function finishClip(result) {
 
 // The comfortable speed sits between the fastest clip understood well and the slowest one that wasn't.
 function estimateLevel(results) {
-  const good = results.filter(r => r.u >= 75), poor = results.filter(r => r.u < 75);
+  const measured = results.filter(r => !r.native && Number.isFinite(r.wpm) && r.wpm > 0);
+  const good = measured.filter(r => r.u >= 75), poor = measured.filter(r => r.u < 75);
   const fastestGood = good.length ? Math.max(...good.map(r => r.wpm)) : null;
   const slowerPoor = poor.filter(r => fastestGood == null || r.wpm > fastestGood).map(r => r.wpm);
   let wpm;
-  if (fastestGood == null) wpm = Math.min(...results.map(r => r.wpm)) * 0.85;
+  if (!measured.length) wpm = state.comfortWpm;
+  else if (fastestGood == null) wpm = Math.min(...measured.map(r => r.wpm)) * 0.85;
   else if (!slowerPoor.length) wpm = fastestGood * 1.1;
   else wpm = (fastestGood + Math.min(...slowerPoor)) / 2;
   // Vocabulary: the size at which the hardest well-understood video's words are ~90% familiar.
@@ -496,32 +583,48 @@ function estimateLevel(results) {
     vocab = hi;
     state.vocabSize = saved;
   }
-  return { comfortWpm: Math.round(wpm), vocabSize: vocab };
+  // Native recommendations require successful checks on at least two different videos.
+  let nativeTier = 0;
+  for (const tier of [3, 4]) {
+    if (new Set(results.filter(r => r.native && r.tier >= tier && r.u >= 75 && r.checked).map(r => r.id)).size >= 2) nativeTier = tier;
+  }
+  return { comfortWpm: Math.round(wpm), vocabSize: vocab, nativeTier, measuredClips: measured.length };
 }
 
 function calibrationResult() {
   teardownCalibration();
+  if (!calib.results.length) {
+    freshMain();
+    $('#main').innerHTML = '<div class="level"><h1>No result saved</h1><p>No clips could be assessed. Your previous level and plan are unchanged.</p><a href="#level">Try the assessment again</a></div>';
+    return;
+  }
   const est = estimateLevel(calib.results);
   state.comfortWpm = est.comfortWpm;
   state.vocabSize = est.vocabSize;
-  state.level = { date: today(), ...est, clips: calib.results };
-  state.vocabHistory.push({ date: today(), size: est.vocabSize, wpm: est.comfortWpm, note: 'calibration' });
+  state.level = { version: 2, date: today(), ...est, clips: calib.results };
+  if (est.measuredClips) state.vocabHistory.push({ date: today(), size: est.vocabSize, wpm: est.comfortWpm, note: 'calibration' });
   state.plan = buildPlan(state.plan ? state.plan.minutesPerDay : 30);
   save();
   freshMain();
   $('#main').innerHTML = `
     <div class="level">
       <h1>Your level</h1>
-      <div class="stats">
+      <div class="zone-note"><b>${est.nativeTier ? ASSESSMENT_TIERS[est.nativeTier] : 'Keep building with learner conversations'}</b>.
+        ${est.nativeTier ? 'Supported by comprehension checks on at least two different native videos. Your feed and plan now include native material.' : 'A native recommendation needs successful checks on two different native videos.'} This practice band is provisional, not a CEFR certificate.</div>
+      <div class="stats" ${est.measuredClips ? '' : 'hidden'}>
         <div class="stat"><div class="v">~${est.comfortWpm}</div><div class="k">words per minute you follow comfortably</div></div>
         <div class="stat"><div class="v">~${est.vocabSize.toLocaleString()}</div><div class="k">common words you likely know</div></div>
       </div>
+      ${!est.measuredClips ? '<p class="muted small">This result is based on native comprehension checks. Your previous speed and vocabulary estimates are unchanged.</p>' : ''}
       <div class="box">
         <h2>Your clips</h2>
-        ${calib.results.map((r, k) => `<div class="cal-row"><span>${k + 1}. ${esc(byId[r.id].channel)}</span><span class="muted">${r.wpm} wpm</span>
+        ${calib.results.map((r, k) => `<div class="cal-row"><span>${k + 1}. ${esc(byId[r.id].channel)} · ${esc(ASSESSMENT_TIERS[r.tier] || '')}</span><span class="muted">${r.native ? `${r.answers.filter(Boolean).length}/${r.answers.length} correct` : `${r.wpm} wpm`}</span>
           <span class="pill ${r.u >= 75 ? 'right' : r.u >= 50 ? 'stretch' : 'hard'}">${understoodLabel(r.rated)}${r.checked === false ? ' · check missed' : ''}</span></div>`).join('')}
       </div>
-      <p>Your feed and a 7-day plan are now pitched at this level, aiming for the sweet spot where you understand about 75–90%.</p>
+      <p>Your feed and 7-day plan use this result as a starting point. Rate whole videos as you watch to refine the fit.</p>
+      ${est.nativeTier === 4 ? '<div class="zone-note">You handled our highest native band. This assessment cannot locate your upper limit beyond these samples. Try longer native videos and rate how they feel.</div>' : ''}
+      ${calib.failures.length ? `<p class="muted small">${calib.failures.length} unavailable or skipped clip(s) did not count as incorrect answers. ${calib.results.length < CALIBRATION_CLIPS ? 'This is a partial assessment.' : ''}</p>` : ''}
+      ${est.nativeTier ? `<a class="primary big" href="#feed?show=challenge">Watch native ${esc(LANGUAGES[LANG].name)} →</a>` : ''}
       <a class="primary big" href="#plan">See my plan →</a>
     </div>`;
 }
@@ -530,7 +633,9 @@ function calibrationResult() {
 // A week of videos at the learner's level: mostly "just right", some easy ones for flow, a few stretches,
 // mixed across channels, filling the daily minutes they chose.
 function buildPlan(minutesPerDay) {
-  const fresh = library.filter(v => !(state.watched[v.id] && state.watched[v.id].seconds > 30)).map(v => ({ v, a: assess(v) }));
+  const nativeTier = state.level?.version === 2 ? state.level.nativeTier || 0 : 0;
+  const nativeFocus = nativeTier >= 3;
+  const fresh = library.filter(v => (!nativeFocus || v.kind === 'native') && !(state.watched[v.id] && state.watched[v.id].seconds > 30)).map(v => ({ v, a: assess(v) }));
   const byChannelTurns = list => {  // alternate channels so a day isn't five videos from one source
     const groups = {};
     list.forEach(x => (groups[x.v.channel] = groups[x.v.channel] || []).push(x));
@@ -542,8 +647,8 @@ function buildPlan(minutesPerDay) {
   const budget = minutesPerDay * 60 * 7;
   const picked = [];
   const take = (list, seconds) => { let t = 0; for (const x of list) { if (t >= seconds) break; if (!picked.includes(x)) { picked.push(x); t += x.v.duration; } } return t; };
-  let used = take(band('right'), budget * 0.7);
-  used += take(band('easy'), budget * 0.2);
+  let used = take(band('right'), budget * (nativeFocus ? 1 : 0.7));
+  if (!nativeFocus) used += take(band('easy'), budget * 0.2);
   used += take(band('stretch'), budget * 0.1);
   if (used < budget) used += take(band('stretch'), budget - used);  // not enough "just right" yet
   // Spread over 7 days, alternating kinds, filling each day to about the daily minutes.
@@ -555,7 +660,7 @@ function buildPlan(minutesPerDay) {
     days[d].push(x.v.id);
     dayTime += x.v.duration;
   }
-  return { created: today(), minutesPerDay, days };
+  return { created: today(), minutesPerDay, days, nativeTier };
 }
 
 const planDone = id => {
@@ -565,7 +670,8 @@ const planDone = id => {
 
 function renderPlan() {
   freshMain();
-  if (!state.plan) state.plan = buildPlan(30), save();
+  const nativeTier = state.level?.version === 2 ? state.level.nativeTier || 0 : 0;
+  if (!state.plan || (state.plan.nativeTier || 0) !== nativeTier) state.plan = buildPlan(state.plan?.minutesPerDay || 30), save();
   const plan = state.plan;
   const ids = plan.days.flat().filter(id => byId[id]);
   const done = ids.filter(planDone).length;
@@ -574,7 +680,7 @@ function renderPlan() {
     <div class="plan-head">
       <div>
         <h1>My plan</h1>
-        <div class="muted small">${state.level ? `Pitched at ~${state.comfortWpm} words/min (from your level check on ${esc(state.level.date)}).` : 'Based on a starting estimate. <a href="#level">Find your level</a> for a better fit.'}</div>
+        <div class="muted small">${nativeTier >= 3 ? `${esc(ASSESSMENT_TIERS[nativeTier])}, from your listening check on ${esc(state.level.date)}.` : state.level ? `Pitched at ~${state.comfortWpm} words/min (from your level check on ${esc(state.level.date)}).` : 'Based on a starting estimate. <a href="#level">Find your level</a> for a better fit.'}</div>
       </div>
       <div class="filters">
         <select id="plan-min">${[15, 30, 45, 60].map(m => `<option value="${m}" ${m === plan.minutesPerDay ? 'selected' : ''}>${m} min a day</option>`).join('')}</select>
@@ -597,7 +703,7 @@ function renderPlan() {
             <button data-done="${id}" title="Mark as done">${isDone ? '✓' : '○'}</button>
           </div>`;
         }).join('')}
-      </section>` : '').join('') : `<div class="zone-note">No videos at your level yet. The library grows every day.</div>`}`;
+      </section>` : '').join('') : `<div class="zone-note">${nativeTier >= 3 ? 'No suitable unwatched native videos left. <a href="#feed?show=challenge">Browse or revisit native challenges</a>.' : 'No suitable videos for a fresh plan yet. <a href="#feed?show=all">Browse the library</a>.'}</div>`}`;
   $('#plan-min').addEventListener('change', e => { state.plan = buildPlan(Number(e.target.value)); save(); renderPlan(); });
   $('#plan-new').addEventListener('click', () => { state.plan = buildPlan(plan.minutesPerDay); save(); renderPlan(); toast('New plan made from videos you haven’t watched.'); });
   $('#main').addEventListener('click', e => {
@@ -644,7 +750,9 @@ async function renderWatch() {
   const { arg: id, params } = route();
   const v = byId[id];
   if (!v) { $('#main').innerHTML = '<p>Video not found.</p>'; return; }
-  const lines = await fetch(asset(`data/transcripts/${LANG}/${id}.json`)).then(r => r.json());
+  const lines = v.transcriptAvailable === false ? [] : await fetch(asset(`data/transcripts/${LANG}/${id}.json`)).then(r => r.ok ? r.json() : []).catch(() => []);
+  // A route change while the transcript loads must not replace the new page.
+  if (route().view !== 'watch' || route().arg !== id) return;
   const a = assess(v);
   const watched = state.watched[id] || (state.watched[id] = { seconds: 0 });
   const mode = state.settings.captionMode;
@@ -664,7 +772,9 @@ async function renderWatch() {
             <span class="sub-mask-label">subtitles hidden · drag to fit</span><span class="sub-mask-grip"></span>
           </div>
         </div>
-        <div id="caption" class="caption"></div>
+        <div id="caption" class="caption" ${lines.length ? '' : 'hidden'}></div>
+        ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? 'Chinese captions are available through the YouTube player’s CC button.' : 'Listen without captions; a Chinese caption track was not available when checked.'} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
+        ${v.challengeNote ? `<div class="zone-note">${esc(v.challengeNote)}</div>` : ''}
         <div class="controls">
           <div class="seg" id="modes">
             ${['always', 'delayed', 'peek', 'off'].map(m => `<button data-mode="${m}" class="${m === mode ? 'on' : ''}">${{ always: 'Captions on', delayed: 'Delayed', peek: 'Peek', off: 'Off' }[m]}</button>`).join('')}
@@ -690,9 +800,9 @@ async function renderWatch() {
           <h2>${esc(v.title)}</h2>
           <div class="meta" style="margin-bottom:8px">${esc(v.channel)} · ${fmtTime(v.duration)}${v.level ? ' · ' + esc(v.level) : ''}</div>
           <div class="meta">
-            <span class="pill ${a.band}">${BAND_LABEL[a.band]}</span>
-            <span class="pill plain">${v.wpm} wpm</span>
-            <span class="pill plain">${Math.round(a.cov * 100)}% familiar</span>
+            <span class="pill ${hasMeasuredDifficulty(v) ? a.band : 'plain'}">${hasMeasuredDifficulty(v) ? BAND_LABEL[a.band] : 'Native challenge'}</span>
+            ${speedPill(v)}
+            ${coveragePill(a)}
           </div>
           ${v.autoCaptions ? '<p class="muted small" style="margin:8px 0 0">Auto-generated captions, so expect some mistakes.</p>' : ''}
         </div>
@@ -716,6 +826,13 @@ async function renderWatch() {
   watchCtx = { id, lines, loop: null, peeking: false, pending: 0, rec: null, recUrl: null, recLine: null, stopAt: null, lastIdx: -1 };
   setupPlayer(id, Number(params.get('t')) || watched.lastPos || 0);
   bindWatchControls(v);
+  if (!lines.length) {
+    for (const selector of ['#modes', '#peekBtn', '#zhShow', '#loopBtn', '#recBtn', '#cmpBtn', '#trBtn']) {
+      const el = $(selector);
+      if (el) el.hidden = true;
+    }
+    $('#transcript').closest('.box').hidden = true;
+  }
 }
 
 function lineAt(lines, t) {
@@ -745,8 +862,11 @@ async function setupPlayer(id, start) {
     playerVars: { start: Math.floor(start), cc_load_policy: 0, iv_load_policy: 3, rel: 0, modestbranding: 1, hl: LANG },
     events: {
       onReady: () => {
+        if (!watchCtx || watchCtx.id !== id || !player) return;
         player.setPlaybackRate(state.settings.speed);
-        try { player.unloadModule('captions'); } catch (e) { /* YouTube's own captions stay off */ }
+        if (watchCtx.lines.length) {
+          try { player.unloadModule('captions'); } catch (e) { /* App captions take precedence. */ }
+        }
       },
       onStateChange: e => { if (e.data === YT.PlayerState.ENDED) promptRating(); },
       onError: () => toast('This video can’t be embedded. Try another one.'),
@@ -836,22 +956,23 @@ function currentLine() {
 // Some channels burn subtitles into the picture (the Easy Languages channels add an English line under
 // the target-language one). A blurred band covers them; its place is remembered per channel.
 const BURNED_IN_ENGLISH = /^Easy /;
-function setupSubMask(v) {
+function setupSubMask(v, nativeAssessment = false) {
   const mask = $('#sub-mask'), btn = $('#maskBtn'), wrap = mask.parentElement;
   state.settings.subMask = state.settings.subMask || {};
   // Default: just the second (English) subtitle line of an Easy Languages video.
-  const m = Object.assign({ on: BURNED_IN_ENGLISH.test(v.channel), top: 85, height: 6.5 }, state.settings.subMask[v.channel]);
+  const m = nativeAssessment ? { on: true, top: 75, height: 25 }
+    : Object.assign({ on: BURNED_IN_ENGLISH.test(v.channel), top: 85, height: 6.5 }, state.settings.subMask[v.channel]);
   const apply = () => {
     mask.hidden = !m.on;
     mask.style.top = m.top + '%';
     mask.style.height = m.height + '%';
     btn.classList.toggle('on', m.on);
   };
-  const persist = () => { state.settings.subMask[v.channel] = { ...m }; save(); };
+  const persist = () => { if (!nativeAssessment) { state.settings.subMask[v.channel] = { ...m }; save(); } };
   apply();
   btn.addEventListener('click', () => {
     m.on = !m.on; apply(); persist();
-    if (m.on) toast('Drag the band over the subtitles you want hidden. This channel will remember it.');
+    if (m.on) toast(nativeAssessment ? 'Drag the band over any subtitles. This applies only to this assessment clip.' : 'Drag the band over the subtitles you want hidden. This channel will remember it.');
   });
   mask.addEventListener('pointerdown', e => {
     e.preventDefault();
@@ -988,15 +1109,17 @@ function rate(id, pct) {
   // Each rating nudges your estimated level so the feed follows you. The sweet spot is ~75–90%.
   if (first) {
     const v = byId[id];
-    if (pct >= 95) { state.comfortWpm = Math.max(state.comfortWpm, v.wpm) + 6; state.vocabSize += 150; }
-    else if (pct >= 75) { state.comfortWpm += 2; state.vocabSize += 30; }
-    else if (pct >= 50) { state.comfortWpm = Math.max(40, state.comfortWpm - 2); }
-    else { state.comfortWpm = Math.max(40, Math.min(state.comfortWpm, v.wpm) - 6); state.vocabSize = Math.max(300, state.vocabSize - 150); }
-    state.vocabHistory.push({ date: today(), size: state.vocabSize, wpm: state.comfortWpm });
+    if (hasMeasuredDifficulty(v)) {
+      if (pct >= 95) { state.comfortWpm = Math.max(state.comfortWpm, v.wpm) + 6; state.vocabSize += 150; }
+      else if (pct >= 75) { state.comfortWpm += 2; state.vocabSize += 30; }
+      else if (pct >= 50) { state.comfortWpm = Math.max(40, state.comfortWpm - 2); }
+      else { state.comfortWpm = Math.max(40, Math.min(state.comfortWpm, v.wpm) - 6); state.vocabSize = Math.max(300, state.vocabSize - 150); }
+      state.vocabHistory.push({ date: today(), size: state.vocabSize, wpm: state.comfortWpm });
+    }
   }
   document.querySelectorAll('[data-rate]').forEach(b => b.classList.toggle('on', Number(b.dataset.rate) === pct));
   save();
-  toast(first ? `Thanks. Feed tuned to ~${state.comfortWpm} wpm.` : 'Rating updated.');
+  toast(first && hasMeasuredDifficulty(byId[id]) ? `Thanks. Feed tuned to ~${state.comfortWpm} wpm.` : 'Rating saved.');
 }
 
 // ---------- word popup ----------
