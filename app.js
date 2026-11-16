@@ -409,6 +409,7 @@ function renderFeed() {
               ${speedPill(v)}
               ${coveragePill(a)}
               ${v.transcriptAvailable === false ? '<span class="pill plain">No app transcript</span>' : ''}
+              ${v.embeddable === false ? '<span class="pill plain" title="The owner only allows playback on YouTube">↗ YouTube only</span>' : ''}
               ${w ? `<span class="pill plain">✓ watched${w.understood != null ? ` · ${w.understood}% understood` : ''}</span>` : ''}
             </div>
           </div>
@@ -433,7 +434,7 @@ let calib = null, calPlayer = null, calibQuestions = null, calClipTimer = null;
 function calibrationPool() {
   return library.filter(v => {
     const q = calibQuestions?.[v.id];
-    if (v.duration < 150) return false;
+    if (v.duration < 150 || v.embeddable === false) return false;
     if (hasMeasuredDifficulty(v)) return true;
     return q?.native === true && q.verifiedOn && q.questions?.length >= 2 &&
       q.start >= 0 && q.end > q.start && q.end <= v.duration && [3, 4].includes(q.tier);
@@ -898,6 +899,7 @@ async function renderWatch() {
     </div>`;
 
   watchCtx = { id, lines, loop: null, peeking: false, pending: 0, rec: null, recUrl: null, recLine: null, stopAt: null, lastIdx: -1 };
+  if (v.embeddable === false) { renderYouTubeOnly(v); return; }
   setupPlayer(id, Number(params.get('t')) || watched.lastPos || 0);
   bindWatchControls(v);
   if (!lines.length) {
@@ -907,6 +909,32 @@ async function renderWatch() {
     }
     $('#transcript').closest('.box').hidden = true;
   }
+}
+
+// Videos whose owner blocks playback on other sites (e.g. Dreaming French): watch on YouTube,
+// then rate here. The transcript stays as a read-along; its timestamps open YouTube at that moment.
+const youtubeUrl = (id, t) => `https://www.youtube.com/watch?v=${encodeURIComponent(id)}${t ? `&t=${Math.floor(t)}s` : ''}`;
+function renderYouTubeOnly(v) {
+  // Keep the player's elements (hidden) so the shared bindings below still find them.
+  const wrap = $('.video-wrap');
+  $('#yt').hidden = true;
+  wrap.insertAdjacentHTML('beforeend', `<a class="yt-out" href="${youtubeUrl(v.id)}" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="">
+      <span class="yt-out-btn">▶ Watch on YouTube ↗</span>
+    </a>`);
+  $('#caption').hidden = true;
+  const controls = document.querySelector('.watch .controls');
+  controls.hidden = true;
+  controls.insertAdjacentHTML('afterend', `<div class="zone-note" style="margin-top:12px">This video only plays on YouTube: its owner turned off playback on other sites.
+    Watch it there (YouTube's CC button has ${esc(LANGUAGES[LANG].name)} subtitles), then come back and rate it below. Rating adds the video's ${fmtTime(v.duration)} to your hours.</div>`);
+  const tr = $('#transcript');
+  if (tr) {
+    tr.addEventListener('click', e => {
+      const ts = e.target.closest('[data-seek]');
+      if (ts) { e.stopImmediatePropagation(); window.open(youtubeUrl(v.id, Number(ts.dataset.seek)), '_blank', 'noopener'); }
+    }, true);
+  }
+  bindWatchControls(v);
 }
 
 function lineAt(lines, t) {
@@ -1200,6 +1228,12 @@ function rate(id, pct) {
   const first = w.understood == null && !w.rating;
   w.understood = pct;
   w.ratedAt = today();
+  // YouTube-only videos can't be timed here: rating one counts its length once.
+  if (byId[id]?.embeddable === false && !w.timeLogged) {
+    w.timeLogged = true;
+    w.seconds = Math.max(w.seconds || 0, byId[id].duration);
+    addLog('app', byId[id].duration);
+  }
   // Each rating nudges your estimated level so the feed follows you. The sweet spot is ~75–90%.
   if (first) {
     const v = byId[id];

@@ -120,6 +120,10 @@ h2 { font-size: 17px; margin: 0 0 8px; }
 /* Watch */
 .watch { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
 .video-wrap { position: relative; aspect-ratio: 16/9; background: #000; border-radius: var(--radius); overflow: hidden; }
+.yt-out { position: absolute; inset: 0; z-index: 4; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+.yt-out img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.yt-out-btn { position: relative; padding: 12px 20px; border-radius: 999px; background: #c4302b; color: #fff; font-weight: 600; font-size: 17px; }
+.yt-out:hover .yt-out-btn { background: #e0352f; }
 .video-wrap iframe, .video-wrap #yt { position: absolute; inset: 0; width: 100%; height: 100%; }
 /* Covers subtitles burned into the video picture; fixed colors since it sits on video in either theme. */
 .sub-mask {
