@@ -333,3 +333,13 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: 0; }
   .top { padding: 10px 16px; gap: 12px; flex-wrap: wrap; }
   .phrase { grid-template-columns: 1fr; }
 }
+
+/* Road to practice-ready (Hours tab) */
+.road-head { font-size: 24px; font-weight: 700; }
+.checks { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+.checks li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.checks .tick { width: 18px; color: var(--muted, #888); font-weight: 700; }
+.checks li.ok .tick { color: var(--accent); }
+.road-form { margin-top: 12px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: 8px; }
+.road-form[hidden] { display: none; }
+.road-form label { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }

@@ -268,7 +268,7 @@ async function progressLink() {
     const raw = lang === LANG ? JSON.stringify(state) : localStorage.getItem(`luisteren-state-${lang}`);
     if (raw) states[lang] = JSON.parse(raw);
   }
-  let bytes = new TextEncoder().encode(JSON.stringify({ v: 1, lang: LANG, states }));
+  let bytes = new TextEncoder().encode(JSON.stringify({ v: 1, lang: LANG, states, profile: loadProfile() }));
   let code = 'j' + B64.enc(bytes);
   if (window.CompressionStream) code = 'z' + B64.enc(await streamBytes(bytes, new CompressionStream('deflate-raw')));
   return location.origin + location.pathname + '#import=' + code;
@@ -297,6 +297,7 @@ async function importProgress() {
   try {
     langs.forEach(l => localStorage.setItem(`luisteren-state-${l}`, JSON.stringify(data.states[l])));
     if (AVAILABLE.includes(data.lang)) localStorage.setItem('lang', data.lang);
+    if (data.profile?.known?.length) localStorage.setItem(PROFILE_KEY, JSON.stringify(data.profile));
   } catch (e) { alert('This browser won’t save progress (private mode?).'); return; }
   location.hash = '#log';
   location.reload();
@@ -1773,6 +1774,175 @@ async function searchLocal(q) {
 }
 
 // ---------- hours log ----------
+// ---------- road to practice-ready ----------
+// The product's finish line: comfortable walking up to a native speaker and practicing, at a level
+// where it isn't a chore for them. Estimate = benchmark hours × language difficulty × languages you
+// already know, placed by your measured level and corrected by your own progress rate.
+const PRACTICE = {
+  // Hours of listening for an English speaker in an "easy" language (Dreaming-Spanish-style level 4–5).
+  baseHours: 450,
+  // Relative effort for English speakers (US Foreign Service Institute categories).
+  difficulty: { nl: 1, fr: 1, pt: 1, es: 1, it: 1, ar: 2.6, zh: 2.8, ja: 3 },
+  // Everyday native conversation, in this app's words/min (Mandarin and Japanese: segmented words).
+  nativeWpm: { nl: 160, fr: 185, pt: 150, zh: 170, ja: 180, ar: 130 },
+  vocab: 2000,
+};
+const KNOWN_LANGS = { en: 'English', es: 'Spanish', fr: 'French', pt: 'Portuguese', it: 'Italian', ca: 'Catalan', ro: 'Romanian', de: 'German', nl: 'Dutch', zh: 'Mandarin', yue: 'Cantonese', ja: 'Japanese', ko: 'Korean', ar: 'Arabic', ru: 'Russian' };
+const KNOWN_LEVELS = { native: 1, advanced: 0.8, intermediate: 0.5, beginner: 0.2 };
+// How much knowing one language helps you *hear* another (rough lexical/sound overlap, 0–1).
+// Shared writing alone (kanji/hanzi) barely helps listening, so those pairs stay low.
+const SIMILAR = { 'es-pt': .85, 'es-it': .8, 'es-ca': .85, 'es-fr': .7, 'es-ro': .65, 'fr-it': .8, 'fr-pt': .65, 'fr-ca': .8, 'fr-ro': .65,
+  'pt-it': .75, 'pt-ca': .75, 'it-ro': .7, 'ca-it': .75, 'nl-de': .75, 'zh-yue': .45, 'ja-zh': .2, 'ja-yue': .15, 'ja-ko': .25, 'ko-zh': .15 };
+const similarity = (a, b) => SIMILAR[`${a}-${b}`] ?? SIMILAR[`${b}-${a}`] ?? 0;
+const PROFILE_KEY = 'luisteren-profile';  // shared by every language on this device
+function loadProfile() { try { return JSON.parse(localStorage.getItem(PROFILE_KEY)) || { known: [] }; } catch (e) { return { known: [] }; } }
+function saveProfile(p) { try { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch (e) { toast('This browser won’t save settings (private mode?).'); } }
+
+function backgroundFactor(known) {
+  // Each known language: 1 − closeness × proficiency × ⅔. The best one counts fully, others with diminishing returns.
+  const parts = known.filter(k => k.lang !== LANG && similarity(k.lang, LANG) > 0)
+    .map(k => ({ ...k, f: 1 - similarity(k.lang, LANG) * (KNOWN_LEVELS[k.level] || 0) * 0.67 }))
+    .sort((a, b) => a.f - b.f);
+  let f = 1;
+  parts.forEach((k, i) => { k.saving = i === 0 ? 1 - k.f : (1 - k.f) * 0.3; f *= 1 - k.saving; });
+  return { factor: Math.max(0.35, f), parts };
+}
+
+function practiceEstimate() {
+  const profile = loadProfile();
+  const bg = backgroundFactor(profile.known);
+  const diff = PRACTICE.difficulty[LANG] || 1.5;
+  const H = PRACTICE.baseHours * diff * bg.factor;
+  const target = Math.round(0.85 * (PRACTICE.nativeWpm[LANG] || 160));
+  const logged = state.log.reduce((n, e) => n + e.seconds, 0) / 3600;
+  const ratings = Object.values(state.watched).filter(w => w.understood != null).length;
+  const measured = !!state.level || ratings >= 3;
+  const clamp = x => Math.max(0, Math.min(1, x));
+  const share = (wpm, vocab) => 0.6 * clamp((wpm - 0.4 * target) / (0.6 * target)) + 0.4 * clamp(vocab / PRACTICE.vocab);
+  // Early progress is quick, the last stretch slow: reaching share m of the way costs about m^1.6 of the hours.
+  const equiv = (wpm, vocab) => H * share(wpm, vocab) ** 1.6;
+  const E = measured ? equiv(state.comfortWpm, state.vocabSize) : Math.min(logged, H * 0.95);
+  // Your own pace: progress since the first measurement vs. hours put in since then.
+  let speed = 1, rateNote = null;
+  const first = state.vocabHistory.find(h => h.wpm && h.size);
+  if (measured && first) {
+    const since = state.log.filter(e => e.date >= first.date).reduce((n, e) => n + e.seconds, 0) / 3600;
+    if (since >= 15) {
+      const r = Math.max(0.5, Math.min(2, (E - equiv(first.wpm, first.size)) / since));
+      speed = 1 + Math.min(1, since / 60) * (r - 1);
+      if (Math.abs(speed - 1) >= 0.1) rateNote = `Your progress so far is ${Math.round(Math.abs(speed - 1) * 100)}% ${speed > 1 ? 'faster' : 'slower'} than typical`;
+    }
+  }
+  const remaining = Math.max(0, H - E) / speed;
+  const days = [...Array(14)].map((_, i) => { const d = new Date(); d.setDate(d.getDate() - i); return d.toLocaleDateString('sv'); });
+  const perDay = state.log.filter(e => days.includes(e.date)).reduce((n, e) => n + e.seconds, 0) / 3600 / 14;
+  return { H, E, remaining, low: remaining * 0.75, high: remaining * 1.3, measured, target, diff, bg, rateNote, perDay, logged };
+}
+
+function readinessChecks(est) {
+  const convos = state.convos || [];
+  const s1 = goals.stages.find(st => st.phrases) || null;
+  const used = s1 ? Object.values((state.goals[s1.id] || {}).used || {}).filter(Boolean).length : 0;
+  const scenes = Object.values(state.scenes || {}).filter(r => (r.exact || 0) + (r.close || 0) + (r.different || 0) > 0);
+  const goodScenes = scenes.filter(r => ((r.exact || 0) + (r.close || 0)) / ((r.exact || 0) + (r.close || 0) + (r.different || 0)) >= 0.7).length;
+  const kept = convos.filter(c => c.minutes >= 10 && c.english !== 'mostly' && c.follow !== 'lost').length;
+  const understood = convos.filter(c => c.understood !== 'struggled').length;
+  return [
+    { ok: est.measured && state.comfortWpm >= est.target, label: 'Follow native speed', detail: est.measured ? `comfortable around ${state.comfortWpm} of ~${est.target} words/min` : 'take <a href="#level">Find my level</a> to measure it' },
+    { ok: state.vocabSize >= PRACTICE.vocab, label: 'Everyday words', detail: `about ${state.vocabSize.toLocaleString()} of ${PRACTICE.vocab.toLocaleString()} common words` },
+    { ok: used >= Math.min(4, (s1?.phrases || []).length || 4), label: 'Repair phrases', detail: s1 ? `${used} of ${s1.phrases.length} used in a real conversation (<a href="#goals">Goals</a>)` : 'no phrase list for this language yet' },
+    { ok: goodScenes >= 2 || kept >= 1, label: 'Answer simple questions', detail: kept ? `${kept} conversation${kept === 1 ? '' : 's'} of 10+ min without switching to English` : HAS_SCENES ? `${goodScenes} scene${goodScenes === 1 ? '' : 's'} at 70%+ (<a href="#scenes">Scenes</a>), or log a real conversation` : 'log a real conversation below' },
+    { ok: understood >= 2, label: 'Understood by natives', detail: convos.length ? `${understood} of ${convos.length} conversations where they understood you` : 'log a real conversation below' },
+  ];
+}
+// Languages with conversation scenes (goals/<lang>_scenes.json).
+const HAS_SCENES = ['nl', 'ar'].includes(LANG) && (!CONFIG.tabs || CONFIG.tabs.includes('scenes'));
+
+const monthYear = d => d.toLocaleDateString('en', { month: 'short', year: 'numeric' });
+function roadCard() {
+  const est = practiceEstimate();
+  const checks = readinessChecks(est);
+  const ready = checks.every(c => c.ok);
+  const profile = loadProfile();
+  const pace = est.perDay >= 5 / 60 ? est.perDay : 0.5;
+  const when = h => { const d = new Date(); d.setDate(d.getDate() + Math.round(h / pace)); return monthYear(d); };
+  const hrs = h => (h < 10 ? h.toFixed(1) : Math.round(h / 10) * 10);
+  const factors = [
+    `${LANGUAGES[LANG].name} for an English speaker: ${est.diff === 1 ? 'one of the quicker languages' : `about ×${est.diff} the effort of Spanish or French`} (benchmark ${Math.round(PRACTICE.baseHours * est.diff)} h)`,
+    ...est.bg.parts.map(k => `${KNOWN_LANGS[k.lang]} (${k.level}) shortens it by ${Math.round(k.saving * 100)}%`),
+    est.measured ? `Placed by your level: about ${Math.round(est.E)} h of the way` : `Placed by hours logged (${est.logged.toFixed(1)} h); take Find my level for a personal estimate`,
+    est.rateNote,
+  ].filter(Boolean);
+  return `<div class="box road" style="margin-top:16px">
+    <h2>Road to practice-ready</h2>
+    <p class="muted small" style="margin:0 0 10px">Practice-ready: you can walk up to a native speaker and keep a simple conversation going, without it being a chore for them.</p>
+    ${ready ? `<div class="road-head">You’re practice-ready 🎉</div><p class="small" style="margin:4px 0 10px">Go talk to people. Keep logging conversations below; they’re the best practice now.</p>`
+      : est.remaining < 5 ? `<div class="road-head">Almost there</div><p class="small" style="margin:4px 0 10px">Your listening is close enough. Tick off the checks below, mostly by talking to people.</p>`
+      : `<div class="road-head">About ${hrs(est.low)}–${hrs(est.high)} more hours</div>
+         <p class="small" style="margin:4px 0 10px">${est.perDay >= 5 / 60 ? `At your pace (${Math.round(est.perDay * 60)} min a day)` : 'At 30 min a day'}: around ${when(est.low)} – ${when(est.high)}.</p>
+         <div class="progress"><div style="width:${Math.min(100, (est.E / est.H) * 100)}%"></div></div>`}
+    <ul class="checks">${checks.map(c => `<li class="${c.ok ? 'ok' : ''}"><span class="tick">${c.ok ? '✓' : '○'}</span><b>${c.label}</b> <span class="muted small">${c.detail}</span></li>`).join('')}</ul>
+    <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px">
+      <button class="primary" id="convoBtn">＋ Log a conversation with a native speaker</button>
+      <button id="knownBtn">Languages you already know${profile.known.length ? ': ' + profile.known.map(k => esc(KNOWN_LANGS[k.lang] || k.lang)).join(', ') : ''}</button>
+    </div>
+    <form id="convoForm" class="road-form" hidden>
+      <label>How long? <input type="number" id="cvMin" min="1" max="600" value="15" style="width:70px"> min</label>
+      <label>How much did you follow? <select id="cvFollow"><option value="most">Most of it</option><option value="some">Some of it</option><option value="lost">I got lost a lot</option></select></label>
+      <label>Did they switch to English? <select id="cvEnglish"><option value="no">No</option><option value="sometimes">Sometimes</option><option value="mostly">Mostly</option></select></label>
+      <label>Did they understand you? <select id="cvUnderstood"><option value="easily">Easily</option><option value="effort">With some effort</option><option value="struggled">They struggled</option></select></label>
+      <label>Note <input type="text" id="cvNote" placeholder="who, where (optional)"></label>
+      <div class="row" style="gap:8px"><button class="primary">Save</button><button type="button" id="cvCancel">Cancel</button></div>
+    </form>
+    <div id="knownForm" class="road-form" hidden>
+      <p class="muted small" style="margin:0">Close languages make listening much quicker (e.g. native French roughly halves the time for Spanish). Shared by every language on this device.</p>
+      <div id="knownRows">${profile.known.map((k, i) => knownRow(k, i)).join('')}</div>
+      <div class="row" style="gap:8px"><button type="button" id="knownAdd">＋ Add a language</button><button type="button" class="primary" id="knownSave">Save</button></div>
+    </div>
+    <details style="margin-top:10px"><summary class="small">How is this calculated?</summary>
+      <ul class="small">${factors.map(f => `<li>${f}</li>`).join('')}</ul>
+      <p class="muted small">A rough range, not a promise: benchmarks from Dreaming Spanish’s roadmap and the US Foreign Service Institute, adjusted by your level checks, ratings and hours. It assumes you speak English.</p>
+    </details>
+  </div>`;
+}
+const knownRow = (k, i) => `<div class="row known-row" style="gap:6px;margin:6px 0">
+  <select data-k="lang">${Object.entries(KNOWN_LANGS).map(([c, n]) => `<option value="${c}" ${c === k.lang ? 'selected' : ''}>${n}</option>`).join('')}</select>
+  <select data-k="level">${Object.keys(KNOWN_LEVELS).map(l => `<option value="${l}" ${l === k.level ? 'selected' : ''}>${l}</option>`).join('')}</select>
+  <button type="button" class="small" data-krm="${i}">✕</button></div>`;
+
+function bindRoadCard() {
+  const show = id => { ['convoForm', 'knownForm'].forEach(f => ($('#' + f).hidden = f !== id || !$('#' + f).hidden)); };
+  $('#convoBtn').addEventListener('click', () => show('convoForm'));
+  $('#knownBtn').addEventListener('click', () => show('knownForm'));
+  $('#cvCancel').addEventListener('click', () => ($('#convoForm').hidden = true));
+  $('#convoForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const c = { date: today(), minutes: Number($('#cvMin').value) || 0, follow: $('#cvFollow').value, english: $('#cvEnglish').value, understood: $('#cvUnderstood').value, note: $('#cvNote').value.trim() };
+    if (!c.minutes) return;
+    (state.convos = state.convos || []).push(c);
+    addLog('conversation', c.minutes * 60, c.note);
+    toast('Conversation saved. Nice work.');
+    renderLog();
+  });
+  const rows = () => [...document.querySelectorAll('#knownRows .known-row')].map(r => ({ lang: r.querySelector('[data-k=lang]').value, level: r.querySelector('[data-k=level]').value }));
+  $('#knownAdd').addEventListener('click', () => {
+    const list = rows(); list.push({ lang: 'es', level: 'intermediate' });
+    $('#knownRows').innerHTML = list.map(knownRow).join('');
+  });
+  $('#knownRows').addEventListener('click', e => {
+    const i = e.target.dataset.krm;
+    if (i == null) return;
+    const list = rows(); list.splice(Number(i), 1);
+    $('#knownRows').innerHTML = list.map(knownRow).join('');
+  });
+  $('#knownSave').addEventListener('click', () => {
+    const p = loadProfile();
+    p.known = rows().filter((k, i, a) => a.findIndex(x => x.lang === k.lang) === i);
+    saveProfile(p);
+    renderLog();
+  });
+}
+
 function renderLog() {
   freshMain();
   const total = state.log.reduce((n, e) => n + e.seconds, 0);
@@ -1819,12 +1989,14 @@ function renderLog() {
         ${manual.length ? `<table style="margin-top:12px">${manual.map(({ e, i }) => `<tr><td class="small">${esc(e.date)}</td><td>${Math.round(e.seconds / 60)} min</td><td class="small">${esc(MANUAL_KINDS[e.kind] || e.kind)}${e.note ? ` · ${esc(e.note)}` : ''}</td><td><button class="small" data-dellog="${i}">✕</button></td></tr>`).join('')}</table>` : ''}
       </div>
     </div>
+    ${roadCard()}
     ${STATIC ? `<div class="box" style="margin-top:16px" id="move">
       <h2>Move my progress to another device</h2>
       <p class="muted small" style="margin:0 0 10px">Your progress is saved only in this browser. Make a link, send it to yourself (AirDrop, Messages, email) and open it on your phone or laptop: it copies your videos, level, words and hours there, for every language. It replaces what that device had, so do it each time you switch.</p>
       <button class="primary" id="moveBtn">Make my progress link</button>
       <div id="moveOut" class="small" style="margin-top:10px"></div>
     </div>` : ''}`;
+  bindRoadCard();
   if (STATIC) $('#moveBtn').addEventListener('click', async () => {
     const out = $('#moveOut');
     let url;
