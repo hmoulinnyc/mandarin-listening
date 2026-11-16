@@ -851,6 +851,7 @@ async function renderWatch() {
         <div id="caption" class="caption" ${lines.length ? '' : 'hidden'}></div>
         ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? `${esc(LANGUAGES[LANG].name)} subtitles show on the video (📺 Subs on video).` : `Listen without captions; a ${esc(LANGUAGES[LANG].name)} caption track was not available when checked.`} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
         ${v.challengeNote ? `<div class="zone-note">${esc(v.challengeNote)}</div>` : ''}
+        <div id="rpt" class="box rpt" hidden></div>
         <div class="controls">
           <div class="seg" id="modes">
             ${['always', 'delayed', 'peek', 'off'].map(m => `<button data-mode="${m}" class="${m === mode ? 'on' : ''}">${{ always: 'Captions on', delayed: 'Delayed', peek: 'Peek', off: 'Off' }[m]}</button>`).join('')}
@@ -864,6 +865,7 @@ async function renderWatch() {
           <button id="vsubBtn" class="${videoSubsOn() ? 'on' : ''}" title="Show the ${esc(LANGUAGES[LANG].name)} subtitles on the video picture instead of under it">📺 Subs on video</button>
           <button id="maskBtn" title="Cover subtitles burned into the video picture (e.g. English)">🙈 Hide video subs</button>
           <span class="sep"></span>
+          <button id="rptBtn" class="primary" title="The video pauses after each phrase; you say it, the app checks how clearly">🔁 Repeat after me</button>
           <button id="recBtn" title="Shadow: record yourself repeating the line">🎙 Shadow</button>
           <button id="cmpBtn" disabled title="Play the original line, then your recording">▶ Compare</button>
         </div>
@@ -905,7 +907,7 @@ async function renderWatch() {
   setupPlayer(id, Number(params.get('t')) || watched.lastPos || 0);
   bindWatchControls(v);
   if (!lines.length) {
-    for (const selector of ['#modes', '#peekBtn', '#zhShow', '#loopBtn', '#recBtn', '#cmpBtn', '#trBtn']) {
+    for (const selector of ['#modes', '#peekBtn', '#zhShow', '#loopBtn', '#rptBtn', '#recBtn', '#cmpBtn', '#trBtn']) {
       const el = $(selector);
       if (el) el.hidden = true;
     }
@@ -997,10 +999,15 @@ function tickCaption() {
   const t = player.getCurrentTime();
   const mode = state.settings.captionMode;
 
-  if (ctx.stopAt != null && t >= ctx.stopAt) {  // end of the "compare" playback
+  // End of a "compare" or "repeat after me" playback. Armed only once playback is inside the
+  // segment, so a seek back doesn't stop at once on the old position.
+  if (ctx.stopAt != null && t < ctx.stopAt - 0.3) ctx.stopArmed = true;
+  if (ctx.stopAt != null && ctx.stopArmed && t >= ctx.stopAt) {
     ctx.stopAt = null;
+    ctx.stopArmed = false;
     player.pauseVideo();
-    if (ctx.recUrl) new Audio(ctx.recUrl).play();
+    if (ctx.onStop) { const f = ctx.onStop; ctx.onStop = null; f(); }
+    else if (ctx.recUrl) new Audio(ctx.recUrl).play();
   }
   if (ctx.loop && t >= ctx.loop.e + 0.15) player.seekTo(ctx.loop.s, true);
 
@@ -1052,6 +1059,7 @@ function flushWatchTime() {
 }
 
 function teardownWatch() {
+  stopRepeat();
   if (watchCtx) flushWatchTime();
   watchTimers.forEach(clearInterval);
   watchTimers = [];
@@ -1145,10 +1153,12 @@ function bindWatchControls(v) {
     save();
   });
   $('#recBtn').addEventListener('click', toggleRecording);
+  $('#rptBtn').addEventListener('click', () => (rpt ? stopRepeat() : startRepeat()));
   $('#cmpBtn').addEventListener('click', () => {
     if (!ctx.recLine) return;
     player.seekTo(ctx.recLine.s, true);
     player.playVideo();
+    ctx.stopArmed = false;
     ctx.stopAt = ctx.recLine.e;
   });
   $('#trBtn').addEventListener('click', e => {
@@ -1775,6 +1785,309 @@ async function searchLocal(q) {
 }
 
 // ---------- hours log ----------
+// ---------- repeat after me ----------
+// The video plays one phrase and pauses; you say it; the app records you, checks how clearly it
+// came through (speech recognition: the browser's, or Whisper on the Mac), and plays the original
+// and you back to back when it didn't. Scores and tricky words are kept for the Hours tab.
+let rpt = null;
+const RECOG_LANG = { ar: 'ar-SA' };
+const SAY_GOOD = 90, SAY_REPLAY = 80;
+
+function buildPhrases(lines) {
+  // Merge caption lines into sentence-sized phrases (about 3–14 words), cut at punctuation or pauses.
+  const size = l => (HAS_READINGS ? Math.ceil((l.t || '').replace(/\s/g, '').length / 2) : l.t.split(/\s+/).filter(Boolean).length);
+  const out = [];
+  let cur = null;
+  lines.forEach((l, i) => {
+    if (!cur) cur = { s: l.s, idx: [], n: 0 };
+    cur.idx.push(i);
+    cur.n += size(l);
+    const next = lines[i + 1];
+    const sentenceEnd = /[.?!…。？！]["”»]?$/.test(l.t.trim());
+    if (!next || sentenceEnd || next.s - l.e > 0.6 || cur.n >= 9 || cur.n + size(next) > 14) {
+      cur.e = (next ? Math.min(l.e, next.s) : l.e) + 0.2;
+      cur.text = cur.idx.map(j => lines[j].t).join(HAS_READINGS ? '' : ' ');
+      out.push(cur);
+      cur = null;
+    }
+  });
+  return out;
+}
+
+// Comparable tokens: lowercase, no accents or punctuation; characters for Mandarin/Japanese.
+const sayNorm = w => w.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’']/g, "'");
+function sayTokens(text) {
+  const clean = text.replace(/[\p{P}\p{S}]+/gu, ' ');
+  if (HAS_READINGS) return [...clean.replace(/\s+/g, '')].map(c => ({ w: c, n: sayNorm(c) }));
+  return clean.split(/\s+/).filter(Boolean).map(w => ({ w, n: sayNorm(w) }));
+}
+function scoreAttempt(target, heard) {
+  const T = sayTokens(target), A = sayTokens(heard || '');
+  const { ops } = ScenePlayer.align(A.map(t => t.n), T.map(t => t.n));
+  let j = 0, pts = 0;
+  const words = [];
+  for (const op of ops) {
+    if (op.type === 'extra') continue;
+    const tok = T[j++];
+    const cls = op.type === 'ok' ? 'ok' : op.type === 'near' ? 'near' : 'miss';
+    pts += cls === 'ok' ? 1 : cls === 'near' ? 0.5 : 0;
+    words.push({ w: tok.w, cls });
+  }
+  return { score: T.length ? Math.round((pts / T.length) * 100) : 0, words };
+}
+
+function phraseAt(t) {
+  const i = rpt.phrases.findIndex(p => p.e > t + 0.05);
+  return i < 0 ? 0 : i;
+}
+
+function startRepeat() {
+  const ctx = watchCtx;
+  if (!ctx || !player || !ctx.lines.length) return;
+  ctx.loop = null;
+  $('#loopBtn')?.classList.remove('on');
+  rpt = { phrases: buildPhrases(ctx.lines), scored: new Set(), stream: null, ac: null, an: null, timers: [] };
+  rpt.i = phraseAt(player.getCurrentTime ? player.getCurrentTime() : 0);
+  $('#rptBtn').classList.add('on');
+  $('#rptBtn').textContent = '✕ Stop repeating';
+  $('#rpt').hidden = false;
+  $('.watch').classList.toggle('rpt-echo', !!state.settings.sayEcho);
+  rptPlay();
+}
+
+function stopRepeat() {
+  if (!rpt) return;
+  const r = rpt;
+  rpt = null;
+  r.timers.forEach(clearTimeout);
+  if (r.stopListening) r.stopListening(true);
+  if (r.audio) r.audio.pause();
+  if (r.stream) r.stream.getTracks().forEach(t => t.stop());
+  if (r.ac) r.ac.close().catch(() => {});
+  if (watchCtx) { watchCtx.onStop = null; watchCtx.stopAt = null; }
+  if (player && player.setPlaybackRate) player.setPlaybackRate(state.settings.speed);
+  const b = $('#rptBtn');
+  if (b) { b.classList.remove('on'); b.textContent = '🔁 Repeat after me'; }
+  const box = $('#rpt');
+  if (box) box.hidden = true;
+  $('.watch')?.classList.remove('rpt-echo');
+  save();
+}
+
+function rptRender(phase, extra = {}) {
+  if (!rpt) return;
+  const ph = rpt.phrases[rpt.i];
+  const lines = ph.idx.map(j => watchCtx.lines[j]);
+  const showText = !state.settings.sayEcho || phase === 'result';
+  const text = extra.words
+    ? extra.words.map(x => `<span class="say-${x.cls}">${esc(x.w)}</span>`).join(HAS_READINGS ? '' : ' ')
+    : showText ? lines.map(lineSpans).join(' ') : '<span class="muted">(listen, then repeat from memory)</span>';
+  const status = {
+    listen: '👂 Listen…',
+    speak: '<span class="say-rec">● Your turn: say it</span> <span class="say-meter"><span></span></span>',
+    checking: 'Checking…',
+    nothing: 'I didn’t hear anything. Try again?',
+    result: extra.score == null ? 'Recorded. Listen to the original and you.' : `<b class="say-score ${extra.score >= SAY_GOOD ? 'good' : extra.score >= SAY_REPLAY ? 'ok' : 'low'}">${extra.score}%</b> came through clearly${extra.score >= SAY_GOOD ? '. Next one…' : ''}`,
+    nomic: 'Microphone access is blocked. Allow it in the browser to use this.',
+  }[phase];
+  $('#rpt').innerHTML = `
+    <div class="rpt-head"><span class="muted small">Repeat after me · phrase ${rpt.i + 1} of ${rpt.phrases.length}</span>
+      <label class="small muted"><input type="checkbox" id="sayEcho" ${state.settings.sayEcho ? 'checked' : ''}> hide the text until I’ve said it</label></div>
+    <div class="rpt-text">${text}</div>
+    ${extra.heard != null ? `<div class="muted small">Heard: “${esc(extra.heard || '…')}”</div>` : ''}
+    <div class="rpt-status">${status}</div>
+    <div class="row" style="gap:8px;flex-wrap:wrap">
+      ${phase === 'speak' ? '<button class="primary" id="sayDone">■ Done</button>' : ''}
+      <button id="sayAgain">⟲ Again</button>
+      <button id="saySlow">🐢 Slower</button>
+      ${rpt.myUrl && phase === 'result' ? '<button id="sayBoth">▶ Original, then me</button>' : ''}
+      <button id="sayPrev">← Back</button>
+      <button id="sayNext" class="${phase === 'result' ? 'primary' : ''}">Next →</button>
+    </div>`;
+  const on = (id, f) => { const el = $('#' + id); if (el) el.addEventListener('click', f); };
+  const act = f => () => { if (!rpt) return; rpt.timers.forEach(clearTimeout); rpt.timers = []; if (rpt.stopListening) rpt.stopListening(true); if (rpt.audio) rpt.audio.pause(); f(); };
+  on('sayDone', () => rpt?.stopListening && rpt.stopListening(false));
+  on('sayAgain', act(() => rptPlay()));
+  on('saySlow', act(() => rptPlay(0.75)));
+  on('sayBoth', act(() => rptPlayBoth()));
+  on('sayPrev', act(() => { rpt.i = Math.max(0, rpt.i - 1); rptPlay(); }));
+  on('sayNext', act(() => rptNext()));
+  $('#sayEcho').addEventListener('change', e => { state.settings.sayEcho = e.target.checked; $('.watch').classList.toggle('rpt-echo', e.target.checked); save(); });
+}
+
+function rptNext() {
+  if (rpt.i >= rpt.phrases.length - 1) { toast('That was the last phrase. Nice work!'); stopRepeat(); return; }
+  rpt.i++;
+  rptPlay();
+}
+
+function rptPlaySegment(ph, rate) {
+  return new Promise(resolve => {
+    player.setPlaybackRate(rate);
+    player.seekTo(ph.s, true);
+    player.playVideo();
+    watchCtx.stopArmed = false;
+    watchCtx.stopAt = ph.e;
+    watchCtx.onStop = resolve;
+  });
+}
+
+async function rptPlay(rate) {
+  const r = rpt;
+  const ph = r.phrases[r.i];
+  rptRender('listen');
+  await rptPlaySegment(ph, rate || state.settings.speed);
+  if (rpt !== r) return;
+  player.setPlaybackRate(state.settings.speed);
+  rptTurn(ph);
+}
+
+async function rptPlayBoth() {
+  const r = rpt;
+  rptRender('result', r.last);
+  await rptPlaySegment(r.phrases[r.i], state.settings.speed);
+  if (rpt !== r || !r.myUrl) return;
+  r.audio = new Audio(r.myUrl);
+  r.audio.play().catch(() => {});
+  await new Promise(res => { r.audio.onended = res; r.audio.onerror = res; });
+}
+
+async function rptMic() {
+  const r = rpt;
+  if (!r.stream) {
+    r.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+    r.ac = new (window.AudioContext || window.webkitAudioContext)();
+    r.an = r.ac.createAnalyser();
+    r.an.fftSize = 1024;
+    r.ac.createMediaStreamSource(r.stream).connect(r.an);
+  }
+  if (r.ac.state === 'suspended') await r.ac.resume();
+}
+
+function rptListen(ph) {
+  // Record until a second of silence after speaking (or Done, or a time limit). The browser's
+  // speech recognition listens at the same time when it exists.
+  const r = rpt;
+  const chunks = [], heard = [];
+  const rec = new MediaRecorder(r.stream);
+  rec.ondataavailable = e => chunks.push(e.data);
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let sr = null;
+  if (SR) {
+    try {
+      sr = new SR();
+      sr.lang = RECOG_LANG[LANG] || LANGUAGES[LANG].voice;
+      sr.continuous = true;
+      sr.interimResults = false;
+      sr.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) heard.push(e.results[k][0].transcript); };
+      sr.onerror = () => {};
+      sr.start();
+    } catch (e) { sr = null; }
+  }
+  rec.start();
+  const buf = new Float32Array(r.an.fftSize);
+  const t0 = performance.now();
+  const maxMs = Math.max(5000, (ph.e - ph.s) * 2500);
+  let spoke = false, lastVoice = t0, floor = 0, samples = 0;
+  return new Promise(resolve => {
+    let done = false;
+    const finish = cancelled => {
+      if (done) return;
+      done = true;
+      clearInterval(tick);
+      r.stopListening = null;
+      const srDone = new Promise(res => { if (!sr) return res(); sr.onend = res; try { sr.stop(); } catch (e) { res(); } setTimeout(res, 2500); });
+      rec.onstop = async () => { await srDone; resolve({ cancelled, spoke, blob: new Blob(chunks, { type: rec.mimeType }), heard: heard.join(' ') }); };
+      rec.stop();
+    };
+    r.stopListening = finish;
+    const tick = setInterval(() => {
+      r.an.getFloatTimeDomainData(buf);
+      const rms = Math.sqrt(buf.reduce((n, x) => n + x * x, 0) / buf.length);
+      const now = performance.now();
+      if (now - t0 < 300) { floor += rms; samples++; return; }
+      const threshold = Math.max(0.012, (floor / Math.max(1, samples)) * 3);
+      if (rms > threshold) { spoke = true; lastVoice = now; }
+      const meter = document.querySelector('.say-meter span');
+      if (meter) meter.style.width = `${Math.min(100, (rms / (threshold * 4)) * 100)}%`;
+      if ((spoke && now - lastVoice > 1100) || now - t0 > maxMs || (!spoke && now - t0 > 7000)) finish(false);
+    }, 50);
+  });
+}
+
+async function rptTranscribe(res) {
+  if (!STATIC) {
+    try {
+      const wav = await ScenePlayer.toWav16k(res.blob);
+      const r = await fetch(`/api/transcribe?lang=${LANG}`, { method: 'POST', headers: { 'Content-Type': 'audio/wav' }, body: wav });
+      if (r.ok) return (await r.json()).text;
+    } catch (e) { /* fall back to the browser's recognition */ }
+  }
+  return (window.SpeechRecognition || window.webkitSpeechRecognition) ? res.heard : null;
+}
+
+async function rptTurn(ph) {
+  const r = rpt;
+  try { await rptMic(); } catch (e) { rptRender('nomic'); return; }
+  if (rpt !== r) return;
+  rptRender('speak');
+  const res = await rptListen(ph);
+  if (rpt !== r || res.cancelled) return;
+  if (!res.spoke) { rptRender('nothing'); return; }
+  if (r.myUrl) URL.revokeObjectURL(r.myUrl);
+  r.myUrl = URL.createObjectURL(res.blob);
+  rptRender('checking');
+  const heard = await rptTranscribe(res);
+  if (rpt !== r) return;
+  if (heard == null) { r.last = { score: null }; rptRender('result', r.last); rptPlayBoth(); return; }
+  const result = scoreAttempt(ph.text, heard);
+  r.last = { ...result, heard };
+  recordSay(r, result);
+  rptRender('result', r.last);
+  if (result.score >= SAY_GOOD) r.timers.push(setTimeout(() => rpt === r && rptNext(), 1600));
+  else if (result.score < SAY_REPLAY) rptPlayBoth();
+}
+
+function recordSay(r, result) {
+  // First attempt at each phrase counts toward the averages; every attempt updates tricky words.
+  const s = state.say || (state.say = { days: {}, miss: {} });
+  const key = `${watchCtx.id}:${r.i}`;
+  if (!r.scored.has(key)) {
+    r.scored.add(key);
+    const d = s.days[today()] || (s.days[today()] = { n: 0, sum: 0 });
+    d.n++;
+    d.sum += result.score;
+  }
+  if (!HAS_READINGS) {
+    for (const x of result.words) {
+      const w = x.w.toLowerCase();
+      if (x.cls === 'miss') s.miss[w] = (s.miss[w] || 0) + 1;
+      else if (x.cls === 'ok' && s.miss[w]) { s.miss[w] -= 0.5; if (s.miss[w] <= 0) delete s.miss[w]; }
+    }
+  }
+  save();
+}
+
+function sayCard() {
+  const s = state.say;
+  if (!s || !Object.keys(s.days).length) return '';
+  const days = [...Array(14)].map((_, i) => { const d = new Date(); d.setDate(d.getDate() - (13 - i)); return d.toLocaleDateString('sv'); });
+  const week = days.slice(7).map(d => s.days[d]).filter(Boolean);
+  const n = week.reduce((a, d) => a + d.n, 0), avg = n ? Math.round(week.reduce((a, d) => a + d.sum, 0) / n) : null;
+  const tricky = Object.entries(s.miss).filter(([w, c]) => c >= 1 && w.length >= 3).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  return `<div class="box" style="margin-top:16px">
+    <h2>Pronunciation (Repeat after me)</h2>
+    <div class="stats" style="margin-bottom:10px">
+      <div class="stat"><div class="v">${avg == null ? '–' : avg + '%'}</div><div class="k">clarity, last 7 days</div></div>
+      <div class="stat"><div class="v">${n}</div><div class="k">phrases, last 7 days</div></div>
+    </div>
+    <div class="bars">${days.map(d => { const x = s.days[d]; const a = x ? Math.round(x.sum / x.n) : 0; return `<div class="b" title="${d}: ${x ? `${a}% over ${x.n} phrases` : 'none'}"><div style="height:${a}%"></div><span>${d.slice(8)}</span></div>`; }).join('')}</div>
+    ${tricky.length ? `<h2 style="margin-top:14px">Words to practice saying</h2>
+      <div class="chips">${tricky.map(([w]) => `<span class="chip"><button class="mini" data-say="${esc(w)}" title="Listen">▶</button> <a href="#words?q=${encodeURIComponent(w)}" title="Hear it in real videos">${esc(w)}</a></span>`).join('')}</div>` : ''}
+    <p class="muted small" style="margin:10px 0 0">Clarity = how much of each phrase speech recognition understood on your first try. It measures being understood, not accent; watch the trend.</p>
+  </div>`;
+}
+
 // ---------- road to practice-ready ----------
 // The product's finish line: comfortable walking up to a native speaker and practicing, at a level
 // where it isn't a chore for them. Estimate = benchmark hours × language difficulty × languages you
@@ -1991,6 +2304,7 @@ function renderLog() {
       </div>
     </div>
     ${roadCard()}
+    ${sayCard()}
     ${STATIC ? `<div class="box" style="margin-top:16px" id="move">
       <h2>Move my progress to another device</h2>
       <p class="muted small" style="margin:0 0 10px">Your progress is saved only in this browser. Make a link, send it to yourself (AirDrop, Messages, email) and open it on your phone or laptop: it copies your videos, level, words and hours there, for every language. It replaces what that device had, so do it each time you switch.</p>

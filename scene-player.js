@@ -667,5 +667,5 @@
     return { stop: () => { run++; opts.stop && opts.stop(); } };
   }
 
-  window.ScenePlayer = { mount, judge, toWav16k, level, watchdog, LANGS };
+  window.ScenePlayer = { mount, judge, align, toWav16k, level, watchdog, LANGS };
 })();

@@ -343,3 +343,17 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: 0; }
 .road-form { margin-top: 12px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: 8px; }
 .road-form[hidden] { display: none; }
 .road-form label { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* Repeat after me */
+.rpt { margin-top: 12px; display: grid; gap: 10px; border-color: var(--accent); }
+.rpt-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: center; }
+.rpt-text { font-size: 22px; line-height: 1.45; }
+.rpt-status { min-height: 1.5em; }
+.say-ok { color: inherit; }
+.say-near { color: #c98a00; text-decoration: underline dotted; }
+.say-miss { color: #d9480f; text-decoration: underline wavy; text-underline-offset: 4px; }
+.say-rec { color: #d9480f; font-weight: 700; }
+.say-meter { display: inline-block; vertical-align: middle; width: 90px; height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; margin-left: 8px; }
+.say-meter span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .05s; }
+.say-score.good { color: #2b8a3e; } .say-score.ok { color: #c98a00; } .say-score.low { color: #d9480f; }
+.rpt-echo #caption { visibility: hidden; }
