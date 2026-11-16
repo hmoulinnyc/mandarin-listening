@@ -1836,6 +1836,57 @@ function scoreAttempt(target, heard) {
   return { score: T.length ? Math.round((pts / T.length) * 100) : 0, words };
 }
 
+// The thing being practiced: the phrase, or one chunk of it after splitting.
+const rptTarget = () => (rpt.queue ? rpt.queue[rpt.q] : rpt.phrases[rpt.i]);
+
+// Captions have no per-word timings, so a word's time is estimated from its position in its line.
+function phraseWords(ph) {
+  const lines = watchCtx.lines, out = [];
+  ph.idx.forEach(j => {
+    const l = lines[j], next = lines[j + 1];
+    const end = next ? Math.min(l.e, next.s) : l.e;
+    const toks = HAS_READINGS ? (l.w || [...l.t]) : l.t.split(/\s+/).filter(Boolean);
+    const total = toks.reduce((n, w) => n + w.length, 0) || 1;
+    let off = 0;
+    toks.forEach(w => {
+      const s0 = l.s + ((end - l.s) * off) / total;
+      off += w.length;
+      const e0 = l.s + ((end - l.s) * off) / total;
+      if (/[\p{L}\p{N}]/u.test(w)) out.push({ w, s: s0, e: e0, comma: /[,;:、，]$/.test(w) });
+      else if (out.length && /[,;:、，]/.test(w)) out[out.length - 1].comma = true;
+    });
+  });
+  return out;
+}
+function splitPhrase(ph) {
+  // Chunks of about 3–5 words, cut after a comma when one is close by.
+  const ws = phraseWords(ph), n = ws.length;
+  if (n < 6) return null;
+  const k = Math.ceil(n / 4.5), chunks = [];
+  let start = 0;
+  for (let c = 1; c <= k; c++) {
+    let end = c === k ? n : Math.round((n / k) * c);
+    if (c < k) {
+      const comma = [0, -1, 1, -2, 2].map(d => end + d).find(b => b > start + 1 && b < n - 1 && ws[b - 1].comma);
+      if (comma) end = comma;
+      // Don't end a part on a little word ("o", "de", "a"): it belongs with what follows.
+      else if (!HAS_READINGS && end - start > 2 && ws[end - 1].w.length <= 2) end--;
+    }
+    const part = ws.slice(start, end);
+    chunks.push({ s: Math.max(ph.s - 0.1, part[0].s - 0.2), e: Math.min(ph.e + 0.1, part[part.length - 1].e + 0.35), text: part.map(x => x.w).join(HAS_READINGS ? '' : ' ') });
+    start = end;
+  }
+  return chunks;
+}
+function startSplit() {
+  const chunks = splitPhrase(rpt.phrases[rpt.i]);
+  if (!chunks) { toast('This phrase is already short. Try 🐢 Slower.'); return false; }
+  rpt.queue = chunks;
+  rpt.q = 0;
+  rptPlay();
+  return true;
+}
+
 function phraseAt(t) {
   const i = rpt.phrases.findIndex(p => p.e > t + 0.05);
   return i < 0 ? 0 : i;
@@ -1846,7 +1897,7 @@ function startRepeat() {
   if (!ctx || !player || !ctx.lines.length) return;
   ctx.loop = null;
   $('#loopBtn')?.classList.remove('on');
-  rpt = { phrases: buildPhrases(ctx.lines), scored: new Set(), stream: null, ac: null, an: null, timers: [] };
+  rpt = { phrases: buildPhrases(ctx.lines), scored: new Set(), fails: {}, queue: null, q: 0, stream: null, ac: null, an: null, timers: [] };
   rpt.i = phraseAt(player.getCurrentTime ? player.getCurrentTime() : 0);
   $('#rptBtn').classList.add('on');
   $('#rptBtn').textContent = '✕ Stop repeating';
@@ -1878,12 +1929,14 @@ function rptRender(phase, extra = {}) {
   if (!rpt) return;
   const ph = rpt.phrases[rpt.i];
   const lines = ph.idx.map(j => watchCtx.lines[j]);
+  const chunk = rpt.queue ? rpt.queue[rpt.q] : null;
   const showText = !state.settings.sayEcho || phase === 'result';
   const text = extra.words
     ? extra.words.map(x => `<span class="say-${x.cls}">${esc(x.w)}</span>`).join(HAS_READINGS ? '' : ' ')
-    : showText ? lines.map(lineSpans).join(' ') : '<span class="muted">(listen, then repeat from memory)</span>';
+    : !showText ? '<span class="muted">(listen, then repeat from memory)</span>'
+    : chunk ? esc(chunk.text) : lines.map(lineSpans).join(' ');
   const status = {
-    listen: '👂 Listen…',
+    listen: extra.stalled ? 'The video didn’t start. Tap ▶ on the video.' : chunk ? '👂 Listen to this part…' : rpt.wholeAgain ? '👂 Now the whole phrase…' : '👂 Listen…',
     speak: '<span class="say-rec">● Your turn: say it</span> <span class="say-meter"><span></span></span>',
     checking: 'Checking…',
     nothing: 'I didn’t hear anything. Try again?',
@@ -1891,9 +1944,10 @@ function rptRender(phase, extra = {}) {
     nomic: 'Microphone access is blocked. Allow it in the browser to use this.',
   }[phase];
   $('#rpt').innerHTML = `
-    <div class="rpt-head"><span class="muted small">Repeat after me · phrase ${rpt.i + 1} of ${rpt.phrases.length}</span>
+    <div class="rpt-head"><span class="muted small">Repeat after me · phrase ${rpt.i + 1} of ${rpt.phrases.length}${chunk ? ` · <b>part ${rpt.q + 1} of ${rpt.queue.length}</b>` : ''}</span>
       <label class="small muted"><input type="checkbox" id="sayEcho" ${state.settings.sayEcho ? 'checked' : ''}> hide the text until I’ve said it</label></div>
     <div class="rpt-text">${text}</div>
+    ${chunk && showText ? `<div class="muted small">Whole phrase: ${esc(ph.text)}</div>` : ''}
     ${extra.heard != null ? `<div class="muted small">Heard: “${esc(extra.heard || '…')}”</div>` : ''}
     <div class="rpt-status">${status}</div>
     <div class="row" style="gap:8px;flex-wrap:wrap">
@@ -1901,6 +1955,7 @@ function rptRender(phase, extra = {}) {
       <button id="sayAgain">⟲ Again</button>
       <button id="saySlow">🐢 Slower</button>
       ${rpt.myUrl && phase === 'result' ? '<button id="sayBoth">▶ Original, then me</button>' : ''}
+      ${!chunk && phase !== 'speak' ? `<button id="saySplit" class="${(rpt.fails[rpt.i] || 0) >= 2 ? 'primary' : ''}">✂ Split it up</button>` : ''}
       <button id="sayPrev">← Back</button>
       <button id="sayNext" class="${phase === 'result' ? 'primary' : ''}">Next →</button>
     </div>`;
@@ -1910,42 +1965,61 @@ function rptRender(phase, extra = {}) {
   on('sayAgain', act(() => rptPlay()));
   on('saySlow', act(() => rptPlay(0.75)));
   on('sayBoth', act(() => rptPlayBoth()));
-  on('sayPrev', act(() => { rpt.i = Math.max(0, rpt.i - 1); rptPlay(); }));
+  on('saySplit', act(() => startSplit()));
+  on('sayPrev', act(() => { if (rpt.queue && rpt.q > 0) rpt.q--; else { rpt.queue = null; rpt.i = Math.max(0, rpt.i - 1); } rptPlay(); }));
   on('sayNext', act(() => rptNext()));
   $('#sayEcho').addEventListener('change', e => { state.settings.sayEcho = e.target.checked; $('.watch').classList.toggle('rpt-echo', e.target.checked); save(); });
 }
 
 function rptNext() {
+  if (rpt.queue) {
+    if (rpt.q < rpt.queue.length - 1) { rpt.q++; rptPlay(); return; }
+    rpt.queue = null;           // all parts done: the whole phrase again
+    rpt.wholeAgain = true;
+    rptPlay();
+    return;
+  }
+  rpt.wholeAgain = false;
   if (rpt.i >= rpt.phrases.length - 1) { toast('That was the last phrase. Nice work!'); stopRepeat(); return; }
   rpt.i++;
   rptPlay();
 }
 
-function rptPlaySegment(ph, rate) {
+function rptPlaySegment(seg, rate) {
+  const r = rpt;
   return new Promise(resolve => {
     player.setPlaybackRate(rate);
-    player.seekTo(ph.s, true);
+    player.seekTo(seg.s, true);
     player.playVideo();
     watchCtx.stopArmed = false;
-    watchCtx.stopAt = ph.e;
-    watchCtx.onStop = resolve;
+    watchCtx.stopAt = seg.e;
+    // If playback stalls (buffering, a browser pausing it), nudge it; after a few tries ask for a tap.
+    let tries = 0;
+    const dog = setInterval(() => {
+      if (rpt !== r || !watchCtx || watchCtx.stopAt == null) { clearInterval(dog); return; }
+      if (player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING && player.getPlayerState() !== YT.PlayerState.BUFFERING) {
+        if (++tries <= 3) player.playVideo();
+        else if (tries === 4) rptRender('listen', { stalled: true });
+      } else if (tries > 3) { tries = 0; rptRender('listen'); }
+    }, 1500);
+    watchCtx.onStop = () => { clearInterval(dog); resolve(); };
   });
 }
 
 async function rptPlay(rate) {
   const r = rpt;
-  const ph = r.phrases[r.i];
+  const target = rptTarget();
   rptRender('listen');
-  await rptPlaySegment(ph, rate || state.settings.speed);
+  await rptPlaySegment(target, rate || state.settings.speed);
   if (rpt !== r) return;
   player.setPlaybackRate(state.settings.speed);
-  rptTurn(ph);
+  rptTurn(target);
 }
 
 async function rptPlayBoth() {
   const r = rpt;
   rptRender('result', r.last);
-  await rptPlaySegment(r.phrases[r.i], state.settings.speed);
+  await rptPlaySegment(rptTarget(), state.settings.speed);
   if (rpt !== r || !r.myUrl) return;
   r.audio = new Audio(r.myUrl);
   r.audio.play().catch(() => {});
@@ -2044,15 +2118,24 @@ async function rptTurn(ph) {
   r.last = { ...result, heard };
   recordSay(r, result);
   rptRender('result', r.last);
-  if (result.score >= SAY_GOOD) r.timers.push(setTimeout(() => rpt === r && rptNext(), 1600));
-  else if (result.score < SAY_REPLAY) rptPlayBoth();
+  if (result.score >= SAY_GOOD) { r.timers.push(setTimeout(() => rpt === r && rptNext(), 1600)); return; }
+  if (result.score >= SAY_REPLAY) return;
+  const whole = !r.queue;
+  if (whole) r.fails[r.i] = (r.fails[r.i] || 0) + 1;
+  rptRender('result', r.last);
+  await rptPlayBoth();
+  // Struggling twice with a whole phrase: split it into short parts, then try the whole again.
+  if (rpt === r && whole && r.fails[r.i] === 2 && splitPhrase(r.phrases[r.i])) {
+    toast('Let’s split this one into shorter parts.');
+    r.timers.push(setTimeout(() => rpt === r && !r.queue && startSplit(), 900));
+  }
 }
 
 function recordSay(r, result) {
   // First attempt at each phrase counts toward the averages; every attempt updates tricky words.
   const s = state.say || (state.say = { days: {}, miss: {} });
   const key = `${watchCtx.id}:${r.i}`;
-  if (!r.scored.has(key)) {
+  if (!r.queue && !r.scored.has(key)) {
     r.scored.add(key);
     const d = s.days[today()] || (s.days[today()] = { n: 0, sum: 0 });
     d.n++;
