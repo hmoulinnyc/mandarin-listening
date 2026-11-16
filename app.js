@@ -839,7 +839,7 @@ async function renderWatch() {
           </div>
         </div>
         <div id="caption" class="caption" ${lines.length ? '' : 'hidden'}></div>
-        ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? 'Chinese captions are available through the YouTube player’s CC button.' : 'Listen without captions; a Chinese caption track was not available when checked.'} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
+        ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? `${esc(LANGUAGES[LANG].name)} subtitles show on the video (📺 Subs on video).` : `Listen without captions; a ${esc(LANGUAGES[LANG].name)} caption track was not available when checked.`} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
         ${v.challengeNote ? `<div class="zone-note">${esc(v.challengeNote)}</div>` : ''}
         <div class="controls">
           <div class="seg" id="modes">
@@ -851,6 +851,7 @@ async function renderWatch() {
           <button id="back5" title="Replay the last 5 seconds">⟲ 5s <span class="kbd">R</span></button>
           <button id="loopBtn" title="Repeat the current line">Loop line <span class="kbd">L</span></button>
           <select id="speed">${[0.75, 0.85, 1].map(s => `<option value="${s}" ${s === state.settings.speed ? 'selected' : ''}>${s}×</option>`).join('')}</select>
+          <button id="vsubBtn" class="${videoSubsOn() ? 'on' : ''}" title="Show the ${esc(LANGUAGES[LANG].name)} subtitles on the video picture instead of under it">📺 Subs on video</button>
           <button id="maskBtn" title="Cover subtitles burned into the video picture (e.g. English)">🙈 Hide video subs</button>
           <span class="sep"></span>
           <button id="recBtn" title="Shadow: record yourself repeating the line">🎙 Shadow</button>
@@ -925,7 +926,7 @@ async function setupPlayer(id, start) {
   if (!watchCtx || watchCtx.id !== id) return;
   player = new YT.Player('yt', {
     videoId: id,
-    playerVars: { start: Math.floor(start), cc_load_policy: 0, iv_load_policy: 3, rel: 0, modestbranding: 1, hl: LANG },
+    playerVars: { start: Math.floor(start), cc_load_policy: !watchCtx.lines.length && videoSubsOn() ? 1 : 0, cc_lang_pref: LANG, iv_load_policy: 3, rel: 0, modestbranding: 1, hl: LANG },
     events: {
       onReady: () => {
         if (!watchCtx || watchCtx.id !== id || !player) return;
@@ -940,6 +941,17 @@ async function setupPlayer(id, start) {
   });
   watchTimers.push(setInterval(tickCaption, 150));
   watchTimers.push(setInterval(tickWatchTime, 1000));
+}
+
+// "Subs on video": the app's caption line sits on the video picture instead of under it.
+// Videos without an app transcript fall back to YouTube's own captions in the language being learned.
+const videoSubsOn = () => state.settings.videoSubs !== false;
+function placeCaption() {
+  const cap = $('#caption'), wrap = $('.video-wrap');
+  if (!cap || !wrap) return;
+  cap.classList.toggle('on-video', videoSubsOn());
+  if (videoSubsOn()) wrap.appendChild(cap); else wrap.after(cap);
+  $('#vsubBtn')?.classList.toggle('on', videoSubsOn());
 }
 
 function tickCaption() {
@@ -1065,6 +1077,15 @@ function bindWatchControls(v) {
     if (!m) return;
     state.settings.captionMode = m.dataset.mode;
     document.querySelectorAll('#modes button').forEach(b => b.classList.toggle('on', b === m));
+    save();
+  });
+  placeCaption();
+  $('#vsubBtn').addEventListener('click', () => {
+    state.settings.videoSubs = !videoSubsOn();
+    placeCaption();
+    if (!ctx.lines.length && player) {
+      try { player[videoSubsOn() ? 'loadModule' : 'unloadModule']('captions'); } catch (e) { /* player not ready */ }
+    }
     save();
   });
   const peek = on => (ctx.peeking = on);

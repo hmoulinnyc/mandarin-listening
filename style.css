@@ -163,6 +163,16 @@ h2 { font-size: 17px; margin: 0 0 8px; }
   transition: filter .15s;
 }
 .caption.blur { filter: blur(9px); user-select: none; }
+/* "Subs on video": the caption line on the picture (fixed colors: it sits on video in either theme). */
+.caption.on-video {
+  position: absolute; left: 50%; bottom: 9%; transform: translateX(-50%); z-index: 3;
+  width: max-content; max-width: 92%; min-height: 0; margin: 0; padding: 3px 12px;
+  background: rgba(0, 0, 0, 0.72); color: #fff; border: 0; border-radius: 6px;
+  font-size: clamp(15px, 2.4vw, 26px); line-height: 1.35;
+}
+.caption.on-video:empty { display: none; }
+.caption.on-video rt { color: rgba(255, 255, 255, 0.85); }
+.caption.on-video .w:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
 .caption .w, .transcript .w { cursor: pointer; border-radius: 4px; }
 .caption .w:hover, .transcript .w:hover { background: var(--accent-soft); color: var(--accent); }
 .w.unknown { text-decoration: underline dotted var(--muted); text-underline-offset: 4px; }
