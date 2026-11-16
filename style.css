@@ -357,3 +357,21 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: 0; }
 .say-meter span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .05s; }
 .say-score.good { color: #2b8a3e; } .say-score.ok { color: #c98a00; } .say-score.low { color: #d9480f; }
 .rpt-echo #caption { visibility: hidden; }
+
+
+/* Short sound lessons, using the same cards and controls as the rest of the app. */
+.sound-heading { margin-bottom: 16px; }
+.sound-heading h1 { margin: 8px 0 4px; }
+.sound-voices { margin-bottom: 16px; }
+.sound-voices select { max-width: 100%; }
+.sound-step { margin-bottom: 16px; }
+.sound-step h2 { margin-top: 0; }
+.sound-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0; }
+.sound-pair button, .sound-clip { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 16px; text-align: left; }
+.sound-pair button b { font-size: 24px; }
+.sound-label { color: var(--muted); font-size: 13px; }
+.sound-actions { flex-wrap: wrap; gap: 8px; }
+.sound-feedback { min-height: 1.5em; }
+.sound-clip { border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+.sound-clip:hover { border-color: var(--accent); }
+@media (max-width: 520px) { .sound-pair { grid-template-columns: 1fr; } }

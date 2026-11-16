@@ -274,6 +274,7 @@ function setupLanguageSwitch() {
   const tag = document.querySelector('.lang-tag');
   if (tag) tag.textContent = LANGUAGES[LANG].tag;
   const nav = document.querySelector('nav');
+  if (LANG !== 'pt') nav.querySelector('[data-nav="sounds"]')?.remove();
   if (STATIC) {
     // The published site leaves out the tabs that need the Mac.
     nav.querySelectorAll('[data-nav]').forEach(a => { if (CONFIG.tabs && !CONFIG.tabs.includes(a.dataset.nav)) a.remove(); });
@@ -362,6 +363,7 @@ async function boot() {
 }
 
 function render() {
+  window.PortugueseSounds?.stop();
   teardownWatch();
   teardownCalibration();
   if (sceneHandle) { sceneHandle.stop(); sceneHandle = null; }
@@ -370,9 +372,16 @@ function render() {
   document.querySelectorAll('[data-nav]').forEach(a =>
     a.classList.toggle('active', a.dataset.nav === (view === 'watch' ? 'feed' : view)));
   stopSayRecording();
-  const views = { feed: renderFeed, watch: renderWatch, level: renderLevel, plan: renderPlan, goals: renderGoals, scenes: renderScenes, say: renderSay, words: renderWords, log: renderLog };
+  const views = { feed: renderFeed, watch: renderWatch, level: renderLevel, plan: renderPlan, goals: renderGoals, scenes: renderScenes, say: renderSay, sounds: renderSounds, words: renderWords, log: renderLog };
   (views[view] || renderFeed)();
   window.scrollTo(0, 0);
+}
+
+// The first sound lesson is Brazilian Portuguese; its progress is independent of phrase clarity.
+function renderSounds() {
+  if (LANG !== 'pt') { renderFeed(); return; }
+  const main = freshMain();
+  window.PortugueseSounds.render({ main, state, save });
 }
 
 // ---------- feed ----------
@@ -1837,21 +1846,62 @@ let rpt = null;
 const RECOG_LANG = { ar: 'ar-SA' };
 const SAY_GOOD = 90, SAY_REPLAY = 80;
 
+// Captions have no per-word timings, so word times are estimated from their position in the line.
+// Speakers pause at punctuation (teachers especially), so the pause after a sentence or a comma gets
+// its own share of the time instead of being spread over every word.
+const SENT_END = /[.?!…。？！؟]["”»]?$/, CLAUSE_END = /[,;:、，،؛]$/;
+function timedTokens(l, end) {
+  const toks = HAS_READINGS ? (l.w || [...l.t]) : l.t.split(/\s+/).filter(Boolean);
+  // (No pause counted after the last word: the line's end time is when the speech ends.)
+  const pause = (w, k) => (k === toks.length - 1 ? 0 : SENT_END.test(w) ? 8 : CLAUSE_END.test(w) ? 3 : 0);
+  const total = toks.reduce((n, w, k) => n + w.length + pause(w, k), 0) || 1;
+  const per = (end - l.s) / total;
+  let t = l.s;
+  return toks.map((w, k) => {
+    const s0 = t, e0 = t + w.length * per;
+    t = e0 + pause(w, k) * per;
+    return { w, k, s: s0, e: e0, sentence: SENT_END.test(w), comma: CLAUSE_END.test(w) };
+  });
+}
+
+// A caption line longer than a sentence (some channels put 20+ seconds in one caption) is cut into
+// sentences, with estimated times, so each phrase stays about one sentence long.
+function splitLongLine(l, end) {
+  const size = toks => toks.filter(x => /[\p{L}\p{N}]/u.test(x.w)).length;
+  const toks = timedTokens(l, end);
+  if (size(toks) <= 14 && end - l.s <= 9) return [{ ...l, e: end }];
+  const groups = [];
+  let cur = [];
+  toks.forEach((x, i) => {
+    cur.push(x);
+    const last = i === toks.length - 1;
+    if (last || x.sentence || (x.comma && size(cur) >= 6) || size(cur) >= 14) { groups.push(cur); cur = []; }
+  });
+  if (groups.length < 2) return [{ ...l, e: end }];
+  return groups.map(g => {
+    const unit = { s: g[0].s, e: g[g.length - 1].e, t: g.map(x => x.w).join(HAS_READINGS ? '' : ' ') };
+    if (l.w) { unit.w = g.map(x => l.w[x.k]); if (l.p) unit.p = g.map(x => l.p[x.k]); if (l.r) unit.r = g.map(x => l.r[x.k]); }
+    return unit;
+  });
+}
+
 function buildPhrases(lines) {
-  // Merge caption lines into sentence-sized phrases (about 3–14 words), cut at punctuation or pauses.
+  // Merge caption lines (long ones cut into sentences) into sentence-sized phrases of about 3–14 words,
+  // cut at punctuation or pauses. Each phrase keeps its pieces in .lines (with estimated end times in .e).
+  const units = lines.flatMap((l, i) => splitLongLine(l, lines[i + 1] ? Math.min(l.e, lines[i + 1].s) : l.e));
   const size = l => (HAS_READINGS ? Math.ceil((l.t || '').replace(/\s/g, '').length / 2) : l.t.split(/\s+/).filter(Boolean).length);
   const out = [];
   let cur = null;
-  lines.forEach((l, i) => {
-    if (!cur) cur = { s: l.s, idx: [], n: 0 };
+  units.forEach((u, i) => {
+    if (!cur) cur = { s: u.s, idx: [], n: 0 };
     cur.idx.push(i);
-    cur.n += size(l);
-    const next = lines[i + 1];
-    const sentenceEnd = /[.?!…。？！؟]["”»]?$/.test(l.t.trim());
-    if (!next || sentenceEnd || next.s - l.e > 0.6 || cur.n >= 9 || cur.n + size(next) > 14) {
-      cur.e = (next ? Math.min(l.e, next.s) : l.e) + 0.2;
-      cur.text = cur.idx.map(j => lines[j].t).join(HAS_READINGS ? '' : ' ');
-      cur.words = cur.idx.flatMap(j => lines[j].w || [...lines[j].t]);
+    cur.n += size(u);
+    const next = units[i + 1];
+    if (!next || SENT_END.test(u.t.trim()) || next.s - u.e > 0.6 || cur.n >= 9 || cur.n + size(next) > 14) {
+      cur.lines = cur.idx.map(j => units[j]);
+      cur.e = Math.min(u.e + 0.25, next ? next.s + 0.1 : Infinity);
+      cur.text = cur.lines.map(x => x.t).join(HAS_READINGS ? '' : ' ');
+      cur.words = cur.lines.flatMap(x => x.w || [...x.t]);
       out.push(cur);
       cur = null;
     }
@@ -1894,23 +1944,12 @@ function scoreAttempt(target, heard) {
 // The thing being practiced: the phrase, or one chunk of it after splitting.
 const rptTarget = () => (rpt.queue ? rpt.queue[rpt.q] : rpt.phrases[rpt.i]);
 
-// Captions have no per-word timings, so a word's time is estimated from its position in its line.
 function phraseWords(ph) {
-  const lines = watchCtx.lines, out = [];
-  ph.idx.forEach(j => {
-    const l = lines[j], next = lines[j + 1];
-    const end = next ? Math.min(l.e, next.s) : l.e;
-    const toks = HAS_READINGS ? (l.w || [...l.t]) : l.t.split(/\s+/).filter(Boolean);
-    const total = toks.reduce((n, w) => n + w.length, 0) || 1;
-    let off = 0;
-    toks.forEach(w => {
-      const s0 = l.s + ((end - l.s) * off) / total;
-      off += w.length;
-      const e0 = l.s + ((end - l.s) * off) / total;
-      if (/[\p{L}\p{N}]/u.test(w)) out.push({ w, s: s0, e: e0, comma: /[,;:、，،؛]$/.test(w) });
-      else if (out.length && /[,;:、，،؛]/.test(w)) out[out.length - 1].comma = true;
-    });
-  });
+  const out = [];
+  ph.lines.forEach(u => timedTokens(u, u.e).forEach(x => {
+    if (/[\p{L}\p{N}]/u.test(x.w)) out.push({ w: x.w, s: x.s, e: x.e, comma: CLAUSE_END.test(x.w) || x.sentence });
+    else if (out.length && /[,;:、，،؛.?!。？！]/.test(x.w)) out[out.length - 1].comma = true;
+  }));
   return out;
 }
 function splitPhrase(ph) {
@@ -1928,7 +1967,7 @@ function splitPhrase(ph) {
       else if (!HAS_READINGS && end - start > 2 && ws[end - 1].w.length <= 2) end--;
     }
     const part = ws.slice(start, end);
-    chunks.push({ s: Math.max(ph.s - 0.1, part[0].s - 0.2), e: Math.min(ph.e + 0.1, part[part.length - 1].e + 0.35), text: part.map(x => x.w).join(HAS_READINGS ? '' : ' ') });
+    chunks.push({ s: Math.max(ph.s - 0.1, part[0].s - 0.15), e: Math.min(ph.e, part[part.length - 1].e + 0.2), text: part.map(x => x.w).join(HAS_READINGS ? '' : ' ') });
     start = end;
   }
   return chunks;
@@ -1987,7 +2026,7 @@ function rptRender(phase, extra = {}) {
   if (!rpt) return;
   rpt.phase = phase;
   const ph = rpt.phrases[rpt.i];
-  const lines = ph.idx.map(j => watchCtx.lines[j]);
+  const lines = ph.lines;
   const chunk = rpt.queue ? rpt.queue[rpt.q] : null;
   const showText = !state.settings.sayEcho || phase === 'result';
   const text = extra.words
