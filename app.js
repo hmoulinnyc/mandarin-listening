@@ -11,7 +11,7 @@ const asset = path => (CONFIG.base || '/') + path;
 // Each language keeps its own goals, scenes, words and hours. The choice is remembered per browser.
 const LANGUAGES = {
   nl: { tag: 'NL', name: 'Dutch', voice: 'nl-NL', accents: { flemish: 'Flemish' } },
-  ar: { tag: 'AR', name: 'Arabic', voice: 'ar' },
+  ar: { tag: 'AR', name: 'Arabic', voice: 'ar', accents: { levantine: 'Levantine' } },
   pt: { tag: 'PT', name: 'Portuguese', voice: 'pt-BR', accents: { brazilian: 'Brazilian', european: 'European' } },
   fr: { tag: 'FR', name: 'French', voice: 'fr-FR' },
   zh: { tag: '中文', name: 'Mandarin', voice: 'zh-CN' },
@@ -45,7 +45,10 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 const today = () => new Date().toLocaleDateString('sv');  // YYYY-MM-DD in local time
 const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 const fmtHours = s => (s / 3600).toFixed(s < 36000 ? 1 : 0);
-const WORD_RE = /[A-Za-zÀ-ÖØ-öø-ÿ]+(?:'[a-z]+)?/g;
+const WORD_RE = LANG === 'ar' ? /[\u0621-\u064A\u0671-\u06D3\u064B-\u065F\u0670\u0640]+/g : /[A-Za-zÀ-ÖØ-öø-ÿ]+(?:'[a-z]+)?/g;
+// Arabic is matched without vowel marks or tatweel, with alef forms merged (as ingest.py does).
+const arNorm = w => w.replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '').replace(/[أإآٱ]/g, 'ا');
+const wordKey = w => (LANG === 'ar' ? arNorm(w) : w.toLowerCase());
 
 function toast(msg) {
   const t = $('#toast');
@@ -815,7 +818,7 @@ function lineSpans(line) {
 
 function wordSpans(text) {
   return esc(text).replace(WORD_RE, w => {
-    const lw = w.toLowerCase();
+    const lw = wordKey(w);
     const cls = state.words[lw] ? 'mine' : (!isKnown(lw) && lexicon[lw] ? 'unknown' : '');
     return `<span class="w ${cls}" data-w="${esc(lw)}">${w}</span>`;
   });
@@ -848,7 +851,7 @@ async function renderWatch() {
             <span class="sub-mask-label">subtitles hidden · drag to fit</span><span class="sub-mask-grip"></span>
           </div>
         </div>
-        <div id="caption" class="caption" ${lines.length ? '' : 'hidden'}></div>
+        <div id="caption" class="caption" dir="auto" ${lines.length ? '' : 'hidden'}></div>
         ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? `${esc(LANGUAGES[LANG].name)} subtitles show on the video (📺 Subs on video).` : `Listen without captions; a ${esc(LANGUAGES[LANG].name)} caption track was not available when checked.`} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
         ${v.challengeNote ? `<div class="zone-note">${esc(v.challengeNote)}</div>` : ''}
         <div id="rpt" class="box rpt" hidden></div>
@@ -896,7 +899,7 @@ async function renderWatch() {
             <button id="trBtn" class="small">${mode === 'always' ? 'Hide' : 'Show'}</button>
           </div>
           <div id="transcript" class="transcript" ${mode === 'always' ? '' : 'hidden'} style="margin-top:8px">
-            ${lines.map((l, i) => `<div class="ln" data-i="${i}"><span class="ts" data-seek="${l.s}">${fmtTime(l.s)}</span><span>${lineSpans(l)}</span></div>`).join('')}
+            ${lines.map((l, i) => `<div class="ln" data-i="${i}"><span class="ts" data-seek="${l.s}">${fmtTime(l.s)}</span><span dir="auto">${lineSpans(l)}</span></div>`).join('')}
           </div>
         </div>
       </div>
@@ -1330,7 +1333,7 @@ function renderGoals() {
                 <div class="nl">${esc(p.nl)}</div>
                 <div class="gl">${esc(p.gloss)}${p.flemish ? ` · ${esc(goals.regionalLabel || 'Flemish')}: <i>${esc(p.flemish)}</i> ${sayButtons(p.flemishSay || p.flemish, true)}` : ''}</div>
               </div>
-              <span style="display:flex;gap:6px;align-items:center">${sayButtons(p.say || p.nl)}${library.length ? hear(p.search || p.nl) : ''}</span>
+              <span style="display:flex;gap:6px;align-items:center">${sayButtons(p.say || p.nl)}${library.length ? hear(p.search || (LANG === 'ar' && p.say ? p.say.replace(/[…_؟?،.!]/g, ' ').replace(/\s+/g, ' ').trim() : p.nl)) : ''}</span>
               <label><input type="checkbox" data-stage="${st.id}" data-i="${i}" ${g.used[i] ? 'checked' : ''}> used it</label>
             </div>`).join('')}` : ''}
         ${st.words ? `<h2 style="margin-top:16px">Words</h2><div class="chips">${st.words.map(w => `<span class="chip"><button class="mini" data-say="${esc(w.say || w.nl)}" title="Listen">▶</button> <a href="#words?q=${encodeURIComponent(w.nl)}" title="Hear it in real videos">${esc(w.nl)}</a> <span class="n">${esc(w.gloss)}</span></span>`).join('')}</div>` : ''}
@@ -1773,10 +1776,10 @@ async function searchLocal(q) {
     allLines = [];
     await Promise.all(library.map(async v => {
       const lines = await fetch(asset(`data/transcripts/${LANG}/${v.id}.json`)).then(r => (r.ok ? r.json() : [])).catch(() => []);
-      lines.forEach(l => allLines.push({ id: v.id, s: l.s, t: l.t, low: l.t.toLowerCase(), title: v.title, channel: v.channel }));
+      lines.forEach(l => allLines.push({ id: v.id, s: l.s, t: l.t, low: wordKey(l.t), title: v.title, channel: v.channel }));
     }));
   }
-  const needle = q.toLowerCase().trim(), perVideo = {}, hits = [];
+  const needle = wordKey(q.trim()), perVideo = {}, hits = [];
   for (const l of allLines) {
     if (l.low.includes(needle) && (perVideo[l.id] = (perVideo[l.id] || 0) + 1) <= 3) hits.push(l);
     if (hits.length >= 60) break;
@@ -1803,7 +1806,7 @@ function buildPhrases(lines) {
     cur.idx.push(i);
     cur.n += size(l);
     const next = lines[i + 1];
-    const sentenceEnd = /[.?!…。？！]["”»]?$/.test(l.t.trim());
+    const sentenceEnd = /[.?!…。？！؟]["”»]?$/.test(l.t.trim());
     if (!next || sentenceEnd || next.s - l.e > 0.6 || cur.n >= 9 || cur.n + size(next) > 14) {
       cur.e = (next ? Math.min(l.e, next.s) : l.e) + 0.2;
       cur.text = cur.idx.map(j => lines[j].t).join(HAS_READINGS ? '' : ' ');
@@ -1815,7 +1818,7 @@ function buildPhrases(lines) {
 }
 
 // Comparable tokens: lowercase, no accents or punctuation; characters for Mandarin/Japanese.
-const sayNorm = w => w.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’']/g, "'");
+const sayNorm = w => arNorm(w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’']/g, "'"));
 function sayTokens(text) {
   const clean = text.replace(/[\p{P}\p{S}]+/gu, ' ');
   if (HAS_READINGS) return [...clean.replace(/\s+/g, '')].map(c => ({ w: c, n: sayNorm(c) }));
@@ -1852,8 +1855,8 @@ function phraseWords(ph) {
       const s0 = l.s + ((end - l.s) * off) / total;
       off += w.length;
       const e0 = l.s + ((end - l.s) * off) / total;
-      if (/[\p{L}\p{N}]/u.test(w)) out.push({ w, s: s0, e: e0, comma: /[,;:、，]$/.test(w) });
-      else if (out.length && /[,;:、，]/.test(w)) out[out.length - 1].comma = true;
+      if (/[\p{L}\p{N}]/u.test(w)) out.push({ w, s: s0, e: e0, comma: /[,;:、，،؛]$/.test(w) });
+      else if (out.length && /[,;:、，،؛]/.test(w)) out[out.length - 1].comma = true;
     });
   });
   return out;
@@ -1946,7 +1949,7 @@ function rptRender(phase, extra = {}) {
   $('#rpt').innerHTML = `
     <div class="rpt-head"><span class="muted small">Repeat after me · phrase ${rpt.i + 1} of ${rpt.phrases.length}${chunk ? ` · <b>part ${rpt.q + 1} of ${rpt.queue.length}</b>` : ''}</span>
       <label class="small muted"><input type="checkbox" id="sayEcho" ${state.settings.sayEcho ? 'checked' : ''}> hide the text until I’ve said it</label></div>
-    <div class="rpt-text">${text}</div>
+    <div class="rpt-text" dir="auto">${text}</div>
     ${chunk && showText ? `<div class="muted small">Whole phrase: ${esc(ph.text)}</div>` : ''}
     ${extra.heard != null ? `<div class="muted small">Heard: “${esc(extra.heard || '…')}”</div>` : ''}
     <div class="rpt-status">${status}</div>
