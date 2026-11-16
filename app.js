@@ -16,6 +16,7 @@ const LANGUAGES = {
   fr: { tag: 'FR', name: 'French', voice: 'fr-FR' },
   zh: { tag: '中文', name: 'Mandarin', voice: 'zh-CN' },
   ja: { tag: '日本語', name: 'Japanese', voice: 'ja-JP' },
+  es: { tag: 'ES', name: 'Spanish', voice: 'es-ES', accents: { spain: 'Spain', mexico: 'Mexico' } },
 };
 const LEVELS = ['Complete beginner', 'Beginner', 'Intermediate', 'Intermediate/Advanced', 'Advanced'];
 // The languages this copy offers: all of them locally; on a published site, CONFIG.langs (default CONFIG.lang).
@@ -1784,7 +1785,7 @@ const PRACTICE = {
   // Relative effort for English speakers (US Foreign Service Institute categories).
   difficulty: { nl: 1, fr: 1, pt: 1, es: 1, it: 1, ar: 2.6, zh: 2.8, ja: 3 },
   // Everyday native conversation, in this app's words/min (Mandarin and Japanese: segmented words).
-  nativeWpm: { nl: 160, fr: 185, pt: 150, zh: 170, ja: 180, ar: 130 },
+  nativeWpm: { nl: 160, fr: 185, pt: 150, es: 180, zh: 170, ja: 180, ar: 130 },
   vocab: 2000,
 };
 const KNOWN_LANGS = { en: 'English', es: 'Spanish', fr: 'French', pt: 'Portuguese', it: 'Italian', ca: 'Catalan', ro: 'Romanian', de: 'German', nl: 'Dutch', zh: 'Mandarin', yue: 'Cantonese', ja: 'Japanese', ko: 'Korean', ar: 'Arabic', ru: 'Russian' };

@@ -1,0 +1,208 @@
+{
+  "language": "Español",
+  "track": "intermediate",
+  "goal": "Go from B1–B2 to easy conversations with native speakers: more everyday vocabulary, natural connectors, and the main accents (Spain, Mexico and beyond).",
+  "startingVocab": 3500,
+  "startingWpm": 150,
+  "regionalName": "other accents",
+  "stages": [
+    {
+      "id": "s1",
+      "name": "Stage 1 · Keep the conversation going",
+      "why": "At your level the trick is not more grammar but keeping a native speaker talking, and fixing gaps without switching to English.",
+      "milestone": "I had a 15-minute conversation with a native speaker without switching to English.",
+      "phrases": [
+        {
+          "nl": "¿Cómo se dice…?",
+          "gloss": "How do you say…?",
+          "search": "cómo se dice"
+        },
+        {
+          "nl": "Perdona, ¿me lo repites?",
+          "gloss": "Sorry, could you say that again?",
+          "search": "me lo repites"
+        },
+        {
+          "nl": "¿Qué quieres decir con eso?",
+          "gloss": "What do you mean by that?",
+          "search": "quieres decir"
+        },
+        {
+          "nl": "O sea, que…",
+          "gloss": "So what you mean is… (checking you understood)",
+          "search": "o sea"
+        },
+        {
+          "nl": "Lo que pasa es que…",
+          "gloss": "The thing is… (explaining)",
+          "search": "lo que pasa es que"
+        },
+        {
+          "nl": "¿En serio? ¡No me digas!",
+          "gloss": "Really? No way!",
+          "search": "en serio"
+        },
+        {
+          "nl": "¿Y tú qué opinas?",
+          "gloss": "And what do you think? (passing the turn back)",
+          "search": "qué opinas"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Stage 2 · Sound natural",
+      "why": "Connectors and fillers are what make Spanish sound fluent, and what native speakers use constantly.",
+      "milestone": "I caught myself using pues and o sea without thinking.",
+      "words": [
+        {
+          "nl": "pues",
+          "gloss": "well…, so…"
+        },
+        {
+          "nl": "bueno",
+          "gloss": "well, okay"
+        },
+        {
+          "nl": "la verdad es que",
+          "gloss": "honestly, the truth is"
+        },
+        {
+          "nl": "es que",
+          "gloss": "it's just that (excuse/explanation)"
+        },
+        {
+          "nl": "igual",
+          "gloss": "maybe; anyway (Latin America)"
+        },
+        {
+          "nl": "de hecho",
+          "gloss": "in fact"
+        },
+        {
+          "nl": "en plan",
+          "gloss": "like… (Spain, casual)"
+        },
+        {
+          "nl": "o sea",
+          "gloss": "I mean, so"
+        }
+      ],
+      "recognize": [
+        {
+          "nl": "vale",
+          "gloss": "okay (Spain)"
+        },
+        {
+          "nl": "guay",
+          "gloss": "cool (Spain)"
+        },
+        {
+          "nl": "vosotros",
+          "gloss": "you all (Spain only)"
+        },
+        {
+          "nl": "ahorita",
+          "gloss": "right now / in a bit (Mexico)"
+        },
+        {
+          "nl": "¿mande?",
+          "gloss": "pardon? (Mexico)"
+        },
+        {
+          "nl": "chévere",
+          "gloss": "great (Colombia, Venezuela)"
+        },
+        {
+          "nl": "vos sabés",
+          "gloss": "you know, with voseo (Argentina)"
+        },
+        {
+          "nl": "che",
+          "gloss": "hey (Argentina)"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Stage 3 · Topic playlists",
+      "why": "Narrow listening: the same vocabulary in many voices and accents.",
+      "milestone": "I watched five videos on one topic in a week.",
+      "topics": [
+        {
+          "id": "food",
+          "name": "Comida",
+          "gloss": "Food",
+          "keywords": [
+            "comida",
+            "comer",
+            "restaurante",
+            "cocina",
+            "receta",
+            "tacos",
+            "tapas",
+            "cena",
+            "desayuno"
+          ]
+        },
+        {
+          "id": "travel",
+          "name": "Viajes",
+          "gloss": "Travel",
+          "keywords": [
+            "viaje",
+            "viajar",
+            "país",
+            "ciudad",
+            "playa",
+            "hotel",
+            "avión",
+            "turistas"
+          ]
+        },
+        {
+          "id": "science",
+          "name": "Ciencia",
+          "gloss": "Science",
+          "keywords": [
+            "ciencia",
+            "científicos",
+            "universo",
+            "energía",
+            "física",
+            "cerebro",
+            "planeta"
+          ]
+        },
+        {
+          "id": "world",
+          "name": "Actualidad",
+          "gloss": "News & world",
+          "keywords": [
+            "gobierno",
+            "país",
+            "elecciones",
+            "guerra",
+            "economía",
+            "política",
+            "mundo"
+          ]
+        },
+        {
+          "id": "life",
+          "name": "Vida diaria",
+          "gloss": "Daily life",
+          "keywords": [
+            "trabajo",
+            "casa",
+            "familia",
+            "amigos",
+            "fin de semana",
+            "vida",
+            "dinero"
+          ]
+        }
+      ]
+    }
+  ]
+}
