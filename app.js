@@ -253,7 +253,58 @@ function setupLanguageSwitch() {
   nav.after(sel);
 }
 
+// ---------- moving progress between devices (published site) ----------
+// The published site has no accounts: progress lives in each browser. A "move my progress" link
+// carries every language's progress in the part after #, which browsers never send to the server.
+const B64 = { enc: bytes => btoa(Array.from({ length: Math.ceil(bytes.length / 8192) }, (_, i) => String.fromCharCode(...bytes.subarray(i * 8192, (i + 1) * 8192))).join('')).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+  dec: s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0)) };
+async function streamBytes(bytes, stream) {
+  return new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
+}
+async function progressLink() {
+  flushWatchTime();
+  const states = {};
+  for (const lang of AVAILABLE) {
+    const raw = lang === LANG ? JSON.stringify(state) : localStorage.getItem(`luisteren-state-${lang}`);
+    if (raw) states[lang] = JSON.parse(raw);
+  }
+  let bytes = new TextEncoder().encode(JSON.stringify({ v: 1, lang: LANG, states }));
+  let code = 'j' + B64.enc(bytes);
+  if (window.CompressionStream) code = 'z' + B64.enc(await streamBytes(bytes, new CompressionStream('deflate-raw')));
+  return location.origin + location.pathname + '#import=' + code;
+}
+function progressSummary(lang, s) {
+  if (!s) return `${LANGUAGES[lang].name}: nothing yet`;
+  const hours = (s.log || []).reduce((n, e) => n + e.seconds, 0) / 3600;
+  return `${LANGUAGES[lang].name}: ${Object.keys(s.watched || {}).length} videos watched, ${hours.toFixed(1)} h`;
+}
+async function importProgress() {
+  const code = location.hash.slice('#import='.length);
+  history.replaceState(null, '', location.pathname);
+  let data;
+  try {
+    let bytes = B64.dec(code.slice(1));
+    if (code[0] === 'z') bytes = await streamBytes(bytes, new DecompressionStream('deflate-raw'));
+    data = JSON.parse(new TextDecoder().decode(bytes));
+  } catch (e) { alert('This progress link is broken or incomplete. Make a new one on your other device.'); return; }
+  const langs = Object.keys(data.states || {}).filter(l => AVAILABLE.includes(l));
+  if (!langs.length) { alert('That link has no progress in it yet.'); return; }
+  const here = l => { try { return JSON.parse(localStorage.getItem(`luisteren-state-${l}`)); } catch (e) { return null; } };
+  const msg = 'Load the progress from your other device?\n\n'
+    + langs.map(l => `From the link · ${progressSummary(l, data.states[l])}\nOn this device · ${progressSummary(l, here(l))}`).join('\n\n')
+    + '\n\nThis replaces the progress on this device for these languages.';
+  if (!confirm(msg)) return;
+  try {
+    langs.forEach(l => localStorage.setItem(`luisteren-state-${l}`, JSON.stringify(data.states[l])));
+    if (AVAILABLE.includes(data.lang)) localStorage.setItem('lang', data.lang);
+  } catch (e) { alert('This browser won’t save progress (private mode?).'); return; }
+  location.hash = '#log';
+  location.reload();
+  return true;
+}
+
 async function boot() {
+  if (STATIC && location.hash.startsWith('#import=') && await importProgress()) return;
   setupLanguageSwitch();
   const get = url => fetch(url).then(r => (r.ok ? r.json() : null));
   [goals, library, lexicon, state] = await Promise.all([
@@ -1705,7 +1756,26 @@ function renderLog() {
         </form>
         ${manual.length ? `<table style="margin-top:12px">${manual.map(({ e, i }) => `<tr><td class="small">${esc(e.date)}</td><td>${Math.round(e.seconds / 60)} min</td><td class="small">${esc(MANUAL_KINDS[e.kind] || e.kind)}${e.note ? ` · ${esc(e.note)}` : ''}</td><td><button class="small" data-dellog="${i}">✕</button></td></tr>`).join('')}</table>` : ''}
       </div>
-    </div>`;
+    </div>
+    ${STATIC ? `<div class="box" style="margin-top:16px" id="move">
+      <h2>Move my progress to another device</h2>
+      <p class="muted small" style="margin:0 0 10px">Your progress is saved only in this browser. Make a link, send it to yourself (AirDrop, Messages, email) and open it on your phone or laptop: it copies your videos, level, words and hours there, for every language. It replaces what that device had, so do it each time you switch.</p>
+      <button class="primary" id="moveBtn">Make my progress link</button>
+      <div id="moveOut" class="small" style="margin-top:10px"></div>
+    </div>` : ''}`;
+  if (STATIC) $('#moveBtn').addEventListener('click', async () => {
+    const out = $('#moveOut');
+    let url;
+    try { url = await progressLink(); } catch (e) { out.textContent = 'Could not make the link in this browser.'; return; }
+    out.innerHTML = '<input type="text" readonly style="width:100%" id="moveUrl"><div class="muted" style="margin-top:6px" id="moveMsg"></div>';
+    $('#moveUrl').value = url;
+    $('#moveUrl').addEventListener('focus', e => e.target.select());
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      try { await navigator.share({ title: 'My listening progress', url }); $('#moveMsg').textContent = 'Open the link on your other device.'; return; } catch (e) { /* cancelled: fall back to copying */ }
+    }
+    try { await navigator.clipboard.writeText(url); $('#moveMsg').textContent = 'Link copied. Send it to yourself and open it on your other device.'; }
+    catch (e) { $('#moveMsg').textContent = 'Copy this link, send it to yourself and open it on your other device.'; }
+  });
 
   $('#manual').addEventListener('submit', e => {
     e.preventDefault();
