@@ -197,7 +197,29 @@ function coverage(v) {
   return total ? known / total : 0;
 }
 
+// Videos added before their captions ("pending") borrow their difficulty: the typical speed and
+// familiar-word share of the channel's measured videos, or else a guess from the channel's level.
+const LEVEL_GUESS = { 'Complete beginner': [0.4, 0.93], Beginner: [0.55, 0.9], Intermediate: [0.72, 0.86], 'Intermediate/Advanced': [0.8, 0.84], Advanced: [0.85, 0.82] };
+const median = xs => { const a = [...xs].sort((p, q) => p - q); return a.length ? (a.length % 2 ? a[(a.length - 1) / 2] : (a[a.length / 2 - 1] + a[a.length / 2]) / 2) : null; };
+const channelEstimates = {};
+function estimateDifficulty(v) {
+  const key = `${v.channel}|${state.vocabSize}|${Object.keys(state.words).length}`;
+  if (!(key in channelEstimates)) {
+    const measured = library.filter(x => x.channel === v.channel && hasMeasuredDifficulty(x));
+    channelEstimates[key] = measured.length >= 2 ? { wpm: median(measured.map(x => x.wpm)), cov: median(measured.map(coverage)), from: 'channel' } : null;
+  }
+  if (channelEstimates[key]) return channelEstimates[key];
+  const [f, cov] = v.kind === 'native' ? [1, 0.8] : LEVEL_GUESS[v.level] || LEVEL_GUESS.Intermediate;
+  return { wpm: Math.round(f * (PRACTICE.nativeWpm[LANG] || 160)), cov, from: 'level' };
+}
+
 function assess(v) {
+  if (v.pending) {
+    const est = estimateDifficulty(v);
+    const understood = state.watched[v.id]?.understood;
+    if (understood != null) { const band = understood >= 75 ? 'right' : 'hard'; return { cov: null, speed: null, band, fit: band === 'right' ? 0.15 : 10, estimated: est }; }
+    return { ...bandFor(est.cov, est.wpm / state.comfortWpm), cov: null, speed: est.wpm / state.comfortWpm, estimated: est };
+  }
   // Native videos without a local transcript have editorial difficulty labels only.
   // Keep them available as challenges without inventing speed or vocabulary estimates.
   if (v.transcriptAvailable === false) {
@@ -211,6 +233,10 @@ function assess(v) {
   }
   const cov = coverage(v);
   const speed = v.wpm / state.comfortWpm;
+  return { cov, speed, ...bandFor(cov, speed) };
+}
+
+function bandFor(cov, speed) {
   // Slow speech leaves room for the visuals to explain new words, so it
   // forgives lower coverage (beginner videos are full of concrete nouns).
   const eff = cov + Math.max(0, 1 - speed) * 0.2;
@@ -226,7 +252,12 @@ function assess(v) {
 const BAND_LABEL = { easy: 'Easy', right: 'Just right', stretch: 'Stretch', hard: 'Hard' };
 const speedLabel = wpm => (wpm < 70 ? 'slow' : wpm < 100 ? 'relaxed' : wpm < 130 ? 'natural' : 'fast');
 const hasMeasuredDifficulty = v => Number.isFinite(v.wpm) && v.wpm > 0 && v.transcriptAvailable !== false;
-const speedPill = v => hasMeasuredDifficulty(v) ? `<span class="pill plain">${v.wpm} wpm · ${speedLabel(v.wpm)}</span>` : `<span class="pill plain">Native ${esc(LANGUAGES[LANG].name)}</span>`;
+const speedPill = (v, a) => hasMeasuredDifficulty(v) ? `<span class="pill plain">${v.wpm} wpm · ${speedLabel(v.wpm)}</span>`
+  : a?.estimated ? `<span class="pill plain" title="Estimated from ${a.estimated.from === 'channel' ? 'this channel’s other videos' : 'the channel’s level'}">~${Math.round(a.estimated.wpm)} wpm · estimated</span>`
+  : `<span class="pill plain">Native ${esc(LANGUAGES[LANG].name)}</span>`;
+const bandPill = (v, a) => hasMeasuredDifficulty(v) || a.estimated
+  ? `<span class="pill ${a.band}">${BAND_LABEL[a.band]}${a.estimated ? ' (est.)' : ''}</span>`
+  : '<span class="pill plain">Native challenge</span>';
 const coveragePill = a => a.cov == null ? '' : `<span class="pill plain">${Math.round(a.cov * 100)}% familiar words</span>`;
 
 function topicScore(v, topic) {
@@ -410,10 +441,10 @@ function renderFeed() {
             <div class="title">${esc(v.title)}</div>
             <div class="meta">${esc(v.channel)} · ${fmtTime(v.duration)}${accentNames[v.variant] ? ' · ' + accentNames[v.variant] : ''}${v.level ? ' · ' + esc(v.level) : ''}</div>
             <div class="meta">
-              <span class="pill ${hasMeasuredDifficulty(v) ? a.band : 'plain'}">${hasMeasuredDifficulty(v) ? BAND_LABEL[a.band] : 'Native challenge'}</span>
-              ${speedPill(v)}
+              ${bandPill(v, a)}
+              ${speedPill(v, a)}
               ${coveragePill(a)}
-              ${v.transcriptAvailable === false ? '<span class="pill plain">No app transcript</span>' : ''}
+              ${v.pending ? '<span class="pill plain" title="App captions are added a few a day; YouTube’s own captions work meanwhile">⏳ captions coming</span>' : v.transcriptAvailable === false ? '<span class="pill plain">No app transcript</span>' : ''}
               ${v.embeddable === false ? '<span class="pill plain" title="The owner only allows playback on YouTube">↗ YouTube only</span>' : ''}
               ${w ? `<span class="pill plain">✓ watched${w.understood != null ? ` · ${w.understood}% understood` : ''}</span>` : ''}
             </div>
@@ -852,7 +883,8 @@ async function renderWatch() {
           </div>
         </div>
         <div id="caption" class="caption" dir="auto" ${lines.length ? '' : 'hidden'}></div>
-        ${!lines.length ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? `${esc(LANGUAGES[LANG].name)} subtitles show on the video (📺 Subs on video).` : `Listen without captions; a ${esc(LANGUAGES[LANG].name)} caption track was not available when checked.`} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
+        ${!lines.length && v.pending ? `<div class="zone-note" style="margin-top:12px">⏳ App captions for this video are on the way (a few are added each day). Until then, YouTube’s ${esc(LANGUAGES[LANG].name)} subtitles show on the video, and the transcript, word taps and Repeat after me arrive with the captions.</div>` : ''}
+        ${!lines.length && !v.pending ? `<div class="zone-note" style="margin-top:12px">This video has no app transcript, pinyin, or line-by-line practice. ${v.youtubeCaptions ? `${esc(LANGUAGES[LANG].name)} subtitles show on the video (📺 Subs on video).` : `Listen without captions; a ${esc(LANGUAGES[LANG].name)} caption track was not available when checked.`} <a href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>.</div>` : ''}
         ${v.challengeNote ? `<div class="zone-note">${esc(v.challengeNote)}</div>` : ''}
         <div id="rpt" class="box rpt" hidden></div>
         <div class="controls">
@@ -882,8 +914,8 @@ async function renderWatch() {
           <h2>${esc(v.title)}</h2>
           <div class="meta" style="margin-bottom:8px">${esc(v.channel)} · ${fmtTime(v.duration)}${v.level ? ' · ' + esc(v.level) : ''}</div>
           <div class="meta">
-            <span class="pill ${hasMeasuredDifficulty(v) ? a.band : 'plain'}">${hasMeasuredDifficulty(v) ? BAND_LABEL[a.band] : 'Native challenge'}</span>
-            ${speedPill(v)}
+            ${bandPill(v, a)}
+            ${speedPill(v, a)}
             ${coveragePill(a)}
           </div>
           ${v.autoCaptions ? '<p class="muted small" style="margin:8px 0 0">Auto-generated captions, so expect some mistakes.</p>' : ''}
