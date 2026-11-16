@@ -564,6 +564,13 @@ async function calibrationClip() {
           try { e.target.unloadModule('captions'); } catch (e) { /* none */ }
         }
       },
+      // 101/150: the owner blocks playback on other sites. Move on to another clip by itself.
+      onError: e => {
+        if (calib !== session || session.activeClip !== clipToken) return;
+        toast('That video can’t play here. Picking another clip.');
+        calib.failures.push(v.id);
+        calibrationClip();
+      },
     },
   });
   const activePlayer = calPlayer;
