@@ -694,5 +694,41 @@
    "The best places to travel in the Netherlands"
   ],
   "answer": 1
+ },
+ "Vj3xieuZYqQ": {
+  "start": 306.96,
+  "end": 383.92,
+  "wpm": 76,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Cooking a recipe with strawberries and flowers",
+   "Sticking stickers onto a sheet and fixing one that was folded double",
+   "Drawing a cat picture on a piece of paper"
+  ],
+  "answer": 1
+ },
+ "l13uSZZszkc": {
+  "start": 301.96,
+  "end": 377.76,
+  "wpm": 169,
+  "question": "What is the speaker mainly talking about in this passage?",
+  "options": [
+   "How to introduce yourself to new neighbors when you move to a new place",
+   "How to save money by signing up for a yearly subscription",
+   "How to pronounce Dutch words correctly"
+  ],
+  "answer": 0
+ },
+ "7f4PU_eBLsM": {
+  "start": 151.52,
+  "end": 229.84,
+  "wpm": 128,
+  "question": "What is the main point of this passage about Dutch imperatives?",
+  "options": [
+   "Imperatives in Dutch can never include a subject, so learners should avoid using je, jullie, or u.",
+   "You can add a subject like je or jullie after the verb for emphasis, and use u with the verb form for polite or formal speech.",
+   "Formal Dutch always uses the infinitive instead of the imperative, so learners should memorize the infinitive forms."
+  ],
+  "answer": 1
  }
 }

@@ -202,5 +202,41 @@
    "Hostility, because they associate it with the colonizers"
   ],
   "answer": 1
+ },
+ "NkLdgB81-4M": {
+  "start": 264.72,
+  "end": 340.48,
+  "wpm": 135,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "How to change a light bulb and use a flat-head screwdriver to turn a screw",
+   "How to unbox and install a new smartphone",
+   "How to choose the right metal tool for fixing a bicycle"
+  ],
+  "answer": 0
+ },
+ "v-SoERbbn_I": {
+  "start": 250.68,
+  "end": 326.56,
+  "wpm": 135,
+  "question": "According to the passage, why do people who review vocabulary right before sleep remember more than those who review in the morning?",
+  "options": [
+   "They study for more hours in the evening than in the morning.",
+   "Sleep helps consolidate what they just learned, so reviewing right before bed improves memory.",
+   "Older adults forget words in the morning because their sleep patterns change with age."
+  ],
+  "answer": 1
+ },
+ "bJFnIH-j9eI": {
+  "start": 310.64,
+  "end": 385.72,
+  "wpm": 135,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker prefers fresh, homemade burgers with soft bread to McDonald's, and bread is very important to the French.",
+   "The speaker goes to McDonald's every day because it has the best bread.",
+   "French children usually eat cakes instead of bread after school."
+  ],
+  "answer": 0
  }
 }

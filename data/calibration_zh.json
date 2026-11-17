@@ -1,418 +1,430 @@
 {
-  "hiUEpqL77-Y": {
-    "start": 677.13,
-    "end": 754.93,
-    "wpm": 147,
-    "question": "What is the speaker's main point about Quanzhou?",
-    "options": [
-      "It is a fast-paced city that the speaker finds exhausting.",
-      "It is the speaker's hometown, which they find comfortable and interesting because of its relaxed pace and culture.",
-      "It is a city the speaker has never visited and wants to avoid."
-    ],
-    "answer": 1
+ "hiUEpqL77-Y": {
+  "start": 677.13,
+  "end": 754.93,
+  "wpm": 147,
+  "question": "What is the speaker's main point about Quanzhou?",
+  "options": [
+   "It is a fast-paced city that the speaker finds exhausting.",
+   "It is the speaker's hometown, which they find comfortable and interesting because of its relaxed pace and culture.",
+   "It is a city the speaker has never visited and wants to avoid."
+  ],
+  "answer": 1
+ },
+ "dezZqONwmWQ": {
+  "start": 286.53,
+  "end": 363.73,
+  "wpm": 89,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "A debate about which family movies are best for young children",
+   "A childhood memory of adults watching an adult video, and whether others' families did the same",
+   "A plan to buy a new television for the family living room"
+  ],
+  "answer": 1
+ },
+ "NdwR3zhDX0Y": {
+  "start": 210.27,
+  "end": 286.63,
+  "wpm": 53,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is looking for a lost peanut.",
+   "The speaker is introducing a new dog named Peanut, who loves peanuts.",
+   "The speaker is buying peanuts at a store."
+  ],
+  "answer": 1
+ },
+ "UnB7NMamLrE": {
+  "start": 435.9,
+  "end": 511.4,
+  "wpm": 143,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A cat will always love eating chicken breast.",
+   "The speaker's dog is allergic to vegetables and refuses to eat them.",
+   "The speaker thinks pets quickly lose interest in things, and the speaker's dog stopped eating the mixed food after about a week."
+  ],
+  "answer": 2
+ },
+ "V21ZcvqS-aA": {
+  "start": 427.77,
+  "end": 505.7,
+  "wpm": 142,
+  "question": "What is the main point the speakers make about what a long-term relationship needs?",
+  "options": [
+   "Being attracted to someone's looks and humor is enough to keep a relationship going.",
+   "Both partners must work hard, respect each other, and want the same things in life.",
+   "A person should avoid relationships entirely if their sibling has gotten divorced."
+  ],
+  "answer": 1
+ },
+ "Tl2FxsgeTPg": {
+  "start": 216.97,
+  "end": 294.33,
+  "wpm": 95,
+  "question": "In the passage, what is the speaker mainly showing or describing?",
+  "options": [
+   "A cat's favorite place to sleep, and why the speaker's bed is messy",
+   "How to clean a closet and organize winter clothes",
+   "A plan to buy a bigger bed for two cats"
+  ],
+  "answer": 0
+ },
+ "ijZ8JMfNetY": {
+  "start": 282.5,
+  "end": 357.4,
+  "wpm": 102,
+  "question": "What is the speaker's main point about food?",
+  "options": [
+   "They live in England and miss Taiwanese food, but can still eat Chinese, Korean, and Japanese food.",
+   "Their favorite dish is a Taiwanese dish that they cook every day.",
+   "Food in Fujian and Taiwan is completely different from Chinese food."
+  ],
+  "answer": 0
+ },
+ "RkbXu6IalyA": {
+  "start": 477.77,
+  "end": 553.1,
+  "wpm": 130,
+  "question": "What is the speaker mainly saying in this passage?",
+  "options": [
+   "She pays for everything when she goes out with her boyfriend and friends, so she uses money to control how they behave.",
+   "She thinks women who earn money should always pay for their boyfriends.",
+   "She is angry that her boyfriend never buys food when they go out to eat."
+  ],
+  "answer": 0
+ },
+ "xMzSTrFbAbg": {
+  "start": 510.3,
+  "end": 587.67,
+  "wpm": 111,
+  "question": "What happened to the speaker after paying for a expensive bowl of soup and eating quickly to leave for work?",
+  "options": [
+   "She felt the soup was worth the price and enjoyed the dinner.",
+   "She fell down while hurrying out of the restaurant.",
+   "She went to class with her friends after dinner."
+  ],
+  "answer": 1
+ },
+ "1tbInjN4Xag": {
+  "start": 272.9,
+  "end": 350.5,
+  "wpm": 70,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker pretends that their boyfriend Oskar farted, so the girl thinks it was him.",
+   "The speaker is telling a girl about a smelly trip to the market with Oskar.",
+   "Oskar is angry at the speaker for taking the girl's seat at the table."
+  ],
+  "answer": 0
+ },
+ "InsxsGO1Ucs": {
+  "start": 735.27,
+  "end": 810.1,
+  "wpm": 149,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A woman gives up a family trip to stay in Chengdu and spend more time with a man she has fallen for.",
+   "A woman travels to Chongqing with her family and decides never to see a certain man again.",
+   "Two friends plan a trip together from Chengdu to Chongqing and argue about where to eat."
+  ],
+  "answer": 0
+ },
+ "vHh45E1FKXI": {
+  "start": 229.53,
+  "end": 305.8,
+  "wpm": 114,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A man bought a new train ticket to travel to a holiday resort.",
+   "A man committed murders, then fled with a fake ID while hiding from a wanted notice.",
+   "A man was caught quickly after witnesses saw him on a train."
+  ],
+  "answer": 1
+ },
+ "O8R5Uks_eiQ": {
+  "start": 353.37,
+  "end": 429.87,
+  "wpm": 118,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker loved studying in high school and felt free during those years.",
+   "The speaker felt trapped when a partner stopped her from taking on challenges and doing new things.",
+   "The speaker wants to learn to drive so she can travel to many places alone."
+  ],
+  "answer": 1
+ },
+ "nHqhuEw16iY": {
+  "start": 595.03,
+  "end": 669.93,
+  "wpm": 150,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker's parents want the speaker to move back to Taiwan because life in Australia is hard.",
+   "The speaker's parents are angry about the speaker's unstable job in Australia.",
+   "The speaker's parents first pitied the speaker's life abroad, but after seeing it for themselves, they now just want the speaker to be happy."
+  ],
+  "answer": 2
+ },
+ "UYFSCf1-nXU": {
+  "start": 267.5,
+  "end": 342.2,
+  "wpm": 63,
+  "question": "What is the speaker mainly talking about?",
+  "options": [
+   "Buying a big watermelon at a market",
+   "Showing clothes and noticing men's big bellies in Shenzhen",
+   "Cooking a meal for friends at home"
+  ],
+  "answer": 1
+ },
+ "tzctX3Vyi90": {
+  "native": true,
+  "start": 614,
+  "end": 692,
+  "tier": 3,
+  "verifiedOn": "2026-11-14",
+  "source": {
+   "url": "https://www.youtube.com/watch?v=tzctX3Vyi90&t=614s",
+   "reviewMethod": "YouTube visible timestamped transcript",
+   "reviewLanguage": "zh",
+   "summary": "The speaker links uncertainty about preferences to limited experience, using a viewer who has seen only one film as an analogy."
   },
-  "dezZqONwmWQ": {
-    "start": 286.53,
-    "end": 363.73,
-    "wpm": 89,
-    "question": "What is the main topic of this conversation?",
+  "questions": [
+   {
+    "kind": "detail",
+    "question": "What recurring cause does the speaker identify in people who cannot say what they want?",
     "options": [
-      "A debate about which family movies are best for young children",
-      "A childhood memory of adults watching an adult video, and whether others' families did the same",
-      "A plan to buy a new television for the family living room"
+     "They have considered too many equally attractive alternatives.",
+     "They have accumulated too little experience to compare alternatives.",
+     "They understand their preferences but hesitate to reveal them.",
+     "They confuse other people’s expectations with their own memories."
     ],
-    "answer": 1
-  },
-  "NdwR3zhDX0Y": {
-    "start": 210.27,
-    "end": 286.63,
-    "wpm": 53,
-    "question": "What is the main point of the passage?",
+    "answer": 1,
+    "explanation": "The speaker describes an insufficient internal store of experience."
+   },
+   {
+    "kind": "inference",
+    "question": "Why might a person who has seen only one film struggle to describe their taste?",
     "options": [
-      "The speaker is looking for a lost peanut.",
-      "The speaker is introducing a new dog named Peanut, who loves peanuts.",
-      "The speaker is buying peanuts at a store."
+     "One film is usually too complex to judge after a single viewing.",
+     "An ordinary film prevents them from recognizing strong emotions later.",
+     "Their reaction provides too little comparison for identifying a preference.",
+     "They need to learn film terminology before expressing an opinion."
     ],
-    "answer": 1
-  },
-  "UnB7NMamLrE": {
-    "start": 435.9,
-    "end": 511.4,
-    "wpm": 143,
-    "question": "What is the main point of the passage?",
-    "options": [
-      "A cat will always love eating chicken breast.",
-      "The speaker's dog is allergic to vegetables and refuses to eat them.",
-      "The speaker thinks pets quickly lose interest in things, and the speaker's dog stopped eating the mixed food after about a week."
-    ],
-    "answer": 2
-  },
-  "V21ZcvqS-aA": {
-    "start": 427.77,
-    "end": 505.7,
-    "wpm": 142,
-    "question": "What is the main point the speakers make about what a long-term relationship needs?",
-    "options": [
-      "Being attracted to someone's looks and humor is enough to keep a relationship going.",
-      "Both partners must work hard, respect each other, and want the same things in life.",
-      "A person should avoid relationships entirely if their sibling has gotten divorced."
-    ],
-    "answer": 1
-  },
-  "Tl2FxsgeTPg": {
-    "start": 216.97,
-    "end": 294.33,
-    "wpm": 95,
-    "question": "In the passage, what is the speaker mainly showing or describing?",
-    "options": [
-      "A cat's favorite place to sleep, and why the speaker's bed is messy",
-      "How to clean a closet and organize winter clothes",
-      "A plan to buy a bigger bed for two cats"
-    ],
-    "answer": 0
-  },
-  "ijZ8JMfNetY": {
-    "start": 282.5,
-    "end": 357.4,
-    "wpm": 102,
-    "question": "What is the speaker's main point about food?",
-    "options": [
-      "They live in England and miss Taiwanese food, but can still eat Chinese, Korean, and Japanese food.",
-      "Their favorite dish is a Taiwanese dish that they cook every day.",
-      "Food in Fujian and Taiwan is completely different from Chinese food."
-    ],
-    "answer": 0
-  },
-  "RkbXu6IalyA": {
-    "start": 477.77,
-    "end": 553.1,
-    "wpm": 130,
-    "question": "What is the speaker mainly saying in this passage?",
-    "options": [
-      "She pays for everything when she goes out with her boyfriend and friends, so she uses money to control how they behave.",
-      "She thinks women who earn money should always pay for their boyfriends.",
-      "She is angry that her boyfriend never buys food when they go out to eat."
-    ],
-    "answer": 0
-  },
-  "xMzSTrFbAbg": {
-    "start": 510.3,
-    "end": 587.67,
-    "wpm": 111,
-    "question": "What happened to the speaker after paying for a expensive bowl of soup and eating quickly to leave for work?",
-    "options": [
-      "She felt the soup was worth the price and enjoyed the dinner.",
-      "She fell down while hurrying out of the restaurant.",
-      "She went to class with her friends after dinner."
-    ],
-    "answer": 1
-  },
-  "1tbInjN4Xag": {
-    "start": 272.9,
-    "end": 350.5,
-    "wpm": 70,
-    "question": "What is the main point of the passage?",
-    "options": [
-      "The speaker pretends that their boyfriend Oskar farted, so the girl thinks it was him.",
-      "The speaker is telling a girl about a smelly trip to the market with Oskar.",
-      "Oskar is angry at the speaker for taking the girl's seat at the table."
-    ],
-    "answer": 0
-  },
-  "InsxsGO1Ucs": {
-    "start": 735.27,
-    "end": 810.1,
-    "wpm": 149,
-    "question": "What is the main point of this passage?",
-    "options": [
-      "A woman gives up a family trip to stay in Chengdu and spend more time with a man she has fallen for.",
-      "A woman travels to Chongqing with her family and decides never to see a certain man again.",
-      "Two friends plan a trip together from Chengdu to Chongqing and argue about where to eat."
-    ],
-    "answer": 0
-  },
-  "vHh45E1FKXI": {
-    "start": 229.53,
-    "end": 305.8,
-    "wpm": 114,
-    "question": "What is the main point of the passage?",
-    "options": [
-      "A man bought a new train ticket to travel to a holiday resort.",
-      "A man committed murders, then fled with a fake ID while hiding from a wanted notice.",
-      "A man was caught quickly after witnesses saw him on a train."
-    ],
-    "answer": 1
-  },
-  "O8R5Uks_eiQ": {
-    "start": 353.37,
-    "end": 429.87,
-    "wpm": 118,
-    "question": "What is the main point of the passage?",
-    "options": [
-      "The speaker loved studying in high school and felt free during those years.",
-      "The speaker felt trapped when a partner stopped her from taking on challenges and doing new things.",
-      "The speaker wants to learn to drive so she can travel to many places alone."
-    ],
-    "answer": 1
-  },
-  "nHqhuEw16iY": {
-    "start": 595.03,
-    "end": 669.93,
-    "wpm": 150,
-    "question": "What is the main point of the passage?",
-    "options": [
-      "The speaker's parents want the speaker to move back to Taiwan because life in Australia is hard.",
-      "The speaker's parents are angry about the speaker's unstable job in Australia.",
-      "The speaker's parents first pitied the speaker's life abroad, but after seeing it for themselves, they now just want the speaker to be happy."
-    ],
-    "answer": 2
-  },
-  "UYFSCf1-nXU": {
-    "start": 267.5,
-    "end": 342.2,
-    "wpm": 63,
-    "question": "What is the speaker mainly talking about?",
-    "options": [
-      "Buying a big watermelon at a market",
-      "Showing clothes and noticing men's big bellies in Shenzhen",
-      "Cooking a meal for friends at home"
-    ],
-    "answer": 1
-  },
-  "tzctX3Vyi90": {
+    "answer": 2,
+    "explanation": "The analogy is about having too few reference points, rather than a lack of vocabulary."
+   }
+  ],
+  "alternates": [
+   {
     "native": true,
-    "start": 614,
-    "end": 692,
+    "start": 1199,
+    "end": 1278,
     "tier": 3,
     "verifiedOn": "2026-11-14",
     "source": {
-      "url": "https://www.youtube.com/watch?v=tzctX3Vyi90&t=614s",
-      "reviewMethod": "YouTube visible timestamped transcript",
-      "reviewLanguage": "zh",
-      "summary": "The speaker links uncertainty about preferences to limited experience, using a viewer who has seen only one film as an analogy."
+     "url": "https://www.youtube.com/watch?v=tzctX3Vyi90&t=1199s",
+     "reviewMethod": "YouTube visible timestamped transcript",
+     "reviewLanguage": "zh",
+     "summary": "The speaker contrasts two routes to happiness, then uses repeated food-court choices to distinguish genuine preference from avoidance of risk."
     },
     "questions": [
-      {
-        "kind": "detail",
-        "question": "What recurring cause does the speaker identify in people who cannot say what they want?",
-        "options": [
-          "They have considered too many equally attractive alternatives.",
-          "They have accumulated too little experience to compare alternatives.",
-          "They understand their preferences but hesitate to reveal them.",
-          "They confuse other people’s expectations with their own memories."
-        ],
-        "answer": 1,
-        "explanation": "The speaker describes an insufficient internal store of experience."
-      },
-      {
-        "kind": "inference",
-        "question": "Why might a person who has seen only one film struggle to describe their taste?",
-        "options": [
-          "One film is usually too complex to judge after a single viewing.",
-          "An ordinary film prevents them from recognizing strong emotions later.",
-          "Their reaction provides too little comparison for identifying a preference.",
-          "They need to learn film terminology before expressing an opinion."
-        ],
-        "answer": 2,
-        "explanation": "The analogy is about having too few reference points, rather than a lack of vocabulary."
-      }
+     {
+      "kind": "detail",
+      "question": "Which two routes to happiness does the speaker describe?",
+      "options": [
+       "Finding and obtaining what one loves, or remaining unaware of preferable alternatives.",
+       "Taking bigger risks, or learning to earn enough to avoid all risks.",
+       "Accepting family expectations, or making choices that impress other people.",
+       "Sampling every alternative, or deciding never to compare anything again."
+      ],
+      "answer": 0,
+      "explanation": "The second possibility is presented as compatible with happiness, not automatically a failure."
+     },
+     {
+      "kind": "inference",
+      "question": "What is the food-court analogy meant to help distinguish?",
+      "options": [
+       "A choice based on convenience from one based on price.",
+       "A temporary preference from a habit that cannot be changed.",
+       "A shared preference from one that only the individual understands.",
+       "Choosing something willingly from choosing it because alternatives feel risky."
+      ],
+      "answer": 3,
+      "explanation": "Comparison helps reveal whether a familiar choice reflects love or avoidance."
+     }
+    ]
+   }
+  ]
+ },
+ "vV-Q7A7_NCE": {
+  "native": true,
+  "start": 363,
+  "end": 451,
+  "tier": 3,
+  "verifiedOn": "2026-11-14",
+  "source": {
+   "url": "https://www.youtube.com/watch?v=vV-Q7A7_NCE&t=363s",
+   "reviewMethod": "YouTube visible timestamped transcript",
+   "reviewLanguage": "zh",
+   "summary": "The speaker rejects the idea that resilient people are emotionless, permits brief venting, and explains that blame cannot reverse an already-used injection in a fictional example."
+  },
+  "questions": [
+   {
+    "kind": "detail",
+    "question": "Which reaction does the speaker allow immediately after something upsetting happens?",
+    "options": [
+     "Continuing to assign blame until everyone agrees on responsibility.",
+     "Concealing the emotion so that others will see the person as rational.",
+     "Feeling upset and venting briefly, while avoiding prolonged rumination.",
+     "Postponing any decision until the emotion has completely disappeared."
     ],
-    "alternates": [
-      {
-        "native": true,
-        "start": 1199,
-        "end": 1278,
-        "tier": 3,
-        "verifiedOn": "2026-11-14",
-        "source": {
-          "url": "https://www.youtube.com/watch?v=tzctX3Vyi90&t=1199s",
-          "reviewMethod": "YouTube visible timestamped transcript",
-          "reviewLanguage": "zh",
-          "summary": "The speaker contrasts two routes to happiness, then uses repeated food-court choices to distinguish genuine preference from avoidance of risk."
-        },
-        "questions": [
-          {
-            "kind": "detail",
-            "question": "Which two routes to happiness does the speaker describe?",
-            "options": [
-              "Finding and obtaining what one loves, or remaining unaware of preferable alternatives.",
-              "Taking bigger risks, or learning to earn enough to avoid all risks.",
-              "Accepting family expectations, or making choices that impress other people.",
-              "Sampling every alternative, or deciding never to compare anything again."
-            ],
-            "answer": 0,
-            "explanation": "The second possibility is presented as compatible with happiness, not automatically a failure."
-          },
-          {
-            "kind": "inference",
-            "question": "What is the food-court analogy meant to help distinguish?",
-            "options": [
-              "A choice based on convenience from one based on price.",
-              "A temporary preference from a habit that cannot be changed.",
-              "A shared preference from one that only the individual understands.",
-              "Choosing something willingly from choosing it because alternatives feel risky."
-            ],
-            "answer": 3,
-            "explanation": "Comparison helps reveal whether a familiar choice reflects love or avoidance."
-          }
-        ]
-      }
-    ]
+    "answer": 2,
+    "explanation": "The distinction is between a normal emotional reaction and remaining stuck in it."
+   },
+   {
+    "kind": "inference",
+    "question": "Why does the speaker emphasize that the injection has already been used?",
+    "options": [
+     "To argue that the person who used it must first admit a mistake.",
+     "To show that blaming people cannot undo the decision or restore the resource.",
+     "To suggest that a different injection should have been chosen earlier.",
+     "To explain why the characters have time to reconsider the same decision."
+    ],
+    "answer": 1,
+    "explanation": "The example illustrates an irreversible situation, so attention must move forward."
+   }
+  ]
+ },
+ "e4E10QJszvg": {
+  "native": true,
+  "start": 180,
+  "end": 256,
+  "tier": 4,
+  "verifiedOn": "2026-11-14",
+  "source": {
+   "url": "https://www.youtube.com/watch?v=e4E10QJszvg&t=180s",
+   "reviewMethod": "YouTube visible timestamped transcript",
+   "reviewLanguage": "en (creator-provided auto-translation of the Mandarin video)",
+   "summary": "The explainer contrasts a working shock-control button with an ineffective one, then describes a dog that does not escape after learning that its actions have no effect."
   },
-  "vV-Q7A7_NCE": {
-    "native": true,
-    "start": 363,
-    "end": 451,
-    "tier": 3,
-    "verifiedOn": "2026-11-14",
-    "source": {
-      "url": "https://www.youtube.com/watch?v=vV-Q7A7_NCE&t=363s",
-      "reviewMethod": "YouTube visible timestamped transcript",
-      "reviewLanguage": "zh",
-      "summary": "The speaker rejects the idea that resilient people are emotionless, permits brief venting, and explains that blame cannot reverse an already-used injection in a fictional example."
-    },
-    "questions": [
-      {
-        "kind": "detail",
-        "question": "Which reaction does the speaker allow immediately after something upsetting happens?",
-        "options": [
-          "Continuing to assign blame until everyone agrees on responsibility.",
-          "Concealing the emotion so that others will see the person as rational.",
-          "Feeling upset and venting briefly, while avoiding prolonged rumination.",
-          "Postponing any decision until the emotion has completely disappeared."
-        ],
-        "answer": 2,
-        "explanation": "The distinction is between a normal emotional reaction and remaining stuck in it."
-      },
-      {
-        "kind": "inference",
-        "question": "Why does the speaker emphasize that the injection has already been used?",
-        "options": [
-          "To argue that the person who used it must first admit a mistake.",
-          "To show that blaming people cannot undo the decision or restore the resource.",
-          "To suggest that a different injection should have been chosen earlier.",
-          "To explain why the characters have time to reconsider the same decision."
-        ],
-        "answer": 1,
-        "explanation": "The example illustrates an irreversible situation, so attention must move forward."
-      }
-    ]
+  "questions": [
+   {
+    "kind": "detail",
+    "question": "What distinguishes the second dog’s initial situation from the third dog’s?",
+    "options": [
+     "The second dog can see an exit, whereas the third is kept in darkness.",
+     "The second dog receives no shocks, whereas the third receives repeated shocks.",
+     "The second dog is trained by the other dogs to press a button.",
+     "The second dog’s button can stop the shocks; the third dog’s button cannot."
+    ],
+    "answer": 3,
+    "explanation": "The contrast concerns whether the animal can influence what happens."
+   },
+   {
+    "kind": "inference",
+    "question": "Why does the third dog later remain in place even when escape is possible?",
+    "options": [
+     "Its earlier experience has led it to expect that taking action will not help.",
+     "It is waiting for the other dogs to demonstrate the correct route.",
+     "It has learned that the cage becomes safe if it remains still long enough.",
+     "It prefers a familiar situation to the uncertainty of a new enclosure."
+    ],
+    "answer": 0,
+    "explanation": "The passage uses this behavior to explain learned helplessness."
+   }
+  ]
+ },
+ "gevH3h-5p6A": {
+  "native": true,
+  "start": 308,
+  "end": 379,
+  "tier": 4,
+  "verifiedOn": "2026-11-14",
+  "source": {
+   "url": "https://www.youtube.com/watch?v=gevH3h-5p6A&t=308s",
+   "reviewMethod": "YouTube visible timestamped transcript",
+   "reviewLanguage": "zh",
+   "summary": "The speaker describes Indian students challenging teachers and acting before having complete answers, then contrasts this with Japanese education’s emphasis on the collective and others’ feelings."
   },
-  "e4E10QJszvg": {
-    "native": true,
-    "start": 180,
-    "end": 256,
-    "tier": 4,
-    "verifiedOn": "2026-11-14",
-    "source": {
-      "url": "https://www.youtube.com/watch?v=e4E10QJszvg&t=180s",
-      "reviewMethod": "YouTube visible timestamped transcript",
-      "reviewLanguage": "en (creator-provided auto-translation of the Mandarin video)",
-      "summary": "The explainer contrasts a working shock-control button with an ineffective one, then describes a dog that does not escape after learning that its actions have no effect."
-    },
-    "questions": [
-      {
-        "kind": "detail",
-        "question": "What distinguishes the second dog’s initial situation from the third dog’s?",
-        "options": [
-          "The second dog can see an exit, whereas the third is kept in darkness.",
-          "The second dog receives no shocks, whereas the third receives repeated shocks.",
-          "The second dog is trained by the other dogs to press a button.",
-          "The second dog’s button can stop the shocks; the third dog’s button cannot."
-        ],
-        "answer": 3,
-        "explanation": "The contrast concerns whether the animal can influence what happens."
-      },
-      {
-        "kind": "inference",
-        "question": "Why does the third dog later remain in place even when escape is possible?",
-        "options": [
-          "Its earlier experience has led it to expect that taking action will not help.",
-          "It is waiting for the other dogs to demonstrate the correct route.",
-          "It has learned that the cage becomes safe if it remains still long enough.",
-          "It prefers a familiar situation to the uncertainty of a new enclosure."
-        ],
-        "answer": 0,
-        "explanation": "The passage uses this behavior to explain learned helplessness."
-      }
-    ]
+  "questions": [
+   {
+    "kind": "detail",
+    "question": "According to the Indian classroom example, what may students do before having a complete answer?",
+    "options": [
+     "Wait for the teacher to select a student with a finished response.",
+     "Raise their hands, challenge the teacher, and learn while acting.",
+     "Ask classmates to agree on a single answer before speaking.",
+     "Avoid questions that might interrupt the intended lesson."
+    ],
+    "answer": 1,
+    "explanation": "The example emphasizes willingness to participate before everything is worked out."
+   },
+   {
+    "kind": "inference",
+    "question": "What contrast does the Japanese example introduce?",
+    "options": [
+     "Learning through practice is replaced by memorizing more facts.",
+     "Strong individuals are considered less valuable than strong teachers.",
+     "Individual strength is directed toward supporting the group and considering others.",
+     "Expressing personal feelings publicly is used to strengthen independence."
+    ],
+    "answer": 2,
+    "explanation": "The comparison concerns the purposes and social expectations of education."
+   }
+  ]
+ },
+ "eBO5xrTHuv0": {
+  "native": true,
+  "start": 241,
+  "end": 323,
+  "tier": 4,
+  "verifiedOn": "2026-11-14",
+  "source": {
+   "url": "https://www.youtube.com/watch?v=eBO5xrTHuv0&t=241s",
+   "reviewMethod": "YouTube visible timestamped transcript",
+   "reviewLanguage": "zh",
+   "summary": "The scientist gives examples of lichen habitats and explains that early litmus raw materials came from lichens but synthetic materials are now used because the natural resource is limited."
   },
-  "gevH3h-5p6A": {
-    "native": true,
-    "start": 308,
-    "end": 379,
-    "tier": 4,
-    "verifiedOn": "2026-11-14",
-    "source": {
-      "url": "https://www.youtube.com/watch?v=gevH3h-5p6A&t=308s",
-      "reviewMethod": "YouTube visible timestamped transcript",
-      "reviewLanguage": "zh",
-      "summary": "The speaker describes Indian students challenging teachers and acting before having complete answers, then contrasts this with Japanese education’s emphasis on the collective and others’ feelings."
-    },
-    "questions": [
-      {
-        "kind": "detail",
-        "question": "According to the Indian classroom example, what may students do before having a complete answer?",
-        "options": [
-          "Wait for the teacher to select a student with a finished response.",
-          "Raise their hands, challenge the teacher, and learn while acting.",
-          "Ask classmates to agree on a single answer before speaking.",
-          "Avoid questions that might interrupt the intended lesson."
-        ],
-        "answer": 1,
-        "explanation": "The example emphasizes willingness to participate before everything is worked out."
-      },
-      {
-        "kind": "inference",
-        "question": "What contrast does the Japanese example introduce?",
-        "options": [
-          "Learning through practice is replaced by memorizing more facts.",
-          "Strong individuals are considered less valuable than strong teachers.",
-          "Individual strength is directed toward supporting the group and considering others.",
-          "Expressing personal feelings publicly is used to strengthen independence."
-        ],
-        "answer": 2,
-        "explanation": "The comparison concerns the purposes and social expectations of education."
-      }
-    ]
-  },
-  "eBO5xrTHuv0": {
-    "native": true,
-    "start": 241,
-    "end": 323,
-    "tier": 4,
-    "verifiedOn": "2026-11-14",
-    "source": {
-      "url": "https://www.youtube.com/watch?v=eBO5xrTHuv0&t=241s",
-      "reviewMethod": "YouTube visible timestamped transcript",
-      "reviewLanguage": "zh",
-      "summary": "The scientist gives examples of lichen habitats and explains that early litmus raw materials came from lichens but synthetic materials are now used because the natural resource is limited."
-    },
-    "questions": [
-      {
-        "kind": "detail",
-        "question": "Why does the speaker say synthetic materials are now used for litmus?",
-        "options": [
-          "The naturally available lichen resource is limited.",
-          "Lichens cannot produce the colors required for modern experiments.",
-          "Harvesting lichens changes their chemical properties too quickly.",
-          "The relevant lichens grow only at elevations that researchers cannot reach."
-        ],
-        "answer": 0,
-        "explanation": "The stated reason is limited natural resources, rather than a failure of the material."
-      },
-      {
-        "kind": "inference",
-        "question": "What do the examples of glass, rainforest leaves, tree trunks and mountain regions establish?",
-        "options": [
-          "Lichens grow most successfully on surfaces created by people.",
-          "Altitude matters more than the surface on which a lichen grows.",
-          "Most lichens are edible because they adapt to many environments.",
-          "Lichens occur across a much wider range of surfaces and environments than one might expect."
-        ],
-        "answer": 3,
-        "explanation": "The range of examples supports the speaker’s point about their widespread presence."
-      }
-    ]
-  }
+  "questions": [
+   {
+    "kind": "detail",
+    "question": "Why does the speaker say synthetic materials are now used for litmus?",
+    "options": [
+     "The naturally available lichen resource is limited.",
+     "Lichens cannot produce the colors required for modern experiments.",
+     "Harvesting lichens changes their chemical properties too quickly.",
+     "The relevant lichens grow only at elevations that researchers cannot reach."
+    ],
+    "answer": 0,
+    "explanation": "The stated reason is limited natural resources, rather than a failure of the material."
+   },
+   {
+    "kind": "inference",
+    "question": "What do the examples of glass, rainforest leaves, tree trunks and mountain regions establish?",
+    "options": [
+     "Lichens grow most successfully on surfaces created by people.",
+     "Altitude matters more than the surface on which a lichen grows.",
+     "Most lichens are edible because they adapt to many environments.",
+     "Lichens occur across a much wider range of surfaces and environments than one might expect."
+    ],
+    "answer": 3,
+    "explanation": "The range of examples supports the speaker’s point about their widespread presence."
+   }
+  ]
+ },
+ "5qHnCV4nlOU": {
+  "start": 132.1,
+  "end": 206.93,
+  "wpm": 78,
+  "question": "According to the passage, what did the Taiwanese government start in 2006?",
+  "options": [
+   "A plan to find new jobs for prisoners that earn them more money",
+   "A program to build new prisons for people who have been sentenced",
+   "A law that stops companies from hiring prisoners to make toys"
+  ],
+  "answer": 0
+ }
 }

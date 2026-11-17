@@ -166,5 +166,29 @@
    "Buying new plants at a flower shop"
   ],
   "answer": 1
+ },
+ "c2rahtCGn8g": {
+  "start": 260.21,
+  "end": 338.21,
+  "wpm": 92,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is eating a sakura-flavored daifuku and then a pink roll cake.",
+   "The speaker is making a cherry blossom cake at home.",
+   "The speaker is explaining how to buy sweets in Japan."
+  ],
+  "answer": 0
+ },
+ "19QBtOgwmxk": {
+  "start": 420.66,
+  "end": 495.78,
+  "wpm": 87,
+  "question": "What is the main situation in this passage?",
+  "options": [
+   "A family is cooking dinner and talking about a recipe.",
+   "A crew is inspecting a pipe or tunnel, finds water and gets startled, then decides to leave.",
+   "Two friends are shopping for a new car and arguing about the price."
+  ],
+  "answer": 1
  }
 }

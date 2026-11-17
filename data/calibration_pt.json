@@ -850,5 +850,53 @@
    "How to cook traditional Portuguese food"
   ],
   "answer": 1
+ },
+ "IN4PItgX-EI": {
+  "start": 513.96,
+  "end": 591.4,
+  "wpm": 198,
+  "question": "What is the main point of the speaker in this passage?",
+  "options": [
+   "The food at airports and in Italy was excellent, so she enjoyed her trip.",
+   "While traveling abroad, she missed typical Brazilian food like rice and beans.",
+   "Salads are very common in European supermarkets, so she ate them every day."
+  ],
+  "answer": 1
+ },
+ "52FREHPoy0M": {
+  "start": 579.12,
+  "end": 655.2,
+  "wpm": 123,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Snake bites in dogs can be treated at home without seeing a vet.",
+   "After a viper bite, stay calm, quickly and safely take the bitten patient to a vet or clinic, and avoid certain harmful actions.",
+   "Hot weather makes it dangerous to walk dogs near a veterinary hospital."
+  ],
+  "answer": 1
+ },
+ "7R927spyHe8": {
+  "start": 235.6,
+  "end": 313.56,
+  "wpm": 121,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker moved to São Paulo at age 17 and never returned to Ceará.",
+   "The Easy Portuguese platform organizes its channel content so learners know what comes before and after.",
+   "Learners often forget Portuguese videos, so they should take notes while watching."
+  ],
+  "answer": 1
+ },
+ "EYDlVOz_wvk": {
+  "start": 167.56,
+  "end": 243.96,
+  "wpm": 93,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is making coffee in a coffee maker and explains each step as they go.",
+   "The speaker is teaching how to clean a coffee machine after a long day.",
+   "The speaker is talking about why breakfast is the most important meal of the day."
+  ],
+  "answer": 0
  }
 }
