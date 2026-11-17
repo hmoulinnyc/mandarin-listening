@@ -274,7 +274,7 @@ function setupLanguageSwitch() {
   const tag = document.querySelector('.lang-tag');
   if (tag) tag.textContent = LANGUAGES[LANG].tag;
   const nav = document.querySelector('nav');
-  if (LANG !== 'pt') nav.querySelector('[data-nav="sounds"]')?.remove();
+  if (!window.Sounds?.has(LANG)) nav.querySelector('[data-nav="sounds"]')?.remove();
   if (STATIC) {
     // The published site leaves out the tabs that need the Mac.
     nav.querySelectorAll('[data-nav]').forEach(a => { if (CONFIG.tabs && !CONFIG.tabs.includes(a.dataset.nav)) a.remove(); });
@@ -363,7 +363,7 @@ async function boot() {
 }
 
 function render() {
-  window.PortugueseSounds?.stop();
+  window.Sounds?.stop();
   teardownWatch();
   teardownCalibration();
   if (sceneHandle) { sceneHandle.stop(); sceneHandle = null; }
@@ -379,9 +379,10 @@ function render() {
 
 // The first sound lesson is Brazilian Portuguese; its progress is independent of phrase clarity.
 function renderSounds() {
-  if (LANG !== 'pt') { renderFeed(); return; }
+  if (!window.Sounds?.has(LANG)) { renderFeed(); return; }
   const main = freshMain();
-  window.PortugueseSounds.render({ main, state, save });
+  const voiceName = { pt: 'Yasmin', ar: 'Hamid' }[LANG];
+  window.Sounds.render({ main, state, save, lang: LANG, fetchAudio, recordedName: voiceName });
 }
 
 // ---------- feed ----------
