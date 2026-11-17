@@ -238,5 +238,17 @@
    "French children usually eat cakes instead of bread after school."
   ],
   "answer": 0
+ },
+ "Vn4rze9DLD4": {
+  "start": 421.76,
+  "end": 496.92,
+  "wpm": 75,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker explains how much a croissant and a hot chocolate cost.",
+   "The speaker says that eating a croissant with hot chocolate is a bad idea.",
+   "The speaker shows how to dip a croissant in hot chocolate and says it is delicious."
+  ],
+  "answer": 2
  }
 }
