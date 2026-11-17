@@ -1,0 +1,26 @@
+{
+ "DYPGT8e__3E": {
+  "start": 364.52,
+  "end": 440.64,
+  "wpm": 102,
+  "question": "According to the speaker, what is the main difficulty they have with the word in the sentence \"Esta piedra es natural\"?",
+  "options": [
+   "They cannot find a meaning for the word that fits, since they know it mainly as 'to lie'.",
+   "They think the word is a grammar mistake and should be removed from the sentence.",
+   "They do not know how to pronounce the word correctly."
+  ],
+  "answer": 0
+ },
+ "UbG_hmdGs1w": {
+  "start": 252.64,
+  "end": 324.88,
+  "wpm": 115,
+  "question": "What is the speaker's main advice for learning Spanish?",
+  "options": [
+   "Travel to Spain or Latin America to have real conversations",
+   "Talk to yourself in Spanish every day, naming things around you",
+   "Take a Spanish class once a year and practice it at home"
+  ],
+  "answer": 1
+ }
+}

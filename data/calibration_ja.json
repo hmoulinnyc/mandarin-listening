@@ -130,5 +130,41 @@
    "A new job and working from home"
   ],
   "answer": 1
+ },
+ "3z_NgINAyak": {
+  "start": 90.5,
+  "end": 168.79,
+  "wpm": 107,
+  "question": "What is the speaker's main point in this passage?",
+  "options": [
+   "The speaker feels energetic today, and the weather is sunny and nice.",
+   "The speaker is sad because it has been raining in Tokyo for days.",
+   "The speaker has no lessons today and plans to stay home all day."
+  ],
+  "answer": 0
+ },
+ "AmTEA-CRfbY": {
+  "start": 256.35,
+  "end": 342.77,
+  "wpm": 97,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Pedestrian zones in Tokyo are open every day and never change their hours.",
+   "Tokyo's pedestrian zones are usually open on weekends, and Shinbashi is a busy business area.",
+   "Shinbashi is a quiet residential area where few people work."
+  ],
+  "answer": 1
+ },
+ "zFxIuH7qhPI": {
+  "start": 567.05,
+  "end": 647.31,
+  "wpm": 76,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Cooking a meal with their grandmother",
+   "Learning that each plant has three conditions (light, humidity, compatibility) while choosing a viola to help grow",
+   "Buying new plants at a flower shop"
+  ],
+  "answer": 1
  }
 }
