@@ -910,5 +910,17 @@
    "How to choose the best coffee shop in town"
   ],
   "answer": 1
+ },
+ "t9bXcUgZ3C4": {
+  "start": 387.27,
+  "end": 465.69,
+  "wpm": 114,
+  "question": "What is the main idea of the passage?",
+  "options": [
+   "Black cats are dangerous animals that people should not keep as pets.",
+   "Many people believe black cats bring bad luck, an old superstition from the Middle Ages.",
+   "Black cats are friendly, so shelters find them homes very quickly."
+  ],
+  "answer": 1
  }
 }
