@@ -22,5 +22,29 @@
    "Take a Spanish class once a year and practice it at home"
   ],
   "answer": 1
+ },
+ "2GrDFoMl978": {
+  "start": 273.08,
+  "end": 350.88,
+  "wpm": 67,
+  "question": "In the video, what is Gabriel doing with Alexa?",
+  "options": [
+   "He is trying to meet a new woman, Alexa, and getting to know her",
+   "He is asking Alexa to help him buy clothes",
+   "He is arguing with Alexa about her job"
+  ],
+  "answer": 0
+ },
+ "JziC61yBbB0": {
+  "start": 379.64,
+  "end": 454.72,
+  "wpm": 161,
+  "question": "What is the main point the speaker makes about their English?",
+  "options": [
+   "They speak English every day but are not satisfied with it, and they freeze up on unfamiliar topics.",
+   "They have never studied English and cannot speak it at all.",
+   "They speak English perfectly and enjoy talking about any topic."
+  ],
+  "answer": 0
  }
 }

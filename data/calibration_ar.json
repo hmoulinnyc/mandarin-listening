@@ -10,5 +10,17 @@
    "A coffee shop that serves sugar-free coffee"
   ],
   "answer": 1
+ },
+ "-2zsmv3S5IE": {
+  "start": 128.44,
+  "end": 206.4,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Fasting is only allowed in winter, when the days are shorter.",
+   "Fasting runs from dawn to sunset, and it is best to break it gently with dates, water, and soup.",
+   "Fasting should end with a heavy meal to give the body energy quickly."
+  ],
+  "answer": 1
  }
 }

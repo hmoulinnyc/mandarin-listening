@@ -742,5 +742,17 @@
    "The cabinet has already solved all of its problems and will end its talks today."
   ],
   "answer": 1
+ },
+ "782N3KwstIM": {
+  "start": 505.1,
+  "end": 583.67,
+  "wpm": 47,
+  "question": "What does a doctor do, according to the passage?",
+  "options": [
+   "A doctor helps sick people.",
+   "A doctor sells clothes and food.",
+   "A doctor works in a shop."
+  ],
+  "answer": 0
  }
 }
