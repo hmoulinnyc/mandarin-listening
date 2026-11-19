@@ -190,5 +190,29 @@
    "Two friends are shopping for a new car and arguing about the price."
   ],
   "answer": 1
+ },
+ "60D65DIRNJo": {
+  "start": 305.01,
+  "end": 380.58,
+  "wpm": 90,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to buy train tickets online before a trip.",
+   "It shows a traveler walking through Nagano Station to the JR ticket machines.",
+   "It describes a ride on the Hokuriku Shinkansen to Tokyo."
+  ],
+  "answer": 1
+ },
+ "mSvDaksoC9A": {
+  "start": 435.26,
+  "end": 509.81,
+  "wpm": 149,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Playing a difficult video game and carefully avoiding dangerous monsters",
+   "Cooking a meal and sharing a recipe with viewers",
+   "Reviewing a new smartphone and comparing its camera"
+  ],
+  "answer": 0
  }
 }

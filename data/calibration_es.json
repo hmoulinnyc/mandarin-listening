@@ -46,5 +46,29 @@
    "They speak English perfectly and enjoy talking about any topic."
   ],
   "answer": 0
+ },
+ "UrVBr3jR1Iw": {
+  "start": 288.08,
+  "end": 363.16,
+  "wpm": 93,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Arab forces conquered the Iberian Peninsula, and Muslim territories existed there for about 800 years before the Spanish and Portuguese reconquest.",
+   "Spain and Portugal were always separate kingdoms that never had any contact with North Africa.",
+   "Melilla was the first city Spain conquered from the Arabs, in the year 1497."
+  ],
+  "answer": 0
+ },
+ "sHSittUV7Nc": {
+  "start": 332.12,
+  "end": 408.04,
+  "wpm": 168,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A man asks for help remembering a Spanish word by describing an object he sees on the streets.",
+   "A man asks an AI assistant to teach him how to cook a traditional Spanish dish.",
+   "A man asks for directions to a famous street in Madrid."
+  ],
+  "answer": 0
  }
 }

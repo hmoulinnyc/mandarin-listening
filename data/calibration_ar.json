@@ -22,5 +22,17 @@
    "Fasting should end with a heavy meal to give the body energy quickly."
   ],
   "answer": 1
+ },
+ "rwNZSLizEYg": {
+  "start": 125.28,
+  "end": 206.6,
+  "wpm": 0,
+  "question": "What do Muslims do in the morning of Eid al-Fitr?",
+  "options": [
+   "They wake up early, hear the takbeer, get ready, and go to the Eid prayer",
+   "They fast all day and read the Quran in the mosque",
+   "They travel to Mecca to perform the pilgrimage"
+  ],
+  "answer": 0
  }
 }
