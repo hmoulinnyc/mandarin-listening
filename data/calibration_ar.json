@@ -118,5 +118,17 @@
    "A young man is asking the public to donate money so he can buy prosthetic limbs."
   ],
   "answer": 0
+ },
+ "8M5aforUUbs": {
+  "start": 343.32,
+  "end": 422.36,
+  "wpm": 0,
+  "question": "Why does the speaker find Persian easy to learn?",
+  "options": [
+   "Because Persian uses the Arabic alphabet and shares many words with Arabic",
+   "Because Persian grammar is simpler than Turkish grammar",
+   "Because the speaker already spoke Persian at home as a child"
+  ],
+  "answer": 0
  }
 }

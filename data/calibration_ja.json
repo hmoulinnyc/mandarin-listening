@@ -214,5 +214,29 @@
    "Reviewing a new smartphone and comparing its camera"
   ],
   "answer": 0
+ },
+ "ct5XCoffFt8": {
+  "start": 294.22,
+  "end": 378.62,
+  "wpm": 61,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Nagamin-so is a green leafy plant that is healthy to eat.",
+   "Nagamin-so grows only in mountains and is very sweet.",
+   "Nagamin-so is a fish that Okinawa people catch in the sea."
+  ],
+  "answer": 0
+ },
+ "ey6uvhOi0uI": {
+  "start": 141.73,
+  "end": 216.95,
+  "wpm": 89,
+  "question": "What is the passage mainly about?",
+  "options": [
+   "The speaker is walking around a town, looking at shop windows and things they see.",
+   "The speaker is cooking dinner at home and complaining about the time.",
+   "The speaker is teaching how to write Japanese characters in a classroom."
+  ],
+  "answer": 0
  }
 }

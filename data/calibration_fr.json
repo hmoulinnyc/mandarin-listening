@@ -250,5 +250,17 @@
    "The speaker shows how to dip a croissant in hot chocolate and says it is delicious."
   ],
   "answer": 2
+ },
+ "usJN7SJ9skA": {
+  "start": 209.81,
+  "end": 286.85,
+  "wpm": 75,
+  "question": "What gift does the speaker give to King Midas in this passage?",
+  "options": [
+   "A new kingdom",
+   "A magic power",
+   "A suit of invisible clothes"
+  ],
+  "answer": 1
  }
 }
