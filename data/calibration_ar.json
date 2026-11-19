@@ -34,5 +34,89 @@
    "They travel to Mecca to perform the pilgrimage"
   ],
   "answer": 0
+ },
+ "PmIjD8WBUQI": {
+  "start": 651.44,
+  "end": 730.6,
+  "wpm": 1,
+  "question": "What is the main point of the passage about Palestinian embroidery motifs?",
+  "options": [
+   "Palestinian embroidery motifs are the same in every village, with no differences between them.",
+   "The cypress tree motif appears in most villages, but its size, shape, stitching, and colors vary from village to village.",
+   "Palestinian women stopped embroidering after the Nakba, so the cypress tree motif disappeared."
+  ],
+  "answer": 1
+ },
+ "BAInjwdzObg": {
+  "start": 80.52,
+  "end": 159.32,
+  "wpm": 0,
+  "question": "What is this conversation mainly about?",
+  "options": [
+   "A guest checking into a hotel and asking about the room, breakfast, pool, and cleaning",
+   "A customer buying clothes at a shop and asking about prices",
+   "Two friends planning a trip to the beach"
+  ],
+  "answer": 0
+ },
+ "8HP3nX5gNwE": {
+  "start": 248.07,
+  "end": 326.45,
+  "wpm": 0,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is swimming in a lake and feels cold.",
+   "The speaker climbs a long staircase up a big rock and gets tired.",
+   "The speaker is reading a book about plants in a library."
+  ],
+  "answer": 1
+ },
+ "gK_VkiwTrP0": {
+  "start": 111.44,
+  "end": 187.32,
+  "wpm": 1,
+  "question": "According to the passage, what does the speaker say the word يني means?",
+  "options": [
+   "To have the intention or plan to do something",
+   "To be a friend or companion",
+   "A plural form of a verb"
+  ],
+  "answer": 0
+ },
+ "dYDHJilXnlc": {
+  "start": 190.8,
+  "end": 267.64,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is teaching a course on how to talk about one's home in Arabic, after finishing earlier courses on expressing feelings and other topics",
+   "The speaker is announcing that the first course on Arabic emotions has been cancelled and replaced by a new course",
+   "The speaker is explaining how to cook traditional Arabic dishes for guests in a family house"
+  ],
+  "answer": 0
+ },
+ "DfJeejcjccQ": {
+  "start": 247.45,
+  "end": 322.6,
+  "wpm": 0,
+  "question": "According to the speaker, what did the Polisario Front cite as the reason for its decision to mobilize?",
+  "options": [
+   "Morocco was massing large forces at the sand wall",
+   "Morocco had agreed to a UN peace settlement",
+   "The UN mission was ending its work in the region"
+  ],
+  "answer": 0
+ },
+ "7XzNIBuFQUo": {
+  "start": 52.12,
+  "end": 128.65,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Stories shared by the agency's platform reached billions of views and helped change people's lives, such as a young man who got prosthetic limbs.",
+   "The agency is planning a new program to teach Arabic writing to young people around the world.",
+   "A young man is asking the public to donate money so he can buy prosthetic limbs."
+  ],
+  "answer": 0
  }
 }
