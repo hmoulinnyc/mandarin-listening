@@ -754,5 +754,17 @@
    "A doctor works in a shop."
   ],
   "answer": 0
+ },
+ "1t8J55kfTr0": {
+  "start": 472.47,
+  "end": 547.61,
+  "wpm": 92,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Someone may rest all day tomorrow, but they must save money, so there will be no new TV.",
+   "Someone plans to go shopping tomorrow to buy a new television.",
+   "A loose dog frightens a woman who is walking in the park."
+  ],
+  "answer": 0
  }
 }
