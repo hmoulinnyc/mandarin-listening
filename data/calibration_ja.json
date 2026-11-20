@@ -238,5 +238,29 @@
    "The speaker is teaching how to write Japanese characters in a classroom."
   ],
   "answer": 0
+ },
+ "zcZIkpMBs14": {
+  "start": 117.44,
+  "end": 194.4,
+  "wpm": 76,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Red items are popular gifts and school bags for children and elders",
+   "Red items are only used for weddings and celebrations",
+   "Girls in Japan are not allowed to use red school bags"
+  ],
+  "answer": 0
+ },
+ "AbeID2pAoyg": {
+  "start": 282.46,
+  "end": 360.77,
+  "wpm": 158,
+  "question": "Why did Yoshi choose to live in Taiwan?",
+  "options": [
+   "He wants to work for a Taiwanese film company",
+   "He loves Taiwanese movies and wants to learn Chinese",
+   "His whole family agreed to move there"
+  ],
+  "answer": 1
  }
 }

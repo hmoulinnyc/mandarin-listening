@@ -766,5 +766,17 @@
    "A loose dog frightens a woman who is walking in the park."
   ],
   "answer": 0
+ },
+ "Ig6shy8HDuM": {
+  "start": 233.08,
+  "end": 310.45,
+  "wpm": 93,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Dutch verbs have a past participle, such as 'gespeeld' from 'spelen', and this is used to form the present perfect tense.",
+   "Dutch people brush their teeth and play outside every day, so learners should practice these daily activities.",
+   "The verb 'poetsen' is an irregular verb that cannot be conjugated in the present tense."
+  ],
+  "answer": 0
  }
 }

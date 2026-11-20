@@ -262,5 +262,29 @@
    "A suit of invisible clothes"
   ],
   "answer": 1
+ },
+ "EaMd5gHJZZ0": {
+  "start": 192.72,
+  "end": 268.08,
+  "wpm": 88,
+  "question": "What is the main point of the story so far?",
+  "options": [
+   "A monster is very angry and wants to kill someone because a rose belongs to him.",
+   "A girl is walking to her grandmother's house in the forest.",
+   "A father is happy because he found a beautiful rose for his daughter."
+  ],
+  "answer": 0
+ },
+ "dOplkq20W7c": {
+  "start": 71.04,
+  "end": 147.17,
+  "wpm": 194,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker thinks textbooks are useless and learners should only watch reality TV.",
+   "The speaker says a reality show like Love is Blind is a useful, engaging way to hear everyday French, despite being somewhat artificial.",
+   "The speaker explains how to become a contestant on a French dating show."
+  ],
+  "answer": 1
  }
 }

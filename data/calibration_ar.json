@@ -130,5 +130,29 @@
    "Because the speaker already spoke Persian at home as a child"
   ],
   "answer": 0
+ },
+ "OTwot_Oy3ww": {
+  "start": 139.75,
+  "end": 218.47,
+  "wpm": 2,
+  "question": "What is the speaker's main point about the series Noor?",
+  "options": [
+   "Noor is too long and hard to follow, so people should avoid it",
+   "Noor is generally easy to understand, so the speaker will discuss it episode by episode",
+   "The speaker watches many Turkish dramas every day and loves them all"
+  ],
+  "answer": 1
+ },
+ "7niCm9f3HUk": {
+  "start": 276.19,
+  "end": 351.2,
+  "wpm": 0,
+  "question": "What is the main point the speaker is making about the word being explained?",
+  "options": [
+   "It means something that is lost but can sometimes be found again later.",
+   "It means something that is lost and can never be recovered.",
+   "It means a store that you rent in order to sell things."
+  ],
+  "answer": 0
  }
 }
