@@ -438,5 +438,17 @@
    "Two people are planning a trip to Canada"
   ],
   "answer": 1
+ },
+ "LTf01x48PhE": {
+  "start": 303.27,
+  "end": 379.37,
+  "wpm": 132,
+  "question": "What is the main point the speaker makes about hard times?",
+  "options": [
+   "The speaker thinks hard times are tests that lead to good things later",
+   "The speaker thinks hard times should always be avoided",
+   "The speaker says they have never faced any difficulty"
+  ],
+  "answer": 0
  }
 }

@@ -118,5 +118,29 @@
    "He is going to learn Spanish by watching videos on the metro."
   ],
   "answer": 1
+ },
+ "12bbekXC7Zo": {
+  "start": 359.29,
+  "end": 434.6,
+  "wpm": 99,
+  "question": "According to the passage, what did the Portugal–Spain agreements mean for Equatorial Guinea?",
+  "options": [
+   "It was handed over to Spain by Portugal, but its people did not learn Spanish right away.",
+   "It became fully Spanish-speaking overnight after the treaties were signed.",
+   "It was given to Brazil in exchange for Spanish control of the Gulf coast."
+  ],
+  "answer": 0
+ },
+ "l87QBeKfqks": {
+  "start": 406.1,
+  "end": 483.69,
+  "wpm": 129,
+  "question": "According to the passage, what is the most common way to politely turn down an invitation?",
+  "options": [
+   "Say you are not in the mood (no me apetece) or you don't feel like it (no tengo ganas)",
+   "Say you will go later and ask for a different restaurant",
+   "Say you are hungry and suggest an Italian or Mexican restaurant"
+  ],
+  "answer": 0
  }
 }

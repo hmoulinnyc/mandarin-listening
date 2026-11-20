@@ -262,5 +262,29 @@
    "His whole family agreed to move there"
   ],
   "answer": 1
+ },
+ "fXdYSlTMZxo": {
+  "start": 139.49,
+  "end": 214.71,
+  "wpm": 166,
+  "question": "What are the two main things the speaker explains about 山吹色 (yamabuki-iro)?",
+  "options": [
+   "It is a pale blue color, and the phrase 山吹色のお菓子 means a sweet dessert served at festivals.",
+   "It is a gold-orange yellow named after a flower, and the phrase 山吹色のお菓子 refers to bribe money.",
+   "It is a red color used in period dramas, and the phrase refers to old coins being melted down."
+  ],
+  "answer": 1
+ },
+ "UBUN2Yp1A6w": {
+  "start": 165.76,
+  "end": 243.83,
+  "wpm": 118,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "She bought them because they are cheaper than AirPods.",
+   "She bought earphones that stay connected to each other so she won't lose one.",
+   "She found the manual and learned which earphone is right and which is left."
+  ],
+  "answer": 1
  }
 }

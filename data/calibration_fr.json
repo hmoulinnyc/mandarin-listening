@@ -286,5 +286,17 @@
    "The speaker explains how to become a contestant on a French dating show."
   ],
   "answer": 1
+ },
+ "9xWjNPf_Cks": {
+  "start": 573.76,
+  "end": 648.88,
+  "wpm": 177,
+  "question": "What happens in the passage?",
+  "options": [
+   "A boxer throws an uppercut and knocks his opponent out.",
+   "Tintin lands with both feet on a bench, which tilts up and hits a man's chin.",
+   "A man on a bench explains in Chinese how to do a lever effect."
+  ],
+  "answer": 1
  }
 }
