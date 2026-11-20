@@ -142,5 +142,29 @@
    "Say you are hungry and suggest an Italian or Mexican restaurant"
   ],
   "answer": 0
+ },
+ "HnuBKjWepco": {
+  "start": 233.08,
+  "end": 308.92,
+  "wpm": 134,
+  "question": "According to the passage, what is the main difference between the pretérito perfecto and the pretérito indefinido?",
+  "options": [
+   "The pretérito perfecto is for actions in the far past, while the pretérito indefinido is for recent ones.",
+   "The pretérito perfecto is for future actions that will happen later today.",
+   "The pretérito perfecto is for past actions in a time period that is not yet finished, such as today."
+  ],
+  "answer": 2
+ },
+ "s09AsXLuJeM": {
+  "start": 155.36,
+  "end": 234.54,
+  "wpm": 142,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "In Spain, grandparents and grandchildren are usually very close, because grandparents often helped raise the children.",
+   "In Korea, families always visit grandparents together, and children feel uncomfortable without their parents.",
+   "Mothers in Spain prefer to leave their children with grandparents, so they pack clothes and diapers in advance."
+  ],
+  "answer": 0
  }
 }

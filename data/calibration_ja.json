@@ -286,5 +286,29 @@
    "She found the manual and learned which earphone is right and which is left."
   ],
   "answer": 1
+ },
+ "K65rdMF4tuo": {
+  "start": 89.84,
+  "end": 166.12,
+  "wpm": 139,
+  "question": "What is the speaker's main advice to a learner who lacks confidence speaking Japanese?",
+  "options": [
+   "Practice speaking with a teacher regularly, such as once or twice a week",
+   "Wait until you have no nervousness at all before speaking",
+   "Speak only with other people and avoid lessons with a teacher"
+  ],
+  "answer": 0
+ },
+ "X_Q4MGuWoHw": {
+  "start": 350.64,
+  "end": 426.36,
+  "wpm": 152,
+  "question": "What is the main point the speaker is making in this passage?",
+  "options": [
+   "She has stopped wearing makeup in daily life and is willing to show her real appearance, even though she lacks confidence in it.",
+   "She wears makeup for every special occasion, such as restaurants and concerts, because it makes her feel more confident.",
+   "She has decided to change her appearance completely because her husband asked her to look more stylish."
+  ],
+  "answer": 0
  }
 }

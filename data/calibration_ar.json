@@ -166,5 +166,29 @@
    "A news report about a new subway line being built in Toronto"
   ],
   "answer": 0
+ },
+ "Uk9LFwYdKkY": {
+  "start": 111.6,
+  "end": 189.9,
+  "wpm": 13,
+  "question": "What is the main point the speaker is making in this passage?",
+  "options": [
+   "He apologized by email to a user, who explained he was unhappy with the site because it lacked enough beginner videos, and he offered a free session.",
+   "He complained that a website charged him for a premium subscription, and he wrote an email to demand a full refund.",
+   "He told a friend that he was happy with the premium subscription and wanted to recommend the site to beginners."
+  ],
+  "answer": 0
+ },
+ "OYGmi9W3_Wg": {
+  "start": 448.24,
+  "end": 525.64,
+  "wpm": 0,
+  "question": "What does the speaker say about his own language skills?",
+  "options": [
+   "He speaks only one language.",
+   "He is bilingual and speaks two languages at the same level.",
+   "He speaks Russian better than Chechen."
+  ],
+  "answer": 1
  }
 }

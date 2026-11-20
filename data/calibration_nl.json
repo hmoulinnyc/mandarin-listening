@@ -802,5 +802,29 @@
    "It explains how to ask for directions when you are lost in a city."
   ],
   "answer": 1
+ },
+ "D6J5IP2Mepo": {
+  "start": 453.39,
+  "end": 530.16,
+  "wpm": 82,
+  "question": "What is the main situation in this passage?",
+  "options": [
+   "A traveler is getting help from someone to buy a single metro ticket for the city center at a machine.",
+   "A woman is complaining about a broken metro ticket machine and asking for a refund.",
+   "Two friends are planning a trip to a museum by metro and choosing the cheapest route."
+  ],
+  "answer": 0
+ },
+ "8Unjo_I-iTU": {
+  "start": 367.77,
+  "end": 444.21,
+  "wpm": 133,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Learning Dutch is only useful for passing school exams.",
+   "Small daily speaking practice builds real Dutch skills, so you don't need a teacher.",
+   "Drinking tea helps you remember Dutch words better."
+  ],
+  "answer": 1
  }
 }

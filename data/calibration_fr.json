@@ -298,5 +298,29 @@
    "A man on a bench explains in Chinese how to do a lever effect."
   ],
   "answer": 1
+ },
+ "5MX2724YCA8": {
+  "start": 154.72,
+  "end": 231.32,
+  "wpm": 167,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Explaining how to build a wall of toilet paper rolls to celebrate reaching 92,000 subscribers",
+   "Showing how a new acoustic panel was bought and installed in a professional studio",
+   "Reviewing a furniture store's products before making a video about them"
+  ],
+  "answer": 0
+ },
+ "HepCIaTw3KU": {
+  "start": 49.52,
+  "end": 125.24,
+  "wpm": 64,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker describes two happy memories: picking figs from a fig tree, and swimming in the sea on vacation in southern France.",
+   "The speaker explains how to grow fig trees and how to protect your eyes when swimming in the sea.",
+   "The speaker complains about a fig tree and says that the sea in southern France is too cold to swim in."
+  ],
+  "answer": 0
  }
 }

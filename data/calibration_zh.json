@@ -450,5 +450,17 @@
    "The speaker says they have never faced any difficulty"
   ],
   "answer": 0
+ },
+ "FTiWT8JSiMk": {
+  "start": 532.57,
+  "end": 610.4,
+  "wpm": 129,
+  "question": "What is the speaker's main point about rest and work?",
+  "options": [
+   "Rest is unimportant, so people should always keep working hard.",
+   "Knowing how to rest and find happiness, and knowing oneself, is very important.",
+   "Chinese people are too traditional and never accept compliments."
+  ],
+  "answer": 1
  }
 }
