@@ -838,5 +838,17 @@
    "The speaker dislikes the city and plans to move somewhere quieter."
   ],
   "answer": 1
+ },
+ "7l1F-uJrptM": {
+  "start": 284.2,
+  "end": 361.36,
+  "wpm": 166,
+  "question": "Why can't the speaker print the coloring pages at home?",
+  "options": [
+   "Her printer is broken and needs to be repaired.",
+   "She has run out of ink, so she will call her grandmother to print them there.",
+   "She does not have any coloring pages saved on her computer."
+  ],
+  "answer": 1
  }
 }

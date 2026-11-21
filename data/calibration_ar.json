@@ -202,5 +202,17 @@
    "The speaker went shopping in the city and had lunch at a restaurant."
   ],
   "answer": 1
+ },
+ "cBzr_WS3EK8": {
+  "start": 573.8,
+  "end": 654.8,
+  "wpm": 4,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "A teacher who teaches Arabic full time to students from many countries",
+   "A student who has just started learning Arabic in Lebanon",
+   "A tourist describing a trip to Beirut"
+  ],
+  "answer": 0
  }
 }

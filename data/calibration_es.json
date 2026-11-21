@@ -190,5 +190,17 @@
    "A night spent travelling to a conquered city"
   ],
   "answer": 1
+ },
+ "5_zpmL2SeQk": {
+  "start": 280.97,
+  "end": 357.87,
+  "wpm": 168,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Asturias has a flag with a cross, and according to legend, King Pelayo carried it in the first battle that started the Reconquista, which lasted hundreds of years.",
+   "Asturias is the only region in Spain that was never conquered by the Muslims.",
+   "The Reconquista began in 1492 and ended in Asturias after a single battle led by a Spanish king."
+  ],
+  "answer": 0
  }
 }

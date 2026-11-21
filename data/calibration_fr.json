@@ -346,5 +346,17 @@
    "Morphine is dangerous, and people should never drive a scooter after taking it."
   ],
   "answer": 1
+ },
+ "E0VYcNNUuFE": {
+  "start": 61.6,
+  "end": 139.44,
+  "wpm": 48,
+  "question": "According to the passage, where are the leaves now?",
+  "options": [
+   "They are still on the branches of the trees.",
+   "They have fallen onto the ground.",
+   "They have been carried away by the wind."
+  ],
+  "answer": 1
  }
 }
