@@ -346,5 +346,17 @@
    "He only drinks Coca-Cola and never eats fast food."
   ],
   "answer": 1
+ },
+ "loB0J_3AMd0": {
+  "start": 93.8,
+  "end": 172.08,
+  "wpm": 146,
+  "question": "According to the speaker, what is the main point about feeling unmotivated or annoyed while studying Japanese?",
+  "options": [
+   "Complaining about studying Japanese is never allowed; you should just do it quietly.",
+   "It's fine to complain about studying Japanese, as long as you complain in Japanese.",
+   "Japanese grammar and kanji are easy, so learners should stop complaining."
+  ],
+  "answer": 1
  }
 }

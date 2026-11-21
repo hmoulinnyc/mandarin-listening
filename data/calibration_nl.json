@@ -850,5 +850,17 @@
    "She does not have any coloring pages saved on her computer."
   ],
   "answer": 1
+ },
+ "IQuHpQQlE3k": {
+  "start": 613.8,
+  "end": 689.12,
+  "wpm": 225,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is spending the day processing a new delivery of books, while the shop is short on space.",
+   "The speaker is closing the shop early because there have been no customers today.",
+   "The speaker is planning a trip to buy new bookshelves for the shop."
+  ],
+  "answer": 0
  }
 }

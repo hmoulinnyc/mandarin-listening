@@ -358,5 +358,29 @@
    "They have been carried away by the wind."
   ],
   "answer": 1
+ },
+ "Y6c5abysn00": {
+  "start": 134.56,
+  "end": 210.32,
+  "wpm": 79,
+  "question": "What is the speaker's usual breakfast?",
+  "options": [
+   "A croissant or pain au chocolat, which they eat every morning",
+   "Two slices of buttered bread, which they often eat",
+   "A big cooked breakfast, which they eat only on weekends"
+  ],
+  "answer": 1
+ },
+ "NDhJks-v3tE": {
+  "start": 239.53,
+  "end": 311.67,
+  "wpm": 97,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "It describes a few things a person can see and do, such as writing a postcard, a shop, a game, and kids on a swing.",
+   "It explains how to send a postcard from Vietnam and where to buy a stamp.",
+   "It compares children's bags and women's hats in a store in Vietnam."
+  ],
+  "answer": 0
  }
 }

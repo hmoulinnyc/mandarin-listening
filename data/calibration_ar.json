@@ -214,5 +214,17 @@
    "A tourist describing a trip to Beirut"
   ],
   "answer": 0
+ },
+ "fFDJG7tNL-o": {
+  "start": 286.6,
+  "end": 362.88,
+  "wpm": 0,
+  "question": "What is the main point of the passage about why native-speaker videos are harder to understand than learner lessons?",
+  "options": [
+   "Videos made for native speakers are harder for learners because they are not designed for learners and often use everyday spoken Arabic.",
+   "Learners should only watch videos made for native speakers, because lessons for learners teach unrealistic, textbook-style language.",
+   "Lessons for learners are harder than podcasts and films, because teachers speak more slowly and use classical Arabic."
+  ],
+  "answer": 0
  }
 }

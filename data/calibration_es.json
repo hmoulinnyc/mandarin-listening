@@ -202,5 +202,17 @@
    "The Reconquista began in 1492 and ended in Asturias after a single battle led by a Spanish king."
   ],
   "answer": 0
+ },
+ "mE-U2Nwfkfs": {
+  "start": 215.34,
+  "end": 291.81,
+  "wpm": 152,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to ride a horse safely and steer it with reins.",
+   "It explains the expression \"tomar las riendas,\" which means taking control of a difficult situation, and where it comes from.",
+   "It describes how companies should prepare for economic crises."
+  ],
+  "answer": 1
  }
 }
