@@ -826,5 +826,17 @@
    "Drinking tea helps you remember Dutch words better."
   ],
   "answer": 1
+ },
+ "m_DGW15mWtY": {
+  "start": 304.12,
+  "end": 379.24,
+  "wpm": 133,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker has decided to buy a car so they can get around the city more easily.",
+   "The speaker wants to start the day calmer by avoiding constant digital distraction and feel more present in real life.",
+   "The speaker dislikes the city and plans to move somewhere quieter."
+  ],
+  "answer": 1
  }
 }

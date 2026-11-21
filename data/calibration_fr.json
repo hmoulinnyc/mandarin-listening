@@ -322,5 +322,17 @@
    "The speaker complains about a fig tree and says that the sea in southern France is too cold to swim in."
   ],
   "answer": 0
+ },
+ "Shk5OLqXjsA": {
+  "start": 457.72,
+  "end": 533.4,
+  "wpm": 216,
+  "question": "According to the passage, what is a 'fagnon'?",
+  "options": [
+   "A large padded sleeping bag used when camping",
+   "A small flag on a base, used to mark boundaries such as the lines of a sports field",
+   "An annoying word that is used for distant landscapes"
+  ],
+  "answer": 1
  }
 }

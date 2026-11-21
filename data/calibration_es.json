@@ -166,5 +166,17 @@
    "Mothers in Spain prefer to leave their children with grandparents, so they pack clothes and diapers in advance."
   ],
   "answer": 0
+ },
+ "x8D0yNhEX6s": {
+  "start": 164.51,
+  "end": 239.84,
+  "wpm": 143,
+  "question": "According to the passage, when do Spanish speakers use definite articles (el, la)?",
+  "options": [
+   "Only when talking about a father or a mother",
+   "When the thing is unique, or when the speaker knows the specific person or thing",
+   "Whenever they talk about a lawyer, even one they have never met"
+  ],
+  "answer": 1
  }
 }
