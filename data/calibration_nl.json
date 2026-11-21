@@ -862,5 +862,17 @@
    "The speaker is planning a trip to buy new bookshelves for the shop."
   ],
   "answer": 0
+ },
+ "xGKOR3IBVRE": {
+  "start": 130.16,
+  "end": 208.6,
+  "wpm": 140,
+  "question": "What is the speaker mainly doing in this video?",
+  "options": [
+   "Making avocado toast for breakfast and chatting about her day",
+   "Cooking a big dinner for her family",
+   "Teaching viewers how to learn Dutch"
+  ],
+  "answer": 0
  }
 }

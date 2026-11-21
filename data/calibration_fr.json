@@ -382,5 +382,29 @@
    "It compares children's bags and women's hats in a store in Vietnam."
   ],
   "answer": 0
+ },
+ "-ErLbCpcQw0": {
+  "start": 72.84,
+  "end": 150.25,
+  "wpm": 83,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Thomas learned to make ice cream in Italy, and he describes the Italian ice cream shop and its workshop.",
+   "Thomas is buying ice cream in Italy from a shop run by his family.",
+   "Thomas is teaching a class about the history of Italian desserts."
+  ],
+  "answer": 0
+ },
+ "tA_GZ3hdcGU": {
+  "start": 227.43,
+  "end": 303.93,
+  "wpm": 137,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "Crossing busy traffic in Vietnam is dangerous, so people should avoid walking on the street.",
+   "Crossing busy streets in Vietnam is hard at first, but walking slowly lets traffic flow around you.",
+   "Vietnamese cafés are famous for unusual coffee drinks, such as coffee with chili, salt, or egg."
+  ],
+  "answer": 1
  }
 }

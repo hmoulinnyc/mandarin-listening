@@ -214,5 +214,29 @@
    "It describes how companies should prepare for economic crises."
   ],
   "answer": 1
+ },
+ "nKk4c3whl4g": {
+  "start": 304.8,
+  "end": 381.81,
+  "wpm": 120,
+  "question": "What is the main point of this passage about choosing between the preterite and the imperfect in Spanish?",
+  "options": [
+   "Habitual, repeated actions take the imperfect, while a specific number of occurrences takes the preterite (indefinite).",
+   "Any action that happens every day must use the preterite, because repetition makes it a completed action.",
+   "Time expressions like \"todo el día\" always require the imperfect, because they describe something ongoing."
+  ],
+  "answer": 0
+ },
+ "rw-DW_YlfoI": {
+  "start": 80.21,
+  "end": 155.32,
+  "wpm": 64,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "A person is sitting down in a chair and reading a book.",
+   "A person is writing a notebook and buying new books.",
+   "A person is teaching a class about how to count objects."
+  ],
+  "answer": 0
  }
 }
