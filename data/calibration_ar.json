@@ -190,5 +190,17 @@
    "He speaks Russian better than Chechen."
   ],
   "answer": 1
+ },
+ "MBns61T2LXg": {
+  "start": 177.19,
+  "end": 255.49,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker went to bed late and missed the sunrise at the resort.",
+   "The speaker woke up very early, enjoyed the view, and ordered breakfast from the resort by phone.",
+   "The speaker went shopping in the city and had lunch at a restaurant."
+  ],
+  "answer": 1
  }
 }

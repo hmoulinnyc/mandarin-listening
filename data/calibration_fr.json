@@ -334,5 +334,17 @@
    "An annoying word that is used for distant landscapes"
   ],
   "answer": 1
+ },
+ "MXfJXdCjosM": {
+  "start": 370.69,
+  "end": 446.94,
+  "wpm": 183,
+  "question": "What is the main point the speaker makes about morphine in this passage?",
+  "options": [
+   "Morphine is a success story that made the speaker rich and popular.",
+   "Morphine's effects are gradual and gentle, so the person should not worry.",
+   "Morphine is dangerous, and people should never drive a scooter after taking it."
+  ],
+  "answer": 1
  }
 }

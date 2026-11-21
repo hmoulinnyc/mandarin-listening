@@ -178,5 +178,17 @@
    "Whenever they talk about a lawyer, even one they have never met"
   ],
   "answer": 1
+ },
+ "uaE2-I9FaMw": {
+  "start": 193.46,
+  "end": 270.45,
+  "wpm": 152,
+  "question": "According to the passage, what does the expression \"pasar una noche toledana\" mean?",
+  "options": [
+   "A night of celebration in a famous city",
+   "A very bad night, or a night spent awake without sleep",
+   "A night spent travelling to a conquered city"
+  ],
+  "answer": 1
  }
 }
