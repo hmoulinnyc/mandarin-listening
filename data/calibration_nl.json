@@ -874,5 +874,17 @@
    "Teaching viewers how to learn Dutch"
   ],
   "answer": 0
+ },
+ "b8NbxD1VCwI": {
+  "start": 329.28,
+  "end": 405.12,
+  "wpm": 236,
+  "question": "What is the main reason the teacher is busy this morning before the children arrive?",
+  "options": [
+   "She has to prepare the day's planning, print and make Father's Day gifts, and count reports.",
+   "She has to call parents about yesterday's late pickup and cancel the coffee break.",
+   "She has to read her 1000-page book aloud to the children before the lessons start."
+  ],
+  "answer": 0
  }
 }

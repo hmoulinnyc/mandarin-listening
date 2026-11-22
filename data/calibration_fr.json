@@ -406,5 +406,17 @@
    "Vietnamese cafés are famous for unusual coffee drinks, such as coffee with chili, salt, or egg."
   ],
   "answer": 1
+ },
+ "uDCDzsJi_oE": {
+  "start": 89.68,
+  "end": 166.16,
+  "wpm": 67,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It describes where an animal sleeps and what is in its enclosure.",
+   "It explains how to cook a meal for an animal.",
+   "It describes how to travel by train across a city."
+  ],
+  "answer": 0
  }
 }

@@ -382,5 +382,17 @@
    "Keiko quits her convenience store job at 18 because it does not suit her."
   ],
   "answer": 1
+ },
+ "BfHesSx8zmM": {
+  "start": 332.94,
+  "end": 412.04,
+  "wpm": 170,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Popular products are always the best choice, so you should buy what others use.",
+   "People are easily influenced by what others use, so you should first form your own opinion before buying.",
+   "Instagram ads are the best way to find good suitcases at low prices."
+  ],
+  "answer": 1
  }
 }

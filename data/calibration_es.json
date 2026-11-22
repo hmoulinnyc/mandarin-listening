@@ -238,5 +238,29 @@
    "A person is teaching a class about how to count objects."
   ],
   "answer": 0
+ },
+ "s2MdyyufxW8": {
+  "start": 108.51,
+  "end": 185.38,
+  "wpm": 68,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Plants are clean, so they do not need water.",
+   "Plants and people both need water to live.",
+   "Water from the tap is not good for people to drink."
+  ],
+  "answer": 1
+ },
+ "pWfmL8jTVyk": {
+  "start": 311.4,
+  "end": 387.04,
+  "wpm": 105,
+  "question": "What does the speaker mean when they say \"voy cerrando el chiringuito\"?",
+  "options": [
+   "They are closing their beach bar for the day.",
+   "They are about to finish an activity or task.",
+   "They are leaving the house to go to the beach."
+  ],
+  "answer": 1
  }
 }

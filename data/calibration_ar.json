@@ -238,5 +238,29 @@
    "Tatars are the largest people in Russia."
   ],
   "answer": 1
+ },
+ "4DWdetCE4r8": {
+  "start": 583.04,
+  "end": 661.04,
+  "wpm": 0,
+  "question": "What is the main point of the speaker's comparison of the city they are discussing with Nairobi?",
+  "options": [
+   "Their own city has more modern universities and schools than Nairobi",
+   "Nairobi has more modern universities and schools than the speaker's city",
+   "Nairobi is the capital of Kenya, and the speaker has never heard of it before"
+  ],
+  "answer": 0
+ },
+ "0_hy0UnHrzE": {
+  "start": 224.49,
+  "end": 301.09,
+  "wpm": 0,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Arab parties can easily join a government led by Eisenkot, so he should reach out to them.",
+   "Support from Arab parties for a new government faces strong opposition, and the author questions why Eisenkot turned to Likud instead.",
+   "Netanyahu and Likud have already agreed to form a joint government with Eisenkot."
+  ],
+  "answer": 1
  }
 }
