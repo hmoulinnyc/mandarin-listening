@@ -898,5 +898,29 @@
    "Her favorite shops for buying clothes"
   ],
   "answer": 0
+ },
+ "LTpBlR4k9jw": {
+  "start": 69.4,
+  "end": 145.39,
+  "wpm": 192,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A new season of The Voice Kids is being made, and the jury will coach some talented young singers.",
+   "The Voice Kids has been cancelled because of a problem found in an investigation.",
+   "A new singing show for adults is starting, and its jury members have just been announced."
+  ],
+  "answer": 0
+ },
+ "oSOfn6vZKKI": {
+  "start": 48.3,
+  "end": 123.1,
+  "wpm": 180,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Fast carbohydrates give you quick energy, and fiber is also important for digestion.",
+   "Cycling is dangerous, so you should never eat cake or bananas before riding.",
+   "Cola and chips are the healthiest snacks for a long bike ride."
+  ],
+  "answer": 0
  }
 }

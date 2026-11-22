@@ -274,5 +274,29 @@
    "Shopping for groceries at a supermarket"
   ],
   "answer": 0
+ },
+ "qFByrRj11d0": {
+  "start": 184.93,
+  "end": 263.1,
+  "wpm": 101,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker gave up on finding a library and now thinks they are an unlucky person.",
+   "Although the speaker had bad luck finding an open library, they still consider themselves a lucky person.",
+   "The speaker moved to several towns to find a library that was open and enjoyed the trip."
+  ],
+  "answer": 1
+ },
+ "w7Q0trb10jY": {
+  "start": 366.08,
+  "end": 441.36,
+  "wpm": 116,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A neighbor helped the speakers bend a sofa into a curved shape.",
+   "The expression \"todo se torció\" means a situation that was going well suddenly becomes complicated.",
+   "Moving furniture is always easier when you ask a neighbor for help."
+  ],
+  "answer": 1
  }
 }

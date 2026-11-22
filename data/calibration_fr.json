@@ -430,5 +430,29 @@
    "How to choose the best toothbrush and toothpaste"
   ],
   "answer": 0
+ },
+ "sMuyVaEy8I4": {
+  "start": 188.92,
+  "end": 265.12,
+  "wpm": 68,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Explaining why she prefers to work from home",
+   "Describing her morning routine: washing her face, brushing her teeth, and putting on makeup",
+   "Recommending brands of toothpaste and concealer"
+  ],
+  "answer": 1
+ },
+ "roxNeI1McwQ": {
+  "start": 121.8,
+  "end": 201.84,
+  "wpm": 61,
+  "question": "What is the speaker mainly preparing in this passage?",
+  "options": [
+   "A dessert made with chocolate and cream",
+   "A tart filling of feta, egg and lemon to mix with zucchini",
+   "A salad dressing of olive oil and vinegar"
+  ],
+  "answer": 1
  }
 }

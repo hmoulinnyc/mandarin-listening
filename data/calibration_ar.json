@@ -286,5 +286,29 @@
    "Pakistan's coastal region has become a major area for tourism from China."
   ],
   "answer": 0
+ },
+ "xP5l4XjYUZI": {
+  "start": 603.6,
+  "end": 679.48,
+  "wpm": 0,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "Two friends arguing about which sport is the hardest",
+   "A woman who has long wanted to go rowing and talks about trying it before",
+   "A coach teaching a new exercise routine to a beginner"
+  ],
+  "answer": 1
+ },
+ "h6HVubBOtaw": {
+  "start": 151.09,
+  "end": 228.79,
+  "wpm": 0,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Protesters in Berlin are opposing the removal of a bike lane on a busy street.",
+   "Berlin is building more parking spaces for cars in the city centre.",
+   "Fire trucks and ambulances are being banned from driving on city streets."
+  ],
+  "answer": 0
  }
 }

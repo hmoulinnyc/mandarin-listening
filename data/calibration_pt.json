@@ -934,5 +934,17 @@
    "A man with a green backpack is looking for a ball."
   ],
   "answer": 1
+ },
+ "hpatvpZSunw": {
+  "start": 83.08,
+  "end": 161.72,
+  "wpm": 99,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Watching Portuguese videos every day is the best way to learn the language.",
+   "You need a conversation partner to practice speaking, because it makes your brain produce Portuguese responses.",
+   "Learning Portuguese grammar rules is more important than talking with other people."
+  ],
+  "answer": 1
  }
 }

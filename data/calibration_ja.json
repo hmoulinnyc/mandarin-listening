@@ -430,5 +430,29 @@
    "Instructions for how to cook a specific Japanese dish"
   ],
   "answer": 0
+ },
+ "0VSkIbvb-W0": {
+  "start": 352.32,
+  "end": 432.82,
+  "wpm": 168,
+  "question": "What is the main point the speaker makes about book clubs?",
+  "options": [
+   "Reading alone is better than discussing a book with other people.",
+   "Sharing a reading experience with others in person, such as at a book club with drinks afterward, makes it more meaningful.",
+   "Online book clubs are better than meeting in person."
+  ],
+  "answer": 1
+ },
+ "OrtEtECSBC0": {
+  "start": 627.76,
+  "end": 706.44,
+  "wpm": 119,
+  "question": "What is the speaker mainly talking about?",
+  "options": [
+   "How to cook Japanese ramen at home",
+   "Instant noodle packages from different countries that they collect",
+   "Travel tips for visiting Southeast Asia"
+  ],
+  "answer": 1
  }
 }
