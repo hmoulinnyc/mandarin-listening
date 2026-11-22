@@ -886,5 +886,17 @@
    "She has to read her 1000-page book aloud to the children before the lessons start."
   ],
   "answer": 0
+ },
+ "YApaPdQRCW4": {
+  "start": 192.28,
+  "end": 269.08,
+  "wpm": 259,
+  "question": "What is the speaker mainly describing?",
+  "options": [
+   "The things she always carries in her bag for school",
+   "How she studies for her exams at home",
+   "Her favorite shops for buying clothes"
+  ],
+  "answer": 0
  }
 }

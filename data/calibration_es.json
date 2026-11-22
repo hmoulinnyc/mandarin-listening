@@ -262,5 +262,17 @@
    "They are leaving the house to go to the beach."
   ],
   "answer": 1
+ },
+ "a5wEnCfl-jA": {
+  "start": 99.46,
+  "end": 178.58,
+  "wpm": 79,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Preparing a breakfast with toasted bread and tomato",
+   "Cleaning the kitchen after a big dinner",
+   "Shopping for groceries at a supermarket"
+  ],
+  "answer": 0
  }
 }

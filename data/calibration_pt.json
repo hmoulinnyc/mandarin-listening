@@ -922,5 +922,17 @@
    "Black cats are friendly, so shelters find them homes very quickly."
   ],
   "answer": 1
+ },
+ "TDLGuAW78Cg": {
+  "start": 176.56,
+  "end": 251.72,
+  "wpm": 72,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A woman is doing yoga, and a man is riding a bicycle.",
+   "People in the video are doing different physical activities, such as playing ball, cycling, and skating.",
+   "A man with a green backpack is looking for a ball."
+  ],
+  "answer": 1
  }
 }

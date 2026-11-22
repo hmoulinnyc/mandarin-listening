@@ -262,5 +262,29 @@
    "Netanyahu and Likud have already agreed to form a joint government with Eisenkot."
   ],
   "answer": 1
+ },
+ "GuTbZAXuigc": {
+  "start": 47.76,
+  "end": 123.52,
+  "wpm": 0,
+  "question": "According to the passage, which describes what a 'shorfa' (شرفة) is in Arabic?",
+  "options": [
+   "A wall that surrounds a building from outside",
+   "The projecting part of an apartment that sticks out over the outside",
+   "The floor or story of a tall building"
+  ],
+  "answer": 1
+ },
+ "--JwKMW7qyI": {
+  "start": 79.2,
+  "end": 154.39,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "China's cooperation with Pakistan, especially in space, is growing, and Pakistanis view China favorably.",
+   "Pakistan has stopped working with China on technology and space projects.",
+   "Pakistan's coastal region has become a major area for tourism from China."
+  ],
+  "answer": 0
  }
 }

@@ -394,5 +394,41 @@
    "Instagram ads are the best way to find good suitcases at low prices."
   ],
   "answer": 1
+ },
+ "s2x7c4XD1dc": {
+  "start": 697.02,
+  "end": 774.0,
+  "wpm": 193,
+  "question": "According to the speaker, what is the main idea about the 'garden' (庭) concept when looking at architecture and places like Vienna and Budapest?",
+  "options": [
+   "A garden is only the yard behind your own house, so you should stay close to home.",
+   "You can treat the whole world as your garden, so looking more widely helps you notice more.",
+   "Architecture should be designed only for the area where you personally live."
+  ],
+  "answer": 1
+ },
+ "KbjhdNrglxg": {
+  "start": 88.53,
+  "end": 167.47,
+  "wpm": 183,
+  "question": "What is the main purpose of the new second channel that this announcement introduces?",
+  "options": [
+   "To help learners connect and find study partners with each other",
+   "To teach teachers how to give better Japanese lessons",
+   "To sell Japanese textbooks and study materials"
+  ],
+  "answer": 0
+ },
+ "yisuQ0D1tuw": {
+  "start": 85.16,
+  "end": 160.64,
+  "wpm": 30,
+  "question": "What is the speaker mainly talking about in this passage?",
+  "options": [
+   "The number of items, people, or the price of something, given as approximate amounts",
+   "A story about a trip the speaker took to a faraway place",
+   "Instructions for how to cook a specific Japanese dish"
+  ],
+  "answer": 0
  }
 }
