@@ -454,5 +454,17 @@
    "A salad dressing of olive oil and vinegar"
   ],
   "answer": 1
+ },
+ "A-DW-AHCfcg": {
+  "start": 261.8,
+  "end": 338.13,
+  "wpm": 108,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to repair a fan and a candle in an apartment.",
+   "It presents a language-learning game where you find objects in an apartment by clicking them, and it works for many languages.",
+   "It teaches how to test your memory by counting objects in a photo of a kitchen."
+  ],
+  "answer": 1
  }
 }
