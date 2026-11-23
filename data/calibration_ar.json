@@ -310,5 +310,29 @@
    "Fire trucks and ambulances are being banned from driving on city streets."
   ],
   "answer": 0
+ },
+ "ZTE7taaBLCQ": {
+  "start": 67.09,
+  "end": 143.48,
+  "wpm": 16,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "How to describe the weather using past tense verbs",
+   "How to compare your preferences using \"I like ... more than ...\"",
+   "How to order food at a restaurant"
+  ],
+  "answer": 1
+ },
+ "_R2gr2tMugs": {
+  "start": 100.04,
+  "end": 175.72,
+  "wpm": 0,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Expensive brand-name clothing and accessories can make wealthy people feel superior to others.",
+   "Poverty is only caused by personal failure and a lack of skill.",
+   "Wearing branded goods protects people from becoming poor."
+  ],
+  "answer": 0
  }
 }

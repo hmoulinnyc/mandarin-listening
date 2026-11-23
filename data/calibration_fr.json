@@ -514,5 +514,29 @@
    "She only uses products that make her hair thick and heavy."
   ],
   "answer": 0
+ },
+ "9GmZGDpQmYo": {
+  "start": 143.69,
+  "end": 221.05,
+  "wpm": 125,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Teaching French verb conjugation with an ebook",
+   "Preparing a food recipe, starting by cutting a baguette",
+   "Explaining where Paris ham comes from"
+  ],
+  "answer": 1
+ },
+ "0C6c2gitciY": {
+  "start": 254.84,
+  "end": 331.28,
+  "wpm": 126,
+  "question": "According to the passage, why is it important to be careful when it is very hot?",
+  "options": [
+   "Because hot weather makes people lose water, which can cause health risks like dehydration",
+   "Because hot weather makes people sleep less and feel tired during the day",
+   "Because hot weather makes the sun dangerous and can burn the skin quickly"
+  ],
+  "answer": 0
  }
 }

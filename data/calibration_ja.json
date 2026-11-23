@@ -466,5 +466,17 @@
    "Her father moved the family abroad, and she lost her childhood home"
   ],
   "answer": 1
+ },
+ "n4Ni8nPAo2Q": {
+  "start": 225.44,
+  "end": 300.92,
+  "wpm": 90,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Traveling abroad is cheap, so students should travel more often.",
+   "Doing new things like travel costs money, so the speaker saved by working part-time and cooking at home to make his trip abroad possible.",
+   "The speaker prefers cooking at home to eating at restaurants because it is healthier."
+  ],
+  "answer": 1
  }
 }

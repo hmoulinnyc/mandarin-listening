@@ -346,5 +346,29 @@
    "In Tossa de Mar, since childhood"
   ],
   "answer": 0
+ },
+ "CyGDvT2dui0": {
+  "start": 362.24,
+  "end": 439.08,
+  "wpm": 121,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "'Cortar el bacalao' is a phrase meaning to make the most of a fishing trip.",
+   "'Cortar el bacalao' means the person who has control and makes the important decisions.",
+   "'Cortar el bacalao' is a cooking technique used to prepare cod for families."
+  ],
+  "answer": 1
+ },
+ "mHpPa6_rIg0": {
+  "start": 174.88,
+  "end": 253.2,
+  "wpm": 90,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "Everyone has work, goals, and dreams in life.",
+   "Easy Spanish offers exercises and vocabulary lists to practice Spanish.",
+   "The speaker is rich and owns a yacht and a house in Barcelona."
+  ],
+  "answer": 0
  }
 }
