@@ -478,5 +478,17 @@
    "Explaining how to make charcuterie and cheese plates"
   ],
   "answer": 0
+ },
+ "XrqVl4jhl00": {
+  "start": 278.68,
+  "end": 354.6,
+  "wpm": 106,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Most French people eat pastries every morning, and the speaker does too.",
+   "The speaker eats pastries only sometimes, and enjoys the crispy end of the bread most.",
+   "The speaker is planning a big lunch because the weather is cold."
+  ],
+  "answer": 1
  }
 }

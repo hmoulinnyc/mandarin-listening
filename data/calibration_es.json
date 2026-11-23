@@ -310,5 +310,17 @@
    "It tells the story of a girl who goes to a pond to feed the ducks."
   ],
   "answer": 0
+ },
+ "pKPwV_JM_FQ": {
+  "start": 177.76,
+  "end": 257.68,
+  "wpm": 101,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A woman carefully plans a family party weeks in advance.",
+   "A woman is surprised when relatives and others unexpectedly show up at her home.",
+   "A woman goes to the gym and her boss visits her there."
+  ],
+  "answer": 1
  }
 }

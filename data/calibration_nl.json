@@ -922,5 +922,17 @@
    "Cola and chips are the healthiest snacks for a long bike ride."
   ],
   "answer": 0
+ },
+ "11F65zKwaSM": {
+  "start": 38.6,
+  "end": 116.7,
+  "wpm": 177,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Playing football helps people make friends and stay active, and anyone can join in",
+   "Children should spend less time playing sports so they can focus on school work",
+   "Only experienced players should be allowed to use the new football pitch"
+  ],
+  "answer": 0
  }
 }
