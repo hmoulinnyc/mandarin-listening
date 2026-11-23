@@ -322,5 +322,29 @@
    "A woman goes to the gym and her boss visits her there."
   ],
   "answer": 1
+ },
+ "xg-J3s3EKVw": {
+  "start": 164.76,
+  "end": 242.32,
+  "wpm": 104,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "When two object pronouns appear together, 'le' changes to 'se' because a person ranks above a thing.",
+   "Spanish always uses 'se' instead of 'le' to refer to any person who receives something.",
+   "Every object noun, such as 'coche', must be replaced by 'lo' before a pronoun can be used."
+  ],
+  "answer": 0
+ },
+ "_BY4j-QCbdU": {
+  "start": 123.92,
+  "end": 199.56,
+  "wpm": 132,
+  "question": "According to the passage, where does the speaker live, and how long have they lived there?",
+  "options": [
+   "In Barcelona, for 34 years",
+   "In Colombia, for a few months",
+   "In Tossa de Mar, since childhood"
+  ],
+  "answer": 0
  }
 }

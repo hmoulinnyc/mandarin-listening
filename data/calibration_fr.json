@@ -490,5 +490,29 @@
    "The speaker is planning a big lunch because the weather is cold."
   ],
   "answer": 1
+ },
+ "1yMv8gxsJqc": {
+  "start": 164.56,
+  "end": 242.44,
+  "wpm": 77,
+  "question": "What is the speaker's main point?",
+  "options": [
+   "She is going to meet a friend at a museum she has never visited, after being late.",
+   "She is at a metro station and is waiting for a friend to arrive.",
+   "She is at home and is planning a trip to the Netherlands."
+  ],
+  "answer": 0
+ },
+ "mfNeE8pRHuY": {
+  "start": 207.36,
+  "end": 288.64,
+  "wpm": 117,
+  "question": "What is the main point of the speaker's routine?",
+  "options": [
+   "She uses a special anti-hair-loss shampoo, volume conditioner and serum to care for her thin hair and scalp, and has done so for a month or two.",
+   "She has been losing so much hair that she has booked an appointment with a doctor.",
+   "She only uses products that make her hair thick and heavy."
+  ],
+  "answer": 0
  }
 }
