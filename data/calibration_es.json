@@ -298,5 +298,17 @@
    "Moving furniture is always easier when you ask a neighbor for help."
   ],
   "answer": 1
+ },
+ "49rhS6o9OKI": {
+  "start": 130.8,
+  "end": 206.62,
+  "wpm": 75,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It describes a park scene with a large tree, ducks, water lilies, and reeds, and suggests describing a picture.",
+   "It explains how to take care of willow trees and ducks in a pond.",
+   "It tells the story of a girl who goes to a pond to feed the ducks."
+  ],
+  "answer": 0
  }
 }

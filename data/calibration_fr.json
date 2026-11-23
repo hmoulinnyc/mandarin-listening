@@ -466,5 +466,17 @@
    "It teaches how to test your memory by counting objects in a photo of a kitchen."
   ],
   "answer": 1
+ },
+ "NVEysrHr9UE": {
+  "start": 146.27,
+  "end": 221.7,
+  "wpm": 82,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Reading through a restaurant menu and describing its sections",
+   "Cooking a meal at home by following a recipe",
+   "Explaining how to make charcuterie and cheese plates"
+  ],
+  "answer": 0
  }
 }

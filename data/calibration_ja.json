@@ -454,5 +454,17 @@
    "Travel tips for visiting Southeast Asia"
   ],
   "answer": 1
+ },
+ "ZMOyPcVdurk": {
+  "start": 200.42,
+  "end": 276.6,
+  "wpm": 146,
+  "question": "What event changed Frida's life when she was 18?",
+  "options": [
+   "She won a national sports competition and left school early",
+   "A bus collided with a streetcar, leaving her with serious injuries and a long hospital stay",
+   "Her father moved the family abroad, and she lost her childhood home"
+  ],
+  "answer": 1
  }
 }
