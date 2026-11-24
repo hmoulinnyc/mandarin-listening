@@ -462,5 +462,17 @@
    "Chinese people are too traditional and never accept compliments."
   ],
   "answer": 1
+ },
+ "wb4dV07e2mY": {
+  "start": 224.83,
+  "end": 299.73,
+  "wpm": 74,
+  "question": "Why do the English people want to change their clock to an electronic one?",
+  "options": [
+   "Repairing the old clock costs a lot of money and time",
+   "Electronic clocks look more beautiful",
+   "The old clock is too small to see"
+  ],
+  "answer": 0
  }
 }

@@ -370,5 +370,29 @@
    "The speaker is rich and owns a yacht and a house in Barcelona."
   ],
   "answer": 0
+ },
+ "8wNakkUBWvw": {
+  "start": 142.24,
+  "end": 217.96,
+  "wpm": 80,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Introducing yourself and talking about the languages you speak",
+   "Useful Spanish phrases for when you don't understand or can't hear someone well",
+   "How to order food and ask for the bill in a Spanish restaurant"
+  ],
+  "answer": 1
+ },
+ "bnQI3v_MpOs": {
+  "start": 547.0,
+  "end": 624.08,
+  "wpm": 97,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is explaining how people can bathe naturally in a tourist area in Norway.",
+   "The speaker is presenting Norway's currency, the krone, and praising its attractive banknotes, such as the 200-krone note with a salmon.",
+   "The speaker is complaining that the Norwegian krone is too weak compared to the US dollar."
+  ],
+  "answer": 1
  }
 }

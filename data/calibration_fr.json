@@ -538,5 +538,17 @@
    "Because hot weather makes the sun dangerous and can burn the skin quickly"
   ],
   "answer": 0
+ },
+ "glf4iwMFWI8": {
+  "start": 195.84,
+  "end": 271.2,
+  "wpm": 109,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Many people find everyday costs too high and are angry at the government, so several groups are joining a protest.",
+   "Prices in France have fallen recently, so people are happy and no longer plan to protest.",
+   "The yellow vests movement started recently to support new government spending on transport."
+  ],
+  "answer": 0
  }
 }

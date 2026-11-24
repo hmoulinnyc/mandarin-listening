@@ -478,5 +478,29 @@
    "The speaker prefers cooking at home to eating at restaurants because it is healthier."
   ],
   "answer": 1
+ },
+ "ZKmzS1AvJAA": {
+  "start": 409.12,
+  "end": 484.52,
+  "wpm": 111,
+  "question": "What is the speaker mainly describing?",
+  "options": [
+   "A quiet cafe where people were relaxing and chatting",
+   "A coworking-style cafe where everyone was working, which motivated the speaker to focus",
+   "A trip across a street where the speaker got lost"
+  ],
+  "answer": 1
+ },
+ "Gy1J_BdyPXM": {
+  "start": 185.64,
+  "end": 261.52,
+  "wpm": 144,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Red and white were chosen as team colors because two samurai clans used flags of those colors to tell friend from foe.",
+   "Red and white flags were first used in Japan to mark the start of a new year.",
+   "Samurai in the past only fought in single combat and never used flags."
+  ],
+  "answer": 0
  }
 }

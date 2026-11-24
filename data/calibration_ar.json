@@ -334,5 +334,17 @@
    "Wearing branded goods protects people from becoming poor."
   ],
   "answer": 0
+ },
+ "M2QjxwzUOM8": {
+  "start": 76.5,
+  "end": 150.0,
+  "wpm": 0,
+  "question": "What is the main idea of the passage?",
+  "options": [
+   "A man describes how he improved at painting over time, and how his friends and family supported him",
+   "A man explains how to cook a meal for his family",
+   "A man complains about his job and says he wants to quit"
+  ],
+  "answer": 0
  }
 }

@@ -934,5 +934,17 @@
    "Only experienced players should be allowed to use the new football pitch"
   ],
   "answer": 0
+ },
+ "WlhDFCiyFu8": {
+  "start": 175.59,
+  "end": 251.29,
+  "wpm": 114,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Calcium is found mainly in cheese and fatty fish, so people should eat them often.",
+   "Vitamin D helps the body absorb calcium, which keeps muscles and bones strong.",
+   "Sunlight removes calcium from the skin, which makes bones weaker over time."
+  ],
+  "answer": 1
  }
 }

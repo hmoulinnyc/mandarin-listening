@@ -946,5 +946,17 @@
    "Learning Portuguese grammar rules is more important than talking with other people."
   ],
   "answer": 1
+ },
+ "zmR1-grMAgQ": {
+  "start": 202.24,
+  "end": 288.04,
+  "wpm": 96,
+  "question": "What is the main point the speaker is making?",
+  "options": [
+   "The speaker thinks people should never eat canned food and should always cook fresh meals.",
+   "The speaker keeps some canned food at home in case of emergencies, such as heavy rain, without being alarmist.",
+   "The speaker believes a catastrophe is coming, so everyone should stock up on food right away."
+  ],
+  "answer": 1
  }
 }
