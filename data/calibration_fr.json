@@ -550,5 +550,17 @@
    "The yellow vests movement started recently to support new government spending on transport."
   ],
   "answer": 0
+ },
+ "rYDxNFhAvTc": {
+  "start": 384.52,
+  "end": 452.4,
+  "wpm": 117,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Reviewing a restaurant's moussaka recipe",
+   "Preparing a dish by cutting potatoes and heating the oven while asking viewers for simple recipes",
+   "Explaining how to repair a broken kitchen oven"
+  ],
+  "answer": 1
  }
 }
