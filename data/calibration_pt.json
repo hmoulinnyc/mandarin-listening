@@ -970,5 +970,17 @@
    "She wants to buy a new phone because her current one is too slow for the apps she uses."
   ],
   "answer": 0
+ },
+ "rd_CDoZvasM": {
+  "start": 162.64,
+  "end": 242.76,
+  "wpm": 106,
+  "question": "What is the speaker mainly doing in this video?",
+  "options": [
+   "Crossing the street at a pedestrian crossing and describing the scene",
+   "Driving a car through a busy parking lot",
+   "Cooking a meal while talking to friends"
+  ],
+  "answer": 0
  }
 }

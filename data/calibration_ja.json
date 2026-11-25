@@ -562,5 +562,17 @@
    "The speaker says her children asked her to stop making lunch-box food, so she now buys meals at a store."
   ],
   "answer": 0
+ },
+ "ecG1j5zBcrY": {
+  "start": 71.16,
+  "end": 146.31,
+  "wpm": 103,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Japanese breakfast foods are very expensive.",
+   "The passage lists some common Japanese foods and drinks, such as miso soup and green tea.",
+   "Miso soup is difficult to make at home."
+  ],
+  "answer": 1
  }
 }

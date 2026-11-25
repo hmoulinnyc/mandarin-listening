@@ -370,5 +370,17 @@
    "Students should always learn English before they learn Arabic."
   ],
   "answer": 0
+ },
+ "1ByQcIx7FMA": {
+  "start": 92.04,
+  "end": 168.56,
+  "wpm": 0,
+  "question": "What is the main situation in this conversation?",
+  "options": [
+   "Two friends are planning a trip to a restaurant",
+   "A passenger is asking a driver about the fare and where to get off",
+   "A customer is buying coffee and paying with change"
+  ],
+  "answer": 1
  }
 }

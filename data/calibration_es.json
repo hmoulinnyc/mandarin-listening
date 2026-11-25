@@ -466,5 +466,29 @@
    "Chronic procrastinators make better decisions than people who finish tasks early."
   ],
   "answer": 1
+ },
+ "YZEmzuqlAnw": {
+  "start": 148.68,
+  "end": 225.24,
+  "wpm": 154,
+  "question": "What is the main point of this passage about energy drink ingredients?",
+  "options": [
+   "Energy drinks are harmless because all of their ingredients are natural.",
+   "Some ingredients, like taurine and carnitine, have unclear effects, while guarana really does help you feel more awake.",
+   "Taurine is the most important nutrient for building muscle and keeping the heart healthy."
+  ],
+  "answer": 1
+ },
+ "j-CncJuNCWQ": {
+  "start": 260.76,
+  "end": 337.76,
+  "wpm": 170,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Spain will have three solar eclipses, and the first one is on a date that has already passed.",
+   "Spain will see two total solar eclipses in 2026 and 2027, plus a meteor shower on the first one's night.",
+   "Spain will see a meteor shower in August 2027, which is when the Perseids reach their peak."
+  ],
+  "answer": 1
  }
 }

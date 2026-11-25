@@ -486,5 +486,17 @@
    "The Anping museum only shows old maps and ships from the Japanese period."
   ],
   "answer": 0
+ },
+ "SylMUnCgHDE": {
+  "start": 240.22,
+  "end": 319.62,
+  "wpm": 96,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A family went fishing and caught a lot of fish near the coast.",
+   "A 13-year-old boy swam for four hours and ran two kilometers to call emergency services after his family's small boat was blown far out to sea.",
+   "A boy got lost in the forest and called his parents on the phone."
+  ],
+  "answer": 1
  }
 }

@@ -646,5 +646,29 @@
    "The speaker explains how to download French music from YouTube Music."
   ],
   "answer": 1
+ },
+ "npqau-DKxug": {
+  "start": 194.53,
+  "end": 270.69,
+  "wpm": 158,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A man is parking his van to go shopping for groceries.",
+   "A camper van is a vehicle with no rear windows, and people can sleep and cook in it while traveling.",
+   "A cat ran away because it was scared of a loud noise."
+  ],
+  "answer": 1
+ },
+ "XTR7c-h4jx8": {
+  "start": 285.32,
+  "end": 361.97,
+  "wpm": 148,
+  "question": "What is the main event described in this passage?",
+  "options": [
+   "Iran signed a peace deal with its neighbors in Tehran",
+   "Strikes hit Tehran and other Iranian cities, including military and power sites",
+   "Iranian citizens voted to choose a new government in Tehran"
+  ],
+  "answer": 1
  }
 }
