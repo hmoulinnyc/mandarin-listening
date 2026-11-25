@@ -958,5 +958,17 @@
    "Cleaning a bathroom with shaving foam"
   ],
   "answer": 1
+ },
+ "hhGZLbqRxgg": {
+  "start": 344.92,
+  "end": 420.44,
+  "wpm": 168,
+  "question": "What are the speakers planning to do as they wait for the woman to arrive?",
+  "options": [
+   "Relax at home while a horse is delivered to them",
+   "Block the road with a horse so she arrives late",
+   "Race a horse down the street to win a prize"
+  ],
+  "answer": 1
  }
 }

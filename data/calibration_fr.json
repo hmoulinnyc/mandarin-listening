@@ -574,5 +574,17 @@
    "The speaker regrets moving abroad and plans to return home soon."
   ],
   "answer": 1
+ },
+ "Yi4HfzgnlVY": {
+  "start": 304.89,
+  "end": 384.0,
+  "wpm": 170,
+  "question": "What does the speaker say makes learners keep going when studying a language?",
+  "options": [
+   "Watching difficult films and series in the language every day",
+   "Finding content that matches their level and interests, so they enjoy learning and practice regularly",
+   "Studying only grammar rules until they feel fully ready"
+  ],
+  "answer": 1
  }
 }
