@@ -622,5 +622,29 @@
    "Parents in Seine-Saint-Denis are asking the government to change the Parcoursup university admission system."
   ],
   "answer": 0
+ },
+ "ZwIvfTXuzNc": {
+  "start": 156.8,
+  "end": 233.07,
+  "wpm": 122,
+  "question": "What is the main purpose of this passage?",
+  "options": [
+   "To explain how to complete French administrative paperwork",
+   "To run a French vocabulary quiz where the listener picks the meaning of each word",
+   "To describe how to organize and classify documents by hand"
+  ],
+  "answer": 1
+ },
+ "btv_9BV9C1c": {
+  "start": 492.82,
+  "end": 568.23,
+  "wpm": 171,
+  "question": "What is the main point of the speaker's message?",
+  "options": [
+   "The speaker dislikes the new translation option because it is too complicated to use.",
+   "The speaker loves a new option that translates song lyrics line by line, so you can learn French without looking up translations yourself.",
+   "The speaker explains how to download French music from YouTube Music."
+  ],
+  "answer": 1
  }
 }
