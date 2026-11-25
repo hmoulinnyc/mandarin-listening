@@ -538,5 +538,29 @@
    "Because a bird was seen wearing rabbit ears, and the speaker thinks this is a true story"
   ],
   "answer": 0
+ },
+ "etkJ6Se-WwA": {
+  "start": 311.32,
+  "end": 389.44,
+  "wpm": 94,
+  "question": "What is the speaker mainly talking about in this passage?",
+  "options": [
+   "Living in Nagoya and taking the subway there",
+   "A trip to Shinjuku in Tokyo to visit a friend",
+   "How to sign up for a Japanese language program"
+  ],
+  "answer": 1
+ },
+ "kO8V-kf8NS8": {
+  "start": 125.1,
+  "end": 202.64,
+  "wpm": 200,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker says onigiri are a popular lunch-box food, and she remembers how happy she felt when she got one as a child.",
+   "The speaker explains how to make onigiri with seaweed, and warns that children do not like them.",
+   "The speaker says her children asked her to stop making lunch-box food, so she now buys meals at a store."
+  ],
+  "answer": 0
  }
 }

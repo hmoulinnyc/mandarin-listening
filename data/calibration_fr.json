@@ -598,5 +598,29 @@
    "How to make red pesto pasta with eggplant and cherry tomatoes"
   ],
   "answer": 0
+ },
+ "Wl6oojQ61YI": {
+  "start": 355.95,
+  "end": 433.43,
+  "wpm": 164,
+  "question": "According to the speaker, what is the main advantage of living in Roanne compared with Saint-Étienne?",
+  "options": [
+   "It is bigger and has more people.",
+   "It is calm and quiet, with almost no one around.",
+   "It has better sports facilities for running and bodybuilding."
+  ],
+  "answer": 1
+ },
+ "c4vjPOHvYVI": {
+  "start": 385.56,
+  "end": 463.25,
+  "wpm": 150,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Students and teachers at a school in Seine-Saint-Denis are listing their complaints about working conditions, such as too few teachers and overcrowded classes.",
+   "A new school in Paris is being built to solve the shortage of classrooms in the 93 department.",
+   "Parents in Seine-Saint-Denis are asking the government to change the Parcoursup university admission system."
+  ],
+  "answer": 0
  }
 }

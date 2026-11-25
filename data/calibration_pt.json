@@ -958,5 +958,17 @@
    "The speaker believes a catastrophe is coming, so everyone should stock up on food right away."
   ],
   "answer": 1
+ },
+ "KVy2YfX4KJ4": {
+  "start": 143.08,
+  "end": 223.12,
+  "wpm": 115,
+  "question": "What is the main problem the speaker describes in this passage?",
+  "options": [
+   "Her phone is broken, and she needs to get it repaired because it holds important photos, videos, and apps.",
+   "She is planning a trip to Brazil and needs to back up her photos before she leaves.",
+   "She wants to buy a new phone because her current one is too slow for the apps she uses."
+  ],
+  "answer": 0
  }
 }

@@ -474,5 +474,17 @@
    "The old clock is too small to see"
   ],
   "answer": 0
+ },
+ "u-D7Ir5DHjc": {
+  "start": 179.47,
+  "end": 257.0,
+  "wpm": 104,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The Anping Fort in Tainan has a history from the Dutch period and Koxinga, and it was later renamed Anping Fort.",
+   "Koxinga built a large army to fight the Japanese and then took control of Taiwan.",
+   "The Anping museum only shows old maps and ships from the Japanese period."
+  ],
+  "answer": 0
  }
 }

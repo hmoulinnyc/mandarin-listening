@@ -982,5 +982,17 @@
    "A teacher explains how elections work in a big city and why adults vote"
   ],
   "answer": 0
+ },
+ "rbbmxboC7xQ": {
+  "start": 285.79,
+  "end": 361.99,
+  "wpm": 182,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A news report about a Sinterklaas arrival, with children's drawings being collected and a visit to a fun gym in Herent.",
+   "A science fair on Sunday where people learn new things for free.",
+   "A sports report about a gymnastics competition in Belgium."
+  ],
+  "answer": 0
  }
 }

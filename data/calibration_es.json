@@ -442,5 +442,29 @@
    "A visit to a large, modern parking lot, where drivers are shown how to find their cars."
   ],
   "answer": 0
+ },
+ "8xIgBmPlwwk": {
+  "start": 394.86,
+  "end": 470.01,
+  "wpm": 248,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A repartidor from Amazon is being interviewed about the new technology used in phone deliveries.",
+   "A film crew is shooting a scene about an Amazon delivery driver, and the speaker describes how the production works and how deliveries are hard.",
+   "The speaker is teaching viewers how to get the secret code that customers use at Amazon."
+  ],
+  "answer": 1
+ },
+ "-syM4lqn__8": {
+  "start": 172.92,
+  "end": 249.92,
+  "wpm": 166,
+  "question": "What is the main idea of the passage?",
+  "options": [
+   "Procrastinators feel no stress, so they can delay tasks without any harm.",
+   "People delay difficult tasks because fear overrides their rational plans, and the stress then grows until the deadline arrives.",
+   "Chronic procrastinators make better decisions than people who finish tasks early."
+  ],
+  "answer": 1
  }
 }

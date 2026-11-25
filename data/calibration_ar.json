@@ -346,5 +346,29 @@
    "A man complains about his job and says he wants to quit"
   ],
   "answer": 0
+ },
+ "KdP1xG4v4i4": {
+  "start": 71.39,
+  "end": 147.29,
+  "wpm": 58,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "Underwater archaeology lets people learn about a past civilization by studying the objects and knowledge it left behind.",
+   "Diving is banned in Kash because divers damage ancient ruins and buildings.",
+   "Modern cities in Turkey are built on top of ancient cities, so archaeologists cannot dig them up."
+  ],
+  "answer": 0
+ },
+ "Dh3pNo-Nlkk": {
+  "start": 526.6,
+  "end": 608.0,
+  "wpm": 0,
+  "question": "What is the speaker's main point about the Arabic language?",
+  "options": [
+   "Arabic is very different from other languages, so translating word for word is hard.",
+   "Arabic grammar is easier to learn than English grammar.",
+   "Students should always learn English before they learn Arabic."
+  ],
+  "answer": 0
  }
 }
