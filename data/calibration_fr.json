@@ -562,5 +562,17 @@
    "Explaining how to repair a broken kitchen oven"
   ],
   "answer": 1
+ },
+ "F_L8mJm_KeM": {
+  "start": 369.88,
+  "end": 446.52,
+  "wpm": 160,
+  "question": "What is the speaker's main point about 2025?",
+  "options": [
+   "The speaker got a job promotion that changed their career.",
+   "The speaker's key event was moving to Portugal, after finally acting on a long-held wish to live abroad.",
+   "The speaker regrets moving abroad and plans to return home soon."
+  ],
+  "answer": 1
  }
 }

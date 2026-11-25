@@ -394,5 +394,17 @@
    "The speaker is complaining that the Norwegian krone is too weak compared to the US dollar."
   ],
   "answer": 1
+ },
+ "EIJSaRvqCVs": {
+  "start": 275.72,
+  "end": 352.64,
+  "wpm": 127,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A woman is describing her childhood photos and her memories of the chickens she cared for.",
+   "A woman is explaining that she cannot find any photos from her teenage years on her phone.",
+   "A woman is talking about a video in which she taught Spanish to chickens."
+  ],
+  "answer": 0
  }
 }

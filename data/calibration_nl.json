@@ -946,5 +946,17 @@
    "Sunlight removes calcium from the skin, which makes bones weaker over time."
   ],
   "answer": 1
+ },
+ "sAKgGDDsfVY": {
+  "start": 172.56,
+  "end": 248.4,
+  "wpm": 146,
+  "question": "What are the people in this passage mainly doing?",
+  "options": [
+   "Baking a cake using a recipe",
+   "Making slime by mixing shaving foam with cornstarch",
+   "Cleaning a bathroom with shaving foam"
+  ],
+  "answer": 1
  }
 }

@@ -502,5 +502,17 @@
    "Samurai in the past only fought in single combat and never used flags."
   ],
   "answer": 0
+ },
+ "ZCai4_tyshE": {
+  "start": 289.16,
+  "end": 367.64,
+  "wpm": 92,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker made most of their friends through their company job.",
+   "The speaker made new friends in different countries, such as neighbors and people met at hostels.",
+   "The speaker prefers to travel alone and does not keep in touch with people."
+  ],
+  "answer": 1
  }
 }
