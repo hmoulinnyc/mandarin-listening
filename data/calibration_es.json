@@ -406,5 +406,41 @@
    "A woman is talking about a video in which she taught Spanish to chickens."
   ],
   "answer": 0
+ },
+ "5GoCkgdVqdo": {
+  "start": 119.7,
+  "end": 197.29,
+  "wpm": 73,
+  "question": "According to the passage, what happens when the letter H is combined with the letter C in Spanish?",
+  "options": [
+   "It makes a 'k' sound, like in 'kilo'.",
+   "It makes a 'ch' sound, like in 'chocolate'.",
+   "It is silent, like the H in 'hola'."
+  ],
+  "answer": 1
+ },
+ "ArNLvtcjf30": {
+  "start": 385.3,
+  "end": 460.8,
+  "wpm": 134,
+  "question": "According to the passage, why does a person feel vulnerable when speaking a new language?",
+  "options": [
+   "Because they lose the skills and identity that made them feel confident in their own language",
+   "Because the new language is too difficult to learn in a short time",
+   "Because they are not allowed to use the discount code for their first class"
+  ],
+  "answer": 0
+ },
+ "BvirH-wQRqo": {
+  "start": 607.72,
+  "end": 683.12,
+  "wpm": 158,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A tour of a building with an elevator and a train station, showing how people travel between floors and the station.",
+   "A tour of a Spanish-speaking city's market, where a vendor sells madeleines shaped like teddy bears.",
+   "A visit to a large, modern parking lot, where drivers are shown how to find their cars."
+  ],
+  "answer": 0
  }
 }

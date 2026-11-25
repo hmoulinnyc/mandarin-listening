@@ -586,5 +586,17 @@
    "Studying only grammar rules until they feel fully ready"
   ],
   "answer": 1
+ },
+ "8XuitB3-s6k": {
+  "start": 237.16,
+  "end": 313.92,
+  "wpm": 145,
+  "question": "According to the passage, what is the main topic the speaker discusses?",
+  "options": [
+   "A fruit from South America called coqueret du Pérou, which is healthy and tasty",
+   "A doctor's appointment the speaker has in the city at 11:10",
+   "How to make red pesto pasta with eggplant and cherry tomatoes"
+  ],
+  "answer": 0
  }
 }

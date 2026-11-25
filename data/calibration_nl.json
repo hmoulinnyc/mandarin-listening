@@ -970,5 +970,17 @@
    "Race a horse down the street to win a prize"
   ],
   "answer": 1
+ },
+ "dfT4_IkABjM": {
+  "start": 288.32,
+  "end": 364.72,
+  "wpm": 174,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "A child explains that she was chosen as children's mayor by a vote, and she shows the town hall and a goat farm",
+   "A child tells how to build a bulldozer and cook dinner for goats",
+   "A teacher explains how elections work in a big city and why adults vote"
+  ],
+  "answer": 0
  }
 }

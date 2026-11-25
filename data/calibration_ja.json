@@ -514,5 +514,29 @@
    "The speaker prefers to travel alone and does not keep in touch with people."
   ],
   "answer": 1
+ },
+ "h04VZjUWH_k": {
+  "start": 671.44,
+  "end": 748.52,
+  "wpm": 113,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is cancelling a trip because of the weather.",
+   "The speaker is going to a scenic place in Nagano, taking a bus from a bus stop, and should wake up early because rain is expected in the afternoon.",
+   "The speaker is describing New Zealand's scenery and inviting friends to visit there."
+  ],
+  "answer": 1
+ },
+ "zRKWmGB-Onk": {
+  "start": 218.52,
+  "end": 297.64,
+  "wpm": 145,
+  "question": "According to the passage, why did some people start using rabbit ears as a symbol or image, and what do they say about it?",
+  "options": [
+   "Because a rabbit standing on two legs looked like a bird, and rabbit ears look like bird wings from afar",
+   "Because rabbits were once raised as birds in Japan, and their ears are used to mark birthdays",
+   "Because a bird was seen wearing rabbit ears, and the speaker thinks this is a true story"
+  ],
+  "answer": 0
  }
 }
