@@ -610,5 +610,17 @@
    "Tokyo is famous for its sneakers, and people there rarely buy shoes."
   ],
   "answer": 1
+ },
+ "0-MsJ-vT3ec": {
+  "start": 488.32,
+  "end": 565.12,
+  "wpm": 134,
+  "question": "What is the main point the speaker makes about bottled water in restaurants?",
+  "options": [
+   "Paying for bottled water in restaurants is pointless when tap water or house water is available.",
+   "Bottled water is always better than tap water, so it is worth paying for in restaurants.",
+   "The speaker always orders a drink in restaurants and never asks for any kind of water."
+  ],
+  "answer": 0
  }
 }

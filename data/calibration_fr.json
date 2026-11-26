@@ -802,5 +802,29 @@
    "Staying late at the office is always useful, because it helps employees finish their presentations."
   ],
   "answer": 0
+ },
+ "Lm9KTyS-Gv8": {
+  "start": 549.6,
+  "end": 626.32,
+  "wpm": 135,
+  "question": "According to the passage, what was the main reason the Estates-General and the revolution of 1789 came about?",
+  "options": [
+   "France was in crisis, with food shortages and a population in revolt",
+   "The clergy and nobility agreed to give up their tax privileges",
+   "Banks and merchants took control of the government"
+  ],
+  "answer": 0
+ },
+ "nDCVXdenDII": {
+  "start": 151.08,
+  "end": 226.44,
+  "wpm": 114,
+  "question": "What is the main benefit of taking these French lessons regularly over several months?",
+  "options": [
+   "Learners will need to translate more often than before",
+   "Learners will gradually improve their French and feel more comfortable with it",
+   "Learners will be able to skip the free 7-day trial"
+  ],
+  "answer": 1
  }
 }

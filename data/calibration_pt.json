@@ -1054,5 +1054,17 @@
    "The speaker is talking about a blue car and where they live."
   ],
   "answer": 0
+ },
+ "05fWuRvxd_4": {
+  "start": 238.28,
+  "end": 322.36,
+  "wpm": 89,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Phones let people make voice calls or video calls, and video calls let people see each other.",
+   "Most phones today have a front camera and a back camera, and people use the back camera for calls.",
+   "People call their family every week, and they always prefer video calls over voice calls."
+  ],
+  "answer": 0
  }
 }

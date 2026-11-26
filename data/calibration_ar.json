@@ -454,5 +454,17 @@
    "Sara, Katrina and Sofia are planning a trip to Munich together."
   ],
   "answer": 1
+ },
+ "ADvlbRFnkJk": {
+  "start": 104.76,
+  "end": 180.32,
+  "wpm": 0,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A customer is ordering a drink and food at a café",
+   "A customer is asking for a refund for a broken item",
+   "A customer is booking a table for a birthday party"
+  ],
+  "answer": 0
  }
 }

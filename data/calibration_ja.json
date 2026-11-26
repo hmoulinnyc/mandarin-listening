@@ -646,5 +646,17 @@
    "It explains the history of the Keihin Canal."
   ],
   "answer": 1
+ },
+ "xNx-FZ4Sj78": {
+  "start": 83.07,
+  "end": 160.37,
+  "wpm": 135,
+  "question": "What is the main idea of this passage about Japanese spring customs?",
+  "options": [
+   "Japanese people like cherry blossoms because they are beautiful but do not last long, and they enjoy picnics under them in spring.",
+   "Japanese people only eat sakuramochi and ichigo daifuku because they are cheap and easy to find.",
+   "Japanese people think flowers should never be picked, so they only look at them from far away."
+  ],
+  "answer": 0
  }
 }

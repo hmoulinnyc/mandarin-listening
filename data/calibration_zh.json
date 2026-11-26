@@ -570,5 +570,17 @@
    "A woman was sold for 3000 yuan and then chose to stay in the village and start a new family."
   ],
   "answer": 0
+ },
+ "38v1e6QiTUQ": {
+  "start": 207.23,
+  "end": 282.5,
+  "wpm": 77,
+  "question": "What is the main reason the speaker and her friend went to the first meeting with the man?",
+  "options": [
+   "She wanted her friend to help her choose a gift to send to China.",
+   "She did not want to meet him alone, so she brought her best friend.",
+   "Her ex-boyfriend had invited the three of them to dinner together."
+  ],
+  "answer": 1
  }
 }
