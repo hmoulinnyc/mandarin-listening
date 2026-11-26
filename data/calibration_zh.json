@@ -558,5 +558,17 @@
    "Two people are planning a trip to the mountains and discussing which hiking trail is safest for a weekend visit."
   ],
   "answer": 0
+ },
+ "ePPGcoepGGE": {
+  "start": 366.63,
+  "end": 442.6,
+  "wpm": 133,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A woman was sold to a rural village and cried every day because she missed her two daughters.",
+   "A woman escaped from a village by travelling by train from Hebei to Guizhou, through Beijing and Wuhan.",
+   "A woman was sold for 3000 yuan and then chose to stay in the village and start a new family."
+  ],
+  "answer": 0
  }
 }

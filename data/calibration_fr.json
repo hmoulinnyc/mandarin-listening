@@ -778,5 +778,29 @@
    "Medieval people rarely cooked at home because restaurants were the only places to get good food."
   ],
   "answer": 0
+ },
+ "_GiuMs862HI": {
+  "start": 292.64,
+  "end": 369.0,
+  "wpm": 111,
+  "question": "According to the passage, what is the main way to acquire French without effort?",
+  "options": [
+   "Memorizing long lists of vocabulary words every day",
+   "Listening to stories, since the brain records their events unconsciously",
+   "Studying grammar rules in isolation with mechanical repetition"
+  ],
+  "answer": 1
+ },
+ "nMw-ajbpHhs": {
+  "start": 523.48,
+  "end": 599.84,
+  "wpm": 195,
+  "question": "According to the passage, what is the main point about 'fliquer' and presenteeism at work?",
+  "options": [
+   "Feeling 'fliquer' at work means being constantly watched and checked, and some people stay late just to appear hardworking.",
+   "Fliquer is a slang word for police, and presenteeism only happens in advertising agencies.",
+   "Staying late at the office is always useful, because it helps employees finish their presentations."
+  ],
+  "answer": 0
  }
 }

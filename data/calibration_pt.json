@@ -1042,5 +1042,17 @@
    "It explains how to ask for directions in a Portuguese-speaking city."
   ],
   "answer": 0
+ },
+ "l5qzweirD44": {
+  "start": 180.56,
+  "end": 262.0,
+  "wpm": 63,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is thirsty and drinks water from a blue bottle, which is important for staying hydrated.",
+   "The speaker is going to sleep and asks about the time in another country.",
+   "The speaker is talking about a blue car and where they live."
+  ],
+  "answer": 0
  }
 }

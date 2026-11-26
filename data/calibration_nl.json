@@ -1042,5 +1042,17 @@
    "The speaker is making a vlog about a fun school trip with friends and asks viewers to comment."
   ],
   "answer": 0
+ },
+ "88VBJaE3GSo": {
+  "start": 241.78,
+  "end": 316.93,
+  "wpm": 104,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Dutch verbs can have different forms depending on when the action happens, and past-tense forms need an auxiliary verb such as 'hebben'.",
+   "Dutch verbs never change form, so a sentence always uses the same word for 'bought' or 'wrote'.",
+   "Dutch past tense is formed only by adding -de or -te to the end of every verb."
+  ],
+  "answer": 0
  }
 }

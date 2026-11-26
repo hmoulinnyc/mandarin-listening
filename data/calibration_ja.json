@@ -634,5 +634,17 @@
    "TAITO STATION is a bright, quiet cafe where people relax and drink tea."
   ],
   "answer": 0
+ },
+ "DS_Tk2i14jE": {
+  "start": 211.9,
+  "end": 291.87,
+  "wpm": 46,
+  "question": "What is the main point of this video segment?",
+  "options": [
+   "It shows how to set up a Japanese-language mobile app.",
+   "It is a travel video about a canal in Japan with a promotion for a language app.",
+   "It explains the history of the Keihin Canal."
+  ],
+  "answer": 1
  }
 }

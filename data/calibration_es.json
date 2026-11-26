@@ -598,5 +598,17 @@
    "Explaining how people use Claude to write dating profiles on apps like Tinder"
   ],
   "answer": 1
+ },
+ "lvBQAgRQ7UU": {
+  "start": 291.29,
+  "end": 357.49,
+  "wpm": 114,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Tokyo is a quiet city with few shops and little shopping.",
+   "Tokyo is a shopping paradise where many people buy things, both tourists and locals.",
+   "Tokyo is famous for its sneakers, and people there rarely buy shoes."
+  ],
+  "answer": 1
  }
 }

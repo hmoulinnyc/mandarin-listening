@@ -442,5 +442,17 @@
    "Two people are planning a trip together to Turkey and Russia."
   ],
   "answer": 0
+ },
+ "wtXpu_KnQgs": {
+  "start": 57.04,
+  "end": 133.32,
+  "wpm": 0,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A teacher is reading a long list of names and jobs to her class.",
+   "Clara, a doctor from Russia, and Michael, a company manager from America, are describing their friends from around the world.",
+   "Sara, Katrina and Sofia are planning a trip to Munich together."
+  ],
+  "answer": 1
  }
 }
