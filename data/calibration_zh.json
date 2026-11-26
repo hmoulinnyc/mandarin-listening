@@ -522,5 +522,17 @@
    "He gave up business after being cheated and went back to school."
   ],
   "answer": 1
+ },
+ "S5Q8Mb-pYCQ": {
+  "start": 241.67,
+  "end": 317.3,
+  "wpm": 90,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is famous in many countries, and people in China, Japan, Korea and Vietnam all love them.",
+   "The speaker says many people like them, then admits they have been dead for a long time.",
+   "The speaker is answering questions about a trip to China and Japan."
+  ],
+  "answer": 1
  }
 }

@@ -994,5 +994,29 @@
    "The speaker is explaining how to sleep better after working late."
   ],
   "answer": 1
+ },
+ "Q88NfBi3atI": {
+  "start": 177.68,
+  "end": 258.6,
+  "wpm": 110,
+  "question": "According to the speaker, what is the most effective way for a learner who is not yet fluent in Portuguese to accelerate their learning?",
+  "options": [
+   "Focus mainly on speaking and writing practice from the start",
+   "Expose themselves heavily to Portuguese through listening and reading, ideally both at once",
+   "Study grammar rules in their native language before consuming any content"
+  ],
+  "answer": 1
+ },
+ "ClHzZr9UrTc": {
+  "start": 259.44,
+  "end": 343.96,
+  "wpm": 85,
+  "question": "What is the main point of the speaker's story about the beans?",
+  "options": [
+   "The speaker went shopping and bought fresh beans for dinner.",
+   "The speaker forgot to store the beans properly, so they spoiled and had to be thrown away, and next time they will freeze the beans.",
+   "The speaker enjoys cooking beans and plans to cook them every day."
+  ],
+  "answer": 1
  }
 }

@@ -718,5 +718,29 @@
    "The brain remembers through understanding and connections, so memorization is not really the core problem."
   ],
   "answer": 2
+ },
+ "URhvadVt1Xg": {
+  "start": 391.6,
+  "end": 466.76,
+  "wpm": 84,
+  "question": "What did the pebble think when the hazelnut fell and began to change into a tree?",
+  "options": [
+   "It was happy and wanted the hazelnut to grow.",
+   "It was not happy and did not want the hazelnut to become a tree.",
+   "It did not notice the hazelnut at all."
+  ],
+  "answer": 1
+ },
+ "fmHEJotJ41Y": {
+  "start": 541.16,
+  "end": 617.96,
+  "wpm": 146,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Learning is not linear, and counting things like vocabulary words is an arbitrary way to measure it.",
+   "Setting clear goals and challenges is the best way to make steady, measurable progress in learning.",
+   "Learners should fight against difficulties and control every part of their learning process."
+  ],
+  "answer": 0
  }
 }

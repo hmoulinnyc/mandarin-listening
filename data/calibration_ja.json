@@ -598,5 +598,17 @@
    "The speaker says the Ichiran soup base should be added to the pot only after the vegetables are cooked."
   ],
   "answer": 1
+ },
+ "_bM1y5C6MwY": {
+  "start": 274.48,
+  "end": 350.3,
+  "wpm": 74,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to visit a temple in Shizuoka, including paying the fee and praying.",
+   "It describes how a famous Shizuoka sake is made from a 400-year-old plum tree.",
+   "It explains how to cook a traditional Japanese dish in a temple kitchen."
+  ],
+  "answer": 0
  }
 }

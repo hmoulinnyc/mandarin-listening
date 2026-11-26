@@ -526,5 +526,29 @@
    "The Trump family's cryptocurrency business failed and lost hundreds of millions of dollars."
   ],
   "answer": 0
+ },
+ "TaRAEGdMz7M": {
+  "start": 240.19,
+  "end": 316.89,
+  "wpm": 156,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Chile, Argentina and Bolivia all handle their lithium the same way, through foreign investment.",
+   "The three countries of the lithium triangle have chosen different paths, while China dominates processing and the value of lithium is captured elsewhere.",
+   "Lithium batteries are very expensive to make, so most of them are produced in South America."
+  ],
+  "answer": 1
+ },
+ "04VyhdsUj7M": {
+  "start": 615.16,
+  "end": 691.4,
+  "wpm": 175,
+  "question": "According to the passage, why does the author think the timing of the object's closest approach to the Sun might be suspicious?",
+  "options": [
+   "Because it happens when the Sun hides the object from Earth, which delays its detection and could be a way to avoid being seen",
+   "Because the object's closest approach to the Sun happens exactly when Mars, Jupiter, or Earth is nearby, which proves it is a spacecraft",
+   "Because at that moment the object is closest to the galactic center, so it can easily receive energy from it"
+  ],
+  "answer": 0
  }
 }

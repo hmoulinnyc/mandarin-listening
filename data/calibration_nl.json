@@ -1006,5 +1006,17 @@
    "It is pointless, because most people in the Netherlands speak English."
   ],
   "answer": 1
+ },
+ "O_tiCbt_mgw": {
+  "start": 245.97,
+  "end": 322.77,
+  "wpm": 89,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to talk about completed past actions in Dutch using hebben or zijn with a past participle.",
+   "It teaches how to count numbers and tell the time in Dutch.",
+   "It explains how to form questions in the future tense in Dutch."
+  ],
+  "answer": 0
  }
 }
