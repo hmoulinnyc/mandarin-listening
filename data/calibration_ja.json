@@ -586,5 +586,17 @@
    "It explains the history of Japanese grammar and verb conjugation."
   ],
   "answer": 0
+ },
+ "g3S_oYXa3Pc": {
+  "start": 264.26,
+  "end": 343.56,
+  "wpm": 58,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker says you must squeeze out every drop of oil from the packet to make the soup.",
+   "The speaker says you should add the soup base and the oil from the packet, but you don't need to work so hard to get all the oil out.",
+   "The speaker says the Ichiran soup base should be added to the pot only after the vegetables are cooked."
+  ],
+  "answer": 1
  }
 }

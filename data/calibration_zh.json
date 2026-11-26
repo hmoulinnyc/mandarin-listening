@@ -510,5 +510,17 @@
    "Arguing about which country makes better movies"
   ],
   "answer": 1
+ },
+ "jlEhHyJ6QgQ": {
+  "start": 175.87,
+  "end": 251.5,
+  "wpm": 90,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "He became rich by copying other shop owners' products.",
+   "After losing money, he rebuilt his business by being honest and caring for customers.",
+   "He gave up business after being cheated and went back to school."
+  ],
+  "answer": 1
  }
 }

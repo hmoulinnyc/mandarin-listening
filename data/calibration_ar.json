@@ -394,5 +394,17 @@
    "The ogress blows down houses built of weaker materials, but she cannot blow down the iron house."
   ],
   "answer": 2
+ },
+ "9epzhHHSj_A": {
+  "start": 72.16,
+  "end": 146.4,
+  "wpm": 0,
+  "question": "What is the main purpose of this passage?",
+  "options": [
+   "To explain how to write long sentences in Arabic grammar",
+   "To introduce Arabic letters, each paired with an example word",
+   "To list famous places in Arabic-speaking countries"
+  ],
+  "answer": 1
  }
 }

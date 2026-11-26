@@ -694,5 +694,29 @@
    "A pigeon decides to stay in the nest because it is too tired to travel."
   ],
   "answer": 1
+ },
+ "__4iU8EI0eI": {
+  "start": 439.69,
+  "end": 514.79,
+  "wpm": 206,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker met an old friend in Montreal and is happy about his new child.",
+   "The speaker laughed at a friend's hard time after seeing him in Paris, and now thinks karma may come back on them.",
+   "The speaker moved from Paris to Montreal in 2016 and misses living there."
+  ],
+  "answer": 1
+ },
+ "i60Q9Pfg2YY": {
+  "start": 220.88,
+  "end": 296.56,
+  "wpm": 118,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Learning a language works best when you memorize long lists of isolated words and rules.",
+   "Good memory is a rare gift, and most adults have lost the ability to remember stories.",
+   "The brain remembers through understanding and connections, so memorization is not really the core problem."
+  ],
+  "answer": 2
  }
 }

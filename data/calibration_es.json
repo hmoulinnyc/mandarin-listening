@@ -514,5 +514,17 @@
    "Invading Iraq based on false claims led to chaos, a stronger extremist group, and huge costs for the US."
   ],
   "answer": 2
+ },
+ "THpqZBmqcGk": {
+  "start": 229.44,
+  "end": 305.23,
+  "wpm": 137,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The Trump family made large profits from selling cryptocurrency, partly by selling access to their circle.",
+   "Most people who invested in Trump cryptocurrency quickly became rich.",
+   "The Trump family's cryptocurrency business failed and lost hundreds of millions of dollars."
+  ],
+  "answer": 0
  }
 }
