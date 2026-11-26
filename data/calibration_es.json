@@ -490,5 +490,29 @@
    "Spain will see a meteor shower in August 2027, which is when the Perseids reach their peak."
   ],
   "answer": 1
+ },
+ "eLpXKTgEEbE": {
+  "start": 232.24,
+  "end": 309.68,
+  "wpm": 170,
+  "question": "What is the main point of the passage about star V838 Monocerotis?",
+  "options": [
+   "The star exploded in a supernova, scattering its pieces across the galaxy.",
+   "The star suddenly became about a million times brighter, the cause is still unclear, and it did not explode.",
+   "Scientists have confirmed that the star swallowed one of its planets, which caused the brightening."
+  ],
+  "answer": 1
+ },
+ "2AJdwh7VEac": {
+  "start": 192.24,
+  "end": 267.52,
+  "wpm": 151,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The US invasion of Iraq was justified, and it quickly brought stability to the country.",
+   "After toppling Saddam Hussein, the US handled the aftermath well and avoided major losses.",
+   "Invading Iraq based on false claims led to chaos, a stronger extremist group, and huge costs for the US."
+  ],
+  "answer": 2
  }
 }

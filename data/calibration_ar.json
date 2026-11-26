@@ -382,5 +382,17 @@
    "A customer is buying coffee and paying with change"
   ],
   "answer": 1
+ },
+ "gr9qxZ71SoI": {
+  "start": 95.0,
+  "end": 172.76,
+  "wpm": 0,
+  "question": "What is the main point of the story?",
+  "options": [
+   "The ogress grows stronger after each meal until she can blow down even an iron house.",
+   "A clever person outsmarts the ogress by hiding inside a house made of iron.",
+   "The ogress blows down houses built of weaker materials, but she cannot blow down the iron house."
+  ],
+  "answer": 2
  }
 }

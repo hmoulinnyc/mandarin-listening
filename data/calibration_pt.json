@@ -982,5 +982,17 @@
    "Cooking a meal while talking to friends"
   ],
   "answer": 0
+ },
+ "JEA8hetq1D0": {
+  "start": 189.48,
+  "end": 270.2,
+  "wpm": 137,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is planning a trip to the supermarket to buy ingredients for a party.",
+   "The speaker is cooking dinner after an extra shift at work while recording a video to help people learn Portuguese.",
+   "The speaker is explaining how to sleep better after working late."
+  ],
+  "answer": 1
  }
 }

@@ -994,5 +994,17 @@
    "A sports report about a gymnastics competition in Belgium."
   ],
   "answer": 0
+ },
+ "0VVCUAUJR0w": {
+  "start": 359.99,
+  "end": 437.6,
+  "wpm": 155,
+  "question": "According to the speaker, why is it important to learn Dutch, especially if you live in a Dutch-speaking country?",
+  "options": [
+   "It is only useful for people who want to work in government.",
+   "It helps you take part in society and understand its culture, and it opens doors to things like literature.",
+   "It is pointless, because most people in the Netherlands speak English."
+  ],
+  "answer": 1
  }
 }
