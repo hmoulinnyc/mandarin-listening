@@ -418,5 +418,17 @@
    "Where the speaker is going on vacation"
   ],
   "answer": 0
+ },
+ "kXHOwHjRV1w": {
+  "start": 64.4,
+  "end": 143.5,
+  "wpm": 6,
+  "question": "What is the main point of this passage about how the Arabic letter taa marbuta (ة) is pronounced?",
+  "options": [
+   "It is always pronounced as a /t/ sound, no matter what comes before or after it.",
+   "It is pronounced /t/ when it is followed by a noun, and /ah/ or /eh/ when it is followed by an adjective.",
+   "It is never pronounced in Levantine dialects, only in Modern Standard Arabic."
+  ],
+  "answer": 1
  }
 }

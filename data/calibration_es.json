@@ -550,5 +550,29 @@
    "Because at that moment the object is closest to the galactic center, so it can easily receive energy from it"
   ],
   "answer": 0
+ },
+ "5V8LuC3vjgw": {
+  "start": 250.25,
+  "end": 322.41,
+  "wpm": 150,
+  "question": "According to the passage, what is the main reason the 'century of humiliation' matters to China today?",
+  "options": [
+   "It is a painful historical wound that shapes China's current politics and is taught as patriotic education.",
+   "It is a chapter that Chinese schools have mostly stopped teaching because it is no longer relevant.",
+   "It explains why China lost Hong Kong and has been trying to get it back ever since."
+  ],
+  "answer": 0
+ },
+ "9XNVGnnJchc": {
+  "start": 611.8,
+  "end": 687.24,
+  "wpm": 185,
+  "question": "What does the speaker say is the key point about the object's recent behavior after passing behind the Sun?",
+  "options": [
+   "It slowed down and lost its color, which suggests it is natural.",
+   "It sped up, and the speaker says the answer is yes, so the acceleration is real.",
+   "It stayed exactly the same, so the observatory was wrong to study it."
+  ],
+  "answer": 1
  }
 }

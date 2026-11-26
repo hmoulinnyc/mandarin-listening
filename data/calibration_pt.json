@@ -1018,5 +1018,17 @@
    "The speaker enjoys cooking beans and plans to cook them every day."
   ],
   "answer": 1
+ },
+ "KkwtGUgBUhs": {
+  "start": 171.76,
+  "end": 262.16,
+  "wpm": 63,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains how to pronounce the months of the year in Portuguese, including the difficult 'nh' sound in 'junho'.",
+   "It teaches the English names of the months and how to spell them correctly.",
+   "It compares Brazilian and Portuguese grammar rules for writing dates."
+  ],
+  "answer": 0
  }
 }

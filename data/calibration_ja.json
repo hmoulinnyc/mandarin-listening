@@ -610,5 +610,17 @@
    "It explains how to cook a traditional Japanese dish in a temple kitchen."
   ],
   "answer": 0
+ },
+ "oozDZg4XO8w": {
+  "start": 248.06,
+  "end": 323.82,
+  "wpm": 59,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Kyobashi, Ginza, Yurakucho, and Hibiya are all very close together, and people often travel between them.",
+   "Kyobashi Station is always the best place to get off when you want to go to Ginza.",
+   "Ginza is far from Yurakucho and Hibiya, so people rarely go between them."
+  ],
+  "answer": 0
  }
 }

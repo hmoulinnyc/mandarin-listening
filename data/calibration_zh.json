@@ -534,5 +534,17 @@
    "The speaker is answering questions about a trip to China and Japan."
   ],
   "answer": 1
+ },
+ "O-eW3Kq8UwQ": {
+  "start": 215.03,
+  "end": 292.03,
+  "wpm": 101,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A young girl's singing talent helps her get bread when her family cannot afford it",
+   "A mother takes her daughter to a bakery to buy bread for the family",
+   "A father teaches his daughter to sing so she can perform at a bakery"
+  ],
+  "answer": 0
  }
 }

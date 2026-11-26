@@ -742,5 +742,29 @@
    "Learners should fight against difficulties and control every part of their learning process."
   ],
   "answer": 0
+ },
+ "ZVjNJpctqDY": {
+  "start": 36.19,
+  "end": 52.75,
+  "wpm": 83,
+  "question": "According to the passage, what is the speaker's main purpose?",
+  "options": [
+   "To ask the listener to relax, watch carefully, and try to understand the main story",
+   "To teach the listener how to make a short film",
+   "To explain how to pronounce French words correctly"
+  ],
+  "answer": 0
+ },
+ "Saow_26JFwU": {
+  "start": 765.6,
+  "end": 840.8,
+  "wpm": 155,
+  "question": "According to the passage, how do French workers' vacation entitlements compare with those in the rest of the world?",
+  "options": [
+   "French workers generally have fewer vacation days than workers in most other countries.",
+   "French workers are generally better off than workers elsewhere, though some other European countries are comparable.",
+   "French workers have the same vacation rights as workers in the United States."
+  ],
+  "answer": 1
  }
 }

@@ -1018,5 +1018,17 @@
    "It explains how to form questions in the future tense in Dutch."
   ],
   "answer": 0
+ },
+ "2uCNrO5Eowc": {
+  "start": 499.06,
+  "end": 567.72,
+  "wpm": 97,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker is planning a vacation trip abroad.",
+   "The speaker restocked towels and toilet paper and cleaned the restrooms at work.",
+   "The speaker is describing how to cook dinner for friends."
+  ],
+  "answer": 1
  }
 }
