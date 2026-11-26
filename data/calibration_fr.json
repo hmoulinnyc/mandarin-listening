@@ -766,5 +766,17 @@
    "French workers have the same vacation rights as workers in the United States."
   ],
   "answer": 1
+ },
+ "7RV9I8mnREw": {
+  "start": 727.96,
+  "end": 803.92,
+  "wpm": 179,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Restaurants were originally promoted as a healthy, pleasurable way to take care of oneself, and their image has been marketed since the 18th century.",
+   "Eating at restaurants has always been cheaper and healthier than cooking meals at home.",
+   "Medieval people rarely cooked at home because restaurants were the only places to get good food."
+  ],
+  "answer": 0
  }
 }

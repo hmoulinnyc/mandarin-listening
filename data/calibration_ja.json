@@ -622,5 +622,17 @@
    "Ginza is far from Yurakucho and Hibiya, so people rarely go between them."
   ],
   "answer": 0
+ },
+ "0FmtSRz1RwM": {
+  "start": 284.37,
+  "end": 365.23,
+  "wpm": 27,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "TAITO STATION is a game arcade chain found across Japan, with prize games and mini-game machines inside.",
+   "TAITO STATION is a toy store that sells stuffed animals and sweets.",
+   "TAITO STATION is a bright, quiet cafe where people relax and drink tea."
+  ],
+  "answer": 0
  }
 }

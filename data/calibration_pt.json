@@ -1030,5 +1030,17 @@
    "It compares Brazilian and Portuguese grammar rules for writing dates."
   ],
   "answer": 0
+ },
+ "PPG775a9Jpc": {
+  "start": 145.84,
+  "end": 223.12,
+  "wpm": 73,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It explains the days of the week in Portuguese and how the weekend is made up of Saturday and Sunday.",
+   "It explains how to cook typical Brazilian food for the weekend.",
+   "It explains how to ask for directions in a Portuguese-speaking city."
+  ],
+  "answer": 0
  }
 }

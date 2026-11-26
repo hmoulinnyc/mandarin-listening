@@ -574,5 +574,29 @@
    "It stayed exactly the same, so the observatory was wrong to study it."
   ],
   "answer": 1
+ },
+ "g3R7eCwchRA": {
+  "start": 352.36,
+  "end": 428.28,
+  "wpm": 158,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A video game company is building a new space station in Texas.",
+   "SpaceX has developed technology that lands and reuses a rocket's first stage with great precision.",
+   "SpaceX has already sent astronauts to Mars using its Starship."
+  ],
+  "answer": 1
+ },
+ "QGdEfeektgw": {
+  "start": 757.56,
+  "end": 833.08,
+  "wpm": 157,
+  "question": "What is the speaker mainly doing in this passage?",
+  "options": [
+   "Warning that AI could end humanity within a few years and urging listeners to act now",
+   "Presenting Anthropic's CEO's dramatic AI-extinction warnings and mocking them as hype",
+   "Explaining how people use Claude to write dating profiles on apps like Tinder"
+  ],
+  "answer": 1
  }
 }

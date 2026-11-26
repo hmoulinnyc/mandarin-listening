@@ -430,5 +430,17 @@
    "It is never pronounced in Levantine dialects, only in Modern Standard Arabic."
   ],
   "answer": 1
+ },
+ "fp2pUsGa-as": {
+  "start": 68.4,
+  "end": 153.92,
+  "wpm": 0,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "Two people are meeting for the first time and introducing themselves, including where they are from and what languages they speak.",
+   "Two people are arguing about which country has the best language schools.",
+   "Two people are planning a trip together to Turkey and Russia."
+  ],
+  "answer": 0
  }
 }

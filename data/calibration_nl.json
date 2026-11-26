@@ -1030,5 +1030,17 @@
    "The speaker is describing how to cook dinner for friends."
   ],
   "answer": 1
+ },
+ "TTQYnCURGVA": {
+  "start": 84.24,
+  "end": 163.32,
+  "wpm": 162,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker went to school, had lessons, and then went home by car, picking up children and dropping others off along the way.",
+   "The speaker is a teacher who is sick today and wants to go home early to rest.",
+   "The speaker is making a vlog about a fun school trip with friends and asks viewers to comment."
+  ],
+  "answer": 0
  }
 }
