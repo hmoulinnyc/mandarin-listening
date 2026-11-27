@@ -934,5 +934,29 @@
    "\"Dormir\" and \"s'endormir\" mean the same thing, and the passage explains how to wake children up in the morning."
   ],
   "answer": 0
+ },
+ "cSvC_aYvoAg": {
+  "start": 268.43,
+  "end": 349.12,
+  "wpm": 151,
+  "question": "According to the passage, how can a learner tell whether a French verb takes an indirect object with \"à\"?",
+  "options": [
+   "By applying one simple rule that works for every verb",
+   "By memorizing the verbs, since there are no general rules and only a few of these verbs",
+   "By translating each verb directly from English"
+  ],
+  "answer": 1
+ },
+ "zXosXF3nzN4": {
+  "start": 235.96,
+  "end": 311.52,
+  "wpm": 152,
+  "question": "According to the passage, what is the main purpose of the French word \"tiens\" and the verb \"filer\" in the examples given?",
+  "options": [
+   "They are used to express surprise, offer something, and say that one is leaving quickly or giving something",
+   "They are formal words used only in written French to end a letter politely",
+   "They are verbs that mean to sleep, to eat, and to travel in French"
+  ],
+  "answer": 0
  }
 }

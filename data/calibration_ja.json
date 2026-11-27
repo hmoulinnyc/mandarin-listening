@@ -718,5 +718,17 @@
    "Tents for a festival are being built to sell apples and fish"
   ],
   "answer": 0
+ },
+ "jB5PxdUwICY": {
+  "start": 329.13,
+  "end": 406.3,
+  "wpm": 60,
+  "question": "What is the main point of this video passage?",
+  "options": [
+   "The beach is dirty and people should not visit it.",
+   "The beach area is well kept and nice, and there is a restaurant nearby.",
+   "The sea is dangerous, so swimming is not allowed."
+  ],
+  "answer": 1
  }
 }

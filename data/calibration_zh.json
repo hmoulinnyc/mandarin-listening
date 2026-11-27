@@ -642,5 +642,17 @@
    "Her aunt decided to leave her husband after years of hard work, and the speaker's mother fully supported her decision."
   ],
   "answer": 1
+ },
+ "uHp53ChGFZY": {
+  "start": 251.83,
+  "end": 327.77,
+  "wpm": 97,
+  "question": "What is the main point the speaker makes about their mother?",
+  "options": [
+   "Her mother is always on the phone, calling people constantly throughout the day.",
+   "Her mother loves cooking and always prepares big meals for the family.",
+   "Her mother has trouble using the phone and rarely makes calls."
+  ],
+  "answer": 0
  }
 }

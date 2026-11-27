@@ -682,5 +682,17 @@
    "The mother is angry because the daughter lied about her grades."
   ],
   "answer": 0
+ },
+ "jJiai0uz3ow": {
+  "start": 543.7,
+  "end": 620.6,
+  "wpm": 103,
+  "question": "What is the speaker mainly saying about tradwives in Latin America?",
+  "options": [
+   "Latin America is the only region where tradwives can still be found, because people there are very religious.",
+   "Tradwives can be found mostly in very rural, remote, and poor areas, where women still focus only on the home.",
+   "Tradwives are a new trend that is spreading quickly in the big cities of Latin America."
+  ],
+  "answer": 1
  }
 }

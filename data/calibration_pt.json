@@ -1126,5 +1126,17 @@
    "Practice counting in Portuguese"
   ],
   "answer": 1
+ },
+ "qtwgZfJDjd4": {
+  "start": 232.44,
+  "end": 315.04,
+  "wpm": 44,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A customer orders a meal at a restaurant and then asks the waiter for extra rice.",
+   "A waiter apologizes for a late delivery of the main dishes.",
+   "Two friends argue about which dish to order at a restaurant."
+  ],
+  "answer": 0
  }
 }
