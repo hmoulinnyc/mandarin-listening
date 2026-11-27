@@ -958,5 +958,29 @@
    "They are verbs that mean to sleep, to eat, and to travel in French"
   ],
   "answer": 0
+ },
+ "4DDvgW5bCR8": {
+  "start": 319.77,
+  "end": 394.16,
+  "wpm": 125,
+  "question": "What is the main point of this passage about the French expression \"avoir de la répartie\"?",
+  "options": [
+   "It means being able to answer quickly and cleverly, especially when someone teases or criticizes you.",
+   "It means being slow to respond, so you think carefully before speaking in a conversation.",
+   "It means being rude and disagreeable, often contradicting other people on purpose."
+  ],
+  "answer": 0
+ },
+ "qYy4dsoRO_4": {
+  "start": 423.0,
+  "end": 498.96,
+  "wpm": 145,
+  "question": "According to the speaker, why do the French like to complain and protest?",
+  "options": [
+   "Because of a heritage from the French Revolution, which left a rebellious spirit",
+   "Because the French government has always made it easy to challenge its decisions",
+   "Because most French people are unhappy with the French language"
+  ],
+  "answer": 0
  }
 }

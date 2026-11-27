@@ -654,5 +654,17 @@
    "Her mother has trouble using the phone and rarely makes calls."
   ],
   "answer": 0
+ },
+ "q8NboIzQKIc": {
+  "start": 156.37,
+  "end": 232.33,
+  "wpm": 107,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The slum has electricity all day but water only for about three hours a day, and the speaker finds the rent of about 60-70 dollars a month a bit expensive.",
+   "The slum has no hospitals, schools, or shops, so people there must travel far for basic needs.",
+   "The speaker thinks the factories in the slum pay very high wages and that rooms there are cheap."
+  ],
+  "answer": 0
  }
 }

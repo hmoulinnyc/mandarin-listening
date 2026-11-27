@@ -514,5 +514,17 @@
    "The speaker only speaks English and has no interest in learning other languages."
   ],
   "answer": 0
+ },
+ "O5VDPK4scbc": {
+  "start": 467.08,
+  "end": 548.96,
+  "wpm": 0,
+  "question": "What does the speaker mainly do to practice Arabic?",
+  "options": [
+   "Reads long Arabic books every night before sleeping",
+   "Writes new words in a notebook, uses them in conversation, and translates sentences at work",
+   "Watches English movies with Arabic subtitles to learn new words"
+  ],
+  "answer": 1
  }
 }

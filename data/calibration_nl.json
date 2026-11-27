@@ -1138,5 +1138,17 @@
    "The history of schools and teaching in the Netherlands"
   ],
   "answer": 1
+ },
+ "MHThlLzrKmI": {
+  "start": 392.36,
+  "end": 467.4,
+  "wpm": 137,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A student describes studying abroad and the daily routines of classmates in Japan and Brazil.",
+   "A teacher describes their workday, including teaching students around the world, meetings, and writing reports.",
+   "A manager explains how to run a project meeting at 10 a.m. and how to ask colleagues for help."
+  ],
+  "answer": 1
  }
 }
