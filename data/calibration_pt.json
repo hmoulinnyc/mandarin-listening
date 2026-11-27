@@ -1090,5 +1090,17 @@
    "In Brazil and Romania it is always kept in the living room."
   ],
   "answer": 0
+ },
+ "OVXM_GUF4fo": {
+  "start": 227.88,
+  "end": 303.04,
+  "wpm": 61,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "The speaker is putting on shoes and then eating something.",
+   "The speaker is washing their hands at the sink with liquid soap.",
+   "The speaker is turning the tap on and off to save water."
+  ],
+  "answer": 1
  }
 }

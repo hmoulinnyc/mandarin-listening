@@ -1078,5 +1078,29 @@
    "Talking loudly with many new people every night"
   ],
   "answer": 0
+ },
+ "McRKSUKiJw0": {
+  "start": 317.29,
+  "end": 393.5,
+  "wpm": 85,
+  "question": "Where is Pip lying in the living room?",
+  "options": [
+   "On the couch",
+   "On the windowsill",
+   "In the cupboard"
+  ],
+  "answer": 1
+ },
+ "LyWelzdV3Ao": {
+  "start": 726.2,
+  "end": 804.62,
+  "wpm": 89,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Happiness comes only from reaching a big goal, so you should wait for it.",
+   "Happiness and success come from enjoying small steps and not overloading yourself with too much.",
+   "The more tasks you take on, the more successful and happy you will be."
+  ],
+  "answer": 1
  }
 }

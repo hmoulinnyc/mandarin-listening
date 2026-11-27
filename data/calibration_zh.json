@@ -606,5 +606,17 @@
    "The speakers agree that simplified characters are harder to write than traditional ones."
   ],
   "answer": 1
+ },
+ "e6mqthbCwyw": {
+  "start": 424.3,
+  "end": 501.83,
+  "wpm": 91,
+  "question": "What is the speaker mainly talking about?",
+  "options": [
+   "The coffee in Vietnam and what is added to it",
+   "The weather and winters in Vietnam",
+   "The speaker's favorite kind of food"
+  ],
+  "answer": 0
  }
 }

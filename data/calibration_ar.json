@@ -478,5 +478,29 @@
    "You should only use these expressions with close family members, never with friends or strangers."
   ],
   "answer": 1
+ },
+ "7UHGubHXLxw": {
+  "start": 390.36,
+  "end": 470.08,
+  "wpm": 0,
+  "question": "What is the main point of the speaker's story?",
+  "options": [
+   "Writing in the Jordanian dialect is hard because it has no grammar rules and they never learned to write it.",
+   "Studying Arabic in Jordan, where English was not allowed, made them speak Arabic all the time and they improved a lot.",
+   "Their Arabic program in Jordan was easy, and they learned the language in just a few days."
+  ],
+  "answer": 1
+ },
+ "0P-oEpdQ5gk": {
+  "start": 116.08,
+  "end": 193.68,
+  "wpm": 2,
+  "question": "What is the main topic of this passage?",
+  "options": [
+   "A debate about which Arabic dialect is the most correct",
+   "A speaker describing the dialects they use and comparing how words differ across Arabic dialects",
+   "A lesson on how to write formal Modern Standard Arabic grammar"
+  ],
+  "answer": 1
  }
 }

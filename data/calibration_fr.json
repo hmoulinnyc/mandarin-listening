@@ -862,5 +862,29 @@
    "Adjectives never follow 'il est', and you must use a noun like 'le professeur' instead."
   ],
   "answer": 0
+ },
+ "-VWMMfdLw0U": {
+  "start": 220.92,
+  "end": 295.92,
+  "wpm": 206,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "The speakers are planning to go to a music festival together.",
+   "The speakers admit to disliking things that many people like, such as festivals, rap, and Jean-Jacques Goldman.",
+   "The speakers are arguing about which French singer is the best."
+  ],
+  "answer": 1
+ },
+ "2B30mdXp87M": {
+  "start": 206.36,
+  "end": 283.8,
+  "wpm": 162,
+  "question": "What is the main purpose of this part of the video?",
+  "options": [
+   "To teach a grammar rule about French verb conjugation",
+   "To review a list of difficult French words and see how many viewers already knew them",
+   "To announce a new French language course for beginners"
+  ],
+  "answer": 1
  }
 }

@@ -646,5 +646,17 @@
    "She is teaching viewers how to tie a kimono belt in the traditional way."
   ],
   "answer": 0
+ },
+ "lRFgq6Y0KyM": {
+  "start": 499.2,
+  "end": 576.6,
+  "wpm": 125,
+  "question": "According to the speaker, what is the main point about therapy in Argentina?",
+  "options": [
+   "Therapy is rare and considered strange there.",
+   "Therapy is common and socially accepted there.",
+   "Therapy is only for people with serious illnesses there."
+  ],
+  "answer": 1
  }
 }

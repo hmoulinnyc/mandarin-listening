@@ -682,5 +682,17 @@
    "A shop that sells traditional Japanese snacks"
   ],
   "answer": 1
+ },
+ "wbSjAAsnLuY": {
+  "start": 289.68,
+  "end": 366.33,
+  "wpm": 63,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It describes a traditional sake brewery in an old town, including the cedar ball hung outside to show it is open.",
+   "It explains how to make cedar balls and sell them at a big food company's store.",
+   "It warns visitors that old buildings in the town center are unsafe."
+  ],
+  "answer": 0
  }
 }
