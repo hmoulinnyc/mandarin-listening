@@ -898,5 +898,41 @@
    "The speaker explains how to form French verbs in the present tense."
   ],
   "answer": 1
+ },
+ "KeFJN46cQ_c": {
+  "start": 155.96,
+  "end": 232.36,
+  "wpm": 119,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "How to say where it hurts in French, using \"j'ai mal à\" with body parts",
+   "How to conjugate French verbs in the past tense",
+   "How to subscribe to the Easy French podcast and join its Zoom sessions"
+  ],
+  "answer": 0
+ },
+ "zeTPGRio-mw": {
+  "start": 208.6,
+  "end": 285.4,
+  "wpm": 152,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Hotel and travel staff use special formulas when greeting guests in the morning.",
+   "Instead of always using the same adjective, you can use the verb \"profiter\" to wish someone a good day, such as \"Profite bien de ta journée!\"",
+   "The verb \"profiter\" should only be used with groups of people, never with one person."
+  ],
+  "answer": 1
+ },
+ "KkSvAeQ6C8s": {
+  "start": 234.04,
+  "end": 310.93,
+  "wpm": 146,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "\"Le marchand de sable\" is a French expression meaning that a child is about to fall asleep, and the passage also offers polite alternatives to \"bonne nuit\" for adults.",
+   "\"Le marchand de sable\" is a character who brings food to children at bedtime, and the passage explains how to say good morning to adults.",
+   "\"Dormir\" and \"s'endormir\" mean the same thing, and the passage explains how to wake children up in the morning."
+  ],
+  "answer": 0
  }
 }

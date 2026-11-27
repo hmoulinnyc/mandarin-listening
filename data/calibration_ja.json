@@ -706,5 +706,17 @@
    "The speaker explains how to make okonomiyaki at home using flour, cabbage, and pork."
   ],
   "answer": 1
+ },
+ "5T7HmETPlIY": {
+  "start": 209.93,
+  "end": 286.08,
+  "wpm": 73,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Cherry blossom festivals in Japan have many food stalls and lanterns at night",
+   "Cherry blossoms and rapeseed flowers are planted together to make a tunnel",
+   "Tents for a festival are being built to sell apples and fish"
+  ],
+  "answer": 0
  }
 }

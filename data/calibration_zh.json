@@ -630,5 +630,17 @@
    "They were escaping from Peru because there was no work for them there."
   ],
   "answer": 0
+ },
+ "gqt-bpMkeKY": {
+  "start": 365.6,
+  "end": 442.57,
+  "wpm": 143,
+  "question": "What is the main point of the speaker's story about her aunt?",
+  "options": [
+   "Her aunt's husband is a good provider who helps the family financially, so the aunt is happy with him.",
+   "Her aunt stays with a husband who drinks, works unreliably, and abuses her because she depends on him financially, and the speaker finds this painful.",
+   "Her aunt decided to leave her husband after years of hard work, and the speaker's mother fully supported her decision."
+  ],
+  "answer": 1
  }
 }

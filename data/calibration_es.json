@@ -670,5 +670,17 @@
    "The jury ruled against both Johnny Depp and Amber Heard, and both were fully forgiven by the public."
   ],
   "answer": 0
+ },
+ "ZxeljjcqOUE": {
+  "start": 139.92,
+  "end": 216.32,
+  "wpm": 62,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "The father is upset that his daughter's boyfriend is poor, and he thinks she shouldn't be with him.",
+   "The daughter wants to move away from home to live with her boyfriend.",
+   "The mother is angry because the daughter lied about her grades."
+  ],
+  "answer": 0
  }
 }

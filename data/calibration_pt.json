@@ -1114,5 +1114,17 @@
    "The grandchildren are sick and need to see a doctor."
   ],
   "answer": 1
+ },
+ "EJKQV84_4cY": {
+  "start": 261.76,
+  "end": 336.84,
+  "wpm": 78,
+  "question": "What does the speaker mainly ask the viewer to do?",
+  "options": [
+   "Buy a pair of underwear",
+   "Leave a like on the video",
+   "Practice counting in Portuguese"
+  ],
+  "answer": 1
  }
 }
