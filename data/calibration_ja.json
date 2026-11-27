@@ -694,5 +694,17 @@
    "It warns visitors that old buildings in the town center are unsafe."
   ],
   "answer": 0
+ },
+ "amRqqkMK1o4": {
+  "start": 290.78,
+  "end": 376.62,
+  "wpm": 62,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is at a restaurant and is eating okonomiyaki and yakisoba, which are both popular dishes there.",
+   "The speaker explains that okonomiyaki is a traditional Japanese dish made with cabbage and other ingredients, and is the speaker's favorite food.",
+   "The speaker explains how to make okonomiyaki at home using flour, cabbage, and pork."
+  ],
+  "answer": 1
  }
 }

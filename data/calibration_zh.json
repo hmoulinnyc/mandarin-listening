@@ -618,5 +618,17 @@
    "The speaker's favorite kind of food"
   ],
   "answer": 0
+ },
+ "CPSBaCflk_4": {
+  "start": 194.53,
+  "end": 270.17,
+  "wpm": 103,
+  "question": "According to the passage, why did the Chinese people travel to Peru by ship?",
+  "options": [
+   "They were sent by the Peruvian government to build railways and mines, and many had lost their money gambling in Macau and were offered work there.",
+   "They wanted to go to Macau to gamble and win money, so they took a ship to Peru.",
+   "They were escaping from Peru because there was no work for them there."
+  ],
+  "answer": 0
  }
 }

@@ -1102,5 +1102,17 @@
    "The more tasks you take on, the more successful and happy you will be."
   ],
   "answer": 1
+ },
+ "dabEOW2mR-w": {
+  "start": 462.41,
+  "end": 538.37,
+  "wpm": 126,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Making mistakes shows you are speaking and learning, so mistakes help you progress.",
+   "Learners should avoid mistakes at all costs by studying grammar before they speak.",
+   "The speaker gave up learning Dutch after embarrassing moments at the post office."
+  ],
+  "answer": 0
  }
 }

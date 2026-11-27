@@ -886,5 +886,17 @@
    "To announce a new French language course for beginners"
   ],
   "answer": 1
+ },
+ "GP7NNcgK8H4": {
+  "start": 201.53,
+  "end": 279.33,
+  "wpm": 91,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker loves getting up early and enjoys cycling and walking.",
+   "The speaker explains how to express likes and dislikes in French, such as \"J'adore\", \"J'aime bien\", and \"je déteste\".",
+   "The speaker explains how to form French verbs in the present tense."
+  ],
+  "answer": 1
  }
 }

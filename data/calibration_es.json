@@ -658,5 +658,17 @@
    "Therapy is only for people with serious illnesses there."
   ],
   "answer": 1
+ },
+ "sh-K-uiJV8s": {
+  "start": 662.7,
+  "end": 741.0,
+  "wpm": 138,
+  "question": "According to the passage, what happened in the Johnny Depp and Amber Heard case that the speaker finds most striking?",
+  "options": [
+   "Amber Heard was cancelled twice: first by public opinion, then after the court ruled for Johnny Depp, showing how quickly people change their minds.",
+   "Johnny Depp won a court case against his own family, and the public was shocked that he was on television.",
+   "The jury ruled against both Johnny Depp and Amber Heard, and both were fully forgiven by the public."
+  ],
+  "answer": 0
  }
 }
