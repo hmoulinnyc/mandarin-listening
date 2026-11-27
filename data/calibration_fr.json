@@ -982,5 +982,29 @@
    "Because most French people are unhappy with the French language"
   ],
   "answer": 0
+ },
+ "L3--gio1Ayk": {
+  "start": 262.24,
+  "end": 341.48,
+  "wpm": 182,
+  "question": "According to the passage, what can you do in a French restaurant if you have eaten all your bread?",
+  "options": [
+   "Ask for more bread, and it will be brought to you without an extra charge.",
+   "Pay a separate fee each time you ask for more bread at the table.",
+   "Wait until the end of the meal, because staff do not serve bread again."
+  ],
+  "answer": 0
+ },
+ "UrWcInC0sTA": {
+  "start": 168.76,
+  "end": 245.8,
+  "wpm": 228,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The government has cancelled the fuel price increase after the protests.",
+   "Several unions and groups are calling for a large nationwide protest on 17 October.",
+   "Farmers have decided to stop joining the high school students' movement."
+  ],
+  "answer": 1
  }
 }

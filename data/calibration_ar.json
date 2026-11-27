@@ -526,5 +526,17 @@
    "Watches English movies with Arabic subtitles to learn new words"
   ],
   "answer": 1
+ },
+ "kzXtG2DXVQg": {
+  "start": 593.44,
+  "end": 670.48,
+  "wpm": 1,
+  "question": "What is the speaker mainly describing in this passage?",
+  "options": [
+   "How people in Syria and Lebanon speak Russian and Arabic in daily life",
+   "A surprising moment when a Russian speaker was taken for a Russian, and how people of many looks live in Syria and Lebanon",
+   "The history of Aleppo and why its architecture is different from other Arab cities"
+  ],
+  "answer": 1
  }
 }

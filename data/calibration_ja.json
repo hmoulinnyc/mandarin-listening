@@ -742,5 +742,17 @@
    "They eat bread and eggs"
   ],
   "answer": 0
+ },
+ "5ptC4iqB9ck": {
+  "start": 225.66,
+  "end": 304.6,
+  "wpm": 77,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is describing a retro-style cafe and then visiting a game center, which they especially enjoy.",
+   "The speaker is explaining how to read a book in a quiet cafe before it closes.",
+   "The speaker is complaining about the smell of cigarettes and the high price of food."
+  ],
+  "answer": 0
  }
 }

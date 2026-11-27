@@ -706,5 +706,17 @@
    "Two friends are planning a trip together for the weekend."
   ],
   "answer": 1
+ },
+ "lNI01gS1iYU": {
+  "start": 339.68,
+  "end": 415.04,
+  "wpm": 109,
+  "question": "What is the passage mainly about?",
+  "options": [
+   "A tour of the Plaza de Bolívar and a discussion of Simón Bolívar, the country's liberator",
+   "A recipe for traditional food served at a plaza in Colombia",
+   "A news report about a new statue of San Pedro Claver being built"
+  ],
+  "answer": 0
  }
 }

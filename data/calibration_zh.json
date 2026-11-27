@@ -666,5 +666,17 @@
    "The speaker thinks the factories in the slum pay very high wages and that rooms there are cheap."
   ],
   "answer": 0
+ },
+ "BbpOhmwnMcs": {
+  "start": 152.17,
+  "end": 228.97,
+  "wpm": 116,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Two shops both claim to have been the first to make bubble milk tea, which started when pearl-like tapioca balls were added to tea.",
+   "A tea shop in Tainan became famous for selling white tapioca balls in milk tea.",
+   "Customers at a Taiwanese tea shop in 1985 asked the staff to add tapioca balls to their drinks."
+  ],
+  "answer": 0
  }
 }
