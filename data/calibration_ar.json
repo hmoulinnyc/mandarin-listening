@@ -466,5 +466,17 @@
    "A customer is booking a table for a birthday party"
   ],
   "answer": 0
+ },
+ "39AWr69s7KY": {
+  "start": 115.56,
+  "end": 197.48,
+  "wpm": 0,
+  "question": "According to the passage, what is the main idea about how to respond when someone wishes you well or asks about your health?",
+  "options": [
+   "You should always answer with a long explanation of your own health problems.",
+   "There are set phrases used to reply to common greetings and wishes, such as after a meal or when someone is sick.",
+   "You should only use these expressions with close family members, never with friends or strangers."
+  ],
+  "answer": 1
  }
 }

@@ -1054,5 +1054,29 @@
    "Dutch past tense is formed only by adding -de or -te to the end of every verb."
   ],
   "answer": 0
+ },
+ "cKEUKPsfBU4": {
+  "start": 278.48,
+  "end": 354.36,
+  "wpm": 130,
+  "question": "What is the speaker mainly recommending?",
+  "options": [
+   "A classroom school that teaches Dutch every week on a fixed subscription",
+   "An online platform where you book one-on-one lessons with real teachers at a time that suits you",
+   "A video app that adds subtitles to Dutch films for language learners"
+  ],
+  "answer": 1
+ },
+ "MCmTV-rBpbE": {
+  "start": 879.77,
+  "end": 956.41,
+  "wpm": 86,
+  "question": "According to the passage, what is one habit the speaker describes for the evening?",
+  "options": [
+   "Reading and studying Dutch for about ten minutes",
+   "Going to bed late and eating a large meal",
+   "Talking loudly with many new people every night"
+  ],
+  "answer": 0
  }
 }

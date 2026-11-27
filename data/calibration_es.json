@@ -622,5 +622,17 @@
    "The speaker always orders a drink in restaurants and never asks for any kind of water."
   ],
   "answer": 0
+ },
+ "k3g86FR_fO8": {
+  "start": 530.3,
+  "end": 605.7,
+  "wpm": 160,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "Two people from Mallorca are on vacation in Japan and enjoy it",
+   "A woman lives in Tokyo and is planning to move to Canada",
+   "Someone is asking for directions to a shopping mall in Tokyo"
+  ],
+  "answer": 0
  }
 }

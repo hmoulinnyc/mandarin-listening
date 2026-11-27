@@ -658,5 +658,17 @@
    "Japanese people think flowers should never be picked, so they only look at them from far away."
   ],
   "answer": 0
+ },
+ "aDYHmzRyBjw": {
+  "start": 273.13,
+  "end": 350.14,
+  "wpm": 73,
+  "question": "What is the main idea of this passage?",
+  "options": [
+   "People are relaxing by the sea, and there are photo spots and many tables and chairs.",
+   "People are learning to swim at a beach with a new Japanese app.",
+   "People are cooking lunch in a kitchen by the sea and sharing it with photographers."
+  ],
+  "answer": 0
  }
 }

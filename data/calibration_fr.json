@@ -826,5 +826,17 @@
    "Learners will be able to skip the free 7-day trial"
   ],
   "answer": 1
+ },
+ "CJXjqdL2s84": {
+  "start": 560.08,
+  "end": 636.68,
+  "wpm": 193,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Small-town mayors have little power, and French citizens rarely trust them",
+   "Mayors in small towns hold real power, and French people trust them the most among elected officials",
+   "Only big cities like Paris and Lyon struggle to find people willing to run for mayor"
+  ],
+  "answer": 1
  }
 }

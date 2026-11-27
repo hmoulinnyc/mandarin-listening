@@ -1066,5 +1066,17 @@
    "People call their family every week, and they always prefer video calls over voice calls."
   ],
   "answer": 0
+ },
+ "dgoFcw_fPBk": {
+  "start": 158.48,
+  "end": 240.0,
+  "wpm": 88,
+  "question": "What is the speaker mainly talking about in this video?",
+  "options": [
+   "How they are taking vitamin C to treat a cold, and their stuffy nose is bothering them at night",
+   "A recipe for making lemon juice at home",
+   "Plans to travel abroad to learn Portuguese"
+  ],
+  "answer": 0
  }
 }
