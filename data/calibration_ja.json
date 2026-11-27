@@ -670,5 +670,17 @@
    "People are cooking lunch in a kitchen by the sea and sharing it with photographers."
   ],
   "answer": 0
+ },
+ "fvtxxruu2FI": {
+  "start": 381.06,
+  "end": 460.35,
+  "wpm": 92,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A cherry blossom festival in Japan",
+   "A Japanese-learning app that teaches natural phrases",
+   "A shop that sells traditional Japanese snacks"
+  ],
+  "answer": 1
  }
 }

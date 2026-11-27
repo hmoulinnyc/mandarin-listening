@@ -594,5 +594,17 @@
    "She thinks red envelopes are a good tradition that everyone in China should keep."
   ],
   "answer": 1
+ },
+ "HanSrnn0Ibw": {
+  "start": 514.67,
+  "end": 588.9,
+  "wpm": 121,
+  "question": "What is the main point of the conversation?",
+  "options": [
+   "The speakers are comparing which Chinese singers and music videos are the most popular among young people.",
+   "The speakers say they first saw simplified characters at school, and that young people today rarely get to see traditional characters.",
+   "The speakers agree that simplified characters are harder to write than traditional ones."
+  ],
+  "answer": 1
  }
 }

@@ -838,5 +838,29 @@
    "Only big cities like Paris and Lyon struggle to find people willing to run for mayor"
   ],
   "answer": 1
+ },
+ "fJlGBC7OviQ": {
+  "start": 222.6,
+  "end": 298.44,
+  "wpm": 199,
+  "question": "What is the main topic of this conversation?",
+  "options": [
+   "Choosing a job in a foreign country",
+   "Dream travel destinations and what attracts people to them",
+   "Learning to cook Brazilian food"
+  ],
+  "answer": 1
+ },
+ "C9T80yBFaLM": {
+  "start": 300.0,
+  "end": 375.16,
+  "wpm": 129,
+  "question": "According to the passage, what is the main point about how adjectives are used with the pronoun 'il' or 'elle' (e.g., 'Il est sympa')?",
+  "options": [
+   "After 'il est' or 'elle est', you normally use an adjective, with a few exceptions such as nationalities.",
+   "After 'il est' you always use a noun, such as 'un idiot'.",
+   "Adjectives never follow 'il est', and you must use a noun like 'le professeur' instead."
+  ],
+  "answer": 0
  }
 }

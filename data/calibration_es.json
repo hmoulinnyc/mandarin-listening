@@ -634,5 +634,17 @@
    "Someone is asking for directions to a shopping mall in Tokyo"
   ],
   "answer": 0
+ },
+ "QPdZ2N-rOHQ": {
+  "start": 115.9,
+  "end": 196.09,
+  "wpm": 80,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "She is trying on kimono outfits and decides that red suits her better than blue.",
+   "She is shopping for a new handbag and compares prices at several stores.",
+   "She is teaching viewers how to tie a kimono belt in the traditional way."
+  ],
+  "answer": 0
  }
 }
