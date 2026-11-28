@@ -690,5 +690,17 @@
    "She wants to date all the boys she kissed."
   ],
   "answer": 1
+ },
+ "7YWxW7l36UA": {
+  "start": 108.4,
+  "end": 185.5,
+  "wpm": 85,
+  "question": "What is the main point of the speaker's passage?",
+  "options": [
+   "The speaker eats only bamboo and shoots, and eats a huge amount of food each day.",
+   "The speaker used to eat bamboo, but now eats only meat.",
+   "The speaker eats bamboo for a short time each day, and eats very little food."
+  ],
+  "answer": 0
  }
 }

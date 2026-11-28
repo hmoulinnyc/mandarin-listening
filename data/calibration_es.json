@@ -730,5 +730,17 @@
    "Spain's employment rate is much higher than the United States' rate."
   ],
   "answer": 1
+ },
+ "YDNfiPB2Ihs": {
+  "start": 287.56,
+  "end": 364.52,
+  "wpm": 48,
+  "question": "What are the three important rules that the speaker mentions?",
+  "options": [
+   "Do a ritual on Halloween, wear black clothes, and the price is $1,000",
+   "Go to the moon, wear white clothes, and the price is $100",
+   "Do a ritual on Christmas, wear red clothes, and the price is $500"
+  ],
+  "answer": 0
  }
 }

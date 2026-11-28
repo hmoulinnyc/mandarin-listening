@@ -550,5 +550,17 @@
    "It is a cold drink that is low in calories."
   ],
   "answer": 1
+ },
+ "a1aZE0SpeWA": {
+  "start": 432.39,
+  "end": 509.83,
+  "wpm": 9,
+  "question": "What does the speaker decide to do?",
+  "options": [
+   "Keep studying Modern Standard Arabic because it is the language people use on the street",
+   "Study the Levantine dialect instead of Modern Standard Arabic",
+   "Learn every Arabic dialect equally, including the Gulf and Egyptian ones"
+  ],
+  "answer": 1
  }
 }

@@ -1162,5 +1162,17 @@
    "It compares the weather and daily routines in the Netherlands and Belgium."
   ],
   "answer": 1
+ },
+ "W-P7SsEZlxY": {
+  "start": 185.48,
+  "end": 265.44,
+  "wpm": 79,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Two people are talking about a family photo and their possessions.",
+   "Two people are making plans to travel together to Toronto.",
+   "Two people are arguing about which exam was the hardest."
+  ],
+  "answer": 0
  }
 }

@@ -766,5 +766,17 @@
    "The children did not want the cat to be cleaned."
   ],
   "answer": 1
+ },
+ "iG6c-ATmFMc": {
+  "start": 276.28,
+  "end": 350.84,
+  "wpm": 64,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is at a matcha shop, eats lunch with a view of the marina, and then rides a motorbike onto the highway.",
+   "The speaker is at a food court and is cooking French toast for everyone at the outlet park.",
+   "The speaker is driving a car through a city and is looking for a place to buy ginger ale."
+  ],
+  "answer": 0
  }
 }

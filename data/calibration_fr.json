@@ -1030,5 +1030,29 @@
    "Paris police banned all public demonstrations for a week to prevent a new wave of strikes."
   ],
   "answer": 0
+ },
+ "cac8cn7MwQo": {
+  "start": 491.48,
+  "end": 572.16,
+  "wpm": 164,
+  "question": "What does the speaker say happened after he simplified his days and freed up time?",
+  "options": [
+   "He stopped trying to save time and relaxed completely.",
+   "He kept filling the free time by looking for ways to save even more time, and productivity became a hobby.",
+   "His family asked him to take on more projects again."
+  ],
+  "answer": 1
+ },
+ "o_Tu9RWe1As": {
+  "start": 219.01,
+  "end": 295.57,
+  "wpm": 224,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "Chinese shopping platforms like Temu and Shein are losing users in France because of new taxes, but other platforms are benefiting, which may show where Chinese platforms are heading.",
+   "Chinese shopping platforms are becoming more popular in France, with more visitors and sales every month since the new taxes.",
+   "French shoppers have stopped buying online entirely because of new customs taxes, and all e-commerce sites have lost customers."
+  ],
+  "answer": 0
  }
 }
