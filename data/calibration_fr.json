@@ -1090,5 +1090,17 @@
    "Trains in Alsace and Lorraine run on the left side, and religious worship follows the same rules as in the rest of France."
   ],
   "answer": 0
+ },
+ "wmgMJ139KFQ": {
+  "start": 125.68,
+  "end": 202.92,
+  "wpm": 107,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "A newspaper reported that a police officer was arrested for throwing a grenade.",
+   "An internal police investigation revealed a new body-camera video showing the entire arrest.",
+   "Officers filmed a suspect's arrest, but the footage was deleted before the investigation began."
+  ],
+  "answer": 1
  }
 }
