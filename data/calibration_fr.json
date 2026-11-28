@@ -1006,5 +1006,29 @@
    "Farmers have decided to stop joining the high school students' movement."
   ],
   "answer": 1
+ },
+ "ns6cOxGYwQc": {
+  "start": 242.48,
+  "end": 318.72,
+  "wpm": 167,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Learners should memorize exact vocabulary such as 'nostalgie' and 'tire-bouchon' to speak French well.",
+   "When you can't find the right word or your meaning is unclear, you can explain it another way and restart calmly with 'je vais le dire autrement'.",
+   "Wine vocabulary is the most important part of learning to hold a conversation in French."
+  ],
+  "answer": 1
+ },
+ "HFncBhBdP30": {
+  "start": 185.24,
+  "end": 261.72,
+  "wpm": 236,
+  "question": "What is the main point of this news report?",
+  "options": [
+   "Protests in several French cities turned violent, with clashes with police and damage to town halls.",
+   "A fire destroyed a historic church in Limoges, and the government promised to rebuild it quickly.",
+   "Paris police banned all public demonstrations for a week to prevent a new wave of strikes."
+  ],
+  "answer": 0
  }
 }

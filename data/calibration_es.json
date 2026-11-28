@@ -718,5 +718,17 @@
    "A news report about a new statue of San Pedro Claver being built"
   ],
   "answer": 0
+ },
+ "RjXvh2hCndI": {
+  "start": 780.52,
+  "end": 856.32,
+  "wpm": 135,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The United States has much higher unemployment than Spain.",
+   "Spaniards and Americans work about the same amount, but Spain has had high unemployment, especially among young people.",
+   "Spain's employment rate is much higher than the United States' rate."
+  ],
+  "answer": 1
  }
 }

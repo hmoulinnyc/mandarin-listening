@@ -1150,5 +1150,17 @@
    "A manager explains how to run a project meeting at 10 a.m. and how to ask colleagues for help."
   ],
   "answer": 1
+ },
+ "J6nddw8ed-k": {
+  "start": 192.32,
+  "end": 271.52,
+  "wpm": 129,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "It lists the most common Dutch verbs used in daily life.",
+   "It explains the meanings of some Dutch phrases, such as 'nog maar' and 'in huis'.",
+   "It compares the weather and daily routines in the Netherlands and Belgium."
+  ],
+  "answer": 1
  }
 }

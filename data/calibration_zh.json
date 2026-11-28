@@ -678,5 +678,17 @@
    "Customers at a Taiwanese tea shop in 1985 asked the staff to add tapioca balls to their drinks."
   ],
   "answer": 0
+ },
+ "GIxuEqwcBXY": {
+  "start": 139.23,
+  "end": 215.6,
+  "wpm": 103,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "She regrets kissing the boy because he became ugly.",
+   "She regrets kissing several boys, because afterward they started treating her badly.",
+   "She wants to date all the boys she kissed."
+  ],
+  "answer": 1
  }
 }

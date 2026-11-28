@@ -754,5 +754,17 @@
    "The speaker is complaining about the smell of cigarettes and the high price of food."
   ],
   "answer": 0
+ },
+ "jyqdsUuHRSw": {
+  "start": 239.68,
+  "end": 321.5,
+  "wpm": 87,
+  "question": "According to the passage, why did the speaker decide not to wash the cat yet?",
+  "options": [
+   "The cat was too hungry to be washed.",
+   "The cat's hands and feet were injured.",
+   "The children did not want the cat to be cleaned."
+  ],
+  "answer": 1
  }
 }
