@@ -1186,5 +1186,17 @@
    "The speaker went to the gym early in the morning and trained for two hours."
   ],
   "answer": 0
+ },
+ "Lk1NbqwU2NM": {
+  "start": 222.69,
+  "end": 299.49,
+  "wpm": 132,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A man is learning Portuguese after meeting his girlfriend during the COVID pandemic, and he now lives in Brazil.",
+   "A man is teaching his girlfriend English while they are stuck at home in Brazil.",
+   "A man has been speaking fluent Portuguese since he was a child and is now moving to Brazil."
+  ],
+  "answer": 0
  }
 }

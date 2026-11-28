@@ -1186,5 +1186,17 @@
    "Two people are arguing about the cost of train tickets and who should pay."
   ],
   "answer": 0
+ },
+ "qRTfYw5LmHI": {
+  "start": 517.53,
+  "end": 595.22,
+  "wpm": 135,
+  "question": "According to the passage, what is the best way to handle not understanding something in a Dutch conversation?",
+  "options": [
+   "Nod and say yes so the conversation keeps moving",
+   "Switch to English and ask for a translation",
+   "Ask for repetition or an explanation in Dutch so the conversation stays in Dutch"
+  ],
+  "answer": 2
  }
 }

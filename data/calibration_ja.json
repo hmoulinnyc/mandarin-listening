@@ -790,5 +790,17 @@
    "The speaker returned three books to the library and is going home by the same route."
   ],
   "answer": 0
+ },
+ "cNDzCgsTeyg": {
+  "start": 122.98,
+  "end": 202.16,
+  "wpm": 55,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker is making and eating a plum rice ball (umeboshi onigiri) at night, and says it is delicious.",
+   "The speaker is cooking a hot soup with chopsticks for a family dinner.",
+   "The speaker is opening a box of sweets and asking friends to try them."
+  ],
+  "answer": 0
  }
 }

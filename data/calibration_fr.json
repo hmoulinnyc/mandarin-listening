@@ -1078,5 +1078,17 @@
    "Dominique de Villepin has officially joined the right-wing primary and is leading the polls."
   ],
   "answer": 1
+ },
+ "JpanrXn7fyA": {
+  "start": 77.04,
+  "end": 153.44,
+  "wpm": 150,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The authors of Carambolage admit they have usually talked about the Alsace and Lorraine region in general terms, ignoring its specific features.",
+   "Carambolage has never covered the books of Hansi, which present Alsace in a flattering way.",
+   "Trains in Alsace and Lorraine run on the left side, and religious worship follows the same rules as in the rest of France."
+  ],
+  "answer": 0
  }
 }

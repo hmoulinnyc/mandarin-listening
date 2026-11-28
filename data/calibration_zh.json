@@ -714,5 +714,17 @@
    "Their travel plans and the places they want to visit"
   ],
   "answer": 0
+ },
+ "l5K9ag0Ouc8": {
+  "start": 346.07,
+  "end": 420.53,
+  "wpm": 142,
+  "question": "What is the speaker's main point?",
+  "options": [
+   "She prefers tall boyfriends because they are more useful when traveling.",
+   "She would accept a shorter boyfriend, because being tall causes problems such as higher travel costs and back pain.",
+   "She thinks height is very important when choosing a partner."
+  ],
+  "answer": 1
  }
 }
