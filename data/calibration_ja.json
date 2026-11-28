@@ -778,5 +778,17 @@
    "The speaker is driving a car through a city and is looking for a place to buy ginger ale."
   ],
   "answer": 0
+ },
+ "TU8VEdH2pDQ": {
+  "start": 267.2,
+  "end": 346.66,
+  "wpm": 57,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The speaker walked to the library, borrowed three books, and can renew them if needed.",
+   "The speaker went to the library, but it was closed because of strong winds.",
+   "The speaker returned three books to the library and is going home by the same route."
+  ],
+  "answer": 0
  }
 }

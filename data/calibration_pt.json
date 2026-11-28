@@ -1174,5 +1174,17 @@
    "How to wash and cut fruit safely in the kitchen"
   ],
   "answer": 0
+ },
+ "c3p1EFituPw": {
+  "start": 63.16,
+  "end": 138.92,
+  "wpm": 97,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker had a day off, stayed home, and then went to the gym, only to find it closed.",
+   "The speaker worked all day and then spent the evening cleaning the house.",
+   "The speaker went to the gym early in the morning and trained for two hours."
+  ],
+  "answer": 0
  }
 }

@@ -1054,5 +1054,29 @@
    "French shoppers have stopped buying online entirely because of new customs taxes, and all e-commerce sites have lost customers."
   ],
   "answer": 0
+ },
+ "IA5MVA0WTvQ": {
+  "start": 212.24,
+  "end": 289.72,
+  "wpm": 204,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "French supermarkets have unwritten customs that visitors may not know, so it helps to observe and ask.",
+   "Cashiers in French supermarkets always weigh fruits and vegetables for the customer.",
+   "Eggs in France must always be kept in the refrigerator to stay fresh."
+  ],
+  "answer": 0
+ },
+ "LyjY1p5XwTw": {
+  "start": 205.01,
+  "end": 280.33,
+  "wpm": 244,
+  "question": "According to the passage, what is the main news about the right-wing and centre primary, and the attacks anniversary?",
+  "options": [
+   "Gabriel Attal and David Lisnard have already agreed on a joint candidate for the presidential election.",
+   "Several candidates are debating whether to take part in a right-wing primary, and today also marks 11 years since the 2015 Paris attacks.",
+   "Dominique de Villepin has officially joined the right-wing primary and is leading the polls."
+  ],
+  "answer": 1
  }
 }
