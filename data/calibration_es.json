@@ -766,5 +766,17 @@
    "Friends should always reply right away, otherwise the friendship is over."
   ],
   "answer": 1
+ },
+ "Gut2Z2mEMC8": {
+  "start": 256.84,
+  "end": 332.2,
+  "wpm": 47,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "The speaker understood a Spanish video even though they know no Spanish.",
+   "The speaker stopped watching Spanish videos because they were too hard.",
+   "The speaker ordered food at a restaurant and asked for the bill."
+  ],
+  "answer": 0
  }
 }

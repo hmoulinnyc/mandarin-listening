@@ -1102,5 +1102,29 @@
    "Officers filmed a suspect's arrest, but the footage was deleted before the investigation began."
   ],
   "answer": 1
+ },
+ "c5PpYzwDLzg": {
+  "start": 93.76,
+  "end": 169.36,
+  "wpm": 191,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A demonstrator in Saint-Étienne lost his hand to a grenade and suffered intense pain in hospital.",
+   "A demonstrator in Saint-Étienne was arrested and held in custody after a peaceful march.",
+   "A doctor in Lyon explains how to treat severe pain without using any medication."
+  ],
+  "answer": 0
+ },
+ "hGGjrqW9TTI": {
+  "start": 51.36,
+  "end": 127.09,
+  "wpm": 186,
+  "question": "What is the main point of this passage about Papageienkuchen?",
+  "options": [
+   "It is a ready-made cake sold in supermarkets, and the author refuses to eat it.",
+   "It is a traditional East German cake whose colored layers differ in both appearance and taste.",
+   "It is a modern cake made only to look like a rainbow cake, with no difference in flavor."
+  ],
+  "answer": 1
  }
 }

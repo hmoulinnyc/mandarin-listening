@@ -1198,5 +1198,17 @@
    "A man has been speaking fluent Portuguese since he was a child and is now moving to Brazil."
   ],
   "answer": 0
+ },
+ "eL52yhdpH-k": {
+  "start": 287.56,
+  "end": 364.6,
+  "wpm": 111,
+  "question": "What is the main point of this passage?",
+  "options": [
+   "The Sportuguis platform charges for its Portuguese exercises.",
+   "In Brazil, people usually send a message before calling someone.",
+   "Learning Portuguese is impossible without knowing English or Spanish."
+  ],
+  "answer": 1
  }
 }

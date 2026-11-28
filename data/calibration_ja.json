@@ -802,5 +802,17 @@
    "The speaker is opening a box of sweets and asking friends to try them."
   ],
   "answer": 0
+ },
+ "kqA4i8L6UQA": {
+  "start": 275.11,
+  "end": 351.28,
+  "wpm": 67,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "Trains in Japan always stop at every station, so you can board any train.",
+   "On JR lines, you must take care to choose the right train because different trains stop at different stations.",
+   "JR platforms are on the ground floor, so there is no need to use escalators."
+  ],
+  "answer": 1
  }
 }

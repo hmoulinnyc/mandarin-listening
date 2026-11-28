@@ -1198,5 +1198,17 @@
    "Ask for repetition or an explanation in Dutch so the conversation stays in Dutch"
   ],
   "answer": 2
+ },
+ "5X-FZQX1068": {
+  "start": 624.1,
+  "end": 700.74,
+  "wpm": 49,
+  "question": "What is the main point of this conversation?",
+  "options": [
+   "A patient with a painful tooth is examined by a dentist.",
+   "A patient is booking a dental appointment for a routine cleaning.",
+   "A dentist is explaining how to brush and floss teeth correctly."
+  ],
+  "answer": 0
  }
 }

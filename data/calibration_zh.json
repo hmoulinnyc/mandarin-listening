@@ -726,5 +726,17 @@
    "She thinks height is very important when choosing a partner."
   ],
   "answer": 1
+ },
+ "eYHqP02Szfk": {
+  "start": 547.87,
+  "end": 623.93,
+  "wpm": 177,
+  "question": "What is the main point of the passage?",
+  "options": [
+   "A woman tells her husband a secret, he forgives her, and the family stays together.",
+   "A woman's best friend reveals her secret to her husband, and the resulting fight leads to both spouses dying.",
+   "A husband borrows money from his wife's friend, and the two families argue about it."
+  ],
+  "answer": 1
  }
 }
